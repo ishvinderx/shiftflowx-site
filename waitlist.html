@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Android Waitlist — ShiftFlow</title>
+<meta name="description" content="ShiftFlow is coming to Android. Join the waitlist and get early access." />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --brand:       #C0395A;
+  --brand-dark:  #9e2e49;
+  --brand-light: #fbedf1;
+  --bg:          #F8F7F5;
+  --surface:     #ffffff;
+  --ink:         #0D0D0D;
+  --muted:       #6B6B6B;
+  --border:      rgba(0,0,0,0.08);
+  --shadow:      0 2px 16px rgba(0,0,0,0.07);
+  --radius:      14px;
+  --font:        system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #0f0f0f;
+    --surface:  #1a1a1a;
+    --ink:      #f0f0f0;
+    --muted:    #888;
+    --border:   rgba(255,255,255,0.08);
+    --shadow:   0 2px 16px rgba(0,0,0,0.35);
+    --brand-light: #2a0f17;
+  }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 20px; font-weight: 800; color: var(--brand); letter-spacing: -0.5px; }
+.nav-back { font-size: 14px; color: var(--muted); font-weight: 500; transition: color 0.2s; }
+.nav-back:hover { color: var(--ink); }
+
+@media (max-width: 640px) { .nav { padding: 14px 20px; } }
+
+/* ── Main ── */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.waitlist-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 52px 48px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .waitlist-card { padding: 36px 24px; border-radius: var(--radius); }
+}
+
+.platform-icons {
+  font-size: 42px;
+  margin-bottom: 24px;
+  letter-spacing: 8px;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: var(--brand-light);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(192,57,90,0.2);
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.sub {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.launch-eta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef9c3;
+  color: #854d0e;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 36px;
+}
+@media (prefers-color-scheme: dark) {
+  .launch-eta { background: #422006; color: #fde68a; }
+}
+
+/* ── Form ── */
+.waitlist-form { text-align: left; }
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.field input[type="email"] {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.field input[type="email"]:focus { border-color: var(--brand); }
+
+.interests-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  color: var(--ink);
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 400px) {
+  .checkbox-grid { grid-template-columns: 1fr; }
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.checkbox-item:hover { border-color: var(--brand); background: var(--brand-light); }
+
+.checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--brand);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkbox-item span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-submit:hover { background: var(--brand-dark); transform: translateY(-1px); }
+.btn-submit:active { transform: translateY(0); }
+
+/* ── Success ── */
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 24px;
+  background: #d1fae5;
+  border-radius: var(--radius);
+  margin-top: 20px;
+}
+@media (prefers-color-scheme: dark) {
+  .success-msg { background: #064e3b; }
+}
+
+.success-msg .check { font-size: 42px; margin-bottom: 12px; }
+.success-msg h3 { font-size: 18px; font-weight: 700; color: #065f46; margin-bottom: 6px; }
+.success-msg p { font-size: 14px; color: #047857; }
+@media (prefers-color-scheme: dark) {
+  .success-msg h3 { color: #6ee7b7; }
+  .success-msg p { color: #34d399; }
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer a { color: var(--muted); margin: 0 8px; }
+footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">ShiftFlow</a>
+  <a class="nav-back" href="/">← Back to home</a>
+</nav>
+
+<main>
+  <div class="waitlist-card">
+    <div class="platform-icons">🤖💻🌐</div>
+    <div class="coming-soon-badge">COMING SOON</div>
+    <h1>ShiftFlow is coming to Android</h1>
+    <p class="sub">Be first. Join the waitlist and get early access when we launch on Android, Desktop, and Web.</p>
+    <div class="launch-eta">📅 Expected Q3 2026</div>
+
+    <form class="waitlist-form" id="waitlistForm" onsubmit="handleSubmit(event)">
+      <div class="field">
+        <label for="email">Your email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      </div>
+
+      <span class="interests-label">What are you interested in? (optional)</span>
+      <div class="checkbox-grid">
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="android" />
+          <span>Android app</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="desktop" />
+          <span>Desktop app</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="web" />
+          <span>Web dashboard</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="team" />
+          <span>Team features</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="interest" value="api" />
+          <span>API access</span>
+        </label>
+      </div>
+
+      <button class="btn-submit" type="submit">Join the Waitlist →</button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="check">🎉</div>
+      <h3>You're on the list!</h3>
+      <p>We'll email you at <strong id="confirmedEmail"></strong> when we launch.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="/">Home</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/terms.html">Terms</a>
+  <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>
+  <br style="margin-top:8px;" />
+  <span style="margin-top:10px;display:inline-block;">&copy; 2026 ShiftFlow. All rights reserved.</span>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  if (!email) return;
+
+  // Collect interests
+  const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+    .map(cb => cb.value);
+
+  // In a real app you'd POST to an API. For now, mailto fallback.
+  const subject = encodeURIComponent('ShiftFlow Waitlist: ' + (interests.length ? interests.join(', ') : 'General'));
+  const body = encodeURIComponent('Email: ' + email + '\nInterests: ' + (interests.join(', ') || 'Not specified'));
+
+  // Show success message
+  document.getElementById('waitlistForm').style.display = 'none';
+  document.getElementById('confirmedEmail').textContent = email;
+  document.getElementById('successMsg').style.display = 'block';
+
+  // Optional: attempt mailto
+  setTimeout(() => {
+    window.location.href = 'mailto:support@shiftflowx.net?subject=' + subject + '&body=' + body;
+  }, 800);
+}
+</script>
+
+</body>
+</html>

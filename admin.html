@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ShiftFlow Admin</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --brand:       #C0395A;
+  --brand-dark:  #9e2e49;
+  --brand-light: #fbedf1;
+  --bg:          #f0f0ee;
+  --surface:     #ffffff;
+  --surface2:    #f8f7f5;
+  --ink:         #0D0D0D;
+  --muted:       #6B6B6B;
+  --border:      rgba(0,0,0,0.08);
+  --shadow:      0 2px 12px rgba(0,0,0,0.06);
+  --radius:      12px;
+  --font:        system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --green:       #059669;
+  --green-bg:    #d1fae5;
+  --red:         #dc2626;
+  --red-bg:      #fee2e2;
+  --blue:        #2563eb;
+  --blue-bg:     #dbeafe;
+  --yellow:      #d97706;
+  --yellow-bg:   #fef3c7;
+  --sidebar-w:   220px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #0a0a0a;
+    --surface:  #141414;
+    --surface2: #1c1c1c;
+    --ink:      #f0f0f0;
+    --muted:    #888;
+    --border:   rgba(255,255,255,0.07);
+    --shadow:   0 2px 12px rgba(0,0,0,0.4);
+    --brand-light: #2a0f17;
+    --green-bg: #064e3b; --red-bg: #450a0a; --blue-bg: #1e3a5f; --yellow-bg: #451a03;
+  }
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Auth Gate ──────────────────────────────────────────────────── */
+#authGate {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  z-index: 1000;
+}
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+}
+
+.auth-tagline {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.auth-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.auth-field {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.auth-field input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.auth-field input:focus { border-color: var(--brand); }
+
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+.auth-btn:hover { background: var(--brand-dark); }
+
+.auth-error {
+  display: none;
+  color: var(--red);
+  font-size: 13px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* ── Dashboard layout ───────────────────────────────────────────── */
+#dashboard { display: none; min-height: 100vh; }
+
+/* ── Top nav ── */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 58px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.top-nav-logo {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-nav-logo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.top-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-sm {
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  transition: all 0.15s;
+}
+.btn-sm:hover { background: var(--surface2); }
+.btn-sm.danger { border-color: var(--red); color: var(--red); }
+.btn-sm.danger:hover { background: var(--red-bg); }
+.btn-sm.primary { background: var(--brand); color: #fff; border-color: var(--brand); }
+.btn-sm.primary:hover { background: var(--brand-dark); }
+
+.gear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.15s;
+  color: var(--muted);
+}
+.gear-btn:hover { background: var(--surface2); }
+
+/* ── Main content ── */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.page-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* ── Stats grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .stats-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-change {
+  font-size: 12px;
+  font-weight: 600;
+}
+.stat-change.up { color: var(--green); }
+.stat-change.down { color: var(--red); }
+
+/* ── Second row ── */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 700px) { .row2 { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+/* ── Bar chart (CSS only) ── */
+.bar-chart { display: flex; flex-direction: column; gap: 10px; }
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-name {
+  font-size: 12px;
+  color: var(--muted);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 24px;
+  background: var(--bg);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  font-size: 11px;
+  color: #fff;
+  font-weight: 700;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Feedback count ── */
+.feedback-big {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.feedback-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+.rating-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.rating-stars { color: #f59e0b; font-size: 14px; }
+.rating-bar { flex: 1; height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+.rating-bar-fill { height: 100%; background: #f59e0b; border-radius: 3px; }
+.rating-count { font-size: 12px; color: var(--muted); width: 28px; text-align: right; }
+
+/* ── Tables ── */
+.table-section { margin-bottom: 24px; }
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.table-title { font-size: 15px; font-weight: 700; }
+
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead tr { background: var(--surface2); }
+
+th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+td {
+  font-size: 13px;
+  padding: 13px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--ink);
+}
+
+tr:hover td { background: var(--surface2); }
+
+.pill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.pill-green { background: var(--green-bg); color: var(--green); }
+.pill-blue { background: var(--blue-bg); color: var(--blue); }
+.pill-yellow { background: var(--yellow-bg); color: var(--yellow); }
+.pill-red { background: var(--red-bg); color: var(--red); }
+.pill-gray { background: var(--surface2); color: var(--muted); }
+
+.truncate { max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Spinner ── */
+.spinner {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Modal ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+}
+
+.modal h3 { font-size: 17px; font-weight: 700; margin-bottom: 18px; }
+
+.modal-field { margin-bottom: 14px; }
+.modal-field label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+.modal-field input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  outline: none;
+}
+.modal-field input:focus { border-color: var(--brand); }
+
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<!-- ── Auth Gate ──────────────────────────────────────────────────── -->
+<div id="authGate">
+  <div class="auth-card">
+    <div class="auth-logo">ShiftFlow</div>
+    <div class="auth-tagline">Admin Dashboard</div>
+    <h2>Enter access token</h2>
+    <div class="auth-field">
+      <input type="password" id="tokenInput" placeholder="••••••••••••" autocomplete="off"
+             onkeydown="if(event.key==='Enter') checkAuth()" />
+    </div>
+    <button class="auth-btn" onclick="checkAuth()">Sign In →</button>
+    <div class="auth-error" id="authError">Incorrect token. Try again.</div>
+  </div>
+</div>
+
+<!-- ── Dashboard ─────────────────────────────────────────────────── -->
+<div id="dashboard">
+  <!-- Top nav -->
+  <nav class="top-nav">
+    <div class="top-nav-logo">ShiftFlow Admin</div>
+    <div class="top-nav-actions">
+      <button class="gear-btn" onclick="openSettings()" title="Settings">⚙️</button>
+      <button class="btn-sm" onclick="loadData()">↻ Refresh</button>
+      <button class="btn-sm danger" onclick="signOut()">Sign Out</button>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="page-title">Overview</div>
+    <div class="page-sub" id="lastUpdated">Loading data…</div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Users</div>
+        <div class="stat-value" id="statUsers"><span class="spinner"></span></div>
+        <div class="stat-change up" id="statUsersChange"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Monthly Recurring Revenue</div>
+        <div class="stat-value" id="statMRR"><span class="spinner"></span></div>
+        <div class="stat-change up" id="statMRRChange"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Trial Users</div>
+        <div class="stat-value" id="statTrials"><span class="spinner"></span></div>
+        <div class="stat-change" id="statTrialsChange"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Churn Rate</div>
+        <div class="stat-value" id="statChurn"><span class="spinner"></span></div>
+        <div class="stat-change down" id="statChurnChange"></div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row2">
+      <div class="panel">
+        <div class="panel-title">Acquisition Sources</div>
+        <div class="bar-chart" id="acqChart">
+          <span class="spinner"></span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Feedback Summary</div>
+        <div class="feedback-big" id="feedbackCount"><span class="spinner"></span></div>
+        <div class="feedback-sub">total feedback submissions</div>
+        <div id="ratingBars"></div>
+      </div>
+    </div>
+
+    <!-- Users table -->
+    <div class="table-section">
+      <div class="table-header">
+        <div class="table-title">Users</div>
+        <button class="btn-sm" onclick="loadData()">Refresh</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Country</th>
+              <th>Subscription</th>
+              <th>Last Active</th>
+              <th>Joined</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable">
+            <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted)"><span class="spinner"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Feedback table -->
+    <div class="table-section">
+      <div class="table-header">
+        <div class="table-title">Recent Feedback</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Message</th>
+              <th>Rating</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="feedbackTable">
+            <tr><td colspan="4" style="text-align:center;padding:24px;color:var(--muted)"><span class="spinner"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Settings modal ─────────────────────────────────────────────── -->
+<div class="modal-overlay" id="settingsModal" onclick="if(event.target===this)closeSettings()">
+  <div class="modal">
+    <h3>⚙️ Admin Settings</h3>
+    <div class="modal-field">
+      <label>API Base URL</label>
+      <input type="text" id="apiUrlInput" placeholder="http://localhost:3001" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn-sm" onclick="closeSettings()">Cancel</button>
+      <button class="btn-sm primary" onclick="saveSettings()">Save & Reload</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── Constants ──────────────────────────────────────────────────── */
+const CORRECT_TOKEN = 'sf-admin-2026';
+const SESSION_KEY   = 'sf_admin_session';
+
+/* ── Auth ──────────────────────────────────────────────────────── */
+function checkAuth() {
+  const val = document.getElementById('tokenInput').value.trim();
+  if (val === CORRECT_TOKEN) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    showDashboard();
+  } else {
+    document.getElementById('authError').style.display = 'block';
+    document.getElementById('tokenInput').value = '';
+    document.getElementById('tokenInput').focus();
+  }
+}
+
+function signOut() {
+  sessionStorage.removeItem(SESSION_KEY);
+  location.reload();
+}
+
+function showDashboard() {
+  document.getElementById('authGate').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  loadData();
+}
+
+// On load: check session
+if (sessionStorage.getItem(SESSION_KEY)) {
+  showDashboard();
+}
+
+/* ── Settings ──────────────────────────────────────────────────── */
+function getApiUrl() {
+  return localStorage.getItem('sf_admin_api_url') || 'http://localhost:3001';
+}
+function openSettings() {
+  document.getElementById('apiUrlInput').value = getApiUrl();
+  document.getElementById('settingsModal').classList.add('open');
+}
+function closeSettings() {
+  document.getElementById('settingsModal').classList.remove('open');
+}
+function saveSettings() {
+  const url = document.getElementById('apiUrlInput').value.trim();
+  if (url) localStorage.setItem('sf_admin_api_url', url);
+  closeSettings();
+  loadData();
+}
+
+/* ── Mock data ─────────────────────────────────────────────────── */
+const MOCK = {
+  stats: {
+    users: 2847, usersChange: '+124 this week',
+    mrr: 4230, mrrChange: '+$312 this month',
+    trials: 1203, trialsChange: '+88 this week',
+    churn: 3.2, churnChange: '-0.4% vs last month'
+  },
+  acquisition: [
+    { name: 'App Store', pct: 42 },
+    { name: 'Google',    pct: 18 },
+    { name: 'TikTok',    pct: 15 },
+    { name: 'Instagram', pct: 12 },
+    { name: 'Friend',    pct:  8 },
+    { name: 'Other',     pct:  5 },
+  ],
+  feedbackCount: 418,
+  ratings: [
+    { stars: 5, count: 201 },
+    { stars: 4, count: 128 },
+    { stars: 3, count:  52 },
+    { stars: 2, count:  24 },
+    { stars: 1, count:  13 },
+  ],
+  users: [
+    { email: 'jamie.t@nhs.uk',        role: 'user',  country: 'UK',  sub: 'annual',  lastActive: '2026-05-29', joined: '2026-01-14' },
+    { email: 'marcus.r@flex.com',     role: 'user',  country: 'US',  sub: 'monthly', lastActive: '2026-05-30', joined: '2026-02-03' },
+    { email: 'priya.s@freelance.io',  role: 'user',  country: 'IN',  sub: 'trial',   lastActive: '2026-05-28', joined: '2026-05-20' },
+    { email: 'admin@shiftflowx.net',  role: 'admin', country: 'US',  sub: 'internal',lastActive: '2026-05-30', joined: '2025-11-01' },
+    { email: 'chen.w@rideshare.ca',   role: 'user',  country: 'CA',  sub: 'monthly', lastActive: '2026-05-27', joined: '2026-03-08' },
+    { email: 'aisha.b@gig.co.za',     role: 'user',  country: 'ZA',  sub: 'trial',   lastActive: '2026-05-30', joined: '2026-05-25' },
+    { email: 'luca.m@cafe.it',        role: 'user',  country: 'AU',  sub: 'annual',  lastActive: '2026-05-26', joined: '2026-01-29' },
+    { email: 'sara.k@hospital.org',   role: 'user',  country: 'US',  sub: 'monthly', lastActive: '2026-05-29', joined: '2026-04-11' },
+  ],
+  feedback: [
+    { type: 'bug',       msg: 'Payday prediction was off by 2 days this pay cycle.',            rating: 3, date: '2026-05-30' },
+    { type: 'feature',   msg: 'Can you add Apple Watch support? Would love shift logging there.', rating: 5, date: '2026-05-29' },
+    { type: 'praise',    msg: 'Caught $180 payroll error immediately. This app is a lifesaver.',  rating: 5, date: '2026-05-29' },
+    { type: 'bug',       msg: 'Invoice PDF export crashes on iOS 17.4 when adding a logo.',       rating: 2, date: '2026-05-28' },
+    { type: 'feature',   msg: 'Would love Android support — my partner needs this too.',          rating: 4, date: '2026-05-28' },
+    { type: 'praise',    msg: 'Best shift tracking app on the App Store, hands down.',            rating: 5, date: '2026-05-27' },
+    { type: 'support',   msg: 'How do I connect my bank for automatic paycheck scanning?',        rating: null, date: '2026-05-27' },
+    { type: 'bug',       msg: 'Dark mode colors look off in the tax estimator screen.',           rating: 3, date: '2026-05-26' },
+  ]
+};
+
+/* ── Render helpers ─────────────────────────────────────────────── */
+function subPill(sub) {
+  const map = { annual: 'pill-green', monthly: 'pill-blue', trial: 'pill-yellow', internal: 'pill-gray', churned: 'pill-red' };
+  return `<span class="pill ${map[sub] || 'pill-gray'}">${sub}</span>`;
+}
+
+function rolePill(role) {
+  return role === 'admin'
+    ? `<span class="pill pill-red">admin</span>`
+    : `<span class="pill pill-gray">user</span>`;
+}
+
+function typePill(type) {
+  const map = { bug: 'pill-red', feature: 'pill-blue', praise: 'pill-green', support: 'pill-yellow' };
+  return `<span class="pill ${map[type] || 'pill-gray'}">${type}</span>`;
+}
+
+function starsStr(r) {
+  if (!r) return '<span style="color:var(--muted)">—</span>';
+  return '<span style="color:#f59e0b">' + '★'.repeat(r) + '☆'.repeat(5 - r) + '</span>';
+}
+
+/* ── Render functions ───────────────────────────────────────────── */
+function renderStats(d) {
+  document.getElementById('statUsers').textContent = d.users.toLocaleString();
+  document.getElementById('statUsersChange').textContent = d.usersChange;
+  document.getElementById('statMRR').textContent = '$' + d.mrr.toLocaleString();
+  document.getElementById('statMRRChange').textContent = d.mrrChange;
+  document.getElementById('statTrials').textContent = d.trials.toLocaleString();
+  document.getElementById('statTrialsChange').textContent = d.trialsChange;
+  document.getElementById('statChurn').textContent = d.churn + '%';
+  document.getElementById('statChurnChange').textContent = d.churnChange;
+}
+
+function renderAcquisition(sources) {
+  const html = sources.map(s =>
+    `<div class="bar-row">
+      <div class="bar-name">${s.name}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${s.pct}%">${s.pct}%</div>
+      </div>
+    </div>`
+  ).join('');
+  document.getElementById('acqChart').innerHTML = html;
+}
+
+function renderFeedbackPanel(count, ratings) {
+  document.getElementById('feedbackCount').textContent = count.toLocaleString();
+  const maxCount = Math.max(...ratings.map(r => r.count));
+  const html = ratings.map(r =>
+    `<div class="rating-row">
+      <div class="rating-stars">${'★'.repeat(r.stars)}</div>
+      <div class="rating-bar"><div class="rating-bar-fill" style="width:${Math.round(r.count/maxCount*100)}%"></div></div>
+      <div class="rating-count">${r.count}</div>
+    </div>`
+  ).join('');
+  document.getElementById('ratingBars').innerHTML = html;
+}
+
+function renderUsers(users) {
+  const html = users.map(u =>
+    `<tr>
+      <td>${u.email}</td>
+      <td>${rolePill(u.role)}</td>
+      <td>${u.country}</td>
+      <td>${subPill(u.sub)}</td>
+      <td style="color:var(--muted)">${u.lastActive}</td>
+      <td style="color:var(--muted)">${u.joined}</td>
+    </tr>`
+  ).join('');
+  document.getElementById('usersTable').innerHTML = html;
+}
+
+function renderFeedback(items) {
+  const html = items.map(f =>
+    `<tr>
+      <td>${typePill(f.type)}</td>
+      <td><div class="truncate" title="${f.msg}">${f.msg}</div></td>
+      <td>${starsStr(f.rating)}</td>
+      <td style="color:var(--muted)">${f.date}</td>
+    </tr>`
+  ).join('');
+  document.getElementById('feedbackTable').innerHTML = html;
+}
+
+/* ── Data loading ───────────────────────────────────────────────── */
+async function loadData() {
+  document.getElementById('lastUpdated').textContent = 'Loading…';
+  const apiUrl = getApiUrl();
+
+  try {
+    const res = await Promise.race([
+      fetch(apiUrl + '/api/admin/overview', {
+        headers: { 'Authorization': 'Bearer ' + CORRECT_TOKEN }
+      }),
+      new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))
+    ]);
+
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    renderStats(data.stats || MOCK.stats);
+    renderAcquisition(data.acquisition || MOCK.acquisition);
+    renderFeedbackPanel(data.feedbackCount ?? MOCK.feedbackCount, data.ratings || MOCK.ratings);
+    renderUsers(data.users || MOCK.users);
+    renderFeedback(data.feedback || MOCK.feedback);
+    document.getElementById('lastUpdated').textContent = 'Live data · Last updated ' + new Date().toLocaleTimeString();
+
+  } catch (err) {
+    // API unreachable — show mock data
+    renderStats(MOCK.stats);
+    renderAcquisition(MOCK.acquisition);
+    renderFeedbackPanel(MOCK.feedbackCount, MOCK.ratings);
+    renderUsers(MOCK.users);
+    renderFeedback(MOCK.feedback);
+    document.getElementById('lastUpdated').textContent =
+      'Mock data (API unreachable at ' + apiUrl + ') · ' + new Date().toLocaleTimeString();
+  }
+}
+</script>
+
+</body>
+</html>
