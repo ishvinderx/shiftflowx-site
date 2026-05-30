@@ -606,24 +606,49 @@ tr:hover td { background: var(--surface2); }
 
 <script>
 /* ── Constants ──────────────────────────────────────────────────── */
-const CORRECT_TOKEN = 'sf-admin-2026';
+// Token is NEVER stored client-side — it is validated server-side on every request.
 const SESSION_KEY   = 'sf_admin_session';
+const TOKEN_KEY     = 'sf_admin_token';
 
 /* ── Auth ──────────────────────────────────────────────────────── */
-function checkAuth() {
+async function checkAuth() {
   const val = document.getElementById('tokenInput').value.trim();
-  if (val === CORRECT_TOKEN) {
+  if (!val) return;
+
+  document.getElementById('authError').style.display = 'none';
+
+  // Validate the token server-side by hitting a lightweight admin endpoint.
+  // The backend checks Authorization header against its ADMIN_TOKEN env var.
+  const apiUrl = getApiUrl();
+  try {
+    const res = await fetch(apiUrl + '/api/admin/overview', {
+      headers: { 'Authorization': 'Bearer ' + val }
+    });
+    if (res.status === 401 || res.status === 403) {
+      document.getElementById('authError').style.display = 'block';
+      document.getElementById('tokenInput').value = '';
+      document.getElementById('tokenInput').focus();
+      return;
+    }
+    // Token accepted — store in sessionStorage (clears when tab closes)
     sessionStorage.setItem(SESSION_KEY, '1');
+    sessionStorage.setItem(TOKEN_KEY, val);
     showDashboard();
-  } else {
+  } catch {
+    // Network error — cannot reach backend; show inline error
     document.getElementById('authError').style.display = 'block';
     document.getElementById('tokenInput').value = '';
     document.getElementById('tokenInput').focus();
   }
 }
 
+function getAdminToken() {
+  return sessionStorage.getItem(TOKEN_KEY) || '';
+}
+
 function signOut() {
   sessionStorage.removeItem(SESSION_KEY);
+  sessionStorage.removeItem(TOKEN_KEY);
   location.reload();
 }
 
@@ -634,7 +659,7 @@ function showDashboard() {
 }
 
 // On load: check session
-if (sessionStorage.getItem(SESSION_KEY)) {
+if (sessionStorage.getItem(SESSION_KEY) && sessionStorage.getItem(TOKEN_KEY)) {
   showDashboard();
 }
 
@@ -795,7 +820,7 @@ async function loadData() {
   try {
     const res = await Promise.race([
       fetch(apiUrl + '/api/admin/overview', {
-        headers: { 'Authorization': 'Bearer ' + CORRECT_TOKEN }
+        headers: { 'Authorization': 'Bearer ' + getAdminToken() }
       }),
       new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))
     ]);

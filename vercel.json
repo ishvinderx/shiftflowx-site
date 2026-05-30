@@ -10,6 +10,7 @@
     { "src": "/delete-account", "dest": "/delete.html" },
     { "src": "/data-policy", "dest": "/privacy.html" },
     { "src": "/waitlist", "dest": "/waitlist.html" },
-    { "src": "/admin", "dest": "/admin.html" }
+    { "src": "/admin", "dest": "/admin.html" },
+    { "src": "/support", "dest": "/support.html" }
   ]
 }
