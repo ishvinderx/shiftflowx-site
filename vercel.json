@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/delete-account", "destination": "/delete.html" },
-    { "source": "/data-policy",    "destination": "/privacy.html" }
+    { "source": "/delete-account", "destination": "/delete" },
+    { "source": "/data-policy",    "destination": "/privacy" }
   ]
 }
