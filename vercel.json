@@ -1,16 +1,8 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    { "src": "/privacy", "dest": "/privacy.html" },
-    { "src": "/terms", "dest": "/terms.html" },
-    { "src": "/eula", "dest": "/eula.html" },
-    { "src": "/subscription-terms", "dest": "/subscription-terms.html" },
-    { "src": "/delete", "dest": "/delete.html" },
-    { "src": "/delete-account", "dest": "/delete.html" },
-    { "src": "/data-policy", "dest": "/privacy.html" },
-    { "src": "/waitlist", "dest": "/waitlist.html" },
-    { "src": "/admin", "dest": "/admin.html" },
-    { "src": "/support", "dest": "/support.html" }
+  "rewrites": [
+    { "source": "/delete-account", "destination": "/delete.html" },
+    { "source": "/data-policy",    "destination": "/privacy.html" }
   ]
 }
