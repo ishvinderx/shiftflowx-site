@@ -1,0 +1,50 @@
+# ShiftFlow — AI-Powered Workforce Financial Intelligence Platform
+
+## What is ShiftFlow?
+ShiftFlow is an AI-powered iOS application that helps employees, freelancers, contractors, and gig workers protect their income through intelligent payroll monitoring, payday forecasting, burnout prevention, and financial wellness tools.
+
+## Core Mission
+"Protect every paycheck." — ShiftFlow ensures every worker is paid fairly, on time, and without error.
+
+## Who uses ShiftFlow?
+- Hourly employees (retail, hospitality, healthcare, manufacturing)
+- Shift workers (nurses, security guards, factory workers)
+- Gig workers (rideshare drivers, delivery workers, task workers)
+- Freelancers and independent contractors
+- Self-employed professionals
+
+## Key Features
+1. **AI Payroll Protection** — Automatically detects underpayments, missing overtime, and payroll errors
+2. **Payday Forecasting** — Predicts exact paycheck dates and amounts using AI
+3. **Burnout Analytics** — Monitors fatigue, consecutive days worked, and wellbeing indicators
+4. **Smart AI Assistant** — Answers payroll and financial questions in plain language
+5. **Tax Estimation** — Auto-calculates weekly tax set-aside amounts
+6. **Invoice Generator** — Creates professional invoices from logged shifts
+7. **Payslip OCR Scanner** — Scans and verifies payslips using computer vision
+8. **Financial Health Score** — Holistic wellness score based on work patterns and finances
+9. **Work Journal** — Logs mood and energy after shifts
+10. **Career Intelligence** — Tracks effective hourly rate progression over time
+
+## Pricing
+- Free Trial: 30 days, full access, no credit card required
+- ShiftFlow Plus Monthly: $9.99/month
+- ShiftFlow Plus Annual: $99/year (save 17%)
+- Subscriptions managed through Apple App Store
+
+## Platform
+- iOS 16+ (iPhone & iPad)
+- Available on the Apple App Store
+- Cloud sync with backend AI processing
+
+## Security
+- TLS 1.3 encryption in transit
+- AES-256 encryption at rest
+- GDPR and CCPA compliant
+- No data selling, ever
+- 30-day soft-delete + full purge on account deletion
+
+## Contact
+- Website: https://shiftflowx.net
+- Support: support@shiftflowx.net
+- Privacy: privacy@shiftflowx.net
+- App Store: https://apps.apple.com/app/shiftflow
