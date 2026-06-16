@@ -115,7 +115,7 @@ export default function SecurityPage() {
             <li><strong>Opt-out:</strong> Opt out of analytics data collection at any time in Settings → Privacy</li>
           </ul>
           <p>
-            To exercise any of these rights, contact us at <a href="mailto:privacy@shiftflowx.net">privacy@shiftflowx.net</a> or visit the <a href="/delete">Account Deletion page</a>. We respond to all data requests within 30 days.
+            To exercise any of these rights, contact us at <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a> or visit the <a href="/delete">Account Deletion page</a>. We respond to all data requests within 30 days.
           </p>
         </section>
 
@@ -123,8 +123,8 @@ export default function SecurityPage() {
           <h2>Contact</h2>
           <p>For security or privacy questions, contact our team:</p>
           <ul>
-            <li><strong>Privacy inquiries:</strong> <a href="mailto:privacy@shiftflowx.net">privacy@shiftflowx.net</a></li>
-            <li><strong>Security vulnerabilities:</strong> <a href="mailto:privacy@shiftflowx.net">privacy@shiftflowx.net</a></li>
+            <li><strong>Privacy inquiries:</strong> <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a></li>
+            <li><strong>Security vulnerabilities:</strong> <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a></li>
             <li><strong>General support:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
           </ul>
           <p>

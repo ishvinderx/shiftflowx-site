@@ -293,7 +293,7 @@ export default function DataPolicyPage() {
         </p>
         <p>
           To exercise any of these rights, contact{" "}
-          <a href="mailto:privacy@shiftflowx.net">privacy@shiftflowx.net</a>.
+          <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a>.
         </p>
       </section>
 
@@ -303,7 +303,7 @@ export default function DataPolicyPage() {
           For questions about this policy, data requests, or privacy concerns:
         </p>
         <ul>
-          <li>Email: <a href="mailto:privacy@shiftflowx.net">privacy@shiftflowx.net</a></li>
+          <li>Email: <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a></li>
           <li>Support: <a href="https://shiftflowx.net/support">shiftflowx.net/support</a></li>
         </ul>
         <p>
