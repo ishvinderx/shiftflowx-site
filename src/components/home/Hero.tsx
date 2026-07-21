@@ -216,7 +216,7 @@ export default function Hero() {
             >
               <div className="w-1.5 h-1.5 rounded-full bg-[#D63C6B] animate-pulse" />
               <span className="text-[#D63C6B] text-xs font-semibold tracking-widest uppercase">
-                AI-Powered Workforce Protection
+                For employees, contractors &amp; both
               </span>
             </motion.div>
 
@@ -225,11 +225,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[52px] sm:text-[62px] lg:text-[68px] font-bold text-white tracking-tight leading-[1.05] mb-6"
+              className="text-[46px] sm:text-[58px] lg:text-[64px] font-bold text-white tracking-tight leading-[1.05] mb-6"
             >
-              Protect{" "}
-              <span className="gradient-text">Every</span>
-              {" "}Paycheck.
+              Your work.<br />Your pay.<br />
+              <span className="gradient-text">Finally in sync.</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -239,8 +238,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg sm:text-xl text-white/55 leading-relaxed mb-4 max-w-lg"
             >
-              ShiftFlow uses AI to track income, forecast paydays, catch payroll errors,
-              manage burnout, and keep your finances balanced — so you&apos;re always paid fairly.
+              Track shifts, understand your earnings, estimate your next paycheck, manage
+              invoices, and stay ahead of taxes — all in one place.
             </motion.p>
 
             <motion.p
@@ -249,7 +248,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-sm text-white/35 mb-10"
             >
-              Protect every paycheck for less than one payroll mistake.
+              Know what you earned. Know what you&apos;re getting paid. Stay ahead of taxes.
             </motion.p>
 
             {/* CTA row */}

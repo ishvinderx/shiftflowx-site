@@ -1,4 +1,6 @@
 import Hero from "@/components/home/Hero";
+import WorkerModes from "@/components/home/WorkerModes";
+import PayTaxIntelligence from "@/components/home/PayTaxIntelligence";
 import Stats from "@/components/home/Stats";
 import Features from "@/components/home/Features";
 import HowItWorks from "@/components/home/HowItWorks";
@@ -23,12 +25,9 @@ const appSchema = {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "1247"
   }
+  // NOTE: aggregateRating intentionally omitted — we do not publish fabricated ratings.
+  // Add a real AggregateRating only when backed by verified App Store review data.
 };
 
 const faqSchema = {
@@ -37,8 +36,8 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How does ShiftFlow predict paydays?",
-      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow analyzes your shift history, pay schedule, and employer patterns using AI to predict exactly when your next paycheck will arrive and how much it will be. Accuracy improves with each logged shift." }
+      "name": "How does ShiftFlow estimate paydays?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow uses your pay schedule and logged shifts to estimate when your next paycheck is due and roughly how much it will be, using the canonical earnings and tax engines. These are estimates that improve as you log more shifts — not a guarantee." }
     },
     {
       "@type": "Question",
@@ -80,6 +79,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <Hero />
+      <WorkerModes />
+      <PayTaxIntelligence />
       <Stats />
       <Features />
       <HowItWorks />
