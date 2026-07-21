@@ -142,6 +142,12 @@ function AIAssistantTab() {
           ))}
         </div>
       </div>
+      {/* Section 5 honest framing: AI explains the deterministic engine numbers — it does
+          not independently compute taxes or invent figures. */}
+      <p className="mt-4 text-[11px] leading-snug text-white/40">
+        ShiftFlow AI explains the numbers your engines already calculated — it doesn&apos;t
+        compute your taxes or invent figures.
+      </p>
     </div>
   );
 }
