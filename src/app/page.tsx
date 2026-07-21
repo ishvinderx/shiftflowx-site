@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import WorkerModes from "@/components/home/WorkerModes";
 import PayTaxIntelligence from "@/components/home/PayTaxIntelligence";
+import InvoiceWorkflow from "@/components/home/InvoiceWorkflow";
 import Stats from "@/components/home/Stats";
 import Features from "@/components/home/Features";
 import HowItWorks from "@/components/home/HowItWorks";
@@ -81,6 +82,7 @@ export default function HomePage() {
       <Hero />
       <WorkerModes />
       <PayTaxIntelligence />
+      <InvoiceWorkflow />
       <Stats />
       <Features />
       <HowItWorks />
