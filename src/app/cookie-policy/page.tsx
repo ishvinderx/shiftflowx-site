@@ -94,9 +94,6 @@ export default function CookiePolicyPage() {
           We use a limited number of trusted third-party services that may set their own cookies:
         </p>
         <ul>
-          <li>
-            <strong>Vercel Analytics:</strong> Used for website performance monitoring. Data is anonymized and aggregated. <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a>
-          </li>
         </ul>
         <p>
           We do not use Google Analytics, Facebook Pixel, or any advertising-related tracking cookies.
