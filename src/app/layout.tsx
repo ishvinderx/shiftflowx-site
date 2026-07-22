@@ -84,7 +84,7 @@ const jsonLd = [
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "7-day free trial. ShiftFlow Pro from $9.99/month or $99/year."
+      "description": "7-day free trial. ShiftFlow Pro from $9.99/month or $59.99/year."
     },
     "featureList": [
       "AI Payroll Protection",

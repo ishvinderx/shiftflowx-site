@@ -4,7 +4,7 @@ export const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892"
 
 // ─── Canonical pricing (SINGLE SOURCE OF TRUTH) ───────────────────────────────
 // Every surface (pricing page, homepage, FAQ, structured data, CTAs) must read
-// from here — never hardcode $9.99 / $99 / 7 days / 17% independently.
+// from here — never hardcode $9.99 / $59.99 / 7 days / 50% independently.
 // Reconcile against App Store Connect subscription products before publishing.
 export const TRIAL_DAYS = 7;
 
@@ -23,15 +23,15 @@ export const PRICING = {
   annual: {
     id: "pro-annual",
     name: "Pro Annual",
-    price: 99,
-    priceLabel: "$99",
+    price: 59.99,
+    priceLabel: "$59.99",
     cadence: "/year",
-    perLabel: "$99/year",
-    monthlyEquivalent: 8.25, // 99 / 12
-    savingsPct: 17,          // (119.88 - 99) / 119.88 ≈ 17.4%
-    savingsAmount: 20.88,    // 9.99*12 - 99
-    then: "Then $99/year. Cancel anytime.",
-    afterTrial: `${TRIAL_DAYS} days free, then $99/year.`,
+    perLabel: "$59.99/year",
+    monthlyEquivalent: 5.0,  // 59.99 / 12 ≈ $5.00
+    savingsPct: 50,          // (119.88 - 59.99) / 119.88 ≈ 49.96%
+    savingsAmount: 59.89,    // 9.99*12 - 59.99
+    then: "Then $59.99/year. Cancel anytime.",
+    afterTrial: `${TRIAL_DAYS} days free, then $59.99/year.`,
   },
 } as const;
 
@@ -145,7 +145,7 @@ export const FEATURES = [
   },
   {
     id: "financial-health",
-    title: "Financial Health Score",
+    title: "ShiftFlow Score",
     description:
       "Your personal ShiftFlow Score — a holistic view of your financial wellness.",
     icon: "TrendingUp",
@@ -155,35 +155,33 @@ export const FEATURES = [
 ];
 
 export const PRICING_FEATURES = [
-  "Unlimited shift logging",
-  "AI Payroll Protection",
-  "Payday Forecasting",
-  "Burnout Analytics",
-  "Smart Recommendations",
-  "Tax Estimation",
-  "Invoice Generator",
-  "Payslip Scanner (OCR)",
-  "Financial Health Score",
-  "AI Assistant",
-  "Career Intelligence",
-  "Work Journal",
+  "Unlimited shift & hour tracking",
+  "Earnings & estimated take-home pay",
+  "Payday forecasting",
+  "Tax estimates (with GST/HST where applicable)",
+  "Self-employed invoicing",
+  "AI-powered financial insights & ShiftFlow Score",
+  "ShiftFlow AI Assistant",
+  "Reports & earnings history",
+  "Payslip scanning",
+  "Career & work insights",
 ];
 
 export const FAQ_ITEMS = [
   {
-    question: "How does the 30-day free trial work?",
+    question: "How does the 7-day free trial work?",
     answer:
-      "Your free trial gives you full access to every ShiftFlow Plus feature for 30 days — no credit card required. After 30 days, you can choose a Monthly or Annual plan to continue, or stay on the limited free tier. We'll remind you before the trial ends.",
+      "Your free trial gives you full access to every ShiftFlow Pro feature for 7 days. After the trial, your selected Monthly or Annual plan begins unless you cancel. We'll remind you before the trial ends.",
   },
   {
     question: "Does my subscription renew automatically?",
     answer:
-      "Yes. Both Monthly ($9.99/mo) and Annual ($99/yr) plans auto-renew through the Apple App Store. You'll receive a renewal notice from Apple before each charge. You can cancel anytime — see 'Can I cancel anytime?' below.",
+      "Yes. Both Monthly ($9.99/mo) and Annual ($59.99/yr) plans auto-renew through the Apple App Store. You'll receive a renewal notice from Apple before each charge. You can cancel anytime — see 'Can I cancel anytime?' below.",
   },
   {
     question: "Can I cancel anytime?",
     answer:
-      "Absolutely. Cancel anytime through the Apple App Store: Settings → Apple ID → Subscriptions → ShiftFlow → Cancel Subscription. You keep Plus access until the end of your current billing period. No penalties, no questions asked.",
+      "Absolutely. Cancel anytime through the Apple App Store: Settings → Apple ID → Subscriptions → ShiftFlow → Cancel Subscription. You keep Pro access until the end of your current billing period. No penalties, no questions asked.",
   },
   {
     question: "How do I manage my subscription?",
@@ -198,7 +196,7 @@ export const FAQ_ITEMS = [
   {
     question: "Is my payroll data secure?",
     answer:
-      "Absolutely. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We never sell your data. Your payroll information stays private and is only used to power your personal insights. We're fully GDPR and CCPA compliant.",
+      "Data is encrypted in transit (TLS 1.3), and sensitive fields are encrypted at rest. We never sell your data. Your payroll information stays private and powers only your personal insights. We support GDPR and CCPA data-subject rights.",
   },
   {
     question: "How does payroll anomaly detection work?",

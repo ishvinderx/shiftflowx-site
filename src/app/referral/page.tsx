@@ -62,7 +62,7 @@ const FAQ_ITEMS = [
   {
     question: "What counts as a qualifying subscription?",
     answer:
-      "Any ShiftFlow Pro plan — Monthly ($9.99/mo) or Annual ($99/yr) — qualifies. Free trial users do not trigger the reward; the friend must upgrade to a paid plan. Both new and returning subscribers count.",
+      "Any ShiftFlow Pro plan — Monthly ($9.99/mo) or Annual ($59.99/yr) — qualifies. Free trial users do not trigger the reward; the friend must upgrade to a paid plan. Both new and returning subscribers count.",
   },
 ];
 

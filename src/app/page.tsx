@@ -48,7 +48,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "How much does ShiftFlow cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow offers a free 7-day trial with full access to all features. After the trial, ShiftFlow Pro is $9.99/month or $99/year (save 17%). Subscriptions are managed through the Apple App Store. Cancel anytime." }
+      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow offers a free 7-day trial with full access to all features. After the trial, ShiftFlow Pro is $9.99/month or $59.99/year (save ~50% annually). Subscriptions are managed through the Apple App Store. Cancel anytime." }
     },
     {
       "@type": "Question",

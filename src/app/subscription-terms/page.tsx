@@ -60,7 +60,7 @@ export default function SubscriptionTermsPage() {
             <strong>Pro Monthly:</strong> $9.99 USD per month. Full access to all Pro features. Billed monthly to your Apple ID account.
           </li>
           <li>
-            <strong>Pro Annual:</strong> $99.00 USD per year (equivalent to approximately $8.25/month). Full access to all Pro features. Billed annually to your Apple ID account. Represents a savings of approximately 17% compared to the monthly plan.
+            <strong>Pro Annual:</strong> $59.99 USD per year (equivalent to approximately $5.00/month). Full access to all Pro features. Billed annually to your Apple ID account. Represents a savings of approximately 50% compared to the monthly plan.
           </li>
         </ul>
         <p>
