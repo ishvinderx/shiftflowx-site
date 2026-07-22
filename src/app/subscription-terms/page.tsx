@@ -25,13 +25,13 @@ export default function SubscriptionTermsPage() {
   return (
     <LegalLayout
       title="Subscription Terms"
-      effectiveDate="January 1, 2025"
+      effectiveDate="July 21, 2026"
       toc={toc}
     >
       <section id="overview">
         <h2>Overview</h2>
         <p>
-          ShiftFlow offers a free trial and paid subscription plans (&ldquo;ShiftFlow Plus&rdquo;) that unlock the full suite of AI-powered financial tools. All subscriptions are processed and managed exclusively through the Apple App Store.
+          ShiftFlow offers a free trial and paid subscription plans (&ldquo;ShiftFlow Pro&rdquo;) that unlock the full suite of AI-powered financial tools. All subscriptions are processed and managed exclusively through the Apple App Store.
         </p>
         <p>
           By initiating a subscription or free trial, you agree to these Subscription Terms, which supplement our general Terms of Service.
@@ -41,26 +41,26 @@ export default function SubscriptionTermsPage() {
       <section id="free-trial">
         <h2>Free Trial</h2>
         <ul>
-          <li>New users are entitled to one (1) free 30-day trial of ShiftFlow Plus.</li>
+          <li>New users are entitled to one (1) free 7-day trial of ShiftFlow Pro.</li>
           <li>No credit card or payment method is required to start the free trial.</li>
           <li>The free trial begins immediately upon account creation.</li>
-          <li>During the trial, you have full access to all Plus features.</li>
+          <li>During the trial, you have full access to all Pro features.</li>
           <li>We will notify you within the app before the trial expires.</li>
-          <li>After the trial ends, access to Plus features requires an active paid subscription.</li>
+          <li>After the trial ends, access to Pro features requires an active paid subscription.</li>
           <li>You will not be automatically charged at the end of the free trial.</li>
-          <li>If you subscribe to Plus through the App Store during or after the trial, App Store billing terms apply.</li>
+          <li>If you subscribe to Pro through the App Store during or after the trial, App Store billing terms apply.</li>
         </ul>
       </section>
 
       <section id="plans">
         <h2>Subscription Plans</h2>
-        <p>ShiftFlow Plus is available in two billing options:</p>
+        <p>ShiftFlow Pro is available in two billing options:</p>
         <ul>
           <li>
-            <strong>Plus Monthly:</strong> $9.99 USD per month. Full access to all Plus features. Billed monthly to your Apple ID account.
+            <strong>Pro Monthly:</strong> $9.99 USD per month. Full access to all Pro features. Billed monthly to your Apple ID account.
           </li>
           <li>
-            <strong>Plus Annual:</strong> $99.00 USD per year (equivalent to approximately $8.25/month). Full access to all Plus features. Billed annually to your Apple ID account. Represents a savings of approximately 17% compared to the monthly plan.
+            <strong>Pro Annual:</strong> $99.00 USD per year (equivalent to approximately $8.25/month). Full access to all Pro features. Billed annually to your Apple ID account. Represents a savings of approximately 17% compared to the monthly plan.
           </li>
         </ul>
         <p>
@@ -85,7 +85,7 @@ export default function SubscriptionTermsPage() {
 
       <section id="cancellation">
         <h2>Cancellation</h2>
-        <p>You may cancel your ShiftFlow Plus subscription at any time. To cancel:</p>
+        <p>You may cancel your ShiftFlow Pro subscription at any time. To cancel:</p>
         <ol>
           <li>Open Settings on your iPhone</li>
           <li>Tap your name at the top to access Apple ID</li>
@@ -97,7 +97,7 @@ export default function SubscriptionTermsPage() {
           You may also manage subscriptions via the App Store app: tap your profile icon → Subscriptions → ShiftFlow → Cancel.
         </p>
         <p>
-          Cancellation takes effect at the end of the current billing period. You will retain access to Plus features until then. We do not offer pro-rated refunds for unused subscription time.
+          Cancellation takes effect at the end of the current billing period. You will retain access to Pro features until then. We do not offer pro-rated refunds for unused subscription time.
         </p>
       </section>
 

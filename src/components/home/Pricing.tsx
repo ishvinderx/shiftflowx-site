@@ -12,7 +12,7 @@ export default function Pricing() {
 
   const plans = [
     {
-      name: "Plus Annual",
+      name: "Pro Annual",
       price: annual ? "$99" : "$8.25",
       priceNote: annual ? "/year" : "/mo · billed $99/yr",
       description: "Best for long-term financial protection.",
@@ -27,7 +27,7 @@ export default function Pricing() {
       features: PRICING_FEATURES,
     },
     {
-      name: "Plus Monthly",
+      name: "Pro Monthly",
       price: "$9.99",
       priceNote: "/month",
       description: "Flexible monthly access. Cancel anytime.",
@@ -35,7 +35,7 @@ export default function Pricing() {
       savingsBadge: null,
       bestValue: false,
       cta: "Start Monthly Plan",
-      ctaNote: "30-day free trial included",
+      ctaNote: "7-day free trial included",
       href: "/download",
       featured: false,
       features: PRICING_FEATURES,
@@ -64,7 +64,7 @@ export default function Pricing() {
         <SectionHeader
           label="Pricing"
           title="Simple, transparent pricing."
-          subtitle="Start free for 30 days. No credit card required."
+          subtitle="Start free for 7 days. No credit card required."
         />
 
         {/* Toggle */}

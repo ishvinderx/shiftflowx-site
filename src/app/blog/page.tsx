@@ -103,7 +103,7 @@ export default function BlogPage() {
           {/* Bottom CTA */}
           <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
             <h3 className="text-2xl font-bold text-white mb-3">Protect your paycheck with ShiftFlow</h3>
-            <p className="text-white/60 mb-6">AI-powered workforce financial intelligence. Free 30-day trial.</p>
+            <p className="text-white/60 mb-6">AI-powered workforce financial intelligence. Free 7-day trial.</p>
             <Link
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"

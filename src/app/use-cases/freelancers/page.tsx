@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "ShiftFlow for Freelancers — Invoice Tracker & Tax Estimator App",
-  description: "ShiftFlow helps freelancers track project hours, generate professional invoices, estimate taxes, and manage financial health. Free 30-day trial.",
+  description: "ShiftFlow helps freelancers track project hours, generate professional invoices, estimate taxes, and manage financial health. Free 7-day trial.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/freelancers' },
 };
 
@@ -96,7 +96,7 @@ export default function FreelancersPage() {
 
           <div className="p-8 rounded-2xl bg-gradient-to-br from-[#6366F1]/10 to-[#6366F1]/5 border border-[#6366F1]/20 text-center">
             <h3 className="text-2xl font-bold text-white mb-3">The financial co-pilot every freelancer needs</h3>
-            <p className="text-white/60 mb-6">Free 30-day trial. No credit card required.</p>
+            <p className="text-white/60 mb-6">Free 7-day trial. No credit card required.</p>
             <Link href="/download" className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors">
               Download ShiftFlow Free
             </Link>

@@ -3,7 +3,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
   title: "Security & Privacy — ShiftFlow",
-  description: "ShiftFlow protects your payroll data with AES-256 encryption, TLS 1.3, and zero data selling. Learn how we keep your financial information safe.",
+  description: "ShiftFlow protects your payroll data with TLS 1.3 in transit, encryption at rest, and a strict no-data-selling policy. Learn how we keep your financial information safe.",
   alternates: { canonical: 'https://shiftflowx.net/security' },
 };
 
@@ -51,9 +51,9 @@ export default function SecurityPage() {
             All communication between your device and ShiftFlow servers uses TLS 1.3 — the most current and secure version of the Transport Layer Security protocol. This ensures that your shift data, payroll figures, and personal information cannot be intercepted in transit.
           </p>
 
-          <h3>AES-256 Encryption at Rest</h3>
+          <h3>Encryption at Rest</h3>
           <p>
-            Your data stored on ShiftFlow servers is encrypted at rest using AES-256, the same encryption standard used by financial institutions, healthcare providers, and government agencies. Even in the unlikely event of unauthorized server access, your data remains unreadable.
+            Data stored on ShiftFlow servers is encrypted at rest by our managed database provider, and select sensitive fields (such as your name and client contact details) carry additional application-level AES-256 encryption. All traffic is encrypted in transit with TLS 1.3.
           </p>
 
           <h3>iOS Keychain Token Storage</h3>
@@ -90,7 +90,7 @@ export default function SecurityPage() {
 
           <h3>Payslip OCR Processing</h3>
           <p>
-            When you photograph a payslip using ShiftFlow&apos;s scanner, the image is transmitted via encrypted TLS 1.3 to our OCR processing service. The image is processed in a secure, isolated environment and the extracted text data is immediately associated with your account. Payslip images are not permanently stored — they are retained for a maximum of 30 days to allow for re-processing in case of errors, then automatically and permanently deleted.
+            When you photograph a payslip using ShiftFlow&apos;s scanner, text recognition runs on your device. The payslip image is not uploaded to our servers for OCR; only the data you review and confirm is saved to your account.
           </p>
 
           <h3>AI Financial Assistant</h3>

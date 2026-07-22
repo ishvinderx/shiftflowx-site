@@ -45,7 +45,7 @@ export default function AppStoreBanner() {
 
           {/* Subtext */}
           <p className="text-lg text-white/50 mb-10 max-w-xl mx-auto">
-            30-day free trial · iOS 16+ · iPhone &amp; iPad · No credit card required.
+            7-day free trial · iOS 16+ · iPhone &amp; iPad · No credit card required.
           </p>
 
           {/* CTAs */}

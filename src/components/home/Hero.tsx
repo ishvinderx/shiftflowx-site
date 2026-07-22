@@ -283,9 +283,9 @@ export default function Hero() {
               className="flex flex-col sm:flex-row sm:items-center gap-3"
             >
               <span className="hidden sm:block text-white/20">·</span>
-              <span className="text-white/45 text-sm">Free 30-day trial included</span>
+              <span className="text-white/45 text-sm">Free 7-day trial included</span>
               <span className="hidden sm:block text-white/20">·</span>
-              <span className="text-white/45 text-sm">Free 30-day trial</span>
+              <span className="text-white/45 text-sm">Free 7-day trial</span>
             </motion.div>
 
             {/* Floating stat cards */}

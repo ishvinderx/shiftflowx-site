@@ -284,7 +284,7 @@ export default function FeaturesPage() {
           <SectionHeader
             label="Comparison"
             title="Feature comparison."
-            subtitle="Everything included in the 30-day free trial."
+            subtitle="Everything included in the 7-day free trial."
           />
 
           <div className="bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden">
@@ -295,7 +295,7 @@ export default function FeaturesPage() {
                 Free Trial (30 days)
               </div>
               <div className="p-5 text-center border-l border-white/8">
-                <span className="text-[#D63C6B] text-sm font-bold">Plus</span>
+                <span className="text-[#D63C6B] text-sm font-bold">Pro</span>
               </div>
             </div>
 

@@ -70,7 +70,7 @@ export default function RefundPage() {
           <li>Dissatisfaction with the free trial experience before converting to a paid plan</li>
         </ul>
         <p>
-          Note that ShiftFlow offers a completely free 30-day trial with no credit card required, which gives you ample opportunity to evaluate the product before committing to a paid plan.
+          Note that ShiftFlow offers a completely free 7-day trial with no credit card required, which gives you ample opportunity to evaluate the product before committing to a paid plan.
         </p>
       </section>
 

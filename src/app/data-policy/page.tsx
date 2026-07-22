@@ -79,7 +79,7 @@ export default function DataPolicyPage() {
 
         <h3>Analytics & Crash Data</h3>
         <ul>
-          <li>Anonymised feature usage events via PostHog (e.g. &ldquo;shift_logged&rdquo;, &ldquo;paywall_viewed&rdquo;)</li>
+          <li>Feature-usage events via PostHog, linked to your account ID (e.g. &ldquo;shift_logged&rdquo;, &ldquo;paywall_viewed&rdquo;)</li>
           <li>Crash reports and performance traces via Sentry (device model, OS version, stack trace — no PII)</li>
           <li>Session counts and retention metrics (aggregate only)</li>
         </ul>
@@ -112,7 +112,7 @@ export default function DataPolicyPage() {
           <li>AI Memory (can be disabled in Profile → AI Settings → AI Memory)</li>
           <li>Location data for automatic clock-in (requires explicit permission, can be revoked at any time in iOS Settings)</li>
           <li>Push notifications (can be declined or disabled in iOS Settings)</li>
-          <li>Analytics participation (anonymised — cannot be opted out of individually, but
+          <li>Analytics participation (linked to your account — cannot be opted out of individually, but
             contains no PII)</li>
           <li>Tax profile details beyond your basic tax rate</li>
           <li>Invoice client details</li>
@@ -126,7 +126,7 @@ export default function DataPolicyPage() {
           and patterns to personalise responses. This memory:
         </p>
         <ul>
-          <li>Is stored in our database under your user ID, encrypted at rest with AES-256</li>
+          <li>Is stored in our database under your user ID and encrypted at rest by our database provider</li>
           <li>Is used only to improve AI recommendations within your account — it is never used
             to train models or shared with any third party</li>
           <li>Can be cleared at any time: Profile → AI Settings → Delete AI History</li>
@@ -134,23 +134,24 @@ export default function DataPolicyPage() {
           <li>Is deleted permanently on account deletion (no grace period)</li>
         </ul>
         <p>
-          Work journal entries that you choose to share with the AI within a chat session are
-          processed by your configured AI provider (DeepSeek or Claude) and are subject to that
-          provider&apos;s privacy policy. We redact payroll amounts and personal identifiers before
-          sending any text to AI providers.
+          To generate insights and answer your questions, ShiftFlow sends the relevant financial
+          context — such as your earnings totals, hourly and tax rates, paycheck amounts, employer
+          names, and the messages you send in AI chat — to our AI provider, <strong>DeepSeek</strong>,
+          for processing. This information is sent to produce your requested insight or reply and is
+          subject to DeepSeek&apos;s privacy terms. ShiftFlow does not store your AI conversations on
+          our servers; only a short-lived cache of generated results (cleared within 24 hours) and
+          anonymous token-usage counts are kept. You can clear or disable your AI Memory at any time
+          in the app.
         </p>
       </section>
 
       <section id="training-usage">
         <h2>AI Training Usage</h2>
         <p>
-          <strong>ShiftFlow does not use your personal data to train AI models.</strong>
-        </p>
-        <p>
-          Your shift data, payroll records, journal entries, and AI conversations are never used
-          as training data for any machine learning model — by ShiftFlow or any third party we
-          work with. We use AI APIs (DeepSeek, Anthropic Claude) in API mode, which means your
-          data is processed for inference only and is not retained by the AI provider for training.
+          <strong>ShiftFlow does not train any AI models on your data.</strong> ShiftFlow builds no
+          first-party models; AI features call the DeepSeek API in inference-only mode. We do not use
+          your data to train models and we do not sell it. Whether the AI provider retains or trains
+          on API inputs is governed by that provider&apos;s own terms, which we encourage you to review.
         </p>
       </section>
 
@@ -178,7 +179,7 @@ export default function DataPolicyPage() {
             <tr>
               <td>PostHog</td>
               <td>Product analytics</td>
-              <td>Anonymised event names and properties — no PII, no payroll data</td>
+              <td>Event names and properties linked to your account ID — no payroll figures or document content</td>
             </tr>
             <tr>
               <td>Sentry</td>
@@ -186,9 +187,9 @@ export default function DataPolicyPage() {
               <td>Stack traces, device model, OS version — no user data, no payroll data</td>
             </tr>
             <tr>
-              <td>DeepSeek / Anthropic</td>
-              <td>AI responses (opt-in)</td>
-              <td>Sanitised prompt text — PII and payroll figures are redacted before sending</td>
+              <td>DeepSeek</td>
+              <td>AI insights &amp; chat</td>
+              <td>Financial context for your request — earnings, rates, paycheck amounts, employer names, and your chat messages</td>
             </tr>
             <tr>
               <td>Railway / Cloudflare</td>
@@ -235,7 +236,7 @@ export default function DataPolicyPage() {
             </tr>
             <tr>
               <td>Analytics events (PostHog)</td>
-              <td>Anonymised — no user-linked retention period</td>
+              <td>Linked to your account ID (via PostHog)</td>
             </tr>
             <tr>
               <td>Crash reports (Sentry)</td>
@@ -263,7 +264,7 @@ export default function DataPolicyPage() {
             shifts, invoices, payroll records, journals, AI memory, goals, device tokens,
             notification preferences, and analytics identifiers</li>
           <li>AI Memory is deleted immediately — no grace period</li>
-          <li>Your anonymised analytics events (PostHog) remain but cannot be linked back to you</li>
+          <li>Analytics events already sent to PostHog are retained under PostHog’s own retention policy</li>
           <li>RevenueCat retains your subscription history for their own legal compliance requirements</li>
         </ul>
         <p>

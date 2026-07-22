@@ -154,7 +154,7 @@ export default function Hero3D() {
             transition={{ duration: 0.7, delay: 0.32 }}
             className="mt-5 text-sm text-white/35"
           >
-            30-day free trial · No card to start · Your data stays yours.
+            7-day free trial · No card to start · Your data stays yours.
           </motion.p>
         </div>
 

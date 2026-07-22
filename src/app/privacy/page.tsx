@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — ShiftFlow Data Protection & GDPR Compliance",
-  description: "Read ShiftFlow's privacy policy. We use AES-256 encryption, TLS 1.3, never sell your data, and comply with GDPR and CCPA. Your payroll data is always protected.",
+  title: "Privacy Policy — ShiftFlow Data Protection & Your Rights",
+  description: "Read ShiftFlow's privacy policy. We encrypt data in transit with TLS 1.3 and at rest, never sell your data, and support GDPR and CCPA data-subject rights.",
   alternates: { canonical: 'https://shiftflowx.net/privacy' },
 };
 
@@ -24,7 +24,7 @@ const toc = [
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Privacy Policy" effectiveDate="January 1, 2025" toc={toc}>
+    <LegalLayout title="Privacy Policy" effectiveDate="July 21, 2026" toc={toc}>
       <section id="overview">
         <h2>Overview</h2>
         <p>
@@ -50,9 +50,9 @@ export default function PrivacyPage() {
         <h3>Automatically Collected Information</h3>
         <ul>
           <li><strong>Device information:</strong> Device model, operating system version, unique device identifier, and app version</li>
-          <li><strong>Usage data:</strong> Features used, screens viewed, and interaction patterns (anonymized)</li>
+          <li><strong>Usage data:</strong> Features used, screens viewed, and interaction patterns, linked to your account</li>
           <li><strong>Crash reports:</strong> Technical error logs to help us improve stability</li>
-          <li><strong>Analytics:</strong> Aggregated, anonymized usage statistics</li>
+          <li><strong>Analytics:</strong> Product-usage statistics, linked to your account (via PostHog)</li>
         </ul>
 
         <h3>Information We Do Not Collect</h3>
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           <li>Power the AI assistant to answer your financial and payroll questions</li>
           <li>Calculate burnout scores and wellness indicators</li>
           <li>Send you alerts about pay discrepancies, upcoming paydays, and important account events</li>
-          <li>Improve the accuracy of our AI models (using anonymized, aggregated data only)</li>
+          <li>Improve ShiftFlow’s features, reliability, and insight quality</li>
           <li>Respond to your customer support requests</li>
           <li>Comply with legal obligations</li>
         </ul>
@@ -89,11 +89,11 @@ export default function PrivacyPage() {
         </p>
         <h3>Payslip OCR Scanner</h3>
         <p>
-          When you photograph a payslip, the image is transmitted securely to our OCR processing service. The extracted data is immediately associated with your account record. Original images may be retained for up to 30 days to allow for re-processing in case of errors, after which they are automatically deleted unless you have explicitly saved them.
+          When you photograph a payslip, text is extracted on your device. The payslip image is not uploaded to our servers for OCR processing — only the data you review and confirm is saved to your account.
         </p>
         <h3>Payroll Anomaly Detection</h3>
         <p>
-          Your shift logs are processed by our anomaly detection engine to identify potential pay discrepancies. This processing occurs on our secure servers and the underlying model is trained on anonymized, aggregate data — never on individually identifiable payroll records.
+          Your shift logs are processed by our anomaly detection engine to identify potential pay discrepancies. This processing uses your own shift and pay data to flag discrepancies. ShiftFlow does not train machine-learning models on your payroll records.
         </p>
       </section>
 
@@ -117,9 +117,9 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>Shift logs and earnings:</strong> Retained for the lifetime of your account. Exported or deleted upon account deletion.</li>
           <li><strong>AI chat history:</strong> Retained for 12 months, then automatically purged.</li>
-          <li><strong>Payslip images:</strong> Retained for 30 days after scan, then deleted (unless manually saved).</li>
+          <li><strong>Payslip images:</strong> Processed on-device and not stored on our servers; only the confirmed data is saved.</li>
           <li><strong>Support communications:</strong> Retained for 3 years for legal and quality purposes.</li>
-          <li><strong>Anonymized analytics:</strong> May be retained indefinitely as they cannot identify you.</li>
+          <li><strong>Anonymized analytics:</strong> Retained under our analytics provider’s retention policy.</li>
         </ul>
         <p>
           When you delete your account, we initiate deletion of your personal data within 30 days, except where we are required to retain certain records by law.
@@ -133,10 +133,10 @@ export default function PrivacyPage() {
         </p>
         <ul>
           <li>All data transmitted between your device and our servers is encrypted using TLS 1.3</li>
-          <li>Data stored on our servers is encrypted at rest using AES-256</li>
+          <li>Data stored on our servers is encrypted at rest by our managed database provider, and select sensitive fields (such as your name, phone, and client contact details) carry additional application-level AES-256 encryption</li>
           <li>Access to production data is restricted to authorized personnel only</li>
-          <li>We conduct regular security audits and penetration testing</li>
-          <li>Employees with data access undergo security training and background checks</li>
+          <li>We follow secure development practices and review our systems periodically</li>
+          <li>Access to production data is restricted to authorized personnel who receive security training</li>
         </ul>
         <p>
           No method of transmission over the Internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. If you suspect a security issue, please contact us immediately at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.

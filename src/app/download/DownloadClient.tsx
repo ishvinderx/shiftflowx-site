@@ -44,7 +44,7 @@ export default function DownloadClient() {
               </a>
 
               <p className="text-white/30 text-sm mt-4">
-                iOS 16+ · iPhone & iPad · Free · 30-day trial
+                iOS 16+ · iPhone & iPad · Free · 7-day trial
               </p>
 
               {/* QR code placeholder */}

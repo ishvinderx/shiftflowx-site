@@ -62,7 +62,7 @@ const FAQ_ITEMS = [
   {
     question: "What counts as a qualifying subscription?",
     answer:
-      "Any ShiftFlow Plus plan — Monthly ($9.99/mo) or Annual ($99/yr) — qualifies. Free trial users do not trigger the reward; the friend must upgrade to a paid plan. Both new and returning subscribers count.",
+      "Any ShiftFlow Pro plan — Monthly ($9.99/mo) or Annual ($99/yr) — qualifies. Free trial users do not trigger the reward; the friend must upgrade to a paid plan. Both new and returning subscribers count.",
   },
 ];
 
@@ -278,7 +278,7 @@ export default function ReferralPage() {
             </Link>
 
             <p className="text-white/30 text-sm mt-5">
-              Free to download &middot; 30-day trial &middot; No credit card
+              Free to download &middot; 7-day trial &middot; No credit card
             </p>
           </div>
         </div>

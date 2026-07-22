@@ -48,12 +48,12 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "How much does ShiftFlow cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow offers a free 30-day trial with full access to all features. After the trial, ShiftFlow Plus is $9.99/month or $99/year (save 17%). Subscriptions are managed through the Apple App Store. Cancel anytime." }
+      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow offers a free 7-day trial with full access to all features. After the trial, ShiftFlow Pro is $9.99/month or $99/year (save 17%). Subscriptions are managed through the Apple App Store. Cancel anytime." }
     },
     {
       "@type": "Question",
       "name": "Is my payroll data secure with ShiftFlow?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All data is encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. ShiftFlow never sells user data. The platform is GDPR and CCPA compliant. Authentication tokens are stored in the iOS Keychain." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Data is encrypted in transit with TLS 1.3, and sensitive fields are encrypted at rest. ShiftFlow never sells your data and supports GDPR and CCPA data-subject rights. Authentication tokens are stored in the iOS Keychain." }
     }
   ]
 };

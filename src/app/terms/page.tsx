@@ -26,7 +26,7 @@ const toc = [
 
 export default function TermsPage() {
   return (
-    <LegalLayout title="Terms of Service" effectiveDate="January 1, 2025" toc={toc}>
+    <LegalLayout title="Terms of Service" effectiveDate="July 21, 2026" toc={toc}>
       <section id="acceptance">
         <h2>Acceptance of Terms</h2>
         <p>
@@ -82,10 +82,10 @@ export default function TermsPage() {
       <section id="subscriptions">
         <h2>Subscriptions &amp; Billing</h2>
         <p>
-          ShiftFlow offers a free 30-day trial and paid subscription plans (&ldquo;Plus&rdquo;). All subscriptions are managed through the Apple App Store.
+          ShiftFlow offers a free 7-day trial and paid subscription plans (&ldquo;Pro&rdquo;). All subscriptions are managed through the Apple App Store.
         </p>
         <ul>
-          <li><strong>Free Trial:</strong> A 30-day free trial is available to new users. No credit card is required. After the trial, a paid subscription is required to continue accessing Plus features.</li>
+          <li><strong>Free Trial:</strong> A 7-day free trial is available to new users. No credit card is required. After the trial, a paid subscription is required to continue accessing Pro features.</li>
           <li><strong>Billing:</strong> Subscription fees are charged to your Apple ID account. Billing occurs in advance on a monthly or annual basis.</li>
           <li><strong>Auto-renewal:</strong> Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
           <li><strong>Cancellation:</strong> You may cancel at any time via Settings → Apple ID → Subscriptions on your device.</li>

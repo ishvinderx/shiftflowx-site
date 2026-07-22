@@ -174,7 +174,7 @@ export default function ReferralLandingClient({ code }: Props) {
           transition={{ duration: 0.6, delay: 0.22, ease: EASE }}
           className="text-white/60 text-lg leading-relaxed mb-8 max-w-lg"
         >
-          Your friend wants you to take control of your shifts, earnings, and career &mdash; free for 30 days.
+          Your friend wants you to take control of your shifts, earnings, and career &mdash; free for 7 days.
         </motion.p>
 
         {/* Countdown timer */}

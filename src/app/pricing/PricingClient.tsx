@@ -45,11 +45,11 @@ function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
 }
 
 const billingFAQ = [
-  { q: "When does the free trial start?", a: "Your 30-day trial begins the moment you create your account — no credit card required. You'll have full access to every Plus feature during this period." },
-  { q: "What happens after the trial ends?", a: "After 30 days, you can choose a Plus plan to continue with all features, or stay on a limited free tier. We'll send you a reminder 3 days before your trial expires." },
-  { q: "How do I subscribe to Plus?", a: "Subscriptions are managed through the Apple App Store. Within the ShiftFlow app, go to Settings → Upgrade to Plus and choose your preferred billing cycle." },
+  { q: "When does the free trial start?", a: "Your 7-day trial begins the moment you create your account — no credit card required. You'll have full access to every Pro feature during this period." },
+  { q: "What happens after the trial ends?", a: "After 7 days, you can choose a Pro plan to continue with all features, or stay on a limited free tier. We'll send you a reminder 3 days before your trial expires." },
+  { q: "How do I subscribe to Pro?", a: "Subscriptions are managed through the Apple App Store. Within the ShiftFlow app, go to Settings → Upgrade to Pro and choose your preferred billing cycle." },
   { q: "Can I switch between monthly and annual?", a: "Yes. You can switch your billing period at any time through your Apple ID subscription settings. Changes take effect at the start of your next billing cycle." },
-  { q: "How do I cancel?", a: "Cancel anytime in your iPhone Settings → Apple ID → Subscriptions. You'll retain Plus access until the end of your current billing period — no partial refunds for unused time." },
+  { q: "How do I cancel?", a: "Cancel anytime in your iPhone Settings → Apple ID → Subscriptions. You'll retain Pro access until the end of your current billing period — no partial refunds for unused time." },
   { q: "How do I restore my purchase on a new device?", a: "Open ShiftFlow, go to Settings, and tap 'Restore Purchases'. Your subscription is tied to your Apple ID and transfers automatically." },
   { q: "Do you offer refunds?", a: "Refunds are handled by Apple, not ShiftFlow. Visit reportaproblem.apple.com to request a refund. Apple reviews each case individually." },
 ];
@@ -59,7 +59,7 @@ export default function PricingClient() {
 
   const plans = [
     {
-      name: "Plus Annual",
+      name: "Pro Annual",
       price: annual ? "$99" : "$8.25",
       priceNote: annual ? "/year" : "/mo · billed $99/yr",
       description: "Best for long-term financial protection.",
@@ -73,7 +73,7 @@ export default function PricingClient() {
       featured: true,
     },
     {
-      name: "Plus Monthly",
+      name: "Pro Monthly",
       price: "$9.99",
       priceNote: "/month",
       description: "Flexible monthly access. Cancel anytime.",
@@ -82,7 +82,7 @@ export default function PricingClient() {
       savingsBadge: null,
       bestValue: false,
       cta: "Start Monthly Plan",
-      ctaNote: "30-day free trial included",
+      ctaNote: "7-day free trial included",
       href: "/download",
       featured: false,
     },
@@ -117,7 +117,7 @@ export default function PricingClient() {
               Simple, transparent <span className="gradient-text">pricing.</span>
             </h1>
             <p className="text-xl text-white/50 mb-10">
-              Start free for 30 days. No credit card required.
+              Start free for 7 days. No credit card required.
             </p>
 
             {/* Toggle */}
@@ -208,9 +208,9 @@ export default function PricingClient() {
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             {[
-              { icon: Shield, label: "No credit card", desc: "Start the 30-day trial with just your Apple ID." },
+              { icon: Shield, label: "No credit card", desc: "Start the 7-day trial with just your Apple ID." },
               { icon: RefreshCw, label: "Cancel anytime", desc: "Cancel through your iPhone Settings — no forms, no friction." },
-              { icon: Zap, label: "Instant access", desc: "Full access to all Plus features starts immediately." },
+              { icon: Zap, label: "Instant access", desc: "Full access to all Pro features starts immediately." },
             ].map(({ icon: Icon, label, desc }) => (
               <div key={label} className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-xl bg-[#D63C6B]/10 border border-[#D63C6B]/20 flex items-center justify-center mb-3">

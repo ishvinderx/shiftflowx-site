@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
     template: '%s | ShiftFlow'
   },
-  description: 'ShiftFlow is an AI-powered workforce financial intelligence app. Track shifts, predict paydays, detect payroll errors, manage taxes, prevent burnout, and generate invoices. Free 30-day trial.',
+  description: 'ShiftFlow is an AI-powered workforce financial intelligence app. Track shifts, predict paydays, detect payroll errors, manage taxes, prevent burnout, and generate invoices. Free 7-day trial.',
   keywords: [
     'shift tracker app', 'AI payroll tracker', 'payday forecasting app', 'gig worker finance app',
     'burnout tracking app', 'employee paycheck tracker', 'freelancer invoice tracker',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: 'https://shiftflowx.net',
     siteName: 'ShiftFlow',
     title: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
-    description: 'Track shifts, predict paydays, detect payroll errors, and prevent burnout with AI. Free 30-day trial.',
+    description: 'Track shifts, predict paydays, detect payroll errors, and prevent burnout with AI. Free 7-day trial.',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'ShiftFlow — Know exactly what you’ve earned' }]
   },
   twitter: {
@@ -84,7 +84,7 @@ const jsonLd = [
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "30-day free trial. ShiftFlow Plus from $9.99/month or $99/year."
+      "description": "7-day free trial. ShiftFlow Pro from $9.99/month or $99/year."
     },
     "featureList": [
       "AI Payroll Protection",

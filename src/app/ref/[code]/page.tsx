@@ -11,11 +11,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: "You've Been Invited to ShiftFlow",
     description:
-      "Your friend wants you to take control of your shifts, earnings, and career. Download ShiftFlow free for 30 days — no credit card required.",
+      "Your friend wants you to take control of your shifts, earnings, and career. Download ShiftFlow free for 7 days — no credit card required.",
     openGraph: {
       title: "You've Been Invited to ShiftFlow",
       description:
-        "Your friend wants you to take control of your shifts, earnings, and career. Download ShiftFlow free for 30 days — no credit card required.",
+        "Your friend wants you to take control of your shifts, earnings, and career. Download ShiftFlow free for 7 days — no credit card required.",
       images: [
         {
           url: "/opengraph-image",
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: "You've Been Invited to ShiftFlow",
       description:
-        "Take control of your shifts, earnings, and career — free for 30 days.",
+        "Take control of your shifts, earnings, and career — free for 7 days.",
       images: ["/opengraph-image"],
     },
     robots: {
