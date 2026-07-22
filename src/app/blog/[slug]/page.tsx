@@ -197,7 +197,7 @@ export default async function BlogPostPage({
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-[#c0355f] transition-colors"
             >
-              Download Free on iOS →
+              Download on iOS →
             </Link>
           </div>
 

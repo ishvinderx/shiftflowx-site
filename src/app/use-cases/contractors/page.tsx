@@ -64,7 +64,7 @@ export default function ContractorsPage() {
                 { title: "Multi-Client Earnings Dashboard", desc: "See all client earnings in one dashboard. Track which clients are your most profitable, identify slow payers, and understand your true effective hourly rate per engagement." },
                 { title: "Tax Estimation & Set-Aside", desc: "Self-employment tax is 15.3% of net earnings plus income tax. ShiftFlow calculates your weekly tax set-aside amount automatically so you're never caught short at quarterly payment time." },
                 { title: "Contract Rate Tracking", desc: "Store each client's agreed rate — hourly, daily, or project-based. ShiftFlow verifies that invoiced amounts match logged hours and agreed rates, preventing billing errors." },
-                { title: "Financial Health Score", desc: "Track your contracting business health: earnings stability, outstanding invoices, tax readiness, and burnout risk — in a single dashboard score that improves as you work smarter." },
+                { title: "ShiftFlow Score", desc: "Track your contracting business health: earnings stability, outstanding invoices, tax readiness, and burnout risk — in a single dashboard score that improves as you work smarter." },
               ].map(({ title, desc }) => (
                 <div key={title} className="p-5 rounded-xl border border-white/10 bg-white/[0.02]">
                   <h3 className="text-white font-semibold mb-2">{title}</h3>
@@ -93,7 +93,7 @@ export default function ContractorsPage() {
 
           <div className="p-8 rounded-2xl bg-gradient-to-br from-[#F59E0B]/10 to-[#F59E0B]/5 border border-[#F59E0B]/20 text-center">
             <h3 className="text-2xl font-bold text-white mb-3">Run your contracting business smarter</h3>
-            <p className="text-white/60 mb-6">Free 7-day trial. No credit card required.</p>
+            <p className="text-white/60 mb-6">Free 7-day trial. Cancel anytime.</p>
             <Link href="/download" className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors">
               Download ShiftFlow Free
             </Link>

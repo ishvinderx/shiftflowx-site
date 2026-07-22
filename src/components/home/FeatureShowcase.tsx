@@ -78,7 +78,7 @@ const features: Feature[] = [
     badge: "AI Intelligence",
     icon: Brain,
     accent: "#F59E0B",
-    headline: "AI Career Intelligence",
+    headline: "AI Career & Work Insights",
     description:
       "Your personal financial advisor for shift workers — always on,\nalways learning, always on your side.",
     bullets: [

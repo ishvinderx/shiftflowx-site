@@ -168,7 +168,7 @@ export default function Navbar() {
               >
                 Start Free Trial →
               </Link>
-              <p className="text-center text-white/30 text-sm mt-4">7-day free trial · No credit card</p>
+              <p className="text-center text-white/30 text-sm mt-4">7-day free trial · Cancel anytime</p>
             </motion.div>
           </motion.div>
         )}

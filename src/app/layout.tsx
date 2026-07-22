@@ -93,7 +93,7 @@ const jsonLd = [
       "Tax Estimation",
       "Invoice Generator",
       "Payslip OCR Scanner",
-      "Financial Health Score",
+      "ShiftFlow Score",
       "Shift Tracking",
       "Overtime Detection",
       "AI Financial Assistant"

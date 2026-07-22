@@ -50,14 +50,14 @@ const tabs: TourTab[] = [
     id: "insights",
     label: "Insights",
     description:
-      "Your Financial Intelligence Center — Financial Health Score, Earnings Intelligence, Career Intelligence, and AI recommendations.",
+      "Your Financial Intelligence Center — ShiftFlow Score, Earnings Insights, Career & Work Insights, and AI recommendations.",
     screenshot: "/screenshots/insights.png",
     alt: "ShiftFlow Insights tab",
     accentColor: "#0EA5E9",
     features: [
-      { icon: "📊", text: "Financial Health Score with 4 pillars" },
+      { icon: "📊", text: "ShiftFlow Score with 4 pillars" },
       { icon: "📈", text: "Best earning day and employer" },
-      { icon: "🧠", text: "Career Intelligence (Pro)" },
+      { icon: "🧠", text: "Career & Work Insights (Pro)" },
       { icon: "🤖", text: "Personalised AI recommendations" },
     ],
   },

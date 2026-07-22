@@ -257,7 +257,7 @@ export default function ReferralLandingClient({ code }: Props) {
 
           {/* Trust line */}
           <p className="text-white/30 text-sm mt-1">
-            Free to download &middot; No credit card &middot; Cancel anytime
+            Free to download &middot; 7-day Pro trial &middot; Cancel anytime
           </p>
         </motion.div>
 

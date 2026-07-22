@@ -278,7 +278,7 @@ export default function ReferralPage() {
             </Link>
 
             <p className="text-white/30 text-sm mt-5">
-              Free to download &middot; 7-day trial &middot; No credit card
+              Free to download &middot; 7-day Pro trial &middot; Cancel anytime
             </p>
           </div>
         </div>

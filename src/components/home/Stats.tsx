@@ -15,7 +15,7 @@ const pillars = [
   },
   {
     icon: "📊",
-    headline: "Financial Health Score",
+    headline: "ShiftFlow Score",
     sub: "Earnings, burnout, tax readiness, and work consistency — in one number",
   },
   {

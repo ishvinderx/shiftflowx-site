@@ -2,6 +2,54 @@ export const SITE_URL = "https://shiftflowx.net";
 export const SUPPORT_EMAIL = "support@shiftflowx.net";
 export const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892";
 
+// ─── Canonical pricing (SINGLE SOURCE OF TRUTH) ───────────────────────────────
+// Every surface (pricing page, homepage, FAQ, structured data, CTAs) must read
+// from here — never hardcode $9.99 / $99 / 7 days / 17% independently.
+// Reconcile against App Store Connect subscription products before publishing.
+export const TRIAL_DAYS = 7;
+
+export const PRICING = {
+  trialDays: TRIAL_DAYS,
+  monthly: {
+    id: "pro-monthly",
+    name: "Pro Monthly",
+    price: 9.99,
+    priceLabel: "$9.99",
+    cadence: "/month",
+    perLabel: "$9.99/month",
+    then: "Then $9.99/month. Cancel anytime.",
+    afterTrial: `${TRIAL_DAYS} days free, then $9.99/month.`,
+  },
+  annual: {
+    id: "pro-annual",
+    name: "Pro Annual",
+    price: 99,
+    priceLabel: "$99",
+    cadence: "/year",
+    perLabel: "$99/year",
+    monthlyEquivalent: 8.25, // 99 / 12
+    savingsPct: 17,          // (119.88 - 99) / 119.88 ≈ 17.4%
+    savingsAmount: 20.88,    // 9.99*12 - 99
+    then: "Then $99/year. Cancel anytime.",
+    afterTrial: `${TRIAL_DAYS} days free, then $99/year.`,
+  },
+} as const;
+
+// Shared Pro benefits — reconciled against the shipping app (2026-07). Monthly and
+// Annual grant identical access; the difference is BILLING, not features.
+export const PRO_FEATURES = [
+  "Unlimited shift & hour tracking",
+  "Earnings & estimated take-home pay",
+  "Payday forecasting",
+  "Tax estimates (with GST/HST where applicable)",
+  "Self-employed invoicing",
+  "AI-powered financial insights & ShiftFlow Score",
+  "ShiftFlow AI Assistant",
+  "Reports & earnings history",
+  "Payslip scanning",
+  "Career & work insights",
+] as const;
+
 export const NAV_LINKS = [
   { href: "/features", label: "Features" },
   { href: "/pricing", label: "Pricing" },

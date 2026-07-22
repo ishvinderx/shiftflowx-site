@@ -116,7 +116,7 @@ const features = [
   },
   {
     icon: TrendingUp,
-    title: "Financial Health Score",
+    title: "ShiftFlow Score",
     color: "#22C55E",
     bg: "rgba(34,197,94,0.1)",
     description:
@@ -131,7 +131,7 @@ const features = [
   },
   {
     icon: Briefcase,
-    title: "Career Intelligence",
+    title: "Career & Work Insights",
     color: "#6366F1",
     bg: "rgba(99,102,241,0.1)",
     description:
@@ -172,8 +172,8 @@ const comparisonFeatures = [
   { feature: "Tax Estimation", free: false, plus: true },
   { feature: "Invoice Generator", free: false, plus: true },
   { feature: "Payslip OCR Scanner", free: false, plus: true },
-  { feature: "Financial Health Score", free: false, plus: true },
-  { feature: "Career Intelligence", free: false, plus: true },
+  { feature: "ShiftFlow Score", free: false, plus: true },
+  { feature: "Career & Work Insights", free: false, plus: true },
   { feature: "Work Journal", free: false, plus: true },
 ];
 
@@ -332,7 +332,7 @@ export default function FeaturesPage() {
               href="/download"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#D63C6B] hover:bg-[#c0355f] rounded-xl text-white font-bold text-sm shadow-lg shadow-[#D63C6B]/30 transition-all duration-200"
             >
-              Start Free Trial — No Credit Card
+              Start Your 7-Day Free Trial
             </Link>
           </div>
         </div>

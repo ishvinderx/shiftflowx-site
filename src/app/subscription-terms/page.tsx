@@ -42,7 +42,7 @@ export default function SubscriptionTermsPage() {
         <h2>Free Trial</h2>
         <ul>
           <li>New users are entitled to one (1) free 7-day trial of ShiftFlow Pro.</li>
-          <li>No credit card or payment method is required to start the free trial.</li>
+          <li>The free trial gives you full ShiftFlow Pro access for 7 days.</li>
           <li>The free trial begins immediately upon account creation.</li>
           <li>During the trial, you have full access to all Pro features.</li>
           <li>We will notify you within the app before the trial expires.</li>
@@ -67,7 +67,7 @@ export default function SubscriptionTermsPage() {
           Prices may vary by region and are displayed in your local currency at the point of purchase. All prices are inclusive of applicable taxes where required by law.
         </p>
         <p>
-          Both plans include: unlimited shift logging, AI Payroll Protection, Payday Forecasting, Burnout Analytics, Smart Recommendations, Tax Estimation, Invoice Generator, Payslip Scanner (OCR), Financial Health Score, AI Assistant, Career Intelligence, and Work Journal.
+          Both plans include the same ShiftFlow Pro access: unlimited shift & hour tracking, earnings and estimated take-home pay, payday forecasting, tax estimates (with GST/HST where applicable), self-employed invoicing, AI-powered financial insights and ShiftFlow Score, the ShiftFlow AI Assistant, reports & earnings history, payslip scanning, and career & work insights. The difference between Monthly and Annual is billing, not features.
         </p>
       </section>
 

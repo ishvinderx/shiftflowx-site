@@ -55,9 +55,9 @@ const items: ShowcaseItem[] = [
     label: "Financial Intelligence",
     title: "Your complete financial intelligence center.",
     description:
-      "The Insights tab surfaces your Financial Health Score, Earnings Intelligence, Career Intelligence, and AI-generated recommendations — all from your real shift data.",
+      "The Insights tab surfaces your ShiftFlow Score, Earnings Insights, Career & Work Insights, and AI-generated recommendations — all from your real shift data.",
     bullets: [
-      "Financial Health Score (0–100) across 4 pillars",
+      "ShiftFlow Score (0–100) across 4 pillars",
       "Best earning day and employer tracked",
       "Monthly rate growth and employer ranking",
       "AI recommendations tuned to your patterns",
@@ -109,10 +109,10 @@ const items: ShowcaseItem[] = [
     icon: FileSearch,
     iconColor: "#8B5CF6",
     iconBg: "rgba(139,92,246,0.12)",
-    label: "Career Intelligence",
+    label: "Career & Work Insights",
     title: "Find your most profitable employer and shift.",
     description:
-      "Career Intelligence analyzes your earnings history across every employer and shift type — so you always know where to focus your time.",
+      "Career & Work Insights analyzes your earnings history across every employer and shift type — so you always know where to focus your time.",
     bullets: [
       "Monthly rate growth charted over time",
       "Employer ranking by effective hourly rate",
@@ -120,7 +120,7 @@ const items: ShowcaseItem[] = [
       "Pro feature — unlocked with ShiftFlow Pro",
     ],
     screenshot: "/screenshots/insights.png",
-    screenshotAlt: "ShiftFlow Career Intelligence screen",
+    screenshotAlt: "ShiftFlow Career & Work Insights screen",
     imageLeft: false,
   },
 ];

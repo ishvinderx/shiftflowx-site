@@ -4,7 +4,7 @@ import PricingClient from "./PricingClient";
 export const metadata: Metadata = {
   title: "Pricing — ShiftFlow",
   description:
-    "Simple, transparent pricing. Start free for 7 days. No credit card required. ShiftFlow Pro from $9.99/month or $99/year.",
+    "Simple, transparent pricing. Try ShiftFlow Pro free for 7 days, then $9.99/month or $99/year. Cancel anytime.",
 };
 
 export default function Page() {

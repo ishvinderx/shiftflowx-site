@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Zap, RefreshCw, Shield, HelpCircle, Plus, Minus } from "lucide-react";
+import { Check, Plus, Minus } from "lucide-react";
 import Link from "next/link";
-import { PRICING_FEATURES } from "@/lib/constants";
+import { PRICING, PRO_FEATURES, APP_STORE_URL } from "@/lib/constants";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
@@ -15,25 +15,21 @@ function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: i * 0.05 }}
-      className="border border-white/8 rounded-2xl overflow-hidden"
+      className="border border-white/[0.08] rounded-2xl overflow-hidden"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors"
+        aria-expanded={open}
       >
         <span className="text-white font-medium text-sm pr-4">{q}</span>
-        <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${open ? "bg-[#D63C6B]" : "bg-white/8"}`}>
+        <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${open ? "bg-[#D63C6B]" : "bg-white/10"}`}>
           {open ? <Minus className="w-3 h-3 text-white" /> : <Plus className="w-3 h-3 text-white/60" />}
         </div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
             <div className="px-5 pb-5 border-t border-white/5 pt-4">
               <p className="text-white/55 text-sm leading-relaxed">{a}</p>
             </div>
@@ -45,206 +41,128 @@ function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
 }
 
 const billingFAQ = [
-  { q: "When does the free trial start?", a: "Your 7-day trial begins the moment you create your account — no credit card required. You'll have full access to every Pro feature during this period." },
-  { q: "What happens after the trial ends?", a: "After 7 days, you can choose a Pro plan to continue with all features, or stay on a limited free tier. We'll send you a reminder 3 days before your trial expires." },
-  { q: "How do I subscribe to Pro?", a: "Subscriptions are managed through the Apple App Store. Within the ShiftFlow app, go to Settings → Upgrade to Pro and choose your preferred billing cycle." },
-  { q: "Can I switch between monthly and annual?", a: "Yes. You can switch your billing period at any time through your Apple ID subscription settings. Changes take effect at the start of your next billing cycle." },
-  { q: "How do I cancel?", a: "Cancel anytime in your iPhone Settings → Apple ID → Subscriptions. You'll retain Pro access until the end of your current billing period — no partial refunds for unused time." },
-  { q: "How do I restore my purchase on a new device?", a: "Open ShiftFlow, go to Settings, and tap 'Restore Purchases'. Your subscription is tied to your Apple ID and transfers automatically." },
-  { q: "Do you offer refunds?", a: "Refunds are handled by Apple, not ShiftFlow. Visit reportaproblem.apple.com to request a refund. Apple reviews each case individually." },
+  { q: "When does the free trial start?", a: `Your ${PRICING.trialDays}-day Pro trial begins when you start it in the app. You get full access to every Pro feature during the trial.` },
+  { q: "What happens after the trial ends?", a: `After ${PRICING.trialDays} days, your selected Pro plan (Monthly or Annual) begins unless you cancel. You can cancel any time before the trial ends and you won't be charged.` },
+  { q: "How do I subscribe to Pro?", a: "Subscriptions are managed through the Apple App Store. In the ShiftFlow app, go to Settings → Upgrade to Pro and choose Monthly or Annual." },
+  { q: "Can I switch between monthly and annual?", a: "Yes. Change your billing period any time in your Apple ID subscription settings. Changes take effect at your next billing date." },
+  { q: "How do I cancel?", a: "Cancel any time in iPhone Settings → Apple ID → Subscriptions. You keep Pro access until the end of your current billing period. Apple does not offer partial refunds for unused time." },
+  { q: "How do I restore my purchase on a new device?", a: "Open ShiftFlow → Settings → Restore Purchases. Your subscription is tied to your Apple ID and transfers automatically." },
+  { q: "Do you offer refunds?", a: "Refunds are handled by Apple. Visit reportaproblem.apple.com to request one — Apple reviews each case individually." },
 ];
 
 export default function PricingClient() {
-  const [annual, setAnnual] = useState(true); // annual on by default
-
-  const plans = [
-    {
-      name: "Pro Annual",
-      price: annual ? "$99" : "$8.25",
-      priceNote: annual ? "/year" : "/mo · billed $99/yr",
-      description: "Best for long-term financial protection.",
-      badge: "MOST POPULAR",
-      badgeColor: "#D63C6B",
-      savingsBadge: "SAVE 17%",
-      bestValue: true,
-      cta: "Start Free Trial",
-      ctaNote: "7 days free, then $99/yr",
-      href: "/download",
-      featured: true,
-    },
-    {
-      name: "Pro Monthly",
-      price: "$9.99",
-      priceNote: "/month",
-      description: "Flexible monthly access. Cancel anytime.",
-      badge: null,
-      badgeColor: null,
-      savingsBadge: null,
-      bestValue: false,
-      cta: "Start Monthly Plan",
-      ctaNote: "7-day free trial included",
-      href: "/download",
-      featured: false,
-    },
-    {
-      name: "Free Trial",
-      price: "$0",
-      priceNote: "/ 30 days",
-      description: "Full access. No credit card required.",
-      badge: null,
-      badgeColor: null,
-      savingsBadge: null,
-      bestValue: false,
-      cta: "Download Free",
-      ctaNote: "No credit card surprises",
-      href: "/download",
-      featured: false,
-    },
-  ];
+  const { monthly, annual, trialDays } = PRICING;
 
   return (
-    <div className="bg-[#0A0A0F] min-h-screen pt-24">
-      {/* Hero */}
+    <div>
+      {/* ── Hero + plans ─────────────────────────────────────────────────────── */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,60,107,0.08)_0%,transparent_60%)]" />
-        <div className="relative max-w-7xl mx-auto px-6 md:px-8 lg:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h1 className="text-5xl sm:text-6xl font-bold text-white tracking-tight mb-4">
-              Simple, transparent <span className="gradient-text">pricing.</span>
-            </h1>
-            <p className="text-xl text-white/50 mb-10">
-              Start free for 7 days. No credit card required.
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_-10%,rgba(214,60,107,0.12),transparent_60%)]" />
+        <div className="max-w-5xl mx-auto px-5">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">Simple, transparent pricing.</h1>
+            <p className="mt-4 text-lg text-white/55 leading-relaxed">
+              Try ShiftFlow Pro free for {trialDays} days. Choose monthly flexibility or save with annual billing.
             </p>
-
-            {/* Toggle */}
-            <div className="flex items-center justify-center gap-4 mb-14">
-              <span className={`text-sm font-medium ${!annual ? "text-white" : "text-white/40"}`}>Monthly</span>
-              <button
-                onClick={() => setAnnual(!annual)}
-                className={`relative w-12 h-6 rounded-full transition-colors duration-300 ${annual ? "bg-[#D63C6B]" : "bg-white/20"}`}
-                aria-label="Toggle annual"
-              >
-                <motion.div
-                  layout
-                  className="absolute top-1 w-4 h-4 bg-white rounded-full shadow"
-                  animate={{ x: annual ? 28 : 4 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              </button>
-              <span className={`text-sm font-medium ${annual ? "text-white" : "text-white/40"}`}>Annual</span>
-              {annual && (
-                <span className="px-2 py-0.5 bg-[#22C55E]/15 border border-[#22C55E]/25 rounded-full text-[#22C55E] text-xs font-semibold">Save 17%</span>
-              )}
-            </div>
-          </motion.div>
-
-          {/* Plans */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
-            {plans.map((plan, i) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 32 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative rounded-2xl overflow-hidden ${
-                  plan.featured
-                    ? "border-2 border-[#D63C6B] bg-[#D63C6B]/5 shadow-2xl shadow-[#D63C6B]/10"
-                    : "border border-white/10 bg-white/[0.03]"
-                }`}
-              >
-                {plan.badge && (
-                  <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 px-3 py-1 rounded-b-lg text-white text-xs font-bold"
-                    style={{ background: plan.badgeColor }}
-                  >
-                    {plan.badge}
-                  </div>
-                )}
-
-                <div className="p-6 pt-8">
-                  <p className="text-white/50 text-sm font-medium mb-1">{plan.name}</p>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-white text-4xl font-bold tracking-tight">{plan.price}</span>
-                    <span className="text-white/40 text-sm">{plan.priceNote}</span>
-                  </div>
-                  <p className="text-white/40 text-sm mb-5">{plan.description}</p>
-
-                  <Link
-                    href={plan.href}
-                    className={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all duration-200 mb-6 ${
-                      plan.featured
-                        ? "bg-[#D63C6B] text-white hover:bg-[#c0355f] shadow-lg shadow-[#D63C6B]/25"
-                        : "bg-white/8 text-white border border-white/10 hover:bg-white/15"
-                    }`}
-                  >
-                    {plan.cta}
-                  </Link>
-
-                  <div className="border-t border-white/8 mb-5" />
-
-                  <div className="space-y-2.5">
-                    {PRICING_FEATURES.map((f) => (
-                      <div key={f} className="flex items-center gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-[#22C55E]/15 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-2.5 h-2.5 text-[#22C55E]" />
-                        </div>
-                        <span className="text-white/65 text-xs">{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
+
+          {/* Two paid plans — same features, different billing. No toggle (both visible). */}
+          <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            {/* ANNUAL — recommended */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+              className="relative rounded-3xl border-2 border-[#D63C6B]/60 bg-gradient-to-b from-[#D63C6B]/[0.08] to-transparent p-7 shadow-[0_0_50px_-15px_rgba(214,60,107,0.5)]"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="px-3 py-1 rounded-full bg-[#D63C6B] text-white text-[11px] font-bold tracking-wide uppercase">Best Value</span>
+              </div>
+              <h2 className="text-lg font-semibold text-white">{annual.name}</h2>
+              <div className="mt-3 flex items-baseline gap-1.5">
+                <span className="text-5xl font-bold text-white tracking-tight">{annual.priceLabel}</span>
+                <span className="text-white/50 text-lg">{annual.cadence}</span>
+              </div>
+              <p className="mt-1.5 text-sm text-white/50">
+                ${annual.monthlyEquivalent}/month, billed annually
+                <span className="ml-2 text-[#5EEAD4] font-medium">Save {annual.savingsPct}%</span>
+              </p>
+              <p className="mt-4 text-sm text-white/55 leading-relaxed">Get full access to ShiftFlow Pro at our best annual price.</p>
+              <a href={APP_STORE_URL} className="mt-6 block text-center w-full rounded-full bg-[#D63C6B] text-white font-semibold py-3.5 shadow-[0_0_25px_rgba(214,60,107,0.4)] hover:bg-[#c0355f] transition-colors">
+                Start {trialDays}-Day Free Trial
+              </a>
+              <p className="mt-3 text-center text-xs text-white/45">{annual.afterTrial}</p>
+            </motion.div>
+
+            {/* MONTHLY — standard */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.08 }}
+              className="relative rounded-3xl border border-white/[0.1] bg-white/[0.02] p-7"
+            >
+              <h2 className="text-lg font-semibold text-white">{monthly.name}</h2>
+              <div className="mt-3 flex items-baseline gap-1.5">
+                <span className="text-5xl font-bold text-white tracking-tight">{monthly.priceLabel}</span>
+                <span className="text-white/50 text-lg">{monthly.cadence}</span>
+              </div>
+              <p className="mt-1.5 text-sm text-white/40">Flexible monthly billing</p>
+              <p className="mt-4 text-sm text-white/55 leading-relaxed">Full ShiftFlow Pro access with flexible monthly billing.</p>
+              <a href={APP_STORE_URL} className="mt-6 block text-center w-full rounded-full bg-white/[0.08] text-white font-semibold py-3.5 border border-white/10 hover:bg-white/[0.12] transition-colors">
+                Start {trialDays}-Day Free Trial
+              </a>
+              <p className="mt-3 text-center text-xs text-white/45">{monthly.afterTrial}</p>
+            </motion.div>
+          </div>
+
+          {/* Subscription disclosure */}
+          <p className="mt-8 text-center text-xs text-white/40 max-w-2xl mx-auto leading-relaxed">
+            Payment and subscription management are handled through the App Store. Your subscription renews
+            automatically unless cancelled according to Apple&apos;s subscription terms. See our{" "}
+            <Link href="/terms" className="text-white/60 underline hover:text-white">Terms of Service</Link> and{" "}
+            <Link href="/privacy" className="text-white/60 underline hover:text-white">Privacy Policy</Link>.
+          </p>
         </div>
       </section>
 
-      {/* Trust signals */}
+      {/* ── Shared Pro features (billing differs, features don't) ─────────────── */}
       <section className="py-16 border-y border-white/5">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            {[
-              { icon: Shield, label: "No credit card", desc: "Start the 7-day trial with just your Apple ID." },
-              { icon: RefreshCw, label: "Cancel anytime", desc: "Cancel through your iPhone Settings — no forms, no friction." },
-              { icon: Zap, label: "Instant access", desc: "Full access to all Pro features starts immediately." },
-            ].map(({ icon: Icon, label, desc }) => (
-              <div key={label} className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-xl bg-[#D63C6B]/10 border border-[#D63C6B]/20 flex items-center justify-center mb-3">
-                  <Icon className="w-5 h-5 text-[#D63C6B]" />
-                </div>
-                <p className="text-white font-semibold text-sm mb-1">{label}</p>
-                <p className="text-white/40 text-xs leading-relaxed">{desc}</p>
+        <div className="max-w-3xl mx-auto px-5">
+          <h2 className="text-center text-sm font-semibold tracking-widest uppercase text-[#D63C6B] mb-8">Every Pro plan includes</h2>
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
+            {PRO_FEATURES.map((f) => (
+              <div key={f} className="flex items-start gap-3">
+                <span className="mt-0.5 w-5 h-5 rounded-full bg-[#D63C6B]/15 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-3 h-3 text-[#D63C6B]" />
+                </span>
+                <span className="text-sm text-white/70">{f}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Manage via App Store note */}
-      <section className="py-12">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <div className="bg-white/[0.03] border border-white/8 rounded-2xl p-6">
-            <HelpCircle className="w-6 h-6 text-white/30 mx-auto mb-3" />
-            <p className="text-white/60 text-sm leading-relaxed">
-              All ShiftFlow subscriptions are managed exclusively through the Apple App Store.
-              To subscribe, update, or cancel, go to{" "}
-              <strong className="text-white/80">Settings → Apple ID → Subscriptions</strong>{" "}
-              on your iPhone. You can also tap <strong className="text-white/80">Restore Purchases</strong>{" "}
-              in the ShiftFlow app to recover a prior subscription.
-            </p>
+      {/* ── How your free trial works ────────────────────────────────────────── */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-5">
+          <h2 className="text-center text-2xl font-bold text-white tracking-tight mb-10">How your free trial works</h2>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {[
+              { step: "Day 1", body: `Start your ${trialDays}-day Pro trial.` },
+              { step: "During your trial", body: "Explore the Pro features included with your selected subscription." },
+              { step: `After ${trialDays} days`, body: "Your selected subscription begins unless cancelled." },
+            ].map((s, i) => (
+              <div key={i} className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
+                <p className="text-[#D63C6B] text-xs font-semibold tracking-wide uppercase">{s.step}</p>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">{s.body}</p>
+              </div>
+            ))}
           </div>
+          <p className="mt-6 text-center text-xs text-white/40">Cancel anytime according to the applicable App Store subscription terms.</p>
         </div>
       </section>
 
-      {/* Billing FAQ */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
+      {/* ── Billing FAQ ──────────────────────────────────────────────────────── */}
+      <section className="py-16">
+        <div className="max-w-2xl mx-auto px-5">
           <SectionHeader label="Billing FAQ" title="Billing questions." />
-          <div className="space-y-3">
+          <div className="mt-8 space-y-3">
             {billingFAQ.map((item, i) => (
               <BillingFAQItem key={i} q={item.q} a={item.a} i={i} />
             ))}

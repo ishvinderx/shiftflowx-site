@@ -24,7 +24,7 @@ export default function DownloadClient() {
               </h1>
 
               <p className="text-xl text-white/50 leading-relaxed mb-8">
-                Free for 7 days. No credit card. Full access to every feature — AI payroll protection, payday forecasting, burnout analytics, and more.
+                Free for 7 days. Full access to every feature — AI payroll protection, payday forecasting, burnout analytics, and more.
               </p>
 
               {/* App Store CTA */}

@@ -50,7 +50,7 @@ export default function DeletePage() {
           <li>Invoices and invoice drafts</li>
           <li>Scanned payslips and OCR data</li>
           <li>Work journal entries and mood logs</li>
-          <li>Financial Health Score history</li>
+          <li>ShiftFlow Score history</li>
           <li>All preferences and settings</li>
         </ul>
         <p>
