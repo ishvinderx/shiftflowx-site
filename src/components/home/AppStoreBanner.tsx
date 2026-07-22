@@ -32,7 +32,7 @@ export default function AppStoreBanner() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D63C6B]/[0.08] border border-[#D63C6B]/25 mb-8">
             <div className="w-1.5 h-1.5 rounded-full bg-[#D63C6B] animate-pulse" />
             <span className="text-[#D63C6B] text-xs font-semibold tracking-widest uppercase">
-              Free 30-Day Trial
+              Free 7-Day Trial
             </span>
           </div>
 

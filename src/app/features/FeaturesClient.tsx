@@ -165,10 +165,10 @@ const comparisonFeatures = [
   { feature: "Shift Logging", free: true, plus: true },
   { feature: "Basic Earnings View", free: true, plus: true },
   { feature: "Payday Countdown", free: true, plus: true },
-  { feature: "AI Payroll Protection", free: "30 days", plus: true },
-  { feature: "Payday Forecasting", free: "30 days", plus: true },
-  { feature: "Burnout Analytics", free: "30 days", plus: true },
-  { feature: "Smart AI Assistant", free: "30 days", plus: true },
+  { feature: "AI Payroll Protection", free: "7 days", plus: true },
+  { feature: "Payday Forecasting", free: "7 days", plus: true },
+  { feature: "Burnout Analytics", free: "7 days", plus: true },
+  { feature: "Smart AI Assistant", free: "7 days", plus: true },
   { feature: "Tax Estimation", free: false, plus: true },
   { feature: "Invoice Generator", free: false, plus: true },
   { feature: "Payslip OCR Scanner", free: false, plus: true },
@@ -292,7 +292,7 @@ export default function FeaturesPage() {
             <div className="grid grid-cols-3 bg-white/[0.03] border-b border-white/8">
               <div className="p-5 text-white/40 text-sm font-medium">Feature</div>
               <div className="p-5 text-center text-white/40 text-sm font-medium border-l border-white/8">
-                Free Trial (30 days)
+                Free Trial (7 days)
               </div>
               <div className="p-5 text-center border-l border-white/8">
                 <span className="text-[#D63C6B] text-sm font-bold">Pro</span>

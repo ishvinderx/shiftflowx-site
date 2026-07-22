@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SUPPORT_EMAIL } from "@/lib/constants";
 
@@ -46,16 +47,13 @@ export default function Footer() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 mb-4 group w-fit">
               <div className="relative w-8 h-8 flex-shrink-0">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="32" height="32" rx="9" fill="#D63C6B" />
-                  <path
-                    d="M21 10.5H13.5C12.12 10.5 11 11.62 11 13C11 14.38 12.12 15.5 13.5 15.5H18.5C19.88 15.5 21 16.62 21 18C21 19.38 19.88 20.5 18.5 20.5H11"
-                    stroke="white"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <Image
+                  src="/icon-192.png"
+                  alt="ShiftFlow"
+                  width={32}
+                  height={32}
+                  className="rounded-[9px]"
+                />
               </div>
               <span className="text-white font-bold text-[17px] tracking-tight">
                 Shift<span className="text-[#D63C6B]">Flow</span>
@@ -137,10 +135,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-white/25 text-sm">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-white/45 text-sm">
             <p>© {currentYear} ShiftFlow. All rights reserved.</p>
             <span className="hidden sm:block">·</span>
-            <p className="text-white/25">Made for workers. Powered by AI.</p>
+            <p className="text-white/45">Made for workers. Powered by AI.</p>
           </div>
           <div className="flex items-center gap-5">
             {[
@@ -151,7 +149,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/25 text-sm hover:text-white/60 transition-colors"
+                className="text-white/45 text-sm hover:text-white/60 transition-colors"
               >
                 {link.label}
               </Link>

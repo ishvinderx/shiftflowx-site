@@ -13,7 +13,7 @@ function ShiftFlowLogo() {
     <Link href="/" className="flex items-center gap-2.5 group">
       <div className="relative w-8 h-8 flex-shrink-0">
         <Image
-          src="/icon.png"
+          src="/icon-192.png"
           alt="ShiftFlow"
           width={32}
           height={32}

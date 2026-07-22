@@ -9,7 +9,7 @@ export default function Image() {
   return new ImageResponse(
     <div style={{ background: '#050508', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
-        <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: '#D63C6B', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '28px', fontWeight: '900' }}>S</div>
+        <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(145deg,#FF2D8B,#8B5CF6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '30px', fontWeight: '900', fontStyle: 'italic' }}>S</div>
         <span style={{ color: 'white', fontSize: '36px', fontWeight: '800' }}>ShiftFlow</span>
       </div>
       <h1 style={{ color: 'white', fontSize: '64px', fontWeight: '900', margin: '0 0 16px', textAlign: 'center', lineHeight: 1.1 }}>Protect Every Paycheck.</h1>

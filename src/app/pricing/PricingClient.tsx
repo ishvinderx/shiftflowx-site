@@ -68,7 +68,7 @@ export default function PricingClient() {
       savingsBadge: "SAVE 17%",
       bestValue: true,
       cta: "Start Free Trial",
-      ctaNote: "30 days free, then $99/yr",
+      ctaNote: "7 days free, then $99/yr",
       href: "/download",
       featured: true,
     },

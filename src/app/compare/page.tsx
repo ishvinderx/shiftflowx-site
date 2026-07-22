@@ -27,7 +27,7 @@ const features = [
   { name: "Financial Health Score", shiftflow: true, generic: false },
   { name: "AI Financial Assistant", shiftflow: true, generic: false },
   { name: "Overtime Detection (FLSA)", shiftflow: true, generic: false },
-  { name: "Free Trial", shiftflow: "30 days", generic: "Varies" },
+  { name: "Free Trial", shiftflow: "7 days", generic: "Varies" },
 ];
 
 export default function ComparePage() {
