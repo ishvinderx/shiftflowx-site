@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: 'ShiftFlow',
     title: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
     description: 'Track shifts, predict paydays, detect payroll errors, and prevent burnout with AI. Free 30-day trial.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'ShiftFlow — Protect Every Paycheck' }]
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'ShiftFlow — Know exactly what you’ve earned' }]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
     description: 'Track shifts, predict paydays, catch payroll errors, and prevent burnout with AI.',
-    images: ['/og-image.png'],
+    images: ['/opengraph-image'],
     creator: '@shiftflowapp'
   },
   alternates: { canonical: 'https://shiftflowx.net' },
@@ -98,7 +98,7 @@ const jsonLd = [
       "Overtime Detection",
       "AI Financial Assistant"
     ],
-    "screenshot": "https://shiftflowx.net/og-image.png",
+    "screenshot": "https://shiftflowx.net/opengraph-image",
     "image": "https://shiftflowx.net/icon.png"
   },
   {

@@ -1,5 +1,14 @@
 import LegalLayout from "@/components/legal/LegalLayout";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Subscription Terms",
+  description: "ShiftFlow subscription terms — free trial, plans, billing, renewal, and cancellation.",
+  alternates: { canonical: "https://shiftflowx.net/subscription-terms" },
+};
+
+
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "free-trial", label: "Free Trial" },

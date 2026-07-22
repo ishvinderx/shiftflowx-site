@@ -1,4 +1,13 @@
 import LegalLayout from "@/components/legal/LegalLayout";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Delete Your Account",
+  description: "How to permanently delete your ShiftFlow account and data, including the grace period and what gets removed.",
+  alternates: { canonical: "https://shiftflowx.net/delete" },
+};
+
 import Link from "next/link";
 
 const toc = [

@@ -1,5 +1,14 @@
 import LegalLayout from "@/components/legal/LegalLayout";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund Policy",
+  description: "ShiftFlow refund policy — how App Store subscription refunds work and how to request one.",
+  alternates: { canonical: "https://shiftflowx.net/refund" },
+};
+
+
 const toc = [
   { id: "overview", label: "Overview" },
   { id: "apple-refunds", label: "Apple App Store Refunds" },

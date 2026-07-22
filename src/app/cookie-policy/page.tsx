@@ -1,5 +1,14 @@
 import LegalLayout from "@/components/legal/LegalLayout";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: "How ShiftFlow uses cookies and tracking technologies on our website and in the app.",
+  alternates: { canonical: "https://shiftflowx.net/cookie-policy" },
+};
+
+
 const toc = [
   { id: "what-are-cookies", label: "What Are Cookies" },
   { id: "how-we-use", label: "How We Use Cookies" },

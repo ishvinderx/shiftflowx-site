@@ -18,6 +18,11 @@ const securityHeaders = [
     value: "camera=(), microphone=(), geolocation=()",
   },
   {
+    // Force HTTPS for 2 years incl. subdomains (site is HTTPS-only on Vercel).
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
     // Allow Next.js inline scripts and same-origin fetches; block everything else.
     // 'unsafe-inline' on script-src is required for Next.js hydration in pages router;
     // App Router uses nonces — tighten this further once all pages use App Router.
@@ -30,6 +35,9 @@ const securityHeaders = [
       "font-src 'self' data:",
       "connect-src 'self' https://api.shiftflowx.net https://us.i.posthog.com",
       "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
     ].join("; "),
   },
 ];

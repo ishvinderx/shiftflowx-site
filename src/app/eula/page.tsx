@@ -1,5 +1,14 @@
 import LegalLayout from "@/components/legal/LegalLayout";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "End User License Agreement",
+  description: "The End User License Agreement (EULA) governing your use of the ShiftFlow iOS app.",
+  alternates: { canonical: "https://shiftflowx.net/eula" },
+};
+
+
 const toc = [
   { id: "acknowledgement", label: "Acknowledgement" },
   { id: "scope", label: "Scope of License" },
