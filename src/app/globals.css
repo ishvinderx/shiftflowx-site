@@ -119,6 +119,67 @@
   animation: float 4s ease-in-out infinite;
 }
 
+/* ─── 3D / Glass system (redesign) ─────────────────────────────────────────── */
+
+/* Frosted glass panel — hairline rgba border, layered highlight, deep blur. */
+.glass {
+  background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.10), 0 20px 50px -20px rgba(0,0,0,0.7);
+}
+.glass-soft {
+  background: rgba(255,255,255,0.035);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Ambient light blobs — slow oscillation, sit behind content (never pure black bg). */
+@keyframes blob-a { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-30px) scale(1.12); } }
+@keyframes blob-b { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,30px) scale(1.08); } }
+.blob { position: absolute; border-radius: 9999px; filter: blur(90px); pointer-events: none; opacity: 0.5; }
+.blob-a { animation: blob-a 14s ease-in-out infinite; }
+.blob-b { animation: blob-b 18s ease-in-out infinite; }
+
+/* 3D stage + device — perspective wrapper, GPU-composited. */
+.stage-3d { perspective: 1400px; perspective-origin: 50% 40%; }
+.device-3d { transform-style: preserve-3d; will-change: transform; }
+
+/* Realistic phone shell (titanium rail + inner bezel). */
+.phone-shell {
+  border-radius: 3rem;
+  background:
+    linear-gradient(150deg, #2a2a30, #0d0d11 55%);
+  padding: 10px;
+  box-shadow:
+    0 2px 2px rgba(255,255,255,0.18) inset,
+    0 -2px 3px rgba(0,0,0,0.6) inset,
+    0 60px 120px -30px rgba(0,0,0,0.85),
+    0 0 60px -10px rgba(214,60,107,0.35);
+}
+.phone-screen { border-radius: 2.35rem; overflow: hidden; background: #0A0A0F; position: relative; }
+
+/* Slow float used by the hovering device + orbiting chips. */
+@keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+.float-y { animation: float-y 7s ease-in-out infinite; }
+.float-y-slow { animation: float-y 10s ease-in-out infinite; }
+
+/* Conic border sheen for premium cards. */
+.sheen-border { position: relative; }
+.sheen-border::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: conic-gradient(from 120deg, transparent, rgba(214,60,107,0.5), transparent 40%, rgba(99,102,241,0.4), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob-a, .blob-b, .float, .float-y, .float-y-slow, .shimmer { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
 /* Focus styles */
 *:focus-visible {
   outline: 2px solid #D63C6B;

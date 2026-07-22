@@ -1,17 +1,7 @@
-import Hero from "@/components/home/Hero";
-import WorkerModes from "@/components/home/WorkerModes";
-import PayTaxIntelligence from "@/components/home/PayTaxIntelligence";
-import InvoiceWorkflow from "@/components/home/InvoiceWorkflow";
-import Stats from "@/components/home/Stats";
-import Features from "@/components/home/Features";
+import Hero3D from "@/components/home/Hero3D";
+import GlassShowcase from "@/components/home/GlassShowcase";
 import HowItWorks from "@/components/home/HowItWorks";
-import FeatureShowcase from "@/components/home/FeatureShowcase";
-import SocialProof from "@/components/home/SocialProof";
-import DashboardPreview from "@/components/home/DashboardPreview";
-import ProductShowcase from "@/components/home/ProductShowcase";
-import ProductTour from "@/components/home/ProductTour";
 import AppGallery from "@/components/home/AppGallery";
-import TestimonialsGated from "@/components/home/TestimonialsGated";
 import Pricing from "@/components/home/Pricing";
 import FAQ from "@/components/home/FAQ";
 import AppStoreBanner from "@/components/home/AppStoreBanner";
@@ -79,22 +69,11 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
-      <Hero />
-      <WorkerModes />
-      <PayTaxIntelligence />
-      <InvoiceWorkflow />
-      <Stats />
-      <Features />
+      {/* Redesigned 2026 — focused glass/3D composition, less noise */}
+      <Hero3D />
+      <GlassShowcase />
       <HowItWorks />
-      <FeatureShowcase />
-      <SocialProof />
-      <DashboardPreview />
-      {/* Real product demonstrations — real screenshots, no fake social proof */}
-      <ProductShowcase />
-      <ProductTour />
       <AppGallery />
-      {/* TestimonialsGated renders nothing until real verified reviews are passed in */}
-      <TestimonialsGated />
       <Pricing />
       <FAQ />
       <AppStoreBanner />
