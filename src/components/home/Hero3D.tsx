@@ -114,8 +114,8 @@ export default function Hero3D() {
             transition={{ duration: 0.7, delay: 0.06, ease: EASE }}
             className="mt-6 text-[44px] sm:text-6xl lg:text-[68px] font-bold leading-[1.03] tracking-tight text-white"
           >
-            Know exactly<br />what you&apos;ve{" "}
-            <span className="gradient-text">earned.</span>
+            Your work.<br />Your pay.<br />
+            <span className="gradient-text">Finally in sync.</span>
           </motion.h1>
 
           <motion.p

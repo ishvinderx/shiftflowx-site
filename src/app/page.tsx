@@ -1,5 +1,7 @@
 import Hero3D from "@/components/home/Hero3D";
+import WorkerModes from "@/components/home/WorkerModes";
 import GlassShowcase from "@/components/home/GlassShowcase";
+import PayTaxIntelligence from "@/components/home/PayTaxIntelligence";
 import HowItWorks from "@/components/home/HowItWorks";
 import AppGallery from "@/components/home/AppGallery";
 import Pricing from "@/components/home/Pricing";
@@ -71,7 +73,10 @@ export default function HomePage() {
       />
       {/* Redesigned 2026 — focused glass/3D composition, less noise */}
       <Hero3D />
+      {/* v1.4 refresh — components self-number as Section 2 and Section 4 */}
+      <WorkerModes />
       <GlassShowcase />
+      <PayTaxIntelligence />
       <HowItWorks />
       <AppGallery />
       <Pricing />
