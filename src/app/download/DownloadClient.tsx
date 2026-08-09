@@ -47,26 +47,11 @@ export default function DownloadClient() {
                 iOS 16+ · iPhone & iPad · Free · 7-day trial
               </p>
 
-              {/* QR code placeholder */}
+              {/* Real QR code (audit #3: the old CSS-art grid decoded to garbage) */}
               <div className="mt-8 inline-flex items-center gap-4 p-4 bg-white/[0.04] border border-white/10 rounded-2xl">
-                <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                  {/* QR code pattern (CSS art) */}
-                  <div className="grid grid-cols-7 gap-px p-1.5" style={{ width: 72, height: 72 }}>
-                    {Array.from({ length: 49 }, (_, i) => {
-                      const pattern = [1,1,1,0,1,1,1,1,0,0,0,0,0,1,1,0,1,1,1,0,1,1,0,1,0,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,1,1,1,0,1,1];
-                      return (
-                        <div
-                          key={i}
-                          className="rounded-sm"
-                          style={{
-                            width: 8,
-                            height: 8,
-                            background: pattern[i] ? "#0A0A0F" : "transparent",
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
+                <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/qr-appstore.svg" alt="QR code linking to ShiftFlow on the App Store" width={72} height={72} />
                 </div>
                 <div>
                   <p className="text-white/60 text-sm font-medium">Scan to download</p>

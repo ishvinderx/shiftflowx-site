@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { Clock, ShieldCheck, Brain, Apple, Star } from "lucide-react";
+import { Clock, ShieldCheck, Brain, Apple } from "lucide-react";
 import { motion } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -246,14 +246,6 @@ export default function ReferralLandingClient({ code }: Props) {
             <Apple className="w-5 h-5 flex-shrink-0" />
             <span>Download on the App Store</span>
           </Link>
-
-          {/* Stars under button */}
-          <div className="flex items-center gap-1.5">
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Star key={s} className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
-            ))}
-            <span className="text-white/40 text-xs ml-1">4.8 · 1,200+ reviews</span>
-          </div>
 
           {/* Trust line */}
           <p className="text-white/30 text-sm mt-1">

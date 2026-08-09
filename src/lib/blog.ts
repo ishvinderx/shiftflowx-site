@@ -202,7 +202,7 @@ The result, for many first-time gig workers, is a tax bill at year end that feel
 Traditional employees pay 7.65% of their wages in FICA taxes (Social Security and Medicare). Their employer pays a matching 7.65%. Gig workers pay both sides — 15.3% total — as the self-employment tax.
 
 For 2026, the SE tax breaks down as:
-- **12.4%** for Social Security (on the first $168,600 of net earnings)
+- **12.4%** for Social Security (on the first $176,100 of net earnings)
 - **2.9%** for Medicare (on all net earnings)
 - **0.9%** additional Medicare surtax (on net earnings over $200,000 for single filers)
 
@@ -238,7 +238,7 @@ To avoid penalties, you must pay either 90% of the current year's tax liability 
 Deductions reduce your taxable net income, which reduces both your income tax and SE tax. The most valuable deductions for gig workers:
 
 ### Mileage Deduction
-For 2026, the IRS standard mileage rate is 67 cents per mile for business driving. If you drive for Uber, DoorDash, Instacart, or any other platform, every mile driven for work is deductible. At 67 cents per mile, 30,000 business miles equals $20,100 in deductions.
+For 2026, the IRS standard mileage rate is 72.5 cents per mile for business driving (Notice 2026-10). If you drive for Uber, DoorDash, Instacart, or any other platform, every mile driven for work is deductible. At 72.5 cents per mile, 30,000 business miles equals $21,750 in deductions.
 
 **Critical:** You must maintain a mileage log with date, purpose, start location, and end location for each trip. Apps like ShiftFlow can help track mileage per shift.
 
@@ -283,7 +283,7 @@ Yes. All gig income is taxable regardless of whether you receive a 1099. Platfor
 The IRS charges an underpayment penalty calculated at the federal short-term interest rate plus 3% (currently around 7-8% annually) on the unpaid amount. Pay as soon as possible to minimize the penalty — it accrues daily.
 
 **Can I deduct my car payment or car depreciation?**
-If you use the standard mileage rate (67 cents/mile), you cannot also deduct car depreciation or actual vehicle expenses — it's one or the other. Most gig drivers benefit from the standard mileage rate unless their actual vehicle costs are very high.
+If you use the standard mileage rate (72.5 cents/mile), you cannot also deduct car depreciation or actual vehicle expenses — it's one or the other. Most gig drivers benefit from the standard mileage rate unless their actual vehicle costs are very high.
 
 **How do I pay quarterly estimated taxes?**
 Pay directly to the IRS via IRS Direct Pay (irs.gov/payments), the IRS2Go mobile app, or by mailing a check with Form 1040-ES. You can also pay electronically through the Electronic Federal Tax Payment System (EFTPS).

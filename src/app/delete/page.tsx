@@ -96,7 +96,7 @@ export default function DeletePage() {
       <section id="grace-period">
         <h2>Grace Period</h2>
         <p>
-          After initiating account deletion, there is a <strong>7-day grace period</strong> during which you can cancel the deletion request by logging back into the app or contacting support. After 7 days, the deletion process is irreversible and cannot be stopped.
+          After initiating account deletion, there is a <strong>30-day grace period</strong> during which you can cancel the deletion request by logging back into the app or contacting support. After 30 days, the deletion process is irreversible and cannot be stopped.
         </p>
         <p>
           All data is permanently purged from our servers within <strong>30 days</strong> of the deletion being initiated. During this window, you will not be able to log in or access your data.

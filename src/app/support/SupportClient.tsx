@@ -56,11 +56,35 @@ const subjects = [
 
 export default function SupportClient() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", subject: subjects[0], message: "" });
 
-  function handleSubmit(e: React.FormEvent) {
+  // Audit 2026-08-08 #2: this form previously faked success and discarded every message.
+  // It now posts to the backend support endpoint (stored + emailed to the support inbox)
+  // and shows an honest failure state with a mailto fallback.
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch(
+        "https://shiftflow-backend-production.up.railway.app/api/v1/support",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+      if (!res.ok) throw new Error(`status ${res.status}`);
+      setSubmitted(true);
+    } catch {
+      setError(
+        "We couldn't send your message right now. Please email us directly at support@shiftflowx.net."
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -186,11 +210,18 @@ export default function SupportClient() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-red-400">
+                    {error.split("support@shiftflowx.net")[0]}
+                    <a href="mailto:support@shiftflowx.net" className="underline">support@shiftflowx.net</a>.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-[#D63C6B] hover:bg-[#c0355f] rounded-xl text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-[#D63C6B]/25"
+                  disabled={sending}
+                  className="w-full py-3.5 bg-[#D63C6B] hover:bg-[#c0355f] disabled:opacity-60 rounded-xl text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-[#D63C6B]/25"
                 >
-                  Send Message
+                  {sending ? "Sending…" : "Send Message"}
                 </button>
               </form>
             )}
