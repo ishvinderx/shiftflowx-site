@@ -10,7 +10,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { APP_STORE_URL } from "@/lib/constants";
+import { APP_STORE_URL, PRICING } from "@/lib/constants";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -154,7 +154,18 @@ export default function Hero3D() {
             transition={{ duration: 0.7, delay: 0.32 }}
             className="mt-5 text-sm text-white/35"
           >
-            7-day free trial · No card to start · Your data stays yours.
+            {/* "No card to start" was not true: the app opens on a trial you start through
+                Apple, so a payment method is already on file. Promising "no card" and then
+                asking for a subscription is where 1★ "it charged me" reviews come from. */}
+            {PRICING.trialDays}-day free trial · Cancel anytime · Billed through Apple.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.36 }}
+            className="mt-2 text-sm text-white/35"
+          >
+            Your data stays yours.
           </motion.p>
         </div>
 
