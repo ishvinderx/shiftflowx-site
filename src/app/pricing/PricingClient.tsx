@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Plus, Minus } from "lucide-react";
 import Link from "next/link";
-import { PRICING, PRO_FEATURES, APP_STORE_URL } from "@/lib/constants";
+import { PRICING, PRO_FEATURES, APP_STORE_URL, BILLING_FAQ } from "@/lib/constants";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
@@ -40,15 +40,9 @@ function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
   );
 }
 
-const billingFAQ = [
-  { q: "When does the free trial start?", a: `Your ${PRICING.trialDays}-day Pro trial begins when you start it in the app. You get full access to every Pro feature during the trial.` },
-  { q: "What happens after the trial ends?", a: `After ${PRICING.trialDays} days, your selected Pro plan (Monthly or Annual) begins unless you cancel. You can cancel any time before the trial ends and you won't be charged.` },
-  { q: "How do I subscribe to Pro?", a: "Subscriptions are managed through the Apple App Store. In the ShiftFlow app, go to Settings → Upgrade to Pro and choose Monthly or Annual." },
-  { q: "Can I switch between monthly and annual?", a: "Yes. Change your billing period any time in your Apple ID subscription settings. Changes take effect at your next billing date." },
-  { q: "How do I cancel?", a: "Cancel any time in iPhone Settings → Apple ID → Subscriptions. You keep Pro access until the end of your current billing period. Apple does not offer partial refunds for unused time." },
-  { q: "How do I restore my purchase on a new device?", a: "Open ShiftFlow → Settings → Restore Purchases. Your subscription is tied to your Apple ID and transfers automatically." },
-  { q: "Do you offer refunds?", a: "Refunds are handled by Apple. Visit reportaproblem.apple.com to request one — Apple reviews each case individually." },
-];
+// Moved to constants.ts (BILLING_FAQ) so the FAQPage structured data in
+// pricing/page.tsx renders the SAME questions this UI shows — one source, no drift.
+const billingFAQ = BILLING_FAQ;
 
 export default function PricingClient() {
   const { monthly, annual, trialDays } = PRICING;

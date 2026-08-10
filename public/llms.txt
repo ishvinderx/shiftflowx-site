@@ -1,5 +1,8 @@
 # ShiftFlow — AI-Powered Workforce Financial Intelligence Platform
 
+> Last updated: 2026-08-09 · Machine-readable pricing: https://shiftflowx.net/pricing.md
+
+
 ## What is ShiftFlow?
 ShiftFlow is an AI-powered iOS application that helps employees, freelancers, contractors, and gig workers protect their income through intelligent payroll monitoring, payday forecasting, burnout prevention, and financial wellness tools.
 
@@ -30,6 +33,7 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 - ShiftFlow Pro Monthly: $9.99/month
 - ShiftFlow Pro Annual: $59.99/year (~50% savings vs monthly)
 - Subscriptions managed through Apple App Store
+- Canonical, always-current machine-readable pricing: https://shiftflowx.net/pricing.md
 
 ## Platform
 - iOS 16+ (iPhone & iPad)
@@ -42,6 +46,16 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 - GDPR and CCPA compliant
 - No data selling, ever
 - 30-day soft-delete + full purge on account deletion
+
+## Key Pages
+- Pricing: https://shiftflowx.net/pricing
+- Features: https://shiftflowx.net/features
+- How it works: https://shiftflowx.net/how-it-works
+- For gig workers: https://shiftflowx.net/use-cases/gig-workers
+- For freelancers: https://shiftflowx.net/use-cases/freelancers
+- For hourly workers: https://shiftflowx.net/use-cases/hourly-workers
+- Security: https://shiftflowx.net/security
+- Blog: https://shiftflowx.net/blog
 
 ## Contact
 - Website: https://shiftflowx.net

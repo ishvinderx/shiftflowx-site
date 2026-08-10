@@ -50,6 +50,19 @@ export const PRO_FEATURES = [
   "Career & work insights",
 ] as const;
 
+// Billing FAQ — ONE source for the pricing page UI and its FAQPage structured data,
+// so the schema can never describe questions the page doesn't show (a Google
+// structured-data violation) and the two can never drift.
+export const BILLING_FAQ = [
+  { q: "When does the free trial start?", a: `Your ${TRIAL_DAYS}-day Pro trial begins when you start it in the app. You get full access to every Pro feature during the trial.` },
+  { q: "What happens after the trial ends?", a: `After ${TRIAL_DAYS} days, your selected Pro plan (Monthly or Annual) begins unless you cancel. You can cancel any time before the trial ends and you won't be charged.` },
+  { q: "How do I subscribe to Pro?", a: "Subscriptions are managed through the Apple App Store. In the ShiftFlow app, go to Settings → Upgrade to Pro and choose Monthly or Annual." },
+  { q: "Can I switch between monthly and annual?", a: "Yes. Change your billing period any time in your Apple ID subscription settings. Changes take effect at your next billing date." },
+  { q: "How do I cancel?", a: "Cancel any time in iPhone Settings → Apple ID → Subscriptions. You keep Pro access until the end of your current billing period. Apple does not offer partial refunds for unused time." },
+  { q: "How do I restore my purchase on a new device?", a: "Open ShiftFlow → Settings → Restore Purchases. Your subscription is tied to your Apple ID and transfers automatically." },
+  { q: "Do you offer refunds?", a: "Refunds are handled by Apple. Visit reportaproblem.apple.com to request one — Apple reviews each case individually." },
+] as const;
+
 export const NAV_LINKS = [
   { href: "/features", label: "Features" },
   { href: "/pricing", label: "Pricing" },
