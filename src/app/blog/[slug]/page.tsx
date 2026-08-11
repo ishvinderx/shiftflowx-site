@@ -88,10 +88,21 @@ function renderContent(content: string): React.ReactNode[] {
 }
 
 function renderInline(text: string): React.ReactNode {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  // Bold + markdown links. Internal hrefs (/path) render as Next <Link> — added for
+  // the calculator-cluster articles (article → calculator → CTA funnel).
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return <strong key={i} className="text-white/85 font-semibold">{part.slice(2, -2)}</strong>;
+    }
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      const label = link[1];
+      const href = link[2];
+      if (href.startsWith('/')) {
+        return <Link key={i} href={href} className="text-[#D63C6B] hover:text-[#e2557f] underline underline-offset-2 decoration-[#D63C6B]/40">{label}</Link>;
+      }
+      return <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-[#D63C6B] hover:text-[#e2557f] underline underline-offset-2 decoration-[#D63C6B]/40">{label}</a>;
     }
     return part;
   });

@@ -2,6 +2,21 @@ export const SITE_URL = "https://shiftflowx.net";
 export const SUPPORT_EMAIL = "support@shiftflowx.net";
 export const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892";
 
+// ─── App Store campaign attribution ──────────────────────────────────────────
+// Apple only records campaign (`ct`) attribution when the link ALSO carries the
+// provider token (`pt`) from App Store Connect → App Analytics → Acquisition →
+// campaign link generator. Until APP_STORE_PT is filled in, ct= rides along
+// harmlessly but ASC records NOTHING — attribution is honestly UNAVAILABLE.
+// OPERATOR: paste the numeric pt value here; every calculator CTA lights up at once.
+export const APP_STORE_PT = ""; // e.g. "126538119" — from ASC campaign link generator
+
+export function appStoreCampaignUrl(ct: string): string {
+  const params = new URLSearchParams();
+  if (APP_STORE_PT) params.set("pt", APP_STORE_PT);
+  params.set("ct", ct);
+  return `${APP_STORE_URL}?${params.toString()}`;
+}
+
 // ─── Canonical pricing (SINGLE SOURCE OF TRUTH) ───────────────────────────────
 // Every surface (pricing page, homepage, FAQ, structured data, CTAs) must read
 // from here — never hardcode $9.99 / $59.99 / 7 days / 50% independently.

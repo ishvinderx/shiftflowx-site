@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { APP_STORE_URL } from '@/lib/constants'
+import { appStoreCampaignUrl } from '@/lib/constants'
 import { fmtHM } from '../work-hours-calculator/calc'
 import { calculateWeek, type DayRow } from './weekCalc'
 
@@ -167,7 +167,7 @@ export default function TimeCardClient() {
           </p>
           <div className="flex flex-wrap items-center gap-3 mt-3">
             <a
-              href={`${APP_STORE_URL}?ct=time-card-calculator`}
+              href={appStoreCampaignUrl('time-card-calculator')}
               className="text-xs font-semibold text-white bg-[#D63C6B] hover:bg-[#c0355f] rounded-full px-4 py-2 transition-colors"
             >
               Track Hours with ShiftFlow

@@ -55,11 +55,11 @@ Current name "ShiftFlow" (brand) — keep. The keyword surface to optimize, next
 
 ## Content plan (P2 cluster — each must beat generic SEO content)
 
-Order of production (each embeds the live calculator where useful):
-1. How to calculate hours worked with a lunch break (worked examples table)
-2. How to convert hours to decimal (with the 15/30/45-minute table)
-3. How to calculate overtime hours (honest jurisdiction-variance framing)
-4. How to fill out a timesheet (leads to time-card calculator when built)
+All four LIVE 2026-08-11 (blog renderer gained markdown-link support so each article
+drives its calculator): how-to-calculate-work-hours, how-to-calculate-hours-worked-
+with-breaks, how-to-convert-hours-to-decimal, how-to-calculate-overtime-hours (the
+overtime article deliberately names NO statutory thresholds — jurisdiction-variance
+framing until the verified-rules overtime calculator ships).
 Existing `/blog/how-to-track-work-hours` gets an internal link to the calculator during
 its refresh pass — the blog renderer doesn't parse markdown links today, so the link
 ships with that renderer change, not before. (Calculator → blog direction is live.)
@@ -69,8 +69,12 @@ ships with that renderer change, not before. (Calculator → blog direction is l
 - GSC (operator connects domain) → weekly: impressions/clicks/position for the P0/P1 set.
 - Google Ads probe (18.10, operator budget): exact/phrase on 5 P0 terms, small spend,
   goal = query→calculator-completion→CTA-click rates, not installs volume.
-- App Store campaign token `?ct=work-hours-calculator` is already on the calculator CTA —
-  attributable in ASC App Analytics once the operator confirms the provider token (pt).
+- **Attribution status: UNAVAILABLE until `pt` is set.** Apple records `ct` campaign
+  attribution ONLY when the link also carries the provider token. All calculator CTAs
+  now build through `appStoreCampaignUrl()` (constants.ts) — OPERATOR: get the numeric
+  `pt` from ASC → App Analytics → Acquisition → campaign link generator, paste it into
+  `APP_STORE_PT`, redeploy; every tool's per-campaign install data starts at once.
+  Until then, do not read anything into the absence of campaign rows.
 - Web analytics: none installed today. GA4 (or PostHog, already used elsewhere in the
   stack) is an operator decision — event vocabulary reserved: `calculator_started`,
   `calculator_completed`, `calculator_copy/share/print`, `app_cta_clicked`.

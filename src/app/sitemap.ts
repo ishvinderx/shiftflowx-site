@@ -27,6 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Blog
     { url: `${BASE}/blog`, priority: 0.8, changeFrequency: 'weekly' as const },
     { url: `${BASE}/blog/how-to-track-work-hours`, priority: 0.7, changeFrequency: 'yearly' as const },
+    { url: `${BASE}/blog/how-to-calculate-work-hours`, priority: 0.7, changeFrequency: 'yearly' as const },
+    { url: `${BASE}/blog/how-to-calculate-hours-worked-with-breaks`, priority: 0.7, changeFrequency: 'yearly' as const },
+    { url: `${BASE}/blog/how-to-convert-hours-to-decimal`, priority: 0.7, changeFrequency: 'yearly' as const },
+    { url: `${BASE}/blog/how-to-calculate-overtime-hours`, priority: 0.7, changeFrequency: 'yearly' as const },
     { url: `${BASE}/blog/how-payroll-errors-happen`, priority: 0.7, changeFrequency: 'yearly' as const },
     { url: `${BASE}/blog/gig-workers-tax-guide`, priority: 0.7, changeFrequency: 'yearly' as const },
     { url: `${BASE}/blog/signs-of-work-burnout`, priority: 0.7, changeFrequency: 'yearly' as const },

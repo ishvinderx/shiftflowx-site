@@ -610,6 +610,189 @@ For international clients, Wise (formerly TransferWise) typically offers the bes
 First, add a late payment fee clause to your contract and enforce it. Second, consider requiring upfront deposits from repeat late payers. Third, factor late payment risk into your rates — chronic late payers cost you cash flow and deserve to pay a premium for that cost.
 `,
   },
+  {
+    slug: 'how-to-calculate-work-hours',
+    title: 'How to Calculate Work Hours (Step by Step, With Examples)',
+    description: 'The exact method for calculating hours worked from start and end times, handling overnight shifts, unpaid breaks, and converting to decimal hours for pay.',
+    date: '2026-08-11',
+    category: 'Pay & Hours',
+    readTime: '4 min read',
+    content: `
+Calculating work hours sounds trivial until an overnight shift, a split break, or a payroll decimal trips you up. Here is the exact method, with worked examples you can check against the [free work hours calculator](/work-hours-calculator).
+
+## The four-step method
+
+- **Step 1 — Find the shift span.** Subtract the start time from the end time. 7:30 AM to 4:00 PM is 8 hours 30 minutes.
+- **Step 2 — Handle overnight shifts.** If the end time is earlier than the start time, the shift crossed midnight: add 24 hours. 10:00 PM to 6:00 AM is 8 hours, not negative 16.
+- **Step 3 — Subtract unpaid breaks.** A 30-minute unpaid lunch comes off the total. Paid rest breaks stay in.
+- **Step 4 — Convert to decimal for pay.** Divide leftover minutes by 60. 8 hours 15 minutes becomes 8.25 decimal hours, which payroll multiplies by your rate.
+
+## Worked example
+
+Shift: 7:30 AM to 4:00 PM with a 30-minute unpaid lunch, at 22 dollars per hour.
+
+- Span: 8 hours 30 minutes
+- Minus unpaid lunch: 8 hours 0 minutes worked
+- Decimal: 8.0 hours
+- Gross pay: 8.0 x 22 = 176.00
+
+Try the same numbers in the [work hours calculator](/work-hours-calculator) — it also splits regular and overtime hours if you set a threshold.
+
+## Overnight example
+
+Shift: 10:00 PM to 6:30 AM with one 45-minute unpaid break.
+
+- Span across midnight: 8 hours 30 minutes
+- Minus break: 7 hours 45 minutes worked
+- Decimal: 7.75 hours
+
+## Where people go wrong
+
+- **Forgetting which breaks are unpaid.** Only unpaid breaks reduce hours worked — check your employment agreement.
+- **Rounding minutes casually.** 7:47 to 4:02 is 8 hours 15 minutes, not 8 hours. Small daily rounding compounds into real money across a pay period.
+- **Mixing h:mm and decimal.** 8 hours 30 minutes is 8.5 decimal hours, never 8.30.
+
+If you are doing this every shift, that is exactly the job ShiftFlow automates — it logs each shift, applies your break and overtime rules, and shows estimated pay as you go. The calculator is the manual version; [the app](/download) is the automatic one.
+`,
+  },
+  {
+    slug: 'how-to-calculate-hours-worked-with-breaks',
+    title: 'How to Calculate Hours Worked With Breaks (Paid vs Unpaid)',
+    description: 'Paid and unpaid breaks change your hours worked differently. How to handle lunches, multiple breaks, and split shifts when totalling your time.',
+    date: '2026-08-11',
+    category: 'Pay & Hours',
+    readTime: '4 min read',
+    content: `
+The single biggest source of timesheet errors is breaks — specifically, treating paid and unpaid breaks the same way. They are not the same, and the difference is money.
+
+## The rule
+
+- **Unpaid breaks** (typically meal breaks) are subtracted from hours worked. You are off the clock.
+- **Paid breaks** (typically short rest breaks) count as time worked. You stay on the clock.
+
+Which breaks are paid depends on your jurisdiction and your employment agreement. Many places require a meal break after a certain number of hours without requiring it to be paid, while short rest breaks are often paid. Check your local rules — then total accordingly.
+
+## Worked example: one unpaid lunch
+
+9:00 AM to 5:30 PM with a 30-minute unpaid lunch.
+
+- Span: 8 hours 30 minutes
+- Minus unpaid lunch: **8 hours worked**
+
+## Worked example: mixed breaks
+
+7:00 AM to 3:30 PM with a 30-minute unpaid lunch AND two paid 15-minute rest breaks.
+
+- Span: 8 hours 30 minutes
+- Minus unpaid lunch: 8 hours
+- Paid breaks: no subtraction — they were work time
+- **Total: 8 hours worked** (the paid breaks changed nothing)
+
+The [work hours calculator](/work-hours-calculator) handles this directly — add each break and mark it paid or unpaid, and it does the arithmetic per break.
+
+## Split shifts
+
+For a split shift (say 7:00–11:00 AM and 4:00–8:00 PM), calculate each segment separately and add them: 4 hours + 4 hours = 8 hours. The unpaid gap between segments is not a break — it is simply off-duty time and never enters the calculation.
+
+## Weekly totals
+
+Totalling a full week of varied shifts by hand is where errors compound. The [weekly time card calculator](/time-card-calculator) takes each day's start, end, and lunch and produces the weekly total with weekly overtime — or ShiftFlow [tracks it automatically](/download) shift by shift.
+`,
+  },
+  {
+    slug: 'how-to-convert-hours-to-decimal',
+    title: 'How to Convert Hours to Decimal (With the Full Minutes Chart)',
+    description: 'Convert hours and minutes to decimal hours for payroll: the formula, the common values, and why 8 hours 30 minutes is 8.5 — never 8.30.',
+    date: '2026-08-11',
+    category: 'Pay & Hours',
+    readTime: '3 min read',
+    content: `
+Payroll runs on decimal hours because pay is rate x time, and multiplication needs one unit. Here is the conversion, and the mistake to avoid.
+
+## The formula
+
+Decimal hours = hours + (minutes / 60)
+
+- 8 hours 15 minutes = 8 + 15/60 = **8.25**
+- 8 hours 30 minutes = 8 + 30/60 = **8.5**
+- 8 hours 45 minutes = 8 + 45/60 = **8.75**
+- 7 hours 20 minutes = 7 + 20/60 = **7.33**
+
+## The classic mistake
+
+Writing 8 hours 30 minutes as 8.30. In decimal, .30 means 18 minutes (0.30 x 60), not 30 minutes. At 25 dollars per hour, that mistake shorts you 5 dollars every single shift.
+
+## Converting back
+
+The whole number is your hours; multiply the decimal part by 60 for minutes. 9.4 decimal hours = 9 hours and 0.4 x 60 = 24 minutes.
+
+## Quick reference
+
+- 15 min = 0.25
+- 20 min = 0.33
+- 30 min = 0.50
+- 40 min = 0.67
+- 45 min = 0.75
+- 50 min = 0.83
+
+Every minute value from 0 to 59 is on the [decimal hours calculator](/decimal-hours-calculator) page, alongside a two-way converter — type either format and get the other instantly.
+
+## Where this fits in your pay
+
+Decimal conversion is the LAST step of an hours calculation: first total your time and subtract unpaid breaks (the [work hours calculator](/work-hours-calculator) does both), then convert, then multiply by your rate. ShiftFlow [does the whole chain automatically](/download) for every shift you log.
+`,
+  },
+  {
+    slug: 'how-to-calculate-overtime-hours',
+    title: 'How to Calculate Overtime Hours (Daily vs Weekly Thresholds)',
+    description: 'Overtime is time past a threshold at a multiplier — but whether the threshold is daily or weekly depends on where you work. How to calculate both, honestly.',
+    date: '2026-08-11',
+    category: 'Pay & Hours',
+    readTime: '5 min read',
+    content: `
+Overtime has one formula and a hundred jurisdictional variations. The formula is easy; knowing WHICH rule applies to you is the part that matters — and where generic calculators quietly mislead people.
+
+## The formula
+
+Overtime pay = overtime hours x regular rate x multiplier (commonly 1.5)
+
+The variations are in what counts as overtime hours:
+
+- **Weekly threshold** — hours past a weekly total (40 hours per week under the US federal FLSA; 44 in some Canadian provinces). Common for most hourly jobs.
+- **Daily threshold** — hours past a daily total (some jurisdictions apply 8 hours per day, some do not have daily overtime at all).
+- **Both** — some places apply daily AND weekly rules, paying whichever produces more overtime.
+
+We deliberately do not list a table of statutory thresholds here — rules change, exceptions abound (managerial roles, agriculture, trucking, averaging agreements), and a stale number presented confidently is worse than none. Check your jurisdiction's employment standards site or your agreement.
+
+## Worked example: weekly threshold (40 hours)
+
+You worked 46 hours this week at 20 dollars per hour, with a 40-hour weekly threshold and 1.5x multiplier.
+
+- Regular: 40 x 20 = 800
+- Overtime: 6 x 20 x 1.5 = 180
+- **Gross: 980**
+
+The [weekly time card calculator](/time-card-calculator) applies exactly this rule to a full week of daily entries — set your own threshold and multiplier.
+
+## Worked example: daily threshold (8 hours)
+
+One 11-hour day at 20 dollars per hour, 8-hour daily threshold, 1.5x.
+
+- Regular: 8 x 20 = 160
+- Overtime: 3 x 20 x 1.5 = 90
+- **Gross: 250**
+
+The [single-shift calculator](/work-hours-calculator) handles the daily version, including unpaid breaks before the split.
+
+## What to watch for
+
+- **The threshold applies to hours WORKED, not hours at the workplace** — unpaid breaks come out first.
+- **The multiplier applies to your regular rate** — check how your agreement defines it if you earn premiums or differentials.
+- **Averaging agreements and exemptions can change everything** — the categories exempted from overtime vary widely.
+
+ShiftFlow applies your configured overtime rules to every logged shift automatically and flags paychecks that do not match the hours you actually worked — [that is the whole point of the app](/download).
+`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

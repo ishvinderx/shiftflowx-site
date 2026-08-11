@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { APP_STORE_URL } from '@/lib/constants'
+import { appStoreCampaignUrl } from '@/lib/constants'
 import { calculate, fmtHM, type BreakEntry } from './calc'
 
 // The acquisition tool itself (Phase 18.3): works instantly, no signup, no paywall.
@@ -214,7 +214,7 @@ export default function CalculatorClient() {
                 </p>
                 <div className="flex flex-wrap items-center gap-3 mt-3">
                   <a
-                    href={`${APP_STORE_URL}?ct=work-hours-calculator`}
+                    href={appStoreCampaignUrl('work-hours-calculator')}
                     className="text-xs font-semibold text-white bg-[#D63C6B] hover:bg-[#c0355f] rounded-full px-4 py-2 transition-colors"
                   >
                     Track Hours with ShiftFlow
