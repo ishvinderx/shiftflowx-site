@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/security`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${BASE}/how-it-works`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/compare`, priority: 0.8, changeFrequency: 'monthly' as const },
+    // Free tools (SEO acquisition layer — Phase 18)
+    { url: `${BASE}/work-hours-calculator`, priority: 0.9, changeFrequency: 'monthly' as const },
     // Use case pages
     { url: `${BASE}/use-cases/gig-workers`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/use-cases/freelancers`, priority: 0.8, changeFrequency: 'monthly' as const },
