@@ -38,6 +38,7 @@ const categoryColors: Record<string, string> = {
   'Burnout Prevention': '#22C55E',
   'AI Technology': '#6366F1',
   'Freelancer Guide': '#D63C6B',
+  'Pay & Hours': '#14B8A6',
 };
 
 function renderContent(content: string): React.ReactNode[] {

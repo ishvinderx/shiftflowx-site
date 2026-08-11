@@ -43,6 +43,16 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        // Anti-duplicate (spec §35): identical search intent — one canonical URL.
+        source: "/hours-worked-calculator",
+        destination: "/work-hours-calculator",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

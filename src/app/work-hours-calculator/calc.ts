@@ -1,5 +1,11 @@
 // Pure work-hours math — kept free of React so the logic is testable and reusable
 // by future calculator pages (overtime, time-card, decimal-hours).
+// minutesBetween/fmtHM now live in @/lib/time; re-exported here so existing
+// imports (weekCalc.ts and others) keep working unchanged.
+
+import { minutesBetween } from '@/lib/time'
+
+export { minutesBetween, fmtHM } from '@/lib/time'
 
 export interface BreakEntry {
   minutes: number
@@ -26,14 +32,6 @@ export interface CalcResult {
   grossPay: number | null       // null when no rate given — never fabricate a $0
 }
 
-export function minutesBetween(start: string, end: string): number {
-  const [sh, sm] = start.split(':').map(Number)
-  const [eh, em] = end.split(':').map(Number)
-  let mins = (eh * 60 + em) - (sh * 60 + sm)
-  if (mins <= 0) mins += 24 * 60 // overnight shift
-  return mins
-}
-
 export function calculate(input: CalcInput): CalcResult {
   const totalShiftMinutes = minutesBetween(input.start, input.end)
   const unpaidBreakMinutes = input.breaks.filter((b) => !b.paid).reduce((s, b) => s + Math.max(0, b.minutes), 0)
@@ -54,10 +52,4 @@ export function calculate(input: CalcInput): CalcResult {
   }
 
   return { totalShiftMinutes, unpaidBreakMinutes, paidBreakMinutes, workedMinutes, regularMinutes, overtimeMinutes, decimalHours, grossPay }
-}
-
-export function fmtHM(minutes: number): string {
-  const h = Math.floor(minutes / 60)
-  const m = minutes % 60
-  return `${h}h ${m.toString().padStart(2, '0')}m`
 }

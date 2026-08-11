@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { appStoreCampaignUrl } from '@/lib/constants'
+import { decimalToHm, hmToDecimal } from './decimalCalc'
 
 // Two-way hours↔decimal converter (P1). Instant, no signup. The conversion table
 // below the tool is server-rendered on the page for snippet extraction.
@@ -12,17 +13,10 @@ export default function DecimalClient() {
   const [decimal, setDecimal] = useState('8.75')
   const [lastEdited, setLastEdited] = useState<'hm' | 'dec'>('hm')
 
-  const result = useMemo(() => {
-    if (lastEdited === 'hm') {
-      const h = Math.max(0, parseInt(hours) || 0)
-      const m = Math.min(59, Math.max(0, parseInt(minutes) || 0))
-      return { dec: (h + m / 60).toFixed(2), h, m }
-    }
-    const d = Math.max(0, parseFloat(decimal) || 0)
-    const h = Math.floor(d)
-    const m = Math.round((d - h) * 60)
-    return { dec: d.toFixed(2), h, m }
-  }, [hours, minutes, decimal, lastEdited])
+  const result = useMemo(
+    () => (lastEdited === 'hm' ? hmToDecimal(hours, minutes) : decimalToHm(decimal)),
+    [hours, minutes, decimal, lastEdited],
+  )
 
   const inputCls =
     'bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-lg font-semibold text-center focus:outline-none focus:border-[#D63C6B]/60 w-24'

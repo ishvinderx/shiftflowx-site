@@ -81,6 +81,7 @@ export const BILLING_FAQ = [
 export const NAV_LINKS = [
   { href: "/features", label: "Features" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/tools", label: "Free Tools" },
   { href: "/download", label: "Download" },
   { href: "/about", label: "About" },
   { href: "/support", label: "Support" },

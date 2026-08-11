@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next'
+import { BLOG_POSTS } from '@/lib/blog'
+import { TOOLS } from '@/lib/tools/registry'
 
 const BASE = 'https://shiftflowx.net'
 const now = new Date()
@@ -14,28 +16,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/security`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${BASE}/how-it-works`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/compare`, priority: 0.8, changeFrequency: 'monthly' as const },
-    // Free tools (SEO acquisition layer — Phase 18)
-    { url: `${BASE}/work-hours-calculator`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/time-card-calculator`, priority: 0.9, changeFrequency: 'monthly' as const },
-    { url: `${BASE}/decimal-hours-calculator`, priority: 0.8, changeFrequency: 'monthly' as const },
+    // Free tools hub (calculator entries derive from the registry below)
+    { url: `${BASE}/tools`, priority: 0.9, changeFrequency: 'monthly' as const },
     // Use case pages
     { url: `${BASE}/use-cases/gig-workers`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/use-cases/freelancers`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/use-cases/hourly-workers`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/use-cases/nurses`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${BASE}/use-cases/contractors`, priority: 0.7, changeFrequency: 'monthly' as const },
-    // Blog
+    // Blog index (posts derive from BLOG_POSTS below)
     { url: `${BASE}/blog`, priority: 0.8, changeFrequency: 'weekly' as const },
-    { url: `${BASE}/blog/how-to-track-work-hours`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/how-to-calculate-work-hours`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/how-to-calculate-hours-worked-with-breaks`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/how-to-convert-hours-to-decimal`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/how-to-calculate-overtime-hours`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/how-payroll-errors-happen`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/gig-workers-tax-guide`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/signs-of-work-burnout`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/how-payday-forecasting-works`, priority: 0.7, changeFrequency: 'yearly' as const },
-    { url: `${BASE}/blog/freelancer-invoice-guide`, priority: 0.7, changeFrequency: 'yearly' as const },
     // Legal
     { url: `${BASE}/privacy`, priority: 0.5, changeFrequency: 'yearly' as const },
     { url: `${BASE}/terms`, priority: 0.5, changeFrequency: 'yearly' as const },
@@ -48,5 +38,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Admin dashboard excluded from sitemap intentionally
   ]
 
-  return static_pages.map(p => ({ ...p, lastModified: now }))
+  // Calculators derive from the tool registry — planned tools never leak in.
+  const tool_pages = TOOLS.filter((t) => t.status === 'live').map((t) => ({
+    url: `${BASE}/${t.slug}`,
+    priority: 0.9,
+    changeFrequency: 'monthly' as const,
+  }))
+
+  // Blog posts derive from the blog source of truth.
+  const blog_pages = BLOG_POSTS.map((p) => ({
+    url: `${BASE}/blog/${p.slug}`,
+    priority: 0.7,
+    changeFrequency: 'yearly' as const,
+  }))
+
+  return [...static_pages, ...tool_pages, ...blog_pages].map((p) => ({ ...p, lastModified: now }))
 }
