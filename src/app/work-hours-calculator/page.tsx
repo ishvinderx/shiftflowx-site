@@ -139,6 +139,9 @@ export default function WorkHoursCalculatorPage() {
           <section className="mt-14 max-w-3xl">
             <h2 className="text-lg font-semibold text-white mb-4">Keep going</h2>
             <div className="flex flex-wrap gap-3 text-sm">
+              <Link href="/time-card-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+                Weekly time card calculator →
+              </Link>
               <Link href="/blog/how-to-track-work-hours" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
                 How to track work hours →
               </Link>

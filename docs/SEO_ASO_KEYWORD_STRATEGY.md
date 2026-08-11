@@ -24,12 +24,12 @@ version except Promotional Text, which is editable without review).
 | Pri | Keyword cluster | Intent | Target URL | Status |
 |----|----|----|----|----|
 | P0 | work hours calculator (+ "with breaks", "with lunch") | do (tool) | /work-hours-calculator | **LIVE 2026-08-10** |
-| P0 | time card calculator (+ "with lunch") | do | /time-card-calculator | planned — needs distinct card-per-day UX, NOT a keyword-swapped copy |
+| P0 | time card calculator (+ "with lunch") | do | /time-card-calculator | **LIVE 2026-08-11** — per-day week grid, weekly OT (distinct from the daily single-shift tool) |
 | P0 | hours calculator / work time calculator | do | /work-hours-calculator (canonical) | covered — do not build thin variants |
 | P1 | overtime calculator / overtime pay calculator | do | /overtime-calculator | planned — weekly threshold + jurisdiction presets is the differentiator |
 | P1 | hours to decimal / decimal hours calculator | do + know | /decimal-hours-calculator | planned — conversion table + tool |
 | P1 | shift calculator / shift pay calculator | do | /work-hours-calculator initially; split only if GSC shows distinct demand | watch |
-| P1 | timesheet calculator / weekly hours calculator | do | /time-card-calculator (weekly mode) | planned |
+| P1 | timesheet calculator / weekly hours calculator | do | /time-card-calculator (canonical) | covered by the live page |
 | P2 | how to calculate work hours / hours worked with lunch / overtime hours / time between two times / unpaid breaks / a timesheet | know | blog posts embedding the calculator | planned (see content plan) |
 | P2 | how many hours is 8:30 to 5 / 7 to 3:30 (pattern) | know (snippet) | FAQ entries on the calculator page | partially live (2 patterns in FAQ) |
 | P3 | biweekly/monthly hours calculator, clock in clock out calculator, employee/freelancer/contractor hours calculator | do, thin variants | ONLY if GSC impressions justify; high doorway-page risk | hold |
