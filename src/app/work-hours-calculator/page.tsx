@@ -142,6 +142,9 @@ export default function WorkHoursCalculatorPage() {
               <Link href="/time-card-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
                 Weekly time card calculator →
               </Link>
+              <Link href="/decimal-hours-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+                Hours to decimal converter →
+              </Link>
               <Link href="/blog/how-to-track-work-hours" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
                 How to track work hours →
               </Link>

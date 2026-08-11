@@ -27,7 +27,7 @@ version except Promotional Text, which is editable without review).
 | P0 | time card calculator (+ "with lunch") | do | /time-card-calculator | **LIVE 2026-08-11** — per-day week grid, weekly OT (distinct from the daily single-shift tool) |
 | P0 | hours calculator / work time calculator | do | /work-hours-calculator (canonical) | covered — do not build thin variants |
 | P1 | overtime calculator / overtime pay calculator | do | /overtime-calculator | planned — weekly threshold + jurisdiction presets is the differentiator |
-| P1 | hours to decimal / decimal hours calculator | do + know | /decimal-hours-calculator | planned — conversion table + tool |
+| P1 | hours to decimal / decimal hours calculator | do + know | /decimal-hours-calculator | **LIVE 2026-08-11** — two-way converter + full server-rendered minutes chart |
 | P1 | shift calculator / shift pay calculator | do | /work-hours-calculator initially; split only if GSC shows distinct demand | watch |
 | P1 | timesheet calculator / weekly hours calculator | do | /time-card-calculator (canonical) | covered by the live page |
 | P2 | how to calculate work hours / hours worked with lunch / overtime hours / time between two times / unpaid breaks / a timesheet | know | blog posts embedding the calculator | planned (see content plan) |

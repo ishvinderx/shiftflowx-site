@@ -50,6 +50,7 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 ## Key Pages
 - Free work hours calculator: https://shiftflowx.net/work-hours-calculator
 - Free time card calculator (weekly): https://shiftflowx.net/time-card-calculator
+- Decimal hours converter: https://shiftflowx.net/decimal-hours-calculator
 - Pricing: https://shiftflowx.net/pricing
 - Features: https://shiftflowx.net/features
 - How it works: https://shiftflowx.net/how-it-works
