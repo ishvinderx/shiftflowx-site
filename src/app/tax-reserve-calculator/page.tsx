@@ -15,7 +15,7 @@ const TOOL = {
 
 export const metadata: Metadata = toolMetadata({
   ...TOOL,
-  title: 'Tax Reserve Calculator — Set Aside the Right Amount (Self-Employed)',
+  title: 'Tax Reserve Calculator for the Self-Employed',
 })
 
 const FAQ: Faq[] = [

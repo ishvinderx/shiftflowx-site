@@ -21,7 +21,7 @@ const TOOL = {
 
 export const metadata: Metadata = toolMetadata({
   ...TOOL,
-  title: 'Owner-Operator Pay Calculator — Trucking Revenue, Costs & Reserve (Canada)',
+  title: 'Owner-Operator Pay Calculator — Trucking (Canada)',
 })
 
 const FAQ: Faq[] = [

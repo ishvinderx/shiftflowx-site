@@ -19,7 +19,7 @@ const TOOL = {
 
 export const metadata: Metadata = toolMetadata({
   ...TOOL,
-  title: 'Overtime Calculator — Verified Rules for ON, BC, AB, Federal & US',
+  title: 'Overtime Calculator — ON, BC, AB, Federal & US Rules',
 })
 
 const FAQ: Faq[] = [

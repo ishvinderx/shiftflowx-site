@@ -15,7 +15,7 @@ const TOOL = {
 
 export const metadata: Metadata = toolMetadata({
   ...TOOL,
-  title: 'Contractor Pay Calculator — Invoice, GST/HST & Tax Reserve (Canada)',
+  title: 'Contractor Pay Calculator — GST/HST & Tax Reserve',
 })
 
 const FAQ: Faq[] = [

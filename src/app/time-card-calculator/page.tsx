@@ -9,7 +9,7 @@ import TimeCardClient from "./TimeCardClient";
 // /work-hours-calculator (daily threshold). Cross-linked cluster, no thin variants.
 
 export const metadata: Metadata = {
-  title: "Time Card Calculator — Free Weekly Timesheet With Lunch & Overtime",
+  title: "Time Card Calculator — Free Weekly Timesheet",
   description:
     "Free time card calculator: enter each day's start, end, and lunch break to total your weekly timesheet with decimal hours, weekly overtime, and estimated pay.",
   alternates: { canonical: "https://shiftflowx.net/time-card-calculator" },
@@ -101,6 +101,12 @@ export default function TimeCardCalculatorPage() {
             <div className="flex flex-wrap gap-3 text-sm">
               <Link href="/work-hours-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
                 Single-shift hours calculator →
+              </Link>
+              <Link href="/overtime-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+                Overtime calculator →
+              </Link>
+              <Link href="/decimal-hours-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+                Decimal hours converter →
               </Link>
               <Link href="/use-cases/hourly-workers" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
                 ShiftFlow for hourly workers →

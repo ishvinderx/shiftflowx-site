@@ -41,12 +41,13 @@ export default function HstInvoiceClient() {
     [hours, rate],
   )
 
-  const result = useMemo(() => {
-    const { hours: h, rate: r } = fields
-    if (h.error || r.error) return null
-    // Rate comes ONLY from the verified rule — never hardcoded.
-    return calculateInvoice({ hours: h.value!, rate: r.value!, taxPercent: rule.ratePercent })
-  }, [fields, rule])
+  // Plain computation — the React Compiler memoizes; a manual useMemo here
+  // tripped react-hooks/preserve-manual-memoization.
+  const result =
+    fields.hours.error || fields.rate.error
+      ? null
+      : // Rate comes ONLY from the verified rule — never hardcoded.
+        calculateInvoice({ hours: fields.hours.value!, rate: fields.rate.value!, taxPercent: rule.ratePercent })
 
   // Once-per-mount analytics: started on first input interaction, completed
   // when a valid result has rendered.
