@@ -58,7 +58,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Overtime Calculator',
     shortDescription: 'Split regular vs. overtime hours and see what the overtime multiplier adds to your pay.',
     category: 'Overtime',
-    status: 'planned',
+    status: 'live',
     related: ['work-hours-calculator', 'time-card-calculator', 'hourly-pay-calculator'],
   },
   {
@@ -66,7 +66,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Gross Pay Calculator',
     shortDescription: 'Your total earnings before deductions, from rate and hours across a pay period.',
     category: 'Pay & Earnings',
-    status: 'planned',
+    status: 'live',
     related: ['hourly-pay-calculator', 'take-home-pay-calculator', 'work-hours-calculator'],
   },
   {
@@ -74,7 +74,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Take-Home Pay Calculator',
     shortDescription: 'Estimate what actually lands in your account after taxes and deductions.',
     category: 'Pay & Earnings',
-    status: 'planned',
+    status: 'live',
     related: ['hourly-pay-calculator', 'gross-pay-calculator', 'tax-reserve-calculator'],
   },
   {
@@ -82,7 +82,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Contractor Pay Calculator',
     shortDescription: 'Work out contract earnings from your rate, billable hours, and expenses.',
     category: 'Contractor & Self-Employed',
-    status: 'planned',
+    status: 'live',
     related: ['gst-hst-calculator', 'hst-invoice-calculator', 'tax-reserve-calculator', 'owner-operator-pay-calculator'],
   },
   {
@@ -98,7 +98,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Tax Reserve Calculator',
     shortDescription: 'How much of each payment to set aside so tax season doesn’t catch you short.',
     category: 'Contractor & Self-Employed',
-    status: 'planned',
+    status: 'live',
     related: ['contractor-pay-calculator', 'contractor-take-home-pay-calculator', 'gst-hst-calculator'],
   },
   {
@@ -106,7 +106,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'GST/HST Calculator',
     shortDescription: 'Add or back out GST/HST from an amount using your province’s rate.',
     category: 'GST/HST & Invoices',
-    status: 'planned',
+    status: 'live',
     related: ['hst-invoice-calculator', 'contractor-pay-calculator', 'tax-reserve-calculator'],
   },
   {
@@ -114,7 +114,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'HST Invoice Calculator',
     shortDescription: 'Build invoice line totals with HST applied correctly for your province.',
     category: 'GST/HST & Invoices',
-    status: 'planned',
+    status: 'live',
     related: ['gst-hst-calculator', 'contractor-pay-calculator', 'truck-driver-settlement-calculator'],
   },
   {
@@ -128,7 +128,7 @@ export const TOOLS: ToolConfig[] = [
   {
     slug: 'truck-driver-settlement-calculator',
     title: 'Truck Driver Settlement Calculator',
-    shortDescription: 'Check a settlement statement: miles, rate, deductions, and what you should be paid.',
+    shortDescription: 'Predict your expected settlement — hours, rate, and GST/HST — and check it against your carrier’s statement.',
     category: 'Owner-Operator & Trucking',
     status: 'planned',
     related: ['owner-operator-pay-calculator', 'hst-invoice-calculator', 'contractor-pay-calculator'],
