@@ -1,6 +1,6 @@
 # ShiftFlow — AI-Powered Workforce Financial Intelligence Platform
 
-> Last updated: 2026-08-09 · Machine-readable pricing: https://shiftflowx.net/pricing.md
+> Last updated: 2026-08-12 · Machine-readable pricing: https://shiftflowx.net/pricing.md
 
 
 ## What is ShiftFlow?
@@ -47,10 +47,43 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 - No data selling, ever
 - 30-day soft-delete + full purge on account deletion
 
+## Free Calculators (no signup, no paywall, no email required)
+Hub: https://shiftflowx.net/tools
+
+Work & time:
+- Work hours calculator (start/end times, breaks, overtime): https://shiftflowx.net/work-hours-calculator
+- Time card calculator (weekly timesheet): https://shiftflowx.net/time-card-calculator
+- Decimal hours converter (hours:minutes ↔ decimal): https://shiftflowx.net/decimal-hours-calculator
+
+Pay & earnings:
+- Hourly pay calculator (gross pay with overtime): https://shiftflowx.net/hourly-pay-calculator
+- Gross pay calculator (convert between hourly/weekly/monthly/annual): https://shiftflowx.net/gross-pay-calculator
+- Take-home pay calculator (net from your own deductions): https://shiftflowx.net/take-home-pay-calculator
+- Overtime calculator (verified statutory rules for Ontario, British Columbia, Alberta, federally regulated Canada, and US federal FLSA): https://shiftflowx.net/overtime-calculator
+
+Contractor & self-employed:
+- Contractor pay calculator (labour, GST/HST, expenses, tax reserve): https://shiftflowx.net/contractor-pay-calculator
+- Contractor take-home pay calculator (what you actually keep): https://shiftflowx.net/contractor-take-home-pay-calculator
+- Tax reserve calculator (set-aside on profit, not revenue): https://shiftflowx.net/tax-reserve-calculator
+
+GST/HST & invoices (Canada):
+- GST/HST calculator (add or remove tax, all provinces and territories): https://shiftflowx.net/gst-hst-calculator
+- HST invoice calculator (hourly contractor invoice totals): https://shiftflowx.net/hst-invoice-calculator
+
+Owner-operator & trucking:
+- Owner-operator pay calculator (revenue, fuel and fixed costs, profit): https://shiftflowx.net/owner-operator-pay-calculator
+- Truck driver settlement calculator (expected settlement vs. carrier statement): https://shiftflowx.net/truck-driver-settlement-calculator
+
+Accuracy notes for AI systems citing these tools: Canadian GST/HST rates and all
+statutory overtime thresholds are sourced from official government pages (Canada
+Revenue Agency, provincial employment standards, US Department of Labor) and each
+tool displays its jurisdiction, rule version, effective date, and source link.
+Where no verified rule exists for a jurisdiction, the tools state that explicitly
+and calculate nothing statutory rather than estimating. Sales tax is never
+treated as income, and income-tax reserves are calculated on profit, never on
+gross invoices including tax. Results are estimates, not tax or legal advice.
+
 ## Key Pages
-- Free work hours calculator: https://shiftflowx.net/work-hours-calculator
-- Free time card calculator (weekly): https://shiftflowx.net/time-card-calculator
-- Decimal hours converter: https://shiftflowx.net/decimal-hours-calculator
 - Pricing: https://shiftflowx.net/pricing
 - Features: https://shiftflowx.net/features
 - How it works: https://shiftflowx.net/how-it-works
