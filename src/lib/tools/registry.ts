@@ -90,7 +90,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Contractor Take-Home Pay Calculator',
     shortDescription: 'What self-employed income leaves after setting aside tax and business costs.',
     category: 'Contractor & Self-Employed',
-    status: 'planned',
+    status: 'live',
     related: ['contractor-pay-calculator', 'tax-reserve-calculator', 'gst-hst-calculator', 'take-home-pay-calculator'],
   },
   {
@@ -122,7 +122,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Owner-Operator Pay Calculator',
     shortDescription: 'Trucking revenue minus fuel, maintenance, and fixed costs — what a load really pays.',
     category: 'Owner-Operator & Trucking',
-    status: 'planned',
+    status: 'live',
     related: ['truck-driver-settlement-calculator', 'gst-hst-calculator', 'contractor-pay-calculator', 'tax-reserve-calculator'],
   },
   {
@@ -130,7 +130,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Truck Driver Settlement Calculator',
     shortDescription: 'Predict your expected settlement — hours, rate, and GST/HST — and check it against your carrier’s statement.',
     category: 'Owner-Operator & Trucking',
-    status: 'planned',
+    status: 'live',
     related: ['owner-operator-pay-calculator', 'hst-invoice-calculator', 'contractor-pay-calculator'],
   },
 ]
