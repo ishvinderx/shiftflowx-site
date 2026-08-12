@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ToolBreadcrumb from "@/components/calculator/ToolBreadcrumb";
+import { breadcrumbSchema, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import CalculatorClient from "./CalculatorClient";
 
 // P0 SEO landing page (Phase 18.2/18.3): a REAL free tool, not an article with a
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-const FAQ = [
+const FAQ: Faq[] = [
   {
     q: "How do I calculate my work hours?",
     a: "Subtract your start time from your end time, then subtract any unpaid breaks. For example: 7:30 AM to 4:00 PM is 8 hours 30 minutes; with a 30-minute unpaid lunch, you worked 8 hours. This calculator does that automatically, including overnight shifts.",
@@ -47,54 +49,30 @@ const FAQ = [
   },
 ];
 
-const jsonLd = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
-
-const webAppSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Work Hours Calculator",
-  url: "https://shiftflowx.net/work-hours-calculator",
-  applicationCategory: "UtilityApplication",
-  operatingSystem: "Any (web browser)",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+// Schema name/description intentionally differ from the meta title/description
+// (page predates seo.ts), so the helpers get their own cfg — output-identical.
+const SCHEMA_TOOL = {
+  slug: "work-hours-calculator",
+  title: "Work Hours Calculator",
   description:
     "Free calculator for hours worked: start and end times, paid/unpaid breaks, overtime split, decimal hours, and estimated gross pay.",
-  publisher: { "@type": "Organization", name: "ShiftFlow", url: "https://shiftflowx.net" },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "ShiftFlow", item: "https://shiftflowx.net" },
-    { "@type": "ListItem", position: 2, name: "Work Hours Calculator", item: "https://shiftflowx.net/work-hours-calculator" },
-  ],
-};
+const TRAIL = [
+  { name: "ShiftFlow", path: "/" },
+  { name: "Work Hours Calculator", path: "/work-hours-calculator" },
+];
 
 export default function WorkHoursCalculatorPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(SCHEMA_TOOL)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
       <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <nav className="flex items-center gap-2 text-sm text-white/30 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
-            <span>/</span>
-            <span className="text-white/60">Work Hours Calculator</span>
-          </nav>
+          <ToolBreadcrumb trail={[TRAIL[0], { name: "Work Hours Calculator" }]} />
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Work Hours Calculator

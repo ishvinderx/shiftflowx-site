@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ToolBreadcrumb from "@/components/calculator/ToolBreadcrumb";
+import { breadcrumbSchema, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import TimeCardClient from "./TimeCardClient";
 
 // P0 SEO landing page #2 (Phase 18.2): weekly time-card / timesheet intent — a
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-const FAQ = [
+const FAQ: Faq[] = [
   {
     q: "How do I calculate a time card?",
     a: "For each day, subtract the start time from the end time, subtract unpaid breaks, then add the days together for the weekly total. Convert to decimal hours (minutes ÷ 60) before multiplying by an hourly rate. This calculator does all of that per day and totals the week.",
@@ -41,54 +43,30 @@ const FAQ = [
   },
 ];
 
-const jsonLd = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
-
-const webAppSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Time Card Calculator",
-  url: "https://shiftflowx.net/time-card-calculator",
-  applicationCategory: "UtilityApplication",
-  operatingSystem: "Any (web browser)",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+// Schema name/description intentionally differ from the meta title/description
+// (page predates seo.ts), so the helpers get their own cfg — output-identical.
+const SCHEMA_TOOL = {
+  slug: "time-card-calculator",
+  title: "Time Card Calculator",
   description:
     "Free weekly time card calculator: per-day start/end times and lunch breaks, weekly totals, decimal hours, weekly overtime, and estimated gross pay.",
-  publisher: { "@type": "Organization", name: "ShiftFlow", url: "https://shiftflowx.net" },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "ShiftFlow", item: "https://shiftflowx.net" },
-    { "@type": "ListItem", position: 2, name: "Time Card Calculator", item: "https://shiftflowx.net/time-card-calculator" },
-  ],
-};
+const TRAIL = [
+  { name: "ShiftFlow", path: "/" },
+  { name: "Time Card Calculator", path: "/time-card-calculator" },
+];
 
 export default function TimeCardCalculatorPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(SCHEMA_TOOL)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
       <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <nav className="flex items-center gap-2 text-sm text-white/30 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
-            <span>/</span>
-            <span className="text-white/60">Time Card Calculator</span>
-          </nav>
+          <ToolBreadcrumb trail={[TRAIL[0], { name: "Time Card Calculator" }]} />
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Time Card Calculator

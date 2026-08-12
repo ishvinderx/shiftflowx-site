@@ -1,7 +1,8 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
+import { trackToolEvent } from '@/lib/analytics'
 import { appStoreCampaignUrl } from '@/lib/constants'
 import { calculate, fmtHM, type BreakEntry } from './calc'
 
@@ -10,6 +11,8 @@ import { calculate, fmtHM, type BreakEntry } from './calc'
 // "work hours calculator" searches happen.
 
 const DEFAULT_BREAK: BreakEntry = { minutes: 30, paid: false }
+
+const ANALYTICS = { calculator: 'work-hours-calculator', category: 'Work & Time' }
 
 export default function CalculatorClient() {
   const [start, setStart] = useState('09:00')
@@ -36,6 +39,21 @@ export default function CalculatorClient() {
     if (!start || !end) return false
     return end <= start
   }, [start, end])
+
+  // Once-per-mount analytics: started on first input interaction, completed
+  // when a valid result has rendered.
+  const startedRef = useRef(false)
+  const completedRef = useRef(false)
+  const markStarted = () => {
+    if (startedRef.current) return
+    startedRef.current = true
+    trackToolEvent('calculator_started', ANALYTICS)
+  }
+  useEffect(() => {
+    if (result === null || completedRef.current) return
+    completedRef.current = true
+    trackToolEvent('calculator_completed', ANALYTICS)
+  }, [result])
 
   const summaryText = useMemo(() => {
     if (!result) return ''
@@ -93,7 +111,10 @@ export default function CalculatorClient() {
   return (
     <div className="grid lg:grid-cols-2 gap-6 print:block">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 print:hidden">
+      <div
+        className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 print:hidden"
+        onChangeCapture={markStarted}
+      >
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="whc-start" className={labelCls}>Start time</label>
@@ -215,6 +236,7 @@ export default function CalculatorClient() {
                 <div className="flex flex-wrap items-center gap-3 mt-3">
                   <a
                     href={appStoreCampaignUrl('work-hours-calculator')}
+                    onClick={() => trackToolEvent('calculator_cta_clicked', ANALYTICS)}
                     className="text-xs font-semibold text-white bg-[#D63C6B] hover:bg-[#c0355f] rounded-full px-4 py-2 transition-colors"
                   >
                     Track Hours with ShiftFlow

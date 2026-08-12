@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ToolBreadcrumb from "@/components/calculator/ToolBreadcrumb";
+import { breadcrumbSchema, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import DecimalClient from "./DecimalClient";
 
 // P1 SEO page: "hours to decimal" — know+do intent. Distinct functionality: two-way
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 // The table IS the content — every minute value, server-rendered.
 const rows = Array.from({ length: 60 }, (_, m) => ({ m, dec: (m / 60).toFixed(2) }));
 
-const FAQ = [
+const FAQ: Faq[] = [
   {
     q: "How do I convert hours and minutes to decimal hours?",
     a: "Divide the minutes by 60 and add the result to the whole hours. Example: 8 hours 45 minutes = 8 + 45/60 = 8.75 decimal hours. Payroll systems multiply decimal hours by the hourly rate.",
@@ -39,49 +41,29 @@ const FAQ = [
   },
 ];
 
-const jsonLd = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
-
-const webAppSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Decimal Hours Calculator",
-  url: "https://shiftflowx.net/decimal-hours-calculator",
-  applicationCategory: "UtilityApplication",
-  operatingSystem: "Any (web browser)",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+// Schema name/description intentionally differ from the meta title/description
+// (page predates seo.ts), so the helpers get their own cfg — output-identical.
+const SCHEMA_TOOL = {
+  slug: "decimal-hours-calculator",
+  title: "Decimal Hours Calculator",
   description: "Free two-way converter between hours:minutes and decimal hours for payroll, with the full minutes conversion chart.",
-  publisher: { "@type": "Organization", name: "ShiftFlow", url: "https://shiftflowx.net" },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "ShiftFlow", item: "https://shiftflowx.net" },
-    { "@type": "ListItem", position: 2, name: "Decimal Hours Calculator", item: "https://shiftflowx.net/decimal-hours-calculator" },
-  ],
-};
+const TRAIL = [
+  { name: "ShiftFlow", path: "/" },
+  { name: "Decimal Hours Calculator", path: "/decimal-hours-calculator" },
+];
 
 export default function DecimalHoursCalculatorPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(SCHEMA_TOOL)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
       <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
-          <nav className="flex items-center gap-2 text-sm text-white/30 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
-            <span>/</span>
-            <span className="text-white/60">Decimal Hours Calculator</span>
-          </nav>
+          <ToolBreadcrumb trail={[TRAIL[0], { name: "Decimal Hours Calculator" }]} />
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Decimal Hours Calculator
