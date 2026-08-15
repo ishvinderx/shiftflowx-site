@@ -5,11 +5,11 @@ import { Share2, Download, Gift, Clock, ShieldCheck, Brain, Apple } from "lucide
 export const metadata: Metadata = {
   title: "ShiftFlow Referral Program",
   description:
-    "Share ShiftFlow with friends and earn 1 free month of Pro for every friend who subscribes. No limit on rewards.",
+    "Share ShiftFlow with friends and earn 1 free month of Pro for every friend who logs their first shift. No limit on rewards.",
   openGraph: {
     title: "ShiftFlow Referral Program — Earn Free Pro",
     description:
-      "Share ShiftFlow and earn 1 free month of Pro for every friend who subscribes.",
+      "Share ShiftFlow and earn 1 free month of Pro for every friend who logs their first shift.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
@@ -28,9 +28,9 @@ const HOW_IT_WORKS_STEPS = [
   {
     number: "02",
     icon: Download,
-    title: "Friend downloads and subscribes",
+    title: "Friend signs up and logs a shift",
     description:
-      "Your friend downloads ShiftFlow using your link and starts a free trial. When they upgrade to a paid plan, the reward is unlocked for both of you.",
+      "Your friend downloads ShiftFlow using your link, creates their account, and logs their first shift. That unlocks the reward for both of you — no purchase required.",
     accent: "#14B8A6",
   },
   {
@@ -38,7 +38,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: Gift,
     title: "You both get 1 month free",
     description:
-      "You receive 1 free month of ShiftFlow Pro automatically. Your friend gets an extended trial bonus. No codes to enter — it just works.",
+      "You AND your friend each receive 1 free month of ShiftFlow Pro, granted automatically. No codes to enter — it just works.",
     accent: "#22C55E",
   },
 ];
@@ -52,7 +52,7 @@ const FAQ_ITEMS = [
   {
     question: "When do I receive my free month?",
     answer:
-      "Your free month of Pro is credited within 24 hours of your referred friend upgrading to a paid ShiftFlow plan (Monthly or Annual). You will receive a push notification when the reward is applied.",
+      "Your free month of Pro is credited as soon as your referred friend logs their first shift. You will receive a push notification when the reward is applied.",
   },
   {
     question: "Is there a limit on how many friends I can refer?",
@@ -60,9 +60,9 @@ const FAQ_ITEMS = [
       "No limit at all. Refer 10 friends, earn 10 free months. Refer 50 friends, earn 50 free months. The more you share, the more you save — indefinitely.",
   },
   {
-    question: "What counts as a qualifying subscription?",
+    question: "What does my friend need to do to qualify?",
     answer:
-      "Any ShiftFlow Pro plan — Monthly ($9.99/mo) or Annual ($59.99/yr) — qualifies. Free trial users do not trigger the reward; the friend must upgrade to a paid plan. Both new and returning subscribers count.",
+      "Your friend needs to create a ShiftFlow account using your link and log their first shift. That is it — they do not need to subscribe, start a trial, or pay anything. The reward is granted as soon as their first shift is logged.",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function ReferralPage() {
           </h1>
 
           <p className="text-white/55 text-xl leading-relaxed max-w-xl mx-auto mb-8">
-            Every friend who subscribes earns you a free month of ShiftFlow Pro — with no cap on rewards.
+            Every friend who logs their first shift earns you a free month of ShiftFlow Pro — with no cap on rewards.
           </p>
 
           {/* Reward detail card */}
@@ -128,7 +128,7 @@ export default function ReferralPage() {
                 Earn 1 free month Pro
               </div>
               <div className="text-white/50 text-sm">
-                For every friend who subscribes &middot; No limit
+                For every friend who logs their first shift &middot; No limit
               </div>
             </div>
           </div>
