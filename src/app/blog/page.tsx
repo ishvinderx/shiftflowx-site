@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow Blog — Workforce Financial Intelligence Guides",
+  title: "Blog — Pay, Tax & Burnout Guides for Workers",
   description: "Expert guides on payroll protection, payday forecasting, gig worker taxes, burnout prevention, freelancer invoicing, and workforce financial wellness.",
   alternates: { canonical: 'https://shiftflowx.net/blog' },
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow for Freelancers — Invoice Tracker & Tax Estimator App",
+  title: "For Freelancers — Invoice & Tax Estimator",
   description: "ShiftFlow helps freelancers track project hours, generate professional invoices, estimate taxes, and manage financial health. Free 7-day trial.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/freelancers' },
 };

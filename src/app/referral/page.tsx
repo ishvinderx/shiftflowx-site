@@ -3,9 +3,11 @@ import Link from "next/link";
 import { Share2, Download, Gift, Clock, ShieldCheck, Brain, Apple } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow Referral Program",
+  title: "Referral Program — Earn Free Pro Months",
   description:
     "Share ShiftFlow with friends and earn 1 free month of Pro for every friend who logs their first shift. No limit on rewards.",
+  // Without this the root layout's canonical is inherited, pointing this page at the homepage.
+  alternates: { canonical: 'https://shiftflowx.net/referral' },
   openGraph: {
     title: "ShiftFlow Referral Program — Earn Free Pro",
     description:

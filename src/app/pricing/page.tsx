@@ -3,9 +3,12 @@ import PricingClient from "./PricingClient";
 import { PRICING, BILLING_FAQ, SITE_URL, APP_STORE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pricing — ShiftFlow",
+  title: "Pricing — Free 7-Day Trial, Then $9.99/mo",
   description:
     "Simple, transparent pricing. Try ShiftFlow Pro free for 7 days, then $9.99/month or $59.99/year. Cancel anytime.",
+  // Without this the root layout's canonical ('https://shiftflowx.net') is inherited,
+  // telling Google this page duplicates the homepage — which drops it from the index.
+  alternates: { canonical: 'https://shiftflowx.net/pricing' },
 };
 
 // Server-rendered structured data (AI-SEO pass, 2026-08): the pricing page carried no

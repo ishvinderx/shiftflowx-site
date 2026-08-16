@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/security`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${BASE}/how-it-works`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${BASE}/compare`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${BASE}/referral`, priority: 0.7, changeFrequency: 'monthly' as const },
     // Free tools hub (calculator entries derive from the registry below)
     { url: `${BASE}/tools`, priority: 0.9, changeFrequency: 'monthly' as const },
     // Use case pages

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow vs Other Apps — Best AI Shift Tracker Comparison",
+  title: "Compare Shift Tracker Apps — Which Is Best?",
   description: "See how ShiftFlow compares to Clockify, Toggl, Deputy, and other shift trackers. ShiftFlow is the only app with AI payroll protection and payday forecasting.",
   alternates: { canonical: 'https://shiftflowx.net/compare' },
 };

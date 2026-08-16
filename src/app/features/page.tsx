@@ -11,7 +11,7 @@ const breadcrumb = {
 };
 
 export const metadata: Metadata = {
-  title: "ShiftFlow Features — AI Payroll Protection, Payday Forecasting & Burnout Analytics",
+  title: "Features — AI Payroll Protection & Forecasting",
   description:
     "Explore every ShiftFlow feature: AI payroll protection, payday forecasting, burnout analytics, tax estimation, invoice generator, payslip OCR scanner, and financial health score. Built for employees, gig workers, and freelancers.",
   alternates: { canonical: 'https://shiftflowx.net/features' },

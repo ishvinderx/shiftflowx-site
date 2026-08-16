@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How ShiftFlow Works — AI Shift Tracking & Payroll Protection",
+  title: "How It Works — AI Shift Tracking in 3 Steps",
   description: "Learn exactly how ShiftFlow's AI tracks your shifts, verifies pay, detects payroll errors, and protects your financial wellness in 4 simple steps.",
   alternates: { canonical: 'https://shiftflowx.net/how-it-works' },
 };

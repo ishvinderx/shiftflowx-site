@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow for Nurses & Healthcare Workers — Shift Tracker App",
+  title: "For Nurses — Shift & Night Differential Tracker",
   description: "ShiftFlow helps nurses and healthcare workers track complex shift patterns, overtime, on-call pay, night differentials, and prevent burnout.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/nurses' },
 };

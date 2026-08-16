@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Data Collection Policy — ShiftFlow",
+  title: "Data Collection Policy — What We Store",
   description:
     "Understand exactly what data ShiftFlow collects, why we collect it, how long we keep it, and your rights to access, export, and delete it.",
   alternates: { canonical: "https://shiftflowx.net/data-policy" },

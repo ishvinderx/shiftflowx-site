@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow for Gig Workers — Track Income, Taxes & Burnout",
+  title: "For Gig Workers — Income, Taxes & Burnout",
   description: "ShiftFlow helps gig workers (Uber, DoorDash, Instacart) track every dollar earned, estimate quarterly taxes, prevent burnout, and generate professional invoices.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/gig-workers' },
 };

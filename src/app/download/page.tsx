@@ -11,7 +11,7 @@ const breadcrumb = {
 };
 
 export const metadata: Metadata = {
-  title: "Download ShiftFlow — Free 7-Day Trial on iPhone & iPad",
+  title: "Download for iPhone & iPad — Free 7-Day Trial",
   description:
     "Download ShiftFlow free on the App Store. Get full access to AI payroll protection, payday forecasting, burnout analytics, and more. iOS 16+, iPhone & iPad. Cancel anytime.",
   alternates: { canonical: 'https://shiftflowx.net/download' },

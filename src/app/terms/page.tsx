@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — ShiftFlow Legal Agreement",
+  title: "Terms of Service — Legal Agreement",
   description: "Read ShiftFlow's Terms of Service. Understand your rights, subscription terms, acceptable use policy, and how our AI-powered workforce financial app is governed.",
   alternates: { canonical: 'https://shiftflowx.net/terms' },
 };

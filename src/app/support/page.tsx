@@ -11,7 +11,7 @@ const breadcrumb = {
 };
 
 export const metadata: Metadata = {
-  title: "ShiftFlow Support — Help Center, FAQ & Contact",
+  title: "Support — Help Center, FAQ & Contact",
   description:
     "Get help with ShiftFlow. Browse our FAQ, learn how to track shifts and manage your subscription, or contact our support team at support@shiftflowx.net. We respond within 24 hours.",
   alternates: { canonical: 'https://shiftflowx.net/support' },

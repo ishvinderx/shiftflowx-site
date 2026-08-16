@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Security & Privacy — ShiftFlow",
+  title: "Security & Privacy — How We Protect Your Data",
   description: "ShiftFlow protects your payroll data with TLS 1.3 in transit, encryption at rest, and a strict no-data-selling policy. Learn how we keep your financial information safe.",
   alternates: { canonical: 'https://shiftflowx.net/security' },
 };

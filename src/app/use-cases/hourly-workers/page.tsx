@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ShiftFlow for Hourly Workers — Paycheck Tracker & Overtime Protection",
+  title: "For Hourly Workers — Paycheck & Overtime",
   description: "ShiftFlow helps hourly workers track shifts, verify paychecks, catch overtime errors, and forecast paydays. Never get underpaid again.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/hourly-workers' },
 };
