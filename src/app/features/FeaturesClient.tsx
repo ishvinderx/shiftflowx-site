@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import SectionHeader from "@/components/shared/SectionHeader";
+import { PLAN_POLICY, PRICING } from "@/lib/constants";
 
 const features = [
   {
@@ -161,22 +162,6 @@ const features = [
   },
 ];
 
-const comparisonFeatures = [
-  { feature: "Shift Logging", free: true, plus: true },
-  { feature: "Basic Earnings View", free: true, plus: true },
-  { feature: "Payday Countdown", free: true, plus: true },
-  { feature: "AI Payroll Protection", free: "7 days", plus: true },
-  { feature: "Payday Forecasting", free: "7 days", plus: true },
-  { feature: "Burnout Analytics", free: "7 days", plus: true },
-  { feature: "Smart AI Assistant", free: "7 days", plus: true },
-  { feature: "Tax Estimation", free: false, plus: true },
-  { feature: "Invoice Generator", free: false, plus: true },
-  { feature: "Payslip OCR Scanner", free: false, plus: true },
-  { feature: "ShiftFlow Score", free: false, plus: true },
-  { feature: "Career & Work Insights", free: false, plus: true },
-  { feature: "Work Journal", free: false, plus: true },
-];
-
 export default function FeaturesPage() {
   return (
     <div className="bg-[#0A0A0F] min-h-screen pt-24">
@@ -278,61 +263,33 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* Feature comparison table */}
+      {/* Free vs Pro — rendered from PLAN_POLICY (constants) so the wording can't drift */}
       <section className="py-28 bg-[#080810]">
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
           <SectionHeader
             label="Comparison"
-            title="Feature comparison."
-            subtitle="Everything included in the 7-day free trial."
+            title="Free vs Pro."
+            subtitle={`Every plan starts with a ${PRICING.trialDays}-day Pro trial.`}
           />
 
-          <div className="bg-white/[0.03] border border-white/10 rounded-3xl overflow-hidden">
-            {/* Header row */}
-            <div className="grid grid-cols-3 bg-white/[0.03] border-b border-white/8">
-              <div className="p-5 text-white/40 text-sm font-medium">Feature</div>
-              <div className="p-5 text-center text-white/40 text-sm font-medium border-l border-white/8">
-                Free Trial (7 days)
-              </div>
-              <div className="p-5 text-center border-l border-white/8">
-                <span className="text-[#D63C6B] text-sm font-bold">Pro</span>
-              </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-7">
+              <p className="text-white/40 text-sm font-medium mb-3">Free</p>
+              <p className="text-white/80 text-base leading-relaxed">{PLAN_POLICY.free}</p>
             </div>
-
-            {comparisonFeatures.map((row, i) => (
-              <div
-                key={row.feature}
-                className={`grid grid-cols-3 border-b border-white/5 last:border-0 ${
-                  i % 2 === 0 ? "" : "bg-white/[0.01]"
-                }`}
-              >
-                <div className="p-4 text-white/70 text-sm">{row.feature}</div>
-                <div className="p-4 text-center border-l border-white/5">
-                  {row.free === true ? (
-                    <Check className="w-4 h-4 text-[#22C55E] mx-auto" />
-                  ) : row.free === false ? (
-                    <span className="text-white/20 text-sm">—</span>
-                  ) : (
-                    <span className="text-[#F59E0B] text-xs font-medium">{row.free}</span>
-                  )}
-                </div>
-                <div className="p-4 text-center border-l border-white/5">
-                  {row.plus === true ? (
-                    <Check className="w-4 h-4 text-[#22C55E] mx-auto" />
-                  ) : (
-                    <span className="text-white/20 text-sm">—</span>
-                  )}
-                </div>
-              </div>
-            ))}
+            <div className="bg-white/[0.03] border border-[#D63C6B]/40 rounded-3xl p-7">
+              <p className="text-[#D63C6B] text-sm font-bold mb-3">Pro</p>
+              <p className="text-white/80 text-base leading-relaxed">{PLAN_POLICY.subscribers}</p>
+            </div>
           </div>
+          <p className="mt-6 text-center text-white/55 text-sm leading-relaxed">{PLAN_POLICY.lapse}</p>
 
           <div className="mt-10 text-center">
             <Link
               href="/download"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#D63C6B] hover:bg-[#c0355f] rounded-xl text-white font-bold text-sm shadow-lg shadow-[#D63C6B]/30 transition-all duration-200"
             >
-              Start Your 7-Day Free Trial
+              Start Your {PRICING.trialDays}-Day Free Trial
             </Link>
           </div>
         </div>

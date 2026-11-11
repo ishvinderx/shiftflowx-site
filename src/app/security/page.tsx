@@ -76,9 +76,9 @@ export default function SecurityPage() {
             ShiftFlow does not sell your personal data to third parties. Period. We do not participate in data broker marketplaces, advertising networks, or any scheme that monetizes your personal information. Our revenue comes from subscriptions, not from your data.
           </p>
 
-          <h3>SOC2-Aligned Practices</h3>
+          <h3>Restricted Administrative Access</h3>
           <p>
-            Our internal security practices are aligned with the SOC2 framework, covering security, availability, processing integrity, confidentiality, and privacy. Access to production data is restricted to authorized personnel only, with multi-factor authentication required for all administrative access.
+            Access to production data is limited to authorized personnel through role-based permissions, and administrative actions are recorded in an audit log.
           </p>
         </section>
 

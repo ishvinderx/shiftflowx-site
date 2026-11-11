@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Compare Shift Tracker Apps — Which Is Best?",
-  description: "See how ShiftFlow compares to Clockify, Toggl, Deputy, and other shift trackers. ShiftFlow is the only app with AI payroll protection and payday forecasting.",
+  description: "See how ShiftFlow compares to Clockify, Toggl, Deputy, and other shift trackers. ShiftFlow adds payroll-error checks and payday forecasting to shift tracking.",
   alternates: { canonical: 'https://shiftflowx.net/compare' },
 };
 
@@ -52,7 +52,7 @@ export default function ComparePage() {
               Why Workers Choose ShiftFlow
             </h1>
             <p className="text-xl text-white/60 leading-relaxed max-w-2xl">
-              ShiftFlow is the only workforce app that combines AI payroll protection, payday forecasting, burnout analytics, and financial wellness in one place. Other apps track time. ShiftFlow protects your income.
+              ShiftFlow combines AI payroll protection, payday forecasting, burnout analytics, and financial wellness in one place. It is built to help you check your pay, not just track your time.
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export default function ComparePage() {
               The US Department of Labor estimates that wage theft — underpaid wages, missing overtime, illegal deductions — costs workers over $15 billion annually. ShiftFlow exists to close that gap. By cross-referencing every logged shift against FLSA rules, your agreed pay rate, and historical patterns, ShiftFlow&apos;s AI catches errors before they compound.
             </p>
             <p className="text-white/60 leading-relaxed">
-              No other app combines AI payroll verification, payday forecasting, burnout analytics, tax estimation, and invoice generation in a single mobile-first platform built exclusively for workers.
+              ShiftFlow brings AI payroll verification, payday forecasting, burnout analytics, tax estimation, and invoice generation together in a single mobile-first app built for workers.
             </p>
           </section>
 

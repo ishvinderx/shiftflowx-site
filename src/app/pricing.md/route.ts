@@ -2,6 +2,7 @@ import {
   PRICING,
   PRO_FEATURES,
   TRIAL_DAYS,
+  PLAN_POLICY,
   APP_STORE_URL,
   SUPPORT_EMAIL,
   SITE_URL,
@@ -41,6 +42,11 @@ iPhone Settings → Apple ID → Subscriptions.
 - Price: ${annual.priceLabel}/year (USD; local App Store pricing applies) — about ${annual.monthlyEquivalentLabel}/month
 - Savings: ~${annual.savingsPct}% vs. paying monthly
 - Billing: ${annual.afterTrial}
+
+## Free vs Pro
+- ${PLAN_POLICY.free}
+- ${PLAN_POLICY.subscribers}
+- ${PLAN_POLICY.lapse}
 
 ## What Pro includes (identical on Monthly and Annual — the difference is billing, not features)
 ${PRO_FEATURES.map((f) => `- ${f}`).join("\n")}

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Plus, Minus } from "lucide-react";
 import Link from "next/link";
-import { PRICING, PRO_FEATURES, APP_STORE_URL, BILLING_FAQ } from "@/lib/constants";
+import { PRICING, PRO_FEATURES, APP_STORE_URL, BILLING_FAQ, PLAN_POLICY_TEXT } from "@/lib/constants";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 function BillingFAQItem({ q, a, i }: { q: string; a: string; i: number }) {
@@ -104,6 +104,9 @@ export default function PricingClient() {
               <p className="mt-3 text-center text-xs text-white/45">{monthly.afterTrial}</p>
             </motion.div>
           </div>
+
+          {/* Free vs Pro record-history policy (verbatim from constants) */}
+          <p className="mt-8 text-center text-sm text-white/60 max-w-2xl mx-auto leading-relaxed">{PLAN_POLICY_TEXT}</p>
 
           {/* Subscription disclosure */}
           <p className="mt-8 text-center text-xs text-white/40 max-w-2xl mx-auto leading-relaxed">

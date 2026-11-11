@@ -32,7 +32,8 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 - Free Trial: 7 days, full access to every ShiftFlow Pro feature
 - ShiftFlow Pro Monthly: $6.49/month
 - ShiftFlow Pro Annual: $64.99/year (~17% savings vs monthly)
-- Subscriptions managed through Apple App Store
+- Free: your last 30 days of records. Subscribers: full history. If a subscription lapses nothing is deleted — older records become available again when you resubscribe.
+- Subscriptions managed through Apple App Store and renew automatically unless cancelled
 - Canonical, always-current machine-readable pricing: https://shiftflowx.net/pricing.md
 
 ## Platform
