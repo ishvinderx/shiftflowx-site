@@ -79,26 +79,24 @@ export const PRICING = {
 // ─── Free vs Pro (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
 // The record-history policy, word for word. Render these strings; do not paraphrase.
 export const PLAN_POLICY = {
-  free: "Free: your last 30 days of records.",
-  subscribers: "Subscribers: full history.",
+  free: "Free: shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records.",
+  subscribers: "Subscribers: full history, multiple employers, report and document export, tax reports, scanning and import, and the paycheck tracker.",
   lapse:
     "If a subscription lapses nothing is deleted — older records become available again when you resubscribe.",
 } as const;
 export const PLAN_POLICY_TEXT = `${PLAN_POLICY.free} ${PLAN_POLICY.subscribers} ${PLAN_POLICY.lapse}`;
 
-// Shared Pro benefits — reconciled against the shipping app (2026-07). Monthly and
+// Subscriber-only benefits — the tiers decided 2026-11-11 (see PLAN_POLICY). Monthly and
 // Annual grant identical access; the difference is BILLING, not features.
 export const PRO_FEATURES = [
-  "Unlimited shift & hour tracking",
-  "Earnings & estimated take-home pay",
-  "Payday forecasting",
-  "Tax estimates (with GST/HST where applicable)",
-  "Self-employed invoicing",
-  "AI-powered financial insights & ShiftFlow Score",
-  "ShiftFlow AI Assistant",
-  "Reports & earnings history",
-  "Payslip scanning",
-  "Career & work insights",
+  "Full history beyond 30 days",
+  "More than one employer",
+  "Report export (PDF and CSV)",
+  "Pay statements and self-employed invoicing",
+  "Tax report with GST/HST summaries",
+  "Receipt and payslip scanning",
+  "Shift import",
+  "Paycheck tracker",
 ] as const;
 
 // Billing FAQ — ONE source for the pricing page UI and its FAQPage structured data,
