@@ -1,4 +1,11 @@
 import type { NextConfig } from "next";
+import { API_BASE_URL } from "./src/lib/constants";
+
+// CSP connect-src is derived from the same constant the pages fetch with.
+const API_ORIGIN = new URL(API_BASE_URL).origin;
+const POSTHOG_ORIGIN = new URL(
+  process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com"
+).origin;
 
 const securityHeaders = [
   {
@@ -33,7 +40,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://api.shiftflowx.net https://us.i.posthog.com",
+      `connect-src 'self' ${API_ORIGIN} ${POSTHOG_ORIGIN}`,
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

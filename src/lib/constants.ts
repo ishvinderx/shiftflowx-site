@@ -2,6 +2,16 @@ export const SITE_URL = "https://shiftflowx.net";
 export const SUPPORT_EMAIL = "support@shiftflowx.net";
 export const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892";
 
+// ─── Backend API (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
+// Every browser/server call to the backend goes through these, and next.config.ts
+// derives the CSP connect-src from API_BASE_URL — so a host the page calls can
+// never again be one the CSP blocks. Override with NEXT_PUBLIC_API_URL (origin,
+// with or without a trailing "/api/v1"; both forms are normalised).
+export const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "https://api.shiftflowx.net")
+  .replace(/\/+$/, "")
+  .replace(/\/api\/v1$/, "");
+export const API_V1_URL = `${API_BASE_URL}/api/v1`;
+
 // ─── App Store campaign attribution ──────────────────────────────────────────
 // Apple only records campaign (`ct`) attribution when the link ALSO carries the
 // provider token (`pt`) from App Store Connect → App Analytics → Acquisition →

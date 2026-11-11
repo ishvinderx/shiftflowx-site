@@ -1,9 +1,5 @@
 import Link from "next/link";
-import { APP_STORE_URL } from "@/lib/constants";
-
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ??
-  "https://shiftflow-backend-production.up.railway.app/api/v1";
+import { API_V1_URL, APP_STORE_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Verify your email — ShiftFlow",
@@ -23,7 +19,7 @@ export default async function VerifyPage({
   if (token && token.length > 10) {
     try {
       const res = await fetch(
-        `${API_BASE}/auth/verify-email?token=${encodeURIComponent(token)}`,
+        `${API_V1_URL}/auth/verify-email?token=${encodeURIComponent(token)}`,
         { cache: "no-store" }
       );
       ok = res.ok;

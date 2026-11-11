@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Clock, MessageSquare, Plus, Minus } from "lucide-react";
 import Link from "next/link";
-import { FAQ_ITEMS, SUPPORT_EMAIL } from "@/lib/constants";
+import { API_V1_URL, FAQ_ITEMS, SUPPORT_EMAIL } from "@/lib/constants";
 
 function FAQItem({ q, a, i }: { q: string; a: string; i: number }) {
   const [open, setOpen] = useState(false);
@@ -68,14 +68,11 @@ export default function SupportClient() {
     setSending(true);
     setError(null);
     try {
-      const res = await fetch(
-        "https://shiftflow-backend-production.up.railway.app/api/v1/support",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        }
-      );
+      const res = await fetch(`${API_V1_URL}/support`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
       if (!res.ok) throw new Error(`status ${res.status}`);
       setSubmitted(true);
     } catch {

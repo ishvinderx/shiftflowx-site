@@ -3,11 +3,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { APP_STORE_URL } from "@/lib/constants";
-
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ??
-  "https://shiftflow-backend-production.up.railway.app/api/v1";
+import { API_V1_URL, APP_STORE_URL } from "@/lib/constants";
 
 // P0-01 (TestFlight): the password-reset email links to /reset-password?token=…,
 // which previously existed NOWHERE (404). This page completes the flow by calling
@@ -25,7 +21,7 @@ function ResetForm() {
     if (password !== confirm) { setMessage("Passwords don't match."); return; }
     setState("busy"); setMessage("");
     try {
-      const res = await fetch(`${API_BASE}/auth/reset-password`, {
+      const res = await fetch(`${API_V1_URL}/auth/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, newPassword: password }),
