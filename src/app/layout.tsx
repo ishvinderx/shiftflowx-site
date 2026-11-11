@@ -122,12 +122,7 @@ const jsonLd = [
     "@type": "WebSite",
     "name": "ShiftFlow",
     "url": "https://shiftflowx.net",
-    "description": "AI-powered workforce financial intelligence platform",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://shiftflowx.net/blog?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "description": "AI-powered workforce financial intelligence platform"
   }
 ];
 
