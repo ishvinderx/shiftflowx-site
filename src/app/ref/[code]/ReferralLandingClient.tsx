@@ -130,22 +130,6 @@ export default function ReferralLandingClient({ code }: Props) {
           <Clock className="w-10 h-10 text-white" />
         </motion.div>
 
-        {/* Reward badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
-          style={{
-            background: "rgba(214,60,107,0.15)",
-            border: "1px solid rgba(214,60,107,0.35)",
-            color: "#D63C6B",
-          }}
-        >
-          <span>🎁</span>
-          <span>1 Month Free Pro When You Subscribe</span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 16 }}

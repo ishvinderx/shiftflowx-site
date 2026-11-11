@@ -3,15 +3,15 @@ import Link from "next/link";
 import { Share2, Download, Gift, Clock, ShieldCheck, Brain, Apple } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Referral Program — Earn Free Pro Months",
+  title: "Referral Program — Earn 30 Days of Pro",
   description:
-    "Share ShiftFlow with friends and earn 1 free month of Pro for every friend who logs their first shift. No limit on rewards.",
+    "Share ShiftFlow with friends and earn 30 days of Pro when a friend you referred completes their first paid billing period. Limits may apply.",
   // Without this the root layout's canonical is inherited, pointing this page at the homepage.
   alternates: { canonical: 'https://shiftflowx.net/referral' },
   openGraph: {
-    title: "ShiftFlow Referral Program — Earn Free Pro",
+    title: "ShiftFlow Referral Program — Earn 30 Days of Pro",
     description:
-      "Share ShiftFlow and earn 1 free month of Pro for every friend who logs their first shift.",
+      "Share ShiftFlow and earn 30 days of Pro when a friend you referred completes their first paid billing period.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
@@ -30,17 +30,17 @@ const HOW_IT_WORKS_STEPS = [
   {
     number: "02",
     icon: Download,
-    title: "Friend signs up and logs a shift",
+    title: "Friend signs up and subscribes",
     description:
-      "Your friend downloads ShiftFlow using your link, creates their account, and logs their first shift. That unlocks the reward for both of you — no purchase required.",
+      "Your friend downloads ShiftFlow using your link, creates their account, and subscribes to ShiftFlow Pro. The reward is earned once they complete their first paid billing period — a free trial on its own does not count.",
     accent: "#14B8A6",
   },
   {
     number: "03",
     icon: Gift,
-    title: "You both get 1 month free",
+    title: "You get 30 days of Pro",
     description:
-      "You AND your friend each receive 1 free month of ShiftFlow Pro, granted automatically. No codes to enter — it just works.",
+      "You receive 30 days of ShiftFlow Pro, added to your account automatically. The reward goes to you as the referrer; there is no reward for the friend. Limits may apply.",
     accent: "#22C55E",
   },
 ];
@@ -52,19 +52,19 @@ const FAQ_ITEMS = [
       "Your unique referral link is in the ShiftFlow app under Profile → Referrals. Tap 'Copy Link' to share it anywhere. Every link is tied to your account so rewards are tracked automatically.",
   },
   {
-    question: "When do I receive my free month?",
+    question: "When do I receive my 30 days of Pro?",
     answer:
-      "Your free month of Pro is credited as soon as your referred friend logs their first shift. You will receive a push notification when the reward is applied.",
+      "Your 30 days of Pro are added after your referred friend completes their first paid billing period. Signing up or starting a free trial is not enough on its own.",
   },
   {
     question: "Is there a limit on how many friends I can refer?",
     answer:
-      "No limit at all. Refer 10 friends, earn 10 free months. Refer 50 friends, earn 50 free months. The more you share, the more you save — indefinitely.",
+      "You can share your link with as many friends as you like, but limits may apply to the number of rewards one account can earn.",
   },
   {
     question: "What does my friend need to do to qualify?",
     answer:
-      "Your friend needs to create a ShiftFlow account using your link and log their first shift. That is it — they do not need to subscribe, start a trial, or pay anything. The reward is granted as soon as their first shift is logged.",
+      "Your friend needs to create a ShiftFlow account using your link, subscribe to ShiftFlow Pro, and complete their first paid billing period. Your friend does not receive a referral reward.",
   },
 ];
 
@@ -103,12 +103,12 @@ export default function ReferralPage() {
                 backgroundClip: "text",
               }}
             >
-              Earn Free Pro.
+              Earn 30 Days of Pro.
             </span>
           </h1>
 
           <p className="text-white/55 text-xl leading-relaxed max-w-xl mx-auto mb-8">
-            Every friend who logs their first shift earns you a free month of ShiftFlow Pro — with no cap on rewards.
+            Earn 30 days of ShiftFlow Pro when a friend you referred completes their first paid billing period. Limits may apply.
           </p>
 
           {/* Reward detail card */}
@@ -127,10 +127,10 @@ export default function ReferralPage() {
             </div>
             <div className="text-left">
               <div className="text-white font-bold text-lg leading-tight">
-                Earn 1 free month Pro
+                Earn 30 days of Pro
               </div>
               <div className="text-white/50 text-sm">
-                For every friend who logs their first shift &middot; No limit
+                When a referred friend completes their first paid billing period &middot; Limits may apply
               </div>
             </div>
           </div>
