@@ -76,7 +76,7 @@ export default function PricingClient() {
                 <span className="text-white/50 text-lg">{annual.cadence}</span>
               </div>
               <p className="mt-1.5 text-sm text-white/50">
-                ${annual.monthlyEquivalent}/month, billed annually
+                {annual.monthlyEquivalentLabel}/month, billed annually
                 <span className="ml-2 text-[#5EEAD4] font-medium">Save {annual.savingsPct}%</span>
               </p>
               <p className="mt-4 text-sm text-white/55 leading-relaxed">Get full access to ShiftFlow Pro at our best annual price.</p>

@@ -7,6 +7,7 @@ import AppGallery from "@/components/home/AppGallery";
 import Pricing from "@/components/home/Pricing";
 import FAQ from "@/components/home/FAQ";
 import AppStoreBanner from "@/components/home/AppStoreBanner";
+import { PRICING } from "@/lib/constants";
 
 const appSchema = {
   "@context": "https://schema.org",
@@ -50,7 +51,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "How much does ShiftFlow cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow offers a free 7-day trial with full access to all features. After the trial, ShiftFlow Pro is $9.99/month or $59.99/year (save ~50% annually). Subscriptions are managed through the Apple App Store. Cancel anytime." }
+      "acceptedAnswer": { "@type": "Answer", "text": `ShiftFlow offers a free ${PRICING.trialDays}-day trial with full access to all features. After the trial, ShiftFlow Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save ~${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` }
     },
     {
       "@type": "Question",

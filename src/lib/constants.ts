@@ -28,37 +28,63 @@ export function appStoreCampaignUrl(ct: string): string {
 }
 
 // ─── Canonical pricing (SINGLE SOURCE OF TRUTH) ───────────────────────────────
-// Every surface (pricing page, homepage, FAQ, structured data, CTAs) must read
-// from here — never hardcode $9.99 / $59.99 / 7 days / 50% independently.
-// Reconcile against App Store Connect subscription products before publishing.
+// Every surface (pricing page, homepage, FAQ, structured data, legal price lines,
+// /pricing.md) must read from here — never hardcode a price, the trial length or a
+// savings figure independently. To change a price, change ONLY the two numbers
+// below; every label and the savings maths are derived from them.
+// (public/llms.txt is a static file and cannot import this — src/lib/pricing.test.ts
+// fails if it drifts.) Reconcile against App Store Connect before publishing.
 export const TRIAL_DAYS = 7;
+
+const MONTHLY_PRICE = 6.49;
+const ANNUAL_PRICE = 64.99;
+
+const usd = (n: number) => `$${n.toFixed(2)}`;
+const TWELVE_MONTHS = MONTHLY_PRICE * 12; // 77.88
 
 export const PRICING = {
   trialDays: TRIAL_DAYS,
+  currency: "USD",
   monthly: {
     id: "pro-monthly",
     name: "Pro Monthly",
-    price: 9.99,
-    priceLabel: "$9.99",
+    price: MONTHLY_PRICE,
+    priceLabel: usd(MONTHLY_PRICE),
     cadence: "/month",
-    perLabel: "$9.99/month",
-    then: "Then $9.99/month. Cancel anytime.",
-    afterTrial: `${TRIAL_DAYS} days free, then $9.99/month.`,
+    perLabel: `${usd(MONTHLY_PRICE)}/month`,
+    shortLabel: `${usd(MONTHLY_PRICE)}/mo`,
+    then: `Then ${usd(MONTHLY_PRICE)}/month. Cancel anytime.`,
+    afterTrial: `${TRIAL_DAYS} days free, then ${usd(MONTHLY_PRICE)}/month.`,
   },
   annual: {
     id: "pro-annual",
     name: "Pro Annual",
-    price: 59.99,
-    priceLabel: "$59.99",
+    price: ANNUAL_PRICE,
+    priceLabel: usd(ANNUAL_PRICE),
     cadence: "/year",
-    perLabel: "$59.99/year",
-    monthlyEquivalent: 5.0,  // 59.99 / 12 ≈ $5.00
-    savingsPct: 50,          // (119.88 - 59.99) / 119.88 ≈ 49.96%
-    savingsAmount: 59.89,    // 9.99*12 - 59.99
-    then: "Then $59.99/year. Cancel anytime.",
-    afterTrial: `${TRIAL_DAYS} days free, then $59.99/year.`,
+    perLabel: `${usd(ANNUAL_PRICE)}/year`,
+    shortLabel: `${usd(ANNUAL_PRICE)}/yr`,
+    // 64.99 / 12 = 5.4158 → $5.42
+    monthlyEquivalent: Math.round((ANNUAL_PRICE / 12) * 100) / 100,
+    monthlyEquivalentLabel: usd(ANNUAL_PRICE / 12),
+    // (77.88 − 64.99) / 77.88 = 16.55% → 17
+    savingsPct: Math.round(((TWELVE_MONTHS - ANNUAL_PRICE) / TWELVE_MONTHS) * 100),
+    // 77.88 − 64.99 = 12.89
+    savingsAmount: Math.round((TWELVE_MONTHS - ANNUAL_PRICE) * 100) / 100,
+    then: `Then ${usd(ANNUAL_PRICE)}/year. Cancel anytime.`,
+    afterTrial: `${TRIAL_DAYS} days free, then ${usd(ANNUAL_PRICE)}/year.`,
   },
 } as const;
+
+// ─── Free vs Pro (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
+// The record-history policy, word for word. Render these strings; do not paraphrase.
+export const PLAN_POLICY = {
+  free: "Free: your last 30 days of records.",
+  subscribers: "Subscribers: full history.",
+  lapse:
+    "If a subscription lapses nothing is deleted — older records become available again when you resubscribe.",
+} as const;
+export const PLAN_POLICY_TEXT = `${PLAN_POLICY.free} ${PLAN_POLICY.subscribers} ${PLAN_POLICY.lapse}`;
 
 // Shared Pro benefits — reconciled against the shipping app (2026-07). Monthly and
 // Annual grant identical access; the difference is BILLING, not features.
@@ -208,14 +234,14 @@ export const PRICING_FEATURES = [
 
 export const FAQ_ITEMS = [
   {
-    question: "How does the 7-day free trial work?",
+    question: `How does the ${TRIAL_DAYS}-day free trial work?`,
     answer:
-      "Your free trial gives you full access to every ShiftFlow Pro feature for 7 days. After the trial, your selected Monthly or Annual plan begins unless you cancel. We'll remind you before the trial ends.",
+      `Your free trial gives you full access to every ShiftFlow Pro feature for ${TRIAL_DAYS} days. After the trial, your selected Monthly or Annual plan begins unless you cancel. We'll remind you before the trial ends.`,
   },
   {
     question: "Does my subscription renew automatically?",
     answer:
-      "Yes. Both Monthly ($9.99/mo) and Annual ($59.99/yr) plans auto-renew through the Apple App Store. You'll receive a renewal notice from Apple before each charge. You can cancel anytime — see 'Can I cancel anytime?' below.",
+      `Yes. Both Monthly (${PRICING.monthly.shortLabel}) and Annual (${PRICING.annual.shortLabel}) plans auto-renew through the Apple App Store. You'll receive a renewal notice from Apple before each charge. You can cancel anytime — see 'Can I cancel anytime?' below.`,
   },
   {
     question: "Can I cancel anytime?",

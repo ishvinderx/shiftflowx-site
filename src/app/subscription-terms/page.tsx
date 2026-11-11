@@ -1,4 +1,5 @@
 import LegalLayout from "@/components/legal/LegalLayout";
+import { PRICING } from "@/lib/constants";
 
 import type { Metadata } from "next";
 
@@ -57,10 +58,10 @@ export default function SubscriptionTermsPage() {
         <p>ShiftFlow Pro is available in two billing options:</p>
         <ul>
           <li>
-            <strong>Pro Monthly:</strong> $9.99 USD per month. Full access to all Pro features. Billed monthly to your Apple ID account.
+            <strong>Pro Monthly:</strong> {PRICING.monthly.priceLabel} USD per month. Full access to all Pro features. Billed monthly to your Apple ID account.
           </li>
           <li>
-            <strong>Pro Annual:</strong> $59.99 USD per year (equivalent to approximately $5.00/month). Full access to all Pro features. Billed annually to your Apple ID account. Represents a savings of approximately 50% compared to the monthly plan.
+            <strong>Pro Annual:</strong> {PRICING.annual.priceLabel} USD per year (equivalent to approximately {PRICING.annual.monthlyEquivalentLabel}/month). Full access to all Pro features. Billed annually to your Apple ID account. Represents a savings of approximately {PRICING.annual.savingsPct}% compared to the monthly plan.
           </li>
         </ul>
         <p>

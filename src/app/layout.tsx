@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ToolPageView from "@/components/analytics/ToolPageView";
+import { PRICING } from "@/lib/constants";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -85,7 +86,7 @@ const jsonLd = [
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "7-day free trial. ShiftFlow Pro from $9.99/month or $59.99/year."
+      "description": `${PRICING.trialDays}-day free trial. ShiftFlow Pro from ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}.`
     },
     "featureList": [
       "AI Payroll Protection",

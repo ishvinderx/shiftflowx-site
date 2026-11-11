@@ -3,9 +3,9 @@ import PricingClient from "./PricingClient";
 import { PRICING, BILLING_FAQ, SITE_URL, APP_STORE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Pricing — Free 7-Day Trial, Then $9.99/mo",
+  title: `Pricing — Free ${PRICING.trialDays}-Day Trial, Then ${PRICING.monthly.shortLabel}`,
   description:
-    "Simple, transparent pricing. Try ShiftFlow Pro free for 7 days, then $9.99/month or $59.99/year. Cancel anytime.",
+    `Simple, transparent pricing. Try ShiftFlow Pro free for ${PRICING.trialDays} days, then ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}. Cancel anytime.`,
   // Without this the root layout's canonical ('https://shiftflowx.net') is inherited,
   // telling Google this page duplicates the homepage — which drops it from the index.
   alternates: { canonical: 'https://shiftflowx.net/pricing' },
@@ -28,14 +28,14 @@ const offersJsonLd = {
       "@type": "Offer",
       name: PRICING.monthly.name,
       price: PRICING.monthly.price,
-      priceCurrency: "USD",
+      priceCurrency: PRICING.currency,
       description: PRICING.monthly.afterTrial,
     },
     {
       "@type": "Offer",
       name: PRICING.annual.name,
       price: PRICING.annual.price,
-      priceCurrency: "USD",
+      priceCurrency: PRICING.currency,
       description: PRICING.annual.afterTrial,
     },
   ],

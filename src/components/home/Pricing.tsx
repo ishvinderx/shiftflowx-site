@@ -35,7 +35,7 @@ export default function Pricing() {
               <span className="text-white/50 text-lg">{annual.cadence}</span>
             </div>
             <p className="mt-1.5 text-sm text-white/50">
-              ${annual.monthlyEquivalent}/month, billed annually
+              {annual.monthlyEquivalentLabel}/month, billed annually
               <span className="ml-2 text-[#5EEAD4] font-medium">Save {annual.savingsPct}%</span>
             </p>
             <a href={APP_STORE_URL} className="mt-6 block text-center w-full rounded-full bg-[#D63C6B] text-white font-semibold py-3.5 shadow-[0_0_25px_rgba(214,60,107,0.4)] hover:bg-[#c0355f] transition-colors">

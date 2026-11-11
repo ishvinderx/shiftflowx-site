@@ -1,6 +1,6 @@
 # ShiftFlow — AI-Powered Workforce Financial Intelligence Platform
 
-> Last updated: 2026-08-12 · Machine-readable pricing: https://shiftflowx.net/pricing.md
+> Last updated: 2026-11-10 · Machine-readable pricing: https://shiftflowx.net/pricing.md
 
 
 ## What is ShiftFlow?
@@ -30,8 +30,8 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 
 ## Pricing
 - Free Trial: 7 days, full access to every ShiftFlow Pro feature
-- ShiftFlow Pro Monthly: $9.99/month
-- ShiftFlow Pro Annual: $59.99/year (~50% savings vs monthly)
+- ShiftFlow Pro Monthly: $6.49/month
+- ShiftFlow Pro Annual: $64.99/year (~17% savings vs monthly)
 - Subscriptions managed through Apple App Store
 - Canonical, always-current machine-readable pricing: https://shiftflowx.net/pricing.md
 

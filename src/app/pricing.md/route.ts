@@ -34,11 +34,11 @@ iPhone Settings → Apple ID → Subscriptions.
 - Billing: your selected plan begins after ${TRIAL_DAYS} days unless cancelled before the trial ends
 
 ## ${monthly.name}
-- Price: $${monthly.price}/month (USD; local App Store pricing applies)
+- Price: ${monthly.priceLabel}/month (USD; local App Store pricing applies)
 - Billing: ${monthly.afterTrial}
 
 ## ${annual.name}
-- Price: $${annual.price}/year (USD; local App Store pricing applies) — about $${annual.monthlyEquivalent.toFixed(2)}/month
+- Price: ${annual.priceLabel}/year (USD; local App Store pricing applies) — about ${annual.monthlyEquivalentLabel}/month
 - Savings: ~${annual.savingsPct}% vs. paying monthly
 - Billing: ${annual.afterTrial}
 
