@@ -1,9 +1,14 @@
 import type { NextRequest } from "next/server";
+import { API_BASE_URL } from "@/lib/constants";
 
-// In-memory rate limiter: key = ip:code → timestamp of last click
-const rateLimit = new Map<string, number>();
-const RATE_LIMIT_WINDOW_MS = 3_600_000; // 1 hour
-
+// Thin same-origin proxy for referral-link clicks. The backend endpoint
+// (POST /api/v1/referrals/click) is public: it takes only { code }, needs no
+// secret, and does its own rate limiting and hourly dedupe.
+//
+// KNOWN LIMIT: the backend dedupes on the TCP peer address, which for calls made
+// from here is this server's egress IP, not the visitor's. Clicks on one code are
+// therefore collapsed to at most one per hour per egress IP. Accurate per-visitor
+// dedupe needs an API change (e.g. a trusted, signed client-IP header).
 export async function POST(request: NextRequest): Promise<Response> {
   try {
     const body = await request.json().catch(() => ({})) as { code?: unknown };
@@ -13,36 +18,16 @@ export async function POST(request: NextRequest): Promise<Response> {
       return Response.json({ ok: true });
     }
 
-    const ip =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-    const rateLimitKey = `${ip}:${code}`;
-    const lastClick = rateLimit.get(rateLimitKey);
-    const now = Date.now();
+    const backendUrl = (process.env.BACKEND_URL || API_BASE_URL).replace(/\/+$/, "");
 
-    if (lastClick !== undefined && now - lastClick < RATE_LIMIT_WINDOW_MS) {
-      // Rate limited — silently succeed
-      return Response.json({ ok: true });
-    }
-
-    rateLimit.set(rateLimitKey, now);
-
-    // Forward to backend
-    const backendUrl = process.env.BACKEND_URL;
-    const secret = process.env.INTERNAL_API_SECRET;
-
-    if (backendUrl && secret) {
-      try {
-        await fetch(`${backendUrl}/api/v1/referrals/click`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: secret,
-          },
-          body: JSON.stringify({ code, ip }),
-        });
-      } catch {
-        // Backend unreachable — swallow error, never expose to client
-      }
+    try {
+      await fetch(`${backendUrl}/api/v1/referrals/click`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code }),
+      });
+    } catch {
+      // Backend unreachable — swallow error, never expose to client
     }
   } catch {
     // Malformed request — swallow, never throw to client
