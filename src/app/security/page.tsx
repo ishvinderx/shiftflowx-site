@@ -61,9 +61,9 @@ export default function SecurityPage() {
             Authentication credentials and session tokens are stored exclusively in the iOS Keychain — Apple&apos;s secure, hardware-backed credential storage system. ShiftFlow never stores plaintext tokens, passwords, or sensitive credentials in app storage or local databases.
           </p>
 
-          <h3>GDPR &amp; CCPA Compliance</h3>
+          <h3>Your Data</h3>
           <p>
-            ShiftFlow is fully compliant with the General Data Protection Regulation (GDPR) for users in the European Union and the California Consumer Privacy Act (CCPA) for California residents. You have the right to access, correct, delete, and export your data at any time.
+            You can export your data and delete your account from the app.
           </p>
 
           <h3>30-Day Soft-Delete + Data Purge</h3>

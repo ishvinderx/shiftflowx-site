@@ -20,12 +20,6 @@ const galleryItems: GalleryItem[] = [
     accentColor: "#D63C6B",
   },
   {
-    src: "/screenshots/insights.png",
-    alt: "ShiftFlow AI Insights with ShiftFlow Score and financial snapshot",
-    label: "AI Insights",
-    accentColor: "#0EA5E9",
-  },
-  {
     src: "/screenshots/earnings.png",
     alt: "ShiftFlow earnings with estimated tax breakdown",
     label: "Earnings & Tax",
@@ -39,7 +33,7 @@ const galleryItems: GalleryItem[] = [
   },
   {
     src: "/screenshots/invoice.png",
-    alt: "ShiftFlow invoice generator for freelancers and contractors",
+    alt: "ShiftFlow invoices for freelancers and contractors",
     label: "Invoices",
     accentColor: "#F97316",
   },
@@ -48,12 +42,6 @@ const galleryItems: GalleryItem[] = [
     alt: "ShiftFlow shift calendar heatmap",
     label: "Shifts",
     accentColor: "#D63C6B",
-  },
-  {
-    src: "/screenshots/achievements.png",
-    alt: "ShiftFlow achievements and consistency streaks",
-    label: "Achievements",
-    accentColor: "#EAB308",
   },
   {
     src: "/screenshots/profile.png",

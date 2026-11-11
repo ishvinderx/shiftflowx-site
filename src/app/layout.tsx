@@ -15,16 +15,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://shiftflowx.net'),
   title: {
-    default: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
+    default: 'ShiftFlow — Shift Tracker & Payday App',
     template: '%s | ShiftFlow'
   },
-  description: 'ShiftFlow is an AI-powered workforce financial intelligence app. Track shifts, predict paydays, detect payroll errors, manage taxes, prevent burnout, and generate invoices. Free 7-day trial.',
+  description: 'ShiftFlow is an iOS app for tracking work hours, earnings, budget, bills and tax estimates. Free to start; Pro adds a 7-day free trial.',
   keywords: [
-    'shift tracker app', 'AI payroll tracker', 'payday forecasting app', 'gig worker finance app',
-    'burnout tracking app', 'employee paycheck tracker', 'freelancer invoice tracker',
-    'work hours tracker', 'payroll anomaly detection', 'self-employed tax tracker',
-    'workforce financial wellness', 'shift scheduling app', 'income tracker',
-    'AI financial assistant workers', 'overtime calculator app'
+    'shift tracker app', 'payday tracker app', 'gig worker finance app',
+    'employee paycheck tracker', 'freelancer invoice tracker',
+    'work hours tracker', 'self-employed tax tracker',
+    'budget and bill reminders', 'income tracker',
+    'overtime calculator app'
   ],
   authors: [{ name: 'ShiftFlow', url: 'https://shiftflowx.net' }],
   creator: 'ShiftFlow',
@@ -39,14 +39,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://shiftflowx.net',
     siteName: 'ShiftFlow',
-    title: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
-    description: 'Track shifts, predict paydays, detect payroll errors, and prevent burnout with AI. Free 7-day trial.',
+    title: 'ShiftFlow — Shift Tracker & Payday App',
+    description: 'Track work hours, earnings, payday, budget, bills and tax estimates. Free to start.',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'ShiftFlow — Know exactly what you’ve earned' }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShiftFlow — AI Shift Tracker & Payday Forecasting App',
-    description: 'Track shifts, predict paydays, catch payroll errors, and prevent burnout with AI.',
+    title: 'ShiftFlow — Shift Tracker & Payday App',
+    description: 'Track work hours, earnings, payday, budget, bills and tax estimates.',
     images: ['/opengraph-image'],
     creator: '@shiftflowapp'
   },
@@ -75,8 +75,8 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "ShiftFlow",
-    "alternateName": ["ShiftFlow App", "ShiftFlow — AI Shift & Payday Tracker"],
-    "description": "ShiftFlow is an AI-powered workforce financial intelligence platform that helps employees, freelancers, contractors, and gig workers track shifts, predict paydays, detect payroll errors, manage taxes, prevent burnout, and achieve financial wellness.",
+    "alternateName": ["ShiftFlow App", "ShiftFlow — Shift & Payday Tracker"],
+    "description": "ShiftFlow is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.",
     "applicationCategory": "FinanceApplication",
     "applicationSubCategory": "Workforce Management",
     "operatingSystem": "iOS 16+",
@@ -89,16 +89,13 @@ const jsonLd = [
       "description": `${PRICING.trialDays}-day free trial. ShiftFlow Pro from ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}.`
     },
     "featureList": [
-      "AI Payroll Protection",
-      "Payday Forecasting",
-      "Burnout Analytics",
-      "Tax Estimation",
-      "Invoice Generator",
-      "Payslip OCR Scanner",
-      "ShiftFlow Score",
       "Shift Tracking",
-      "Overtime Detection",
-      "AI Financial Assistant"
+      "Earnings and Payday",
+      "Budget and Bill Reminders",
+      "Tax Estimates",
+      "Invoices and Pay Statements",
+      "Receipt and Payslip Scanning",
+      "Paycheck Tracker"
     ],
     "screenshot": "https://shiftflowx.net/opengraph-image",
     "image": "https://shiftflowx.net/icon.png"
@@ -109,7 +106,7 @@ const jsonLd = [
     "name": "ShiftFlow",
     "url": "https://shiftflowx.net",
     "logo": "https://shiftflowx.net/icon.png",
-    "description": "ShiftFlow builds AI-powered workforce financial intelligence tools for employees, freelancers, and gig workers.",
+    "description": "ShiftFlow builds an iOS app for employees, freelancers, and gig workers to track hours, earnings, bills and tax estimates.",
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "support@shiftflowx.net",
@@ -122,7 +119,7 @@ const jsonLd = [
     "@type": "WebSite",
     "name": "ShiftFlow",
     "url": "https://shiftflowx.net",
-    "description": "AI-powered workforce financial intelligence platform"
+    "description": "iOS app for tracking work hours, earnings, budget, bills and tax estimates"
   }
 ];
 

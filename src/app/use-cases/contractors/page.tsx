@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "For Contractors — Projects & Invoicing",
-  description: "ShiftFlow helps independent contractors track project time, generate professional invoices, estimate taxes, and manage multiple client earnings.",
+  title: "For Contractors — Hours & Invoicing",
+  description: "ShiftFlow helps independent contractors track their hours and earnings, create invoices, and prepare a tax report with GST/HST summaries.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/contractors' },
 };
 
@@ -42,16 +42,16 @@ export default function ContractorsPage() {
             ShiftFlow for Independent Contractors
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
-            Track every billable hour, generate professional invoices, and stay on top of taxes — without the spreadsheet headache. ShiftFlow is the financial backbone of your contracting business.
+            Track your hours and earnings, create invoices, and keep tax time in view — without the spreadsheet headache.
           </p>
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Built for How Contractors Actually Work</h2>
             <p className="text-white/60 leading-relaxed mb-4">
-              Independent contractors juggle multiple clients, different billing rates, project deadlines, and a tax burden that most employees never think about. The average contractor spends 3-5 hours per week on administrative tasks — time that could be billable work.
+              Independent contractors often juggle multiple clients, different billing rates, and a tax burden that most employees never think about.
             </p>
             <p className="text-white/60 leading-relaxed">
-              ShiftFlow reduces that administrative overhead to minutes. Log project time in real time, generate accurate invoices from your logs, and let the AI handle tax calculations — so you can focus on the work that pays you.
+              ShiftFlow helps by keeping your hours, earnings and invoices together, and giving subscribers a tax report with GST/HST summaries.
             </p>
           </section>
 
@@ -59,12 +59,12 @@ export default function ContractorsPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Key Features for Contractors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { title: "Project Time Tracking", desc: "Log project sessions with client name, project, task, and hours. Support for hourly, daily, and project-based billing. Track time across unlimited clients simultaneously." },
-                { title: "Professional Invoice Generator", desc: "Create client-ready invoices from your logged project sessions in one tap. Includes your business details, itemized work sessions, expenses, payment terms, and due date. Export as PDF." },
-                { title: "Multi-Client Earnings Dashboard", desc: "See all client earnings in one dashboard. Track which clients are your most profitable, identify slow payers, and understand your true effective hourly rate per engagement." },
-                { title: "Tax Estimation & Set-Aside", desc: "Self-employment tax is 15.3% of net earnings plus income tax. ShiftFlow calculates your weekly tax set-aside amount automatically so you're never caught short at quarterly payment time." },
-                { title: "Contract Rate Tracking", desc: "Store each client's agreed rate — hourly, daily, or project-based. ShiftFlow verifies that invoiced amounts match logged hours and agreed rates, preventing billing errors." },
-                { title: "ShiftFlow Score", desc: "Track your contracting business health: earnings stability, outstanding invoices, tax readiness, and burnout risk — in a single dashboard score that improves as you work smarter." },
+                { title: "Hours and Earnings", desc: "Log your hours and see what you have earned. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
+                { title: "Invoices", desc: "Create invoices for your clients and export them. Available to subscribers." },
+                { title: "Multiple Employers", desc: "Pro supports more than one employer, so you can keep clients or contracts separate." },
+                { title: "Tax Report", desc: "Subscribers get a tax report with GST/HST summaries. Figures are estimates, not tax advice." },
+                { title: "Receipt Scanning", desc: "Scan receipts for your records. Text is read on your device. Available to subscribers." },
+                { title: "Reports", desc: "Export reports as PDF or CSV. Available to subscribers." },
               ].map(({ title, desc }) => (
                 <div key={title} className="p-5 rounded-xl border border-white/10 bg-white/[0.02]">
                   <h3 className="text-white font-semibold mb-2">{title}</h3>
@@ -78,10 +78,9 @@ export default function ContractorsPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Contractor FAQ</h2>
             <dl className="space-y-6">
               {[
-                { q: "Can I generate invoices in different currencies for international clients?", a: "Yes. ShiftFlow supports multi-currency invoicing. Set each client's preferred currency and ShiftFlow generates invoices with the correct currency symbol and formatting." },
-                { q: "How does ShiftFlow handle retainer-based contractor relationships?", a: "For retainer contracts, log your hours against the retainer each week. ShiftFlow tracks hours consumed versus hours remaining in the retainer period, alerting you before you go over scope." },
-                { q: "Does ShiftFlow help me track outstanding invoices?", a: "Yes. The Invoice Dashboard shows all invoices by status: draft, sent, viewed, paid, and overdue. You can track payment timelines and see which clients consistently pay late." },
-                { q: "How do I estimate quarterly taxes as a contractor?", a: "ShiftFlow applies the 15.3% self-employment tax rate to your net earnings and estimates federal income tax based on your annual trajectory. It shows a weekly set-aside amount and quarterly payment schedule aligned with IRS due dates." },
+                { q: "Where do I create invoices?", a: "In the ShiftFlow app. Invoicing is a Pro feature." },
+                { q: "Does ShiftFlow help me with GST/HST?", a: "Subscribers get a tax report with GST/HST summaries. These are estimates and not tax advice." },
+                { q: "Can I scan my receipts?", a: "Yes, with a subscription. Text is read on your device." },
               ].map(({ q, a }) => (
                 <div key={q}>
                   <dt className="text-white font-semibold mb-2">{q}</dt>

@@ -42,16 +42,12 @@ export default function DeletePage() {
         <p>When you delete your account, the following data is permanently removed:</p>
         <ul>
           <li>Your profile information (name, email address, authentication credentials)</li>
-          <li>All shift logs and work history</li>
-          <li>Earnings records and payroll data</li>
-          <li>Payday forecast history</li>
-          <li>Burnout scores and wellness history</li>
-          <li>AI chat conversation history</li>
-          <li>Invoices and invoice drafts</li>
-          <li>Scanned payslips and OCR data</li>
-          <li>Work journal entries and mood logs</li>
-          <li>ShiftFlow Score history</li>
-          <li>All preferences and settings</li>
+          <li>Your employers</li>
+          <li>All shifts and work history</li>
+          <li>Expenses and receipts</li>
+          <li>Invoices</li>
+          <li>Budget and bills</li>
+          <li>Tax settings</li>
         </ul>
         <p>
           <strong>What may be retained:</strong> We may retain certain records for up to 90 days as required by law, including support correspondence related to billing disputes and records required for legal compliance. Anonymous, aggregated data (which cannot identify you) may be retained for service improvement purposes.

@@ -1,13 +1,13 @@
-# ShiftFlow — AI-Powered Workforce Financial Intelligence Platform
+# ShiftFlow — Shift, Earnings and Payday Tracker for iOS
 
 > Last updated: 2026-11-10 · Machine-readable pricing: https://shiftflowx.net/pricing.md
 
 
 ## What is ShiftFlow?
-ShiftFlow is an AI-powered iOS application that helps employees, freelancers, contractors, and gig workers protect their income through intelligent payroll monitoring, payday forecasting, burnout prevention, and financial wellness tools.
+ShiftFlow is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.
 
 ## Core Mission
-"Protect every paycheck." — ShiftFlow ensures every worker is paid fairly, on time, and without error.
+"Protect every paycheck." — ShiftFlow gives workers a clear record of the hours they worked and what they should expect to be paid.
 
 ## Who uses ShiftFlow?
 - Hourly employees (retail, hospitality, healthcare, manufacturing)
@@ -17,16 +17,14 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 - Self-employed professionals
 
 ## Key Features
-1. **AI Payroll Protection** — Automatically detects underpayments, missing overtime, and payroll errors
-2. **Payday Forecasting** — Estimates when your next paycheck is due and roughly how much it will be; estimates improve as you log more shifts — not a guarantee
-3. **Burnout Analytics** — Monitors fatigue, consecutive days worked, and wellbeing indicators
-4. **Smart AI Assistant** — Answers payroll and financial questions in plain language
-5. **Tax Estimation** — Auto-calculates weekly tax set-aside amounts
-6. **Invoice Generator** — Creates professional invoices from logged shifts
-7. **Payslip OCR Scanner** — Scans and verifies payslips using computer vision
-8. **Financial Health Score** — Holistic wellness score based on work patterns and finances
-9. **Work Journal** — Logs mood and energy after shifts
-10. **Career Intelligence** — Tracks effective hourly rate progression over time
+1. **Shift Tracking** — Log shifts and hours for your employer
+2. **Earnings and Payday** — Estimates what you have earned and when your next payday is due; estimates are not a guarantee
+3. **Budget and Bill Reminders** — A simple budget and reminders before bills are due
+4. **Tax Estimates** — Estimated tax set-aside, with a tax report and GST/HST summaries for subscribers
+5. **Invoices and Pay Statements** — Document export for freelance and contract work (subscribers)
+6. **Receipt and Payslip Scanning** — On-device text recognition (subscribers)
+7. **Paycheck Tracker** — Checks a paycheque against your logged hours (subscribers)
+8. **Reports and Import** — PDF and CSV export, shift import and full history (subscribers)
 
 ## Pricing
 - Free Trial: 7 days, full access to every ShiftFlow Pro feature
@@ -39,12 +37,12 @@ ShiftFlow is an AI-powered iOS application that helps employees, freelancers, co
 ## Platform
 - iOS 16+ (iPhone & iPad)
 - Available on the Apple App Store
-- Cloud sync with backend AI processing
+- Cloud sync
 
 ## Security
 - TLS 1.3 encryption in transit
 - AES-256 encryption at rest
-- GDPR and CCPA compliant
+- You can export your data and delete your account from the app
 - No data selling, ever
 - 30-day soft-delete + full purge on account deletion
 

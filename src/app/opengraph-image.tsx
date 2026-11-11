@@ -13,9 +13,9 @@ export default function Image() {
         <span style={{ color: 'white', fontSize: '36px', fontWeight: '800' }}>ShiftFlow</span>
       </div>
       <h1 style={{ color: 'white', fontSize: '64px', fontWeight: '900', margin: '0 0 16px', textAlign: 'center', lineHeight: 1.1 }}>Protect Every Paycheck.</h1>
-      <p style={{ color: '#9ca3af', fontSize: '24px', margin: '0 0 40px', textAlign: 'center' }}>AI-powered workforce financial intelligence</p>
+      <p style={{ color: '#9ca3af', fontSize: '24px', margin: '0 0 40px', textAlign: 'center' }}>Track hours, earnings, bills and tax estimates</p>
       <div style={{ display: 'flex', gap: '20px' }}>
-        {['AI Payroll Protection', 'Payday Forecasting', 'Burnout Prevention', 'Tax Tracking'].map(f => (
+        {['Shift Tracking', 'Payday', 'Budget and Bills', 'Tax Estimates'].map(f => (
           <div key={f} style={{ background: 'rgba(214,60,107,0.15)', border: '1px solid rgba(214,60,107,0.3)', borderRadius: '100px', padding: '8px 16px', color: '#D63C6B', fontSize: '14px', fontWeight: '600' }}>{f}</div>
         ))}
       </div>

@@ -11,9 +11,9 @@ const breadcrumb = {
 };
 
 export const metadata: Metadata = {
-  title: "About — Workforce Financial Intelligence",
+  title: "About ShiftFlow",
   description:
-    "ShiftFlow was built on one belief: every worker deserves to be paid fairly. Learn how our AI-powered workforce financial intelligence platform is changing how employees, freelancers, and gig workers protect their income.",
+    "ShiftFlow was built on one belief: every worker deserves to be paid fairly. Learn about the iOS app that helps employees, freelancers, and gig workers track hours, earnings, bills and tax estimates.",
   alternates: { canonical: 'https://shiftflowx.net/about' },
 };
 

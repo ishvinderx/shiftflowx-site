@@ -35,8 +35,6 @@ const categoryColors: Record<string, string> = {
   'Shift Tracking': '#14B8A6',
   'Payroll Protection': '#D63C6B',
   'Tax Guide': '#F59E0B',
-  'Burnout Prevention': '#22C55E',
-  'AI Technology': '#6366F1',
   'Freelancer Guide': '#D63C6B',
   'Pay & Hours': '#14B8A6',
 };
@@ -203,8 +201,8 @@ export default async function BlogPostPage({
 
           {/* CTA Card */}
           <div className="my-12 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-xl font-bold text-white mb-2">Protect your income with ShiftFlow</h3>
-            <p className="text-white/60 mb-5 text-sm">AI payroll protection, payday forecasting, burnout analytics. Free 7-day trial.</p>
+            <h3 className="text-xl font-bold text-white mb-2">Track your hours with ShiftFlow</h3>
+            <p className="text-white/60 mb-5 text-sm">Shifts, earnings, payday, budget and bills. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-[#c0355f] transition-colors"

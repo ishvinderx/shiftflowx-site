@@ -8,7 +8,7 @@ const values = [
     icon: Shield,
     title: "Transparency",
     description:
-      "We explain every insight, every calculation, every alert. No black boxes. Your data is yours, and you always know how we use it.",
+      "We explain our calculations and label estimates as estimates. Your data is yours, and you always know how we use it.",
     color: "#D63C6B",
     bg: "rgba(214,60,107,0.1)",
   },
@@ -24,15 +24,15 @@ const values = [
     icon: Zap,
     title: "Empowerment",
     description:
-      "Knowledge is power. ShiftFlow arms you with the same tools and intelligence that large employers use — so you can advocate for yourself with confidence.",
+      "Knowledge is power. ShiftFlow gives you a clear record of your hours and earnings — so you can check your pay with confidence.",
     color: "#14B8A6",
     bg: "rgba(20,184,166,0.1)",
   },
   {
     icon: Heart,
-    title: "Wellbeing",
+    title: "Simplicity",
     description:
-      "Your health matters as much as your paycheck. We believe financial wellness and physical wellness are deeply connected, and we design for both.",
+      "Tracking your pay should not be another chore. We keep the app simple and quick to use.",
     color: "#22C55E",
     bg: "rgba(34,197,94,0.1)",
   },
@@ -84,14 +84,13 @@ export default function AboutClient() {
                 costs workers billions of dollars every year. Most of it goes undetected.
               </p>
               <p>
-                We built ShiftFlow to change that. By combining the power of AI with simple,
+                We built ShiftFlow to change that. With simple,
                 intuitive design, we created a tool that any worker — nurse, driver, barista, contractor —
-                can use to track their income, verify their pay, and understand their finances.
+                can use to track their hours, income, bills and tax estimates.
               </p>
               <p>
-                Financial wellness and emotional wellbeing are deeply linked. When you don&apos;t know when
-                your next paycheck arrives, anxiety follows. When you can&apos;t track your burnout, health suffers.
-                ShiftFlow addresses both — because protecting a paycheck is about protecting a life.
+                When you don&apos;t know when your next paycheck arrives or what it should be,
+                planning is hard. ShiftFlow helps by keeping your hours, payday and bills in one place.
               </p>
               <p>
                 ShiftFlow is built for workers across the US, Canada, UK, and Australia.
@@ -114,21 +113,17 @@ export default function AboutClient() {
             <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Our philosophy</h2>
             <div className="space-y-5 text-white/55 text-lg leading-relaxed">
               <p>
-                <strong className="text-white/85">Financial intelligence shouldn&apos;t be a privilege.</strong>{" "}
-                It should be available to every worker, regardless of education, background, or income level.
-                ShiftFlow democratizes the tools that previously only well-resourced professionals had access to.
+                <strong className="text-white/85">Good tools shouldn&apos;t be a privilege.</strong>{" "}
+                Tracking your hours and pay should be available to every worker, regardless of education, background, or income level.
               </p>
               <p>
-                <strong className="text-white/85">Emotional intelligence matters as much as financial intelligence.</strong>{" "}
-                Burnout is real. Fatigue affects judgment, health, and relationships.
-                We built burnout tracking directly into the core of ShiftFlow because a healthy worker
-                is a financially healthy worker.
+                <strong className="text-white/85">Your data is yours.</strong>{" "}
+                You can export your data and delete your account from the app at any time.
               </p>
               <p>
-                <strong className="text-white/85">AI should explain itself.</strong>{" "}
-                When ShiftFlow alerts you to a pay discrepancy, it tells you exactly why.
-                When it predicts your payday, it shows its reasoning.
-                We believe AI earns trust through transparency — not mysticism.
+                <strong className="text-white/85">Estimates should say they are estimates.</strong>{" "}
+                Payday and tax figures in ShiftFlow are estimates based on what you enter.
+                We believe trust comes from being clear about what the app can and cannot tell you.
               </p>
             </div>
           </motion.div>

@@ -64,7 +64,7 @@ export default function Footer() {
             <p className="text-white/40 text-sm leading-relaxed mb-6">
               Protect Every Paycheck.
               <br />
-              AI-powered workforce financial intelligence.
+              Track hours, earnings, bills and tax estimates.
             </p>
 
             {/* App Store badge */}
@@ -139,7 +139,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-4 text-white/45 text-sm">
             <p>© {currentYear} ShiftFlow. All rights reserved.</p>
             <span className="hidden sm:block">·</span>
-            <p className="text-white/45">Made for workers. Powered by AI.</p>
+            <p className="text-white/45">Made for workers.</p>
           </div>
           <div className="flex items-center gap-5">
             {[

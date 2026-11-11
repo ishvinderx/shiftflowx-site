@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "For Hourly Workers — Paycheck & Overtime",
-  description: "ShiftFlow helps hourly workers track shifts, verify paychecks, catch overtime errors, and forecast paydays. Never get underpaid again.",
+  title: "For Hourly Workers — Hours, Pay & Paycheck Check",
+  description: "ShiftFlow helps hourly workers track shifts and earnings, see their payday, keep bills in view, and check a paycheque against their logged hours.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/hourly-workers' },
 };
 
@@ -39,19 +39,19 @@ export default function HourlyWorkersPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-            AI-Powered Paycheck Protection for Hourly Workers
+            Track Your Hours and Check Your Paycheque
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
-            Every shift you work, every hour you put in — ShiftFlow makes sure you get paid for all of it. No more overtime errors, no more missing break premiums, no more payday surprises.
+            Log every shift you work and see what you have earned. With a subscription, the paycheck tracker checks your paycheque against the hours you logged.
           </p>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">The Hourly Worker Payroll Problem</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">The Hourly Worker Pay Problem</h2>
             <p className="text-white/60 leading-relaxed mb-4">
-              The US Department of Labor estimates that wage theft — underpaid wages, unpaid overtime, and illegal deductions — costs hourly workers more than $15 billion per year. Most workers never catch these errors because they have no way to cross-check their employer&apos;s payroll calculations against their actual time worked.
+              Most hourly workers have no simple way to check a paycheque against the time they actually worked. A clear record of your own hours is the first step.
             </p>
             <p className="text-white/60 leading-relaxed">
-              ShiftFlow changes that. By logging your shifts and letting AI verify every paycheck, you get real-time confirmation that your pay is correct — and immediate alerts when it isn&apos;t.
+              ShiftFlow keeps a record of your shifts and earnings. With a subscription, the paycheck tracker checks a paycheque against your logged hours so you can see if an amount looks short.
             </p>
           </section>
 
@@ -59,10 +59,11 @@ export default function HourlyWorkersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Key Features for Hourly Workers</h2>
             <div className="space-y-4">
               {[
-                { title: "AI Payroll Protection", desc: "Log each shift with start time, end time, and break duration. ShiftFlow calculates your expected gross pay and alerts you if your actual paycheck is short — including missing overtime and break premiums." },
-                { title: "Overtime Calculator (FLSA)", desc: "Under the Fair Labor Standards Act, most hourly workers are entitled to 1.5x their regular rate for hours over 40 in a workweek. ShiftFlow automatically tracks your weekly hours and calculates overtime pay owed." },
-                { title: "Payday Forecasting", desc: "ShiftFlow learns your pay schedule and predicts exactly when your next paycheck will arrive and how much it will be. Know your payday before it lands — plan bills, savings, and expenses with confidence." },
-                { title: "Payslip Scanner", desc: "Photograph your physical payslip using ShiftFlow's OCR scanner. The AI extracts every number — regular pay, overtime, deductions, net pay — and cross-references it against your logged shifts automatically." },
+                { title: "Shift and Earnings Tracking", desc: "Log each shift with start and end time. ShiftFlow shows what you have earned. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
+                { title: "Paycheck Tracker", desc: "Checks a paycheque against the hours you logged. Available to subscribers." },
+                { title: "Payday", desc: "Set your pay schedule and see when your next payday is due. Estimates are not a guarantee of what your employer will pay." },
+                { title: "Payslip Scanning", desc: "Scan your payslip with your camera. Text is read on your device. Available to subscribers." },
+                { title: "Budget and Bill Reminders", desc: "Plan around payday with a budget and reminders before bills are due. Included on the free plan." },
               ].map(({ title, desc }) => (
                 <div key={title} className="p-5 rounded-xl border border-white/10 bg-white/[0.02]">
                   <h3 className="text-white font-semibold mb-2">{title}</h3>
@@ -76,9 +77,9 @@ export default function HourlyWorkersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">FAQ for Hourly Workers</h2>
             <dl className="space-y-6">
               {[
-                { q: "What counts as overtime for hourly workers?", a: "Under the FLSA, most hourly workers are entitled to overtime pay at 1.5x their regular rate for any hours worked over 40 in a single workweek. Some states (like California) have additional daily overtime rules. ShiftFlow tracks federal FLSA rules and flags weekly overtime automatically." },
-                { q: "My employer says I wasn't owed overtime — but ShiftFlow says I was. What do I do?", a: "ShiftFlow generates a detailed dispute summary showing your logged shift times, total weekly hours, overtime calculation, and the discrepancy amount. You can share this with your employer's HR or payroll department. If unresolved, you can file a wage claim with your state labor board." },
-                { q: "Can ShiftFlow help if I work in retail, hospitality, or manufacturing?", a: "Yes. ShiftFlow works for any hourly worker regardless of industry. The core payroll protection, overtime tracking, and payday forecasting features apply equally to retail associates, restaurant workers, warehouse employees, and factory workers." },
+                { q: "What does the paycheck tracker do?", a: "It checks a paycheque against the hours you logged in ShiftFlow, so you can see if the amount looks short. It is a Pro feature." },
+                { q: "Can I use ShiftFlow if I work in retail, hospitality, or manufacturing?", a: "Yes. ShiftFlow works for any hourly worker regardless of industry." },
+                { q: "Is ShiftFlow free?", a: "The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records. Pro adds more." },
               ].map(({ q, a }) => (
                 <div key={q}>
                   <dt className="text-white font-semibold mb-2">{q}</dt>

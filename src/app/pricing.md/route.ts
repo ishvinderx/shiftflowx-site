@@ -8,7 +8,7 @@ import {
   SITE_URL,
 } from "@/lib/constants";
 
-// /pricing.md — machine-readable pricing for AI agents (AI-SEO pass, 2026-08).
+// /pricing.md — machine-readable pricing for automated readers (2026-08).
 //
 // AI agents increasingly compare products programmatically before a human visits;
 // pricing an agent can't parse gets filtered out of AI-mediated shortlists. This is a
@@ -23,8 +23,8 @@ export function GET() {
   const body = `# Pricing — ShiftFlow
 
 ShiftFlow is an iOS app for shift, hourly and self-employed workers: shift tracking,
-earnings and take-home estimates, payday forecasting, tax set-aside estimates
-(GST/HST where applicable), invoicing, and payroll-error detection.
+earnings and take-home estimates, payday tracking, budget and bill reminders, tax
+estimates (GST/HST where applicable), invoicing, and a paycheck tracker.
 
 All plans are billed through the Apple App Store. Cancel anytime in
 iPhone Settings → Apple ID → Subscriptions.

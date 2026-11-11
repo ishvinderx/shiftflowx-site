@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 /**
- * Section 4 — "Pay & Tax Intelligence."
+ * Section 4 — "Pay & Tax Estimates."
  * Explains the canonical dual-stream calculation architecture in consumer-friendly language.
  * HARD RULES (mission): never imply HST is income, never imply the SE reserve was withheld,
  * never imply ShiftFlow replaces an accountant or tax authority.
@@ -45,11 +45,11 @@ function Flow({
 
 export default function PayTaxIntelligence() {
   return (
-    <section className="relative py-24 px-5 sm:px-8" id="pay-tax-intelligence">
+    <section className="relative py-24 px-5 sm:px-8" id="pay-tax-estimates">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="text-[#D63C6B] text-sm font-semibold uppercase tracking-widest">
-            Pay &amp; tax intelligence
+            Pay &amp; tax estimates
           </p>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white tracking-tight">
             Two income streams, never blended

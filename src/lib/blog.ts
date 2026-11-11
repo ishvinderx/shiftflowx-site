@@ -12,7 +12,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'how-to-track-work-hours',
     title: 'How to Track Work Hours Accurately (And Why It Matters)',
-    description: 'Learn the best methods to track your work hours, why accuracy matters for payroll, and how AI tools are making hour tracking effortless for modern workers.',
+    description: 'Learn the best methods to track your work hours, why accuracy matters for payroll, and how a shift tracking app can make it simple.',
     date: '2026-05-20',
     category: 'Shift Tracking',
     readTime: '5 min read',
@@ -47,20 +47,17 @@ More durable than paper and easier to calculate totals, spreadsheets like Google
 Many employers use punch-in systems or electronic time clocks. These are convenient but carry a critical risk: you don't control the record. Employers have been found to manipulate time clock data — rounding down shift start times, rounding up break durations, or removing punch-in records entirely.
 
 ### Dedicated Shift Tracking Apps
-Apps like ShiftFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. Modern apps auto-calculate overtime using FLSA rules, sync across devices, and can cross-reference your records against your actual paycheck.
+Apps like ShiftFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. With a subscription, ShiftFlow's paycheck tracker can also check a paycheque against your logged hours.
 
-## How AI Is Changing Hour Tracking
+## What a Shift Tracking App Adds
 
-The latest generation of shift tracking apps uses artificial intelligence to go beyond simple time logging. ShiftFlow, for example, doesn't just record your hours — it verifies them.
+A good shift tracking app does more than record your hours. ShiftFlow, for example:
 
-After you log a shift, ShiftFlow's AI engine:
+1. Shows your earnings from the hours and rate you log
+2. Shows when your next payday is due, based on your pay schedule
+3. Lets subscribers check a paycheque against the hours they logged (the paycheck tracker)
 
-1. Calculates your expected gross pay based on your rate and hours
-2. Applies FLSA overtime rules for any hours over 40 per week
-3. Compares your expected pay against your actual paycheck when you receive it
-4. Alerts you immediately if a discrepancy is detected
-
-This transforms hour tracking from a passive record-keeping exercise into an active financial protection system.
+This turns hour tracking from a passive record into something you can check your pay against.
 
 ## Key Takeaways
 
@@ -68,7 +65,7 @@ This transforms hour tracking from a passive record-keeping exercise into an act
 - **Log every shift the same day.** Memory fades quickly — same-day logging is far more accurate than end-of-week reconstruction.
 - **Track breaks separately.** Unpaid break time affects your pay calculation; record exact break durations.
 - **Know your overtime threshold.** Most hourly workers are entitled to 1.5x pay after 40 hours per week under federal FLSA rules.
-- **Use technology.** Modern apps like ShiftFlow make hour tracking fast (under 10 seconds per shift) and connect your records directly to paycheck verification.
+- **Use technology.** Apps like ShiftFlow make hour tracking quick, and subscribers can check a paycheque against their logged hours.
 
 ## Frequently Asked Questions
 
@@ -82,7 +79,7 @@ Your independent records are legally valid documentation. If you have consistent
 Yes. Unpaid break time directly reduces your payable hours. If you're paid for a 30-minute break but your employer is deducting it, or vice versa, that creates a pay discrepancy. Log break start and end times for each shift.
 
 **Can I track hours if I have multiple employers?**
-Yes. Apps like ShiftFlow support multiple employers within a single account, with separate pay rates, overtime tracking, and paycheck verification for each.
+Yes. ShiftFlow Pro supports more than one employer. The free plan tracks one employer.
 `,
   },
   {
@@ -156,16 +153,16 @@ Understand FLSA overtime rules (40 hours/week threshold for most workers), your 
 
 When your paycheck arrives, calculate what you expected to receive based on your logged hours and pay rate. Compare that to what you actually received. Any discrepancy warrants investigation.
 
-### Use AI Payroll Verification
+### Use a Paycheck Tracker
 
-Apps like ShiftFlow automate this cross-referencing process. Log your shifts, and when your paycheck comes in, ShiftFlow compares expected versus actual pay and alerts you to any discrepancy — including missing overtime, short rates, and unauthorized deductions.
+ShiftFlow's paycheck tracker, a Pro feature, checks a paycheque against the hours you logged, so you can see if an amount looks short.
 
 ## Key Takeaways
 
 - **1-8% of payroll is lost to errors** in a typical organization — don't assume your check is correct.
 - **Missing overtime** is the most common and costly payroll error for hourly workers.
 - **Independent records** are your primary protection — always log your own hours.
-- **AI verification** tools can automatically cross-reference your logged shifts against your paycheck.
+- **A paycheck tracker** can check your logged shifts against your paycheque.
 - **Act quickly** on suspected errors — the sooner you raise a discrepancy, the easier it is to resolve.
 
 ## Frequently Asked Questions
@@ -179,8 +176,8 @@ Under federal FLSA, you can claim unpaid wages going back 2 years (3 years for w
 **Can an employer retaliate if I report a payroll error?**
 Retaliation for reporting wage violations is illegal under the FLSA. If you experience retaliation after reporting a payroll issue, document it and report it alongside your wage claim.
 
-**Does ShiftFlow provide documentation I can use in a dispute?**
-Yes. ShiftFlow generates dispute reports showing your logged shifts, expected pay calculation, actual pay received, and the discrepancy amount — in a format suitable for HR, employer disputes, or labor board claims.
+**Does ShiftFlow keep a record I can use if I raise a question about my pay?**
+ShiftFlow keeps a record of the shifts you log, and subscribers can export reports as PDF or CSV to share with your employer or payroll department.
 `,
   },
   {
@@ -240,7 +237,7 @@ Deductions reduce your taxable net income, which reduces both your income tax an
 ### Mileage Deduction
 For 2026, the IRS standard mileage rate is 72.5 cents per mile for business driving (Notice 2026-10). If you drive for Uber, DoorDash, Instacart, or any other platform, every mile driven for work is deductible. At 72.5 cents per mile, 30,000 business miles equals $21,750 in deductions.
 
-**Critical:** You must maintain a mileage log with date, purpose, start location, and end location for each trip. Apps like ShiftFlow can help track mileage per shift.
+**Critical:** You must maintain a mileage log with date, purpose, start location, and end location for each trip. Keep this log in whatever way works for you.
 
 ### Phone & Data Plan
 If you use your phone for gig work (virtually all gig workers do), the business use portion of your phone and data plan is deductible. If you use your phone 80% for work, 80% of your phone bill is deductible.
@@ -259,12 +256,13 @@ If you use part of your home exclusively and regularly for business (managing yo
 
 ## How ShiftFlow Helps With Gig Taxes
 
-ShiftFlow tracks your earnings and calculates your tax obligation in real time:
+ShiftFlow keeps your earnings in one place and gives subscribers a tax report:
 
-- **Weekly tax set-aside**: After each shift or delivery, ShiftFlow calculates how much to set aside for taxes based on your current earnings trajectory
-- **Quarterly payment estimates**: ShiftFlow tells you exactly how much to pay each quarter and when payments are due
-- **Mileage logging**: Log miles per shift for accurate deduction tracking
-- **Income totals**: Year-end income summaries organized by platform and income type — exactly what you need to file accurately
+- **Earnings tracking**: Log your shifts and see what you earned
+- **Tax report**: Subscribers get a tax report with GST/HST summaries, exported as PDF or CSV
+- **Receipt scanning**: Subscribers can scan receipts, with text read on the device
+
+ShiftFlow provides estimates only. It is not tax advice.
 
 ## Key Takeaways
 
@@ -272,7 +270,7 @@ ShiftFlow tracks your earnings and calculates your tax obligation in real time:
 - **Quarterly payments are mandatory** — missing them triggers IRS penalties of 7-8% annually on the underpaid amount.
 - **Mileage is your biggest deduction** — log every business mile with a proper mileage record.
 - **Set aside 25-30%** of every gig payment for taxes — this covers SE tax plus federal income tax for most gig workers.
-- **Use tracking tools** — ShiftFlow automates tax set-aside calculations so you're never caught short at quarterly time.
+- **Use tracking tools** — keeping your earnings and receipts in one place makes tax time easier.
 
 ## Frequently Asked Questions
 
@@ -290,205 +288,51 @@ Pay directly to the IRS via IRS Direct Pay (irs.gov/payments), the IRS2Go mobile
 `,
   },
   {
-    slug: 'signs-of-work-burnout',
-    title: "9 Signs of Work Burnout (And How to Recover Before It's Too Late)",
-    description: "Recognize the early signs of work burnout, understand what causes it for shift and gig workers, and learn evidence-based recovery strategies.",
-    date: '2026-05-23',
-    category: 'Burnout Prevention',
-    readTime: '7 min read',
-    content: `
-Work burnout is not just exhaustion. It is a state of chronic stress that leads to physical and emotional depletion, cynicism, and feelings of ineffectiveness — and it is reaching epidemic levels among shift workers, gig workers, and hourly employees.
-
-A 2024 Gallup study found that 76% of employees experience burnout on the job at least sometimes, with 28% reporting feeling burned out "very often" or "always." For shift workers who work irregular hours, nights, and weekends, the rates are significantly higher.
-
-Understanding burnout — its signs, causes, and recovery strategies — may be one of the most important things you can do for both your health and your financial security. Burned-out workers make more errors, earn less effectively, and are far more likely to leave their jobs or have their performance suffer to the point of termination.
-
-## What Causes Burnout for Shift and Gig Workers
-
-Burnout develops from a mismatch between job demands and your capacity to meet them. For shift and gig workers, specific risk factors include:
-
-**Irregular sleep patterns**: Night shifts, rotating schedules, and early morning starts disrupt circadian rhythms, impeding recovery between shifts and impairing cognitive function over time.
-
-**Financial stress as a motivator to overwork**: Gig workers who earn per task or per delivery often push themselves to work more hours than they should, driven by financial necessity rather than choice.
-
-**Lack of employer support**: Independent contractors and gig workers typically have no paid sick leave, no PTO, and no formal support structure — meaning rest is always unpaid.
-
-**Schedule unpredictability**: Not knowing your schedule more than a few days ahead makes it difficult to plan recovery, social connection, or self-care.
-
-**Physical demands**: Many shift jobs involve standing, lifting, or physical exertion that compound mental fatigue.
-
-## 9 Signs You May Be Experiencing Burnout
-
-### 1. Persistent Exhaustion Despite Rest
-Normal tiredness recovers after a good night's sleep. Burnout exhaustion doesn't. If you feel depleted even after sleeping 7-8 hours, your body may be sending an important signal.
-
-### 2. Increasing Cynicism About Your Work
-Burnout often manifests as emotional detachment — caring less about the quality of your work, feeling resentful toward your employer or customers, or feeling like your efforts don't matter.
-
-### 3. Declining Performance and More Mistakes
-Chronic fatigue impairs concentration, decision-making, and motor skills. If you're making more mistakes at work than usual, missing details, or struggling to focus, burnout may be reducing your cognitive capacity.
-
-### 4. Physical Symptoms: Headaches, Illness, Pain
-The body and mind are not separate. Chronic stress produces measurable physical effects: more frequent illness (as immune function declines), persistent headaches, gastrointestinal issues, and musculoskeletal pain.
-
-### 5. Dreading Every Shift
-There's a difference between occasionally not wanting to go to work (universal) and feeling dread before every single shift. Persistent pre-shift dread is a significant early warning sign.
-
-### 6. Difficulty Recovering Between Shifts
-If you find yourself not recovering mentally or physically in your time off — still thinking about work, unable to relax, or sleeping poorly on rest days — your recovery capacity may be overwhelmed.
-
-### 7. Social Withdrawal
-Burned-out workers often pull back from social relationships. If you're canceling plans, avoiding conversations, or preferring isolation, this may reflect emotional depletion rather than introversion.
-
-### 8. Loss of Satisfaction in Work That Previously Felt Rewarding
-Burnout erases the intrinsic rewards of work. If tasks that used to feel satisfying now feel meaningless or burdensome, this shift in experience is diagnostically significant.
-
-### 9. Shortened Fuse and Emotional Dysregulation
-Chronic stress depletes the emotional regulation resources of the prefrontal cortex. If you're losing your temper more easily, feeling disproportionately upset by minor frustrations, or experiencing emotional swings, burnout may be affecting your neurological regulation.
-
-## How ShiftFlow Monitors Burnout Risk
-
-ShiftFlow's Burnout Analytics system tracks objective work pattern data to calculate your real-time burnout risk score:
-
-- **Consecutive days worked** without a rest day
-- **Weekly total hours** compared to sustainable thresholds
-- **Night shift frequency** and circadian disruption risk
-- **Missed breaks** during shifts
-- **Self-reported energy and mood** from your Work Journal entries
-
-When your score reaches elevated risk thresholds, ShiftFlow sends personalized alerts with specific, evidence-based recovery recommendations.
-
-## Evidence-Based Recovery Strategies
-
-### Protect Your Rest Days
-A genuine rest day means no work — not one quick delivery, not checking work messages. For gig workers, this requires deliberate financial planning to make rest sustainable.
-
-### Prioritize Sleep Timing Consistency
-Even on rotating schedules, try to maintain consistent sleep and wake times where possible. Consistent timing is more restorative than longer but irregular sleep.
-
-### Reconnect With Why You Started
-Burnout disconnects you from your motivation. Deliberately reconnecting with your original purpose — providing for your family, saving for a goal, building independence — can rebuild the psychological resources that sustain effort.
-
-### Set Income Targets, Not Hour Maximums
-Gig workers who work until exhaustion benefit from setting daily income targets rather than hour maximums. Once you hit your target, stop. Financial goals create natural stopping points.
-
-### Seek Professional Support
-Burnout that has progressed to the severe stage may benefit from professional support — a therapist, counselor, or your primary care physician. Many states offer free mental health resources for workers.
-
-## Key Takeaways
-
-- **Burnout is a medical condition**, not a character flaw — it results from chronic unmanaged workplace stress.
-- **Early signs are subtle**: watch for exhaustion that doesn't resolve with rest, increasing cynicism, and physical symptoms.
-- **Shift and gig workers face elevated risk** due to irregular schedules, financial pressure, and lack of employer support.
-- **Monitoring work patterns** gives you objective early warning before burnout becomes severe.
-- **Recovery requires rest, not just reduced hours** — genuine rest days are non-negotiable for sustainable careers.
-
-## Frequently Asked Questions
-
-**How long does it take to recover from burnout?**
-Mild burnout may resolve within a few weeks of intentional rest and reduced workload. Severe burnout can take 3-6 months or longer to fully recover from. The earlier you catch it, the faster the recovery.
-
-**Can burnout cause physical illness?**
-Yes. The relationship between chronic stress, cortisol dysregulation, and immune function is well-established. Burnout is associated with significantly increased susceptibility to respiratory infections, cardiovascular disease risk factors, and chronic pain conditions.
-
-**Is burnout the same as depression?**
-They share symptoms but are distinct. Burnout is caused by chronic workplace stress and typically resolves with recovery from that stressor. Depression is broader and persists across contexts. They can co-occur, and burnout can trigger depression in vulnerable individuals. If you're unsure, consult a healthcare professional.
-
-**How does ShiftFlow's burnout score work?**
-ShiftFlow calculates a 0-100 burnout risk score based on multiple work pattern signals: consecutive days worked, weekly hours, night shift frequency, skipped breaks, and optional self-reported mood and energy data. Scores above 70 trigger alerts; scores above 85 trigger urgent recovery recommendations.
-`,
-  },
-  {
     slug: 'how-payday-forecasting-works',
-    title: 'How AI Payday Forecasting Works — And Why Workers Need It',
-    description: "Payday forecasting uses AI to predict when your next paycheck arrives and how much it will be. Here's how the technology works and why it changes everything for workers.",
+    title: 'How Payday Estimates Work — And Why Workers Need Them',
+    description: "An estimate of when your next paycheck arrives and roughly how much it will be helps you plan. Here's how it works and its limits.",
     date: '2026-05-24',
-    category: 'AI Technology',
-    readTime: '5 min read',
+    category: 'Pay & Hours',
+    readTime: '3 min read',
     content: `
-Financial anxiety between paydays is one of the most common forms of stress among working adults. A 2025 survey by the American Psychological Association found that 65% of workers report money as a significant source of stress, with uncertainty about payday timing and amounts ranking as top contributors.
+Uncertainty about payday is a common source of money worry. Knowing when your next paycheck is due, and roughly how much it will be, makes it easier to plan bills and spending.
 
-Payday forecasting — powered by AI — addresses this directly. By analyzing your shift history, pay schedule, and employer patterns, AI systems can predict with high accuracy exactly when your next paycheck will arrive and how much it will contain. For workers living paycheck to paycheck, this changes everything.
+## What Is a Payday Estimate?
 
-## What Is Payday Forecasting?
+A payday estimate uses two things you already know:
 
-Payday forecasting is the use of machine learning and pattern recognition to predict two things:
+1. **Your pay schedule** (weekly, bi-weekly, semi-monthly or monthly), which tells you when the next payday falls
+2. **The shifts you have logged** in the current pay period, which show roughly what you have earned so far
 
-1. **When** your next paycheck will be deposited or issued
-2. **How much** that paycheck will contain
+ShiftFlow shows both. Set your pay schedule, log your shifts, and the app shows when your next payday is due and what you have earned in the period.
 
-Traditional financial planning tells workers to "budget for your next paycheck." But without knowing when it arrives or how much it will be, that advice is hollow. Payday forecasting gives that prediction concrete, data-driven form.
+## Limits of an Estimate
 
-## How the AI Engine Works
+An estimate is not a guarantee. Your employer's actual payment depends on their payroll, deductions, and any holiday that moves the deposit date. Treat the number as a guide for planning, not a promise.
 
-### Step 1: Learning Your Pay Pattern
+## Why It Helps
 
-The system begins by analyzing your historical shift data. It identifies your pay schedule (weekly, bi-weekly, semi-monthly, monthly), your typical hours worked per pay period, your base pay rate, and any consistent variations (regular overtime weeks, tip-heavy periods, seasonal patterns).
+### Planning Bills
 
-Over time, the model learns your specific earnings fingerprint — not just general patterns but your particular work rhythms and how they translate into paychecks.
+Knowing when payday falls lets you schedule bills around it. ShiftFlow's free plan includes budget and bill reminders, so you get a reminder before a bill is due.
 
-### Step 2: Real-Time Shift Integration
+### Checking Your Paycheque
 
-As you log each new shift, the forecasting model updates in real time. If you've logged 38 hours with 3 days remaining in your pay period, the model calculates expected overtime, applies your rate, and produces an updated paycheck prediction.
-
-Variables the model incorporates:
-- Confirmed shift hours logged so far this pay period
-- Expected remaining shifts based on your schedule
-- Overtime calculation (FLSA threshold + applicable state rules)
-- Tips, bonuses, or additional pay logged
-- Historical pay cycle timing variance (does your employer consistently pay on Fridays, or does it vary?)
-
-### Step 3: Paycheck Timing Prediction
-
-Beyond the amount, timing is equally important for financial planning. The model analyzes your employer's historical payment timing — which day checks are typically issued, whether electronic deposits land a day early, and how timing shifts around holidays.
-
-This allows ShiftFlow to predict not just "you'll be paid around $1,240 this cycle" but "your paycheck will deposit Thursday, May 29 at approximately $1,238."
-
-### Step 4: Continuous Accuracy Improvement
-
-When your actual paycheck arrives, you (or ShiftFlow automatically via payslip scanning) record the actual amount and date. The model uses this feedback to improve future predictions, learning from any variance between predicted and actual amounts.
-
-Most users see approximately 85% accuracy in their first two weeks of use. After a full pay cycle with feedback, accuracy typically reaches 92-97%.
-
-## Why Workers Need Payday Forecasting
-
-### Planning Expenses and Bills
-
-Knowing your paycheck will arrive Thursday for $1,240 lets you schedule bill payments, grocery shopping, and transfers to savings with precision. Uncertainty causes people to either spend too freely (assuming a larger check) or withhold spending anxiously (assuming a smaller one).
-
-### Catching Errors Before They're Processed
-
-When your forecasted amount is $1,380 but your actual paycheck is $1,100, you know immediately that something is wrong — and you have specific data to investigate. Without forecasting, you might notice the number feels low but have no basis for a specific dispute.
-
-### Reducing Financial Anxiety
-
-The psychological benefit of financial predictability is significant. Workers who know when their money arrives and roughly how much it will be report substantially lower financial stress than those who receive paychecks as surprises each pay period.
-
-### Planning for Tax Set-Asides
-
-For gig workers and freelancers with irregular income, forecasting makes quarterly tax planning possible. Knowing your projected monthly and quarterly earnings lets you calculate and set aside the right tax amount — rather than scrambling at payment deadlines.
+When your paycheque arrives, compare it with the hours you logged. With a subscription, the paycheck tracker does this check for you.
 
 ## Key Takeaways
 
-- **Payday forecasting uses AI** to predict paycheck dates and amounts with increasing accuracy over time.
-- **The model improves with every logged shift** and every confirmed paycheck — accuracy reaches 95%+ after a full pay cycle.
-- **Timing predictions** are as valuable as amount predictions — knowing exactly when money arrives enables precise financial planning.
-- **Discrepancies between forecast and actual** act as an automatic early-warning system for payroll errors.
-- **Financial anxiety decreases** measurably when workers have accurate payday forecasts.
+- **A payday estimate** comes from your pay schedule and the shifts you log.
+- **It is an estimate**, not a guarantee of what your employer will pay.
+- **Compare each paycheque** with your logged hours.
 
 ## Frequently Asked Questions
 
-**How accurate is ShiftFlow's payday forecasting?**
-Accuracy depends on the consistency of your pay pattern and how many shifts you've logged. Most users see 85%+ accuracy after two weeks, improving to 92-97% after a complete pay cycle with paycheck feedback integrated.
-
-**Does forecasting work for gig workers with irregular income?**
-Yes, though with lower initial accuracy. For irregular income, ShiftFlow builds probabilistic ranges (e.g., "expect $800-$1,100 this week based on your logged gig sessions") rather than single-point predictions. Accuracy improves significantly as the model learns your patterns.
+**Is the payday estimate free?**
+Yes. Earnings and payday are included on the free plan, along with budget and bill reminders.
 
 **What if my payday falls on a holiday?**
-ShiftFlow's timing model accounts for bank holidays and known employer payment practices, adjusting the predicted deposit date accordingly. Federal Reserve Automated Clearing House (ACH) transactions don't process on federal holidays, so deposits typically shift to the next business day.
-
-**Can I see my paycheck forecast before the pay period ends?**
-Yes. ShiftFlow shows a live forecast that updates with every shift you log. You can see your current projected paycheck amount and expected deposit date at any time during the pay period.
+Employers and banks may pay earlier or later around holidays. Check with your employer if the date matters.
 `,
   },
   {
@@ -552,7 +396,7 @@ The payment terms you set have a measurable impact on when you actually receive 
 
 Manual invoice creation — adding up hours from memory, building tables in Word documents or Google Docs — is time-consuming and error-prone. The more efficient approach: log your project time as you work and generate invoices directly from those logs.
 
-ShiftFlow's Invoice Generator does exactly this. Log each project session with the client name, project, work description, and hours. When the project milestone or month ends, open ShiftFlow, select the logged sessions, and generate a professional invoice pre-populated with all session details.
+ShiftFlow Pro includes invoicing for self-employed work. Log your hours as you work, and create an invoice when the project or month ends, then export it.
 
 The benefits of log-based invoicing:
 
@@ -585,7 +429,7 @@ Professional freelancers maintain a clear view of all invoices by status:
 - **Paid**: Payment received and confirmed
 - **Overdue**: Past due date with no payment
 
-ShiftFlow's Invoice Dashboard tracks all invoices in real time with status, amount, client, and days outstanding — giving you the information needed to follow up at the right moments.
+Keep a list of every invoice you send with its status and due date, so you can follow up at the right moments.
 
 ## Key Takeaways
 
@@ -652,7 +496,7 @@ Shift: 10:00 PM to 6:30 AM with one 45-minute unpaid break.
 - **Rounding minutes casually.** 7:47 to 4:02 is 8 hours 15 minutes, not 8 hours. Small daily rounding compounds into real money across a pay period.
 - **Mixing h:mm and decimal.** 8 hours 30 minutes is 8.5 decimal hours, never 8.30.
 
-If you are doing this every shift, that is exactly the job ShiftFlow automates — it logs each shift, applies your break and overtime rules, and shows estimated pay as you go. The calculator is the manual version; [the app](/download) is the automatic one.
+If you are doing this every shift, that is exactly the job ShiftFlow automates — it logs each shift and shows your earnings as you go. The calculator is the manual version; [the app](/download) is the automatic one.
 `,
   },
   {
@@ -790,7 +634,7 @@ The [single-shift calculator](/work-hours-calculator) handles the daily version,
 - **The multiplier applies to your regular rate** — check how your agreement defines it if you earn premiums or differentials.
 - **Averaging agreements and exemptions can change everything** — the categories exempted from overtime vary widely.
 
-ShiftFlow applies your configured overtime rules to every logged shift automatically and flags paychecks that do not match the hours you actually worked — [that is the whole point of the app](/download).
+ShiftFlow keeps a record of every shift you log, and its paycheck tracker (a Pro feature) checks a paycheque against the hours you actually worked — [that is the whole point of the app](/download).
 `,
   },
 ];

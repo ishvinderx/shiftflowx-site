@@ -17,20 +17,11 @@ interface Panel {
 
 const PANELS: Panel[] = [
   {
-    src: "/screenshots/insights.png",
-    alt: "ShiftFlow AI Insights with ShiftFlow Score",
-    eyebrow: "AI Copilot",
-    title: "Your 24/7 financial companion",
-    body: "A ShiftFlow Score and plain-English insights on savings, taxes, and burnout — plus an AI you can ask anything about your pay.",
-    span: "lg:col-span-2 lg:row-span-2",
-    accent: "#0EA5E9",
-  },
-  {
     src: "/screenshots/earnings.png",
     alt: "ShiftFlow earnings with estimated tax breakdown",
     eyebrow: "Earnings & Tax",
     title: "Know your real take-home",
-    body: "Every deduction, estimated with current CRA rules.",
+    body: "Your earnings with an estimated tax breakdown.",
     span: "lg:col-span-1",
     accent: "#22C55E",
   },
@@ -39,7 +30,7 @@ const PANELS: Panel[] = [
     alt: "ShiftFlow reports income trend",
     eyebrow: "Reports",
     title: "See your money over time",
-    body: "Trends, comparisons, and history at a glance.",
+    body: "Your income over time. Subscribers can export reports as PDF or CSV.",
     span: "lg:col-span-1",
     accent: "#EC4899",
   },
@@ -48,7 +39,7 @@ const PANELS: Panel[] = [
     alt: "ShiftFlow invoice generator",
     eyebrow: "Invoices",
     title: "Invoice clients in seconds",
-    body: "Pull logged shifts straight into a professional invoice.",
+    body: "Create an invoice for your client. Available to subscribers.",
     span: "lg:col-span-1",
     accent: "#F97316",
   },
@@ -57,7 +48,7 @@ const PANELS: Panel[] = [
     alt: "ShiftFlow shift calendar",
     eyebrow: "Shifts",
     title: "Every shift, logged",
-    body: "One tap to clock in. A calendar that fills itself.",
+    body: "Log your shifts and see them on a calendar.",
     span: "lg:col-span-1",
     accent: "#D63C6B",
   },
@@ -134,11 +125,11 @@ export default function GlassShowcase() {
         >
           <p className="text-brand text-sm font-semibold tracking-widest uppercase">One app. Your whole income.</p>
           <h2 className="mt-3 text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.08]">
-            Everything you need to understand your pay
+            Everything you need to keep track of your pay
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-5">
           {PANELS.map((p, i) => (
             <PanelCard key={p.src} panel={p} index={i} />
           ))}

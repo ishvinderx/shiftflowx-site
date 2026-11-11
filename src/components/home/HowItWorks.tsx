@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock, Cpu, ShieldAlert, TrendingUp } from "lucide-react";
+import { Clock, CalendarCheck, Wallet, FileText } from "lucide-react";
 import SectionHeader from "@/components/shared/SectionHeader";
 
 const steps = [
@@ -10,37 +10,37 @@ const steps = [
     icon: Clock,
     title: "Log Your Shift",
     description:
-      "Clock in, add breaks, tips, mileage. Takes 10 seconds. No more manual spreadsheets.",
+      "Enter your start and end time and your employer. No more manual spreadsheets.",
     color: "#D63C6B",
     bgColor: "rgba(214,60,107,0.1)",
     ringColor: "rgba(214,60,107,0.3)",
   },
   {
     number: "02",
-    icon: Cpu,
-    title: "AI Verifies Your Pay",
+    icon: CalendarCheck,
+    title: "See Earnings and Payday",
     description:
-      "We cross-check every shift against your expected rate, overtime rules, and tax obligations.",
+      "Your logged hours turn into earnings, and your pay schedule shows when payday is due.",
     color: "#6366F1",
     bgColor: "rgba(99,102,241,0.1)",
     ringColor: "rgba(99,102,241,0.3)",
   },
   {
     number: "03",
-    icon: ShieldAlert,
-    title: "Catch Payroll Issues",
+    icon: Wallet,
+    title: "Keep Budget and Bills",
     description:
-      "Catch discrepancies before they slip. Get proactive alerts when something doesn't add up.",
+      "Set a budget and get reminders before your bills are due.",
     color: "#F59E0B",
     bgColor: "rgba(245,158,11,0.1)",
     ringColor: "rgba(245,158,11,0.3)",
   },
   {
     number: "04",
-    icon: TrendingUp,
-    title: "Grow Financial Health",
+    icon: FileText,
+    title: "Check and Export",
     description:
-      "Your ShiftFlow Score improves as you log, save, and stay balanced. Watch your wellness rise.",
+      "Subscribers can check a paycheque against logged hours, view a tax report and export records.",
     color: "#22C55E",
     bgColor: "rgba(34,197,94,0.1)",
     ringColor: "rgba(34,197,94,0.3)",
@@ -56,8 +56,8 @@ export default function HowItWorks() {
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <SectionHeader
           label="How It Works"
-          title="From shift to financial clarity."
-          subtitle="Four steps that protect every dollar you earn."
+          title="From shift to payday."
+          subtitle="Four steps to keep track of what you earn."
         />
 
         <div className="relative">

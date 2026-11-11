@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "For Gig Workers — Income, Taxes & Burnout",
-  description: "ShiftFlow helps gig workers (Uber, DoorDash, Instacart) track every dollar earned, estimate quarterly taxes, prevent burnout, and generate professional invoices.",
+  title: "For Gig Workers — Income & Tax Tracking",
+  description: "ShiftFlow helps gig workers track what they earn, keep a budget and bills, see a tax report with GST/HST summaries, and create invoices.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/gig-workers' },
 };
 
@@ -39,10 +39,10 @@ export default function GigWorkersPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-            The Financial Intelligence App Built for Gig Workers
+            The Income Tracking App Built for Gig Workers
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
-            Whether you drive for Uber, deliver for DoorDash, or complete tasks on TaskRabbit — ShiftFlow tracks every dollar, estimates your taxes, and keeps you from burning out.
+            Whether you drive for Uber, deliver for DoorDash, or complete tasks on TaskRabbit — ShiftFlow helps you track your earnings, keep your bills in view, and prepare for tax time.
           </p>
 
           {/* Who it&apos;s for */}
@@ -72,12 +72,12 @@ export default function GigWorkersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Problems ShiftFlow Solves for Gig Workers</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { title: "Unpredictable Income Tracking", desc: "Log every gig, trip, or delivery. ShiftFlow aggregates income across multiple platforms so you always know exactly what you earned this week, month, and year." },
-                { title: "Quarterly Tax Estimation", desc: "As a self-employed worker, you owe quarterly estimated taxes. ShiftFlow automatically calculates 15.3% self-employment tax plus income tax and tells you exactly how much to set aside each week." },
-                { title: "Mileage Deduction Tracking", desc: "Vehicle expenses are your biggest deduction. ShiftFlow tracks mileage per shift so you can maximize the IRS standard mileage deduction (67 cents per mile in 2024) at tax time." },
-                { title: "Burnout from Overworking", desc: "Gig work has no natural stopping point. ShiftFlow's Burnout Analytics monitors your hours, consecutive days, and energy levels to give you a real-time risk score and recovery recommendations." },
-                { title: "Invoice Generation", desc: "Working directly with clients outside platforms? Generate professional invoices from logged work sessions in seconds — no spreadsheet needed." },
-                { title: "Income Forecasting", desc: "ShiftFlow learns your earning patterns and predicts upcoming payouts so you can plan expenses, bills, and savings without financial anxiety." },
+                { title: "Income Tracking", desc: "Log your shifts and see what you earned. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
+                { title: "Tax Report", desc: "Subscribers get a tax report with GST/HST summaries, so your numbers are ready at tax time. Figures are estimates, not tax advice." },
+                { title: "Budget and Bill Reminders", desc: "Irregular income makes planning hard. Keep a budget and get reminders before your bills are due. Included on the free plan." },
+                { title: "Receipt Scanning", desc: "Scan receipts with your camera. Text is read on your device. Available to subscribers." },
+                { title: "Invoices", desc: "Working directly with clients outside platforms? Create invoices for your work. Available to subscribers." },
+                { title: "Payday", desc: "Set your pay schedule and see when your next payday is due. Estimates are not a guarantee." },
               ].map(({ title, desc }) => (
                 <div key={title} className="p-5 rounded-xl border border-white/10 bg-white/[0.02]">
                   <h3 className="text-white font-semibold mb-2">{title}</h3>
@@ -92,10 +92,10 @@ export default function GigWorkersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Gig Worker FAQ</h2>
             <dl className="space-y-6">
               {[
-                { q: "Can I track income from multiple gig apps in one place?", a: "Yes. ShiftFlow lets you log income from any platform or employer. Add Uber earnings, DoorDash deliveries, and TaskRabbit jobs all in one account. ShiftFlow aggregates everything into unified income reports." },
-                { q: "How does ShiftFlow help with quarterly taxes?", a: "ShiftFlow automatically estimates your self-employment tax (15.3% SE tax + federal income tax based on your bracket) on each dollar earned. It calculates a weekly set-aside amount so you always have enough saved when quarterly payments are due in April, June, September, and January." },
-                { q: "Does ShiftFlow track mileage automatically?", a: "Currently, mileage is logged manually per shift — you enter the miles driven and ShiftFlow calculates the deduction value. Automatic GPS tracking is on our roadmap for a future update." },
-                { q: "I don't get a W-2. Can ShiftFlow still help with taxes?", a: "Absolutely — ShiftFlow is built for 1099 workers. It tracks all income, estimates quarterly payments, calculates deductible expenses, and helps you understand your effective tax rate as a self-employed worker." },
+                { q: "Can I track income from multiple gig apps in one place?", a: "Pro includes multiple employers, so you can keep each source of income separate. The free plan tracks one employer." },
+                { q: "How does ShiftFlow help with taxes?", a: "Subscribers get a tax report with GST/HST summaries. ShiftFlow provides estimates only and is not tax advice." },
+                { q: "Can I scan my receipts?", a: "Yes, with a subscription. Receipt scanning reads text on your device." },
+                { q: "Do I need a subscription?", a: "No. The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records." },
               ].map(({ q, a }) => (
                 <div key={q}>
                   <dt className="text-white font-semibold mb-2">{q}</dt>

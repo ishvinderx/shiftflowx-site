@@ -24,7 +24,7 @@ export default function DownloadClient() {
               </h1>
 
               <p className="text-xl text-white/50 leading-relaxed mb-8">
-                Free for 7 days. Full access to every feature — AI payroll protection, payday forecasting, burnout analytics, and more.
+                Free to start. Track shifts, earnings, payday, budget and bills; Pro adds a 7-day free trial.
               </p>
 
               {/* App Store CTA */}

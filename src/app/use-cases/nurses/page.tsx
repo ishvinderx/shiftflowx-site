@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "For Nurses — Shift & Night Differential Tracker",
-  description: "ShiftFlow helps nurses and healthcare workers track complex shift patterns, overtime, on-call pay, night differentials, and prevent burnout.",
+  title: "For Nurses — Shift Tracker",
+  description: "ShiftFlow helps nurses and healthcare workers track their shifts and earnings, see payday, and keep bills in view. Multiple employers with Pro.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/nurses' },
 };
 
@@ -39,19 +39,19 @@ export default function NursesPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-            The Shift Tracker Built for Healthcare&apos;s Complex Pay Rules
+            A Shift Tracker for Healthcare Workers
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
-            Night differentials, on-call pay, mandatory overtime, agency shifts — healthcare pay is complex. ShiftFlow tracks every component and makes sure your paycheck is right.
+            Healthcare schedules are demanding. ShiftFlow helps you keep a clear record of your shifts and earnings, and see when payday is due.
           </p>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-4">Healthcare Pay Is Uniquely Complex</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Why Keep Your Own Record</h2>
             <p className="text-white/60 leading-relaxed mb-4">
-              Nurses, CNAs, medical technicians, and healthcare support staff work some of the most complex pay structures of any profession. A single pay period might include regular day shifts, night differentials (typically 10-15% extra), weekend differentials, on-call hours, charge nurse premiums, and overtime at different thresholds.
+              Nurses, CNAs, medical technicians, and healthcare support staff often work varied schedules, including day, night and weekend shifts, and sometimes more than one employer.
             </p>
             <p className="text-white/60 leading-relaxed">
-              When payroll gets any of these wrong — and errors happen more often than healthcare workers realize — the amounts can be significant. ShiftFlow gives healthcare workers a tool to track every shift component and verify every paycheck with the same precision their employers should be using.
+              A clear record of your own shifts makes it easier to check your pay. With a subscription, the paycheck tracker checks a paycheque against your logged hours.
             </p>
           </section>
 
@@ -59,12 +59,12 @@ export default function NursesPage() {
             <h2 className="text-2xl font-bold text-white mb-6">ShiftFlow for Healthcare Workers</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { title: "Shift Pattern Tracking", desc: "Log 8-hour, 10-hour, and 12-hour shifts. Track day shifts, evening shifts, night shifts, and rotating schedules — all in one app." },
-                { title: "Night Differential Tracking", desc: "Record night shift hours separately to ensure night differential pay is calculated correctly. ShiftFlow tracks your premium hours so you can verify your payslip." },
-                { title: "On-Call Hour Logging", desc: "Log on-call hours with easy distinction between hours called in and hours simply on standby. Track on-call pay rates separately from regular shift rates." },
-                { title: "Burnout Analytics", desc: "Healthcare worker burnout is a serious crisis. ShiftFlow monitors consecutive shift days, weekly hours, night frequency, and self-reported fatigue to give you a real-time burnout risk score." },
-                { title: "Overtime Protection", desc: "Hospital shifts frequently extend beyond scheduled times. ShiftFlow tracks cumulative weekly hours and alerts you when overtime pay should apply." },
-                { title: "Agency & PRN Shift Tracking", desc: "Working agency or PRN? Track multiple facilities with different rates. ShiftFlow calculates your blended earnings and ensures each employer pays the correct rate." },
+                { title: "Shift Tracking", desc: "Log your shifts and see your earnings. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
+                { title: "Multiple Employers", desc: "Agency or multiple facilities? Pro supports more than one employer." },
+                { title: "Shift Import", desc: "Subscribers can import shifts instead of entering them one by one." },
+                { title: "Paycheck Tracker", desc: "Checks a paycheque against the hours you logged. Available to subscribers." },
+                { title: "Payday", desc: "Set your pay schedule and see when your next payday is due." },
+                { title: "Reports", desc: "Subscribers can export reports as PDF or CSV." },
               ].map(({ title, desc }) => (
                 <div key={title} className="p-5 rounded-xl border border-white/10 bg-white/[0.02]">
                   <h3 className="text-white font-semibold mb-2">{title}</h3>
@@ -78,9 +78,9 @@ export default function NursesPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Healthcare Worker FAQ</h2>
             <dl className="space-y-6">
               {[
-                { q: "Does ShiftFlow work for travel nurses with multiple hospital contracts?", a: "Yes. ShiftFlow supports multiple employers with different pay rates, locations, and shift types. Track each hospital contract separately and see your total earnings across all placements." },
-                { q: "Can I log on-call pay separately from my regular shift pay?", a: "Yes. When logging a shift, you can categorize it as regular, on-call standby, or called-in. ShiftFlow applies the correct pay rate for each category." },
-                { q: "How does ShiftFlow help prevent burnout for healthcare workers?", a: "ShiftFlow's Burnout Analytics monitors your work patterns — consecutive days worked, total weekly hours, night shift frequency, skipped meals and breaks — and generates a real-time burnout risk score. When your score crosses critical thresholds, you receive personalized recovery recommendations." },
+                { q: "Does ShiftFlow work for travel nurses with multiple hospital contracts?", a: "Yes, with a subscription. Pro supports more than one employer. The free plan tracks one employer." },
+                { q: "Can I import my shifts?", a: "Yes, with a subscription. Shift import is a Pro feature." },
+                { q: "Is ShiftFlow free?", a: "The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records." },
               ].map(({ q, a }) => (
                 <div key={q}>
                   <dt className="text-white font-semibold mb-2">{q}</dt>

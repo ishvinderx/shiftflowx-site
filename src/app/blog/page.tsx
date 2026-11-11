@@ -3,8 +3,8 @@ import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Pay, Tax & Burnout Guides for Workers",
-  description: "Expert guides on payroll protection, payday forecasting, gig worker taxes, burnout prevention, freelancer invoicing, and workforce financial wellness.",
+  title: "Blog — Pay & Tax Guides for Workers",
+  description: "Guides on paychecks, payday, gig worker taxes and freelancer invoicing.",
   alternates: { canonical: 'https://shiftflowx.net/blog' },
 };
 
@@ -21,8 +21,6 @@ const categoryColors: Record<string, string> = {
   'Shift Tracking': '#14B8A6',
   'Payroll Protection': '#D63C6B',
   'Tax Guide': '#F59E0B',
-  'Burnout Prevention': '#22C55E',
-  'AI Technology': '#6366F1',
   'Freelancer Guide': '#D63C6B',
   'Pay & Hours': '#14B8A6',
 };
@@ -52,10 +50,10 @@ export default function BlogPage() {
               <span className="text-white/60">Blog</span>
             </nav>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Workforce Financial Intelligence
+              ShiftFlow Blog
             </h1>
             <p className="text-xl text-white/60 max-w-2xl">
-              Guides on payroll protection, payday forecasting, gig worker taxes, burnout prevention, and financial wellness for modern workers.
+              Guides on paychecks, payday, gig worker taxes and freelancer invoicing.
             </p>
           </div>
 
@@ -103,8 +101,8 @@ export default function BlogPage() {
 
           {/* Bottom CTA */}
           <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Protect your paycheck with ShiftFlow</h3>
-            <p className="text-white/60 mb-6">AI-powered workforce financial intelligence. Free 7-day trial.</p>
+            <h3 className="text-2xl font-bold text-white mb-3">Track your hours with ShiftFlow</h3>
+            <p className="text-white/60 mb-6">Track hours, earnings, bills and tax estimates. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import {
-  ShieldCheck, CalendarCheck, HeartPulse, Bot, Receipt,
-  FileText, ScanLine, TrendingUp, Briefcase, BookOpen, Check,
+  ShieldCheck, CalendarCheck, Wallet, Clock, Receipt,
+  FileText, ScanLine, Check,
 } from "lucide-react";
 import Link from "next/link";
 import SectionHeader from "@/components/shared/SectionHeader";
@@ -11,153 +11,102 @@ import { PLAN_POLICY, PRICING } from "@/lib/constants";
 
 const features = [
   {
-    icon: ShieldCheck,
-    title: "Payroll Intelligence",
+    icon: Clock,
+    title: "Shift and Earnings Tracking",
+    tag: "Free",
     color: "#14B8A6",
     bg: "rgba(20,184,166,0.1)",
     description:
-      "Our AI engine cross-references every shift against your contracted rate, applicable overtime rules, penalty rates, and tax obligations. We flag discrepancies the moment they appear — before payday.",
+      "Log your shifts and see what you have earned. The free plan covers one employer and your last 30 days of records; subscribers get full history and multiple employers.",
     bullets: [
-      "Automatic overtime detection (daily & weekly)",
-      "Penalty rate identification",
-      "Historical trend comparison",
-      "Instant discrepancy alerts",
-      "One-tap dispute support",
-    ],
-  },
-  {
-    icon: Bot,
-    title: "AI Financial Assistant",
-    color: "#6366F1",
-    bg: "rgba(99,102,241,0.1)",
-    description:
-      "Ask anything. Your personal AI advisor is trained on employment law, payroll regulations, and financial planning. Get clear, actionable answers in seconds — not hours of Googling.",
-    bullets: [
-      "Natural language pay queries",
-      "Overtime eligibility checks",
-      "Tax estimation & questions",
-      "Shift scheduling advice",
-      "Dispute letter drafting",
-    ],
-  },
-  {
-    icon: HeartPulse,
-    title: "Burnout Analytics",
-    color: "#22C55E",
-    bg: "rgba(34,197,94,0.1)",
-    description:
-      "ShiftFlow tracks consecutive work days, weekly hour totals, and stress indicators to calculate your real-time burnout score. Know when to rest before your body forces you to.",
-    bullets: [
-      "Real-time fatigue score (0–100)",
-      "Consecutive day tracking",
-      "Weekly hour load monitoring",
-      "Rest day recommendations",
-      "Historical energy trends",
+      "Shift tracking for one employer on the free plan",
+      "Earnings from the hours you log",
+      "Last 30 days of records on the free plan",
+      "Full history and multiple employers with Pro",
+      "Shift import with Pro",
     ],
   },
   {
     icon: CalendarCheck,
-    title: "Payday Forecasting",
+    title: "Payday",
+    tag: "Free",
     color: "#D63C6B",
     bg: "rgba(214,60,107,0.1)",
     description:
-      "Know exactly when your next paycheck will land and how much it will be. ShiftFlow models your pay schedule with precision so you can plan rent, bills, and savings with confidence.",
+      "Set your pay schedule and see when your next payday is due, so you can plan rent and bills around it. Estimates are not a guarantee of what your employer will pay.",
     bullets: [
-      "Accurate payday predictions",
-      "Net pay estimates (after tax)",
-      "Bill & payment scheduling",
-      "Pay calendar export",
-      "Multi-employer support",
+      "Next payday from your pay schedule",
+      "Earnings so far in the pay period",
+      "Included on the free plan",
+    ],
+  },
+  {
+    icon: Wallet,
+    title: "Budget and Bill Reminders",
+    tag: "Free",
+    color: "#22C55E",
+    bg: "rgba(34,197,94,0.1)",
+    description:
+      "Keep a simple budget and get reminders before your bills are due.",
+    bullets: [
+      "Budget",
+      "Bill reminders",
+      "Included on the free plan",
     ],
   },
   {
     icon: Receipt,
-    title: "Tax Estimation",
+    title: "Tax Report",
+    tag: "Pro",
     color: "#F59E0B",
     bg: "rgba(245,158,11,0.1)",
     description:
-      "ShiftFlow auto-calculates your weekly tax set-aside based on your income, jurisdiction, and work type. No more end-of-year tax shock — stay ahead all year long.",
+      "Subscribers get a tax report with GST/HST summaries, so your numbers are ready at tax time. Figures are estimates, not tax advice.",
     bullets: [
-      "Weekly tax set-aside calculation",
-      "Jurisdiction-aware (US, CA, UK, AU)",
-      "Freelancer & PAYE support",
-      "Annual tax projection",
-      "Deduction tracking",
+      "Tax report",
+      "GST/HST summaries",
+      "Export as PDF or CSV",
     ],
   },
   {
     icon: FileText,
-    title: "Invoice Generator",
+    title: "Reports, Pay Statements and Invoices",
+    tag: "Pro",
     color: "#14B8A6",
     bg: "rgba(20,184,166,0.1)",
     description:
-      "Create professional, branded invoices in seconds. Perfect for freelancers and contractors who need to bill clients quickly and track payment status.",
+      "Export your records when you need them. Freelancers and contractors can create invoices for their work.",
     bullets: [
-      "Professional invoice templates",
-      "Auto-fill from shift data",
-      "PDF export & share",
-      "Payment status tracking",
-      "Multi-currency support",
+      "Report export in PDF and CSV",
+      "Pay statements",
+      "Self-employed invoicing",
     ],
   },
   {
     icon: ScanLine,
-    title: "Payslip OCR Scanner",
+    title: "Receipt and Payslip Scanning",
+    tag: "Pro",
     color: "#D63C6B",
     bg: "rgba(214,60,107,0.1)",
     description:
-      "Photograph your payslip and let ShiftFlow's AI extract every number automatically. We then verify the figures against your logged shifts and alert you to any issues.",
+      "Scan a receipt or payslip with your camera. The text is read on your device using on-device text recognition.",
     bullets: [
-      "Instant payslip scanning",
-      "Automatic number extraction",
-      "Cross-verification with logs",
-      "Error highlighting",
-      "Historical payslip archive",
+      "Receipt scanning",
+      "Payslip scanning",
+      "On-device text recognition",
     ],
   },
   {
-    icon: TrendingUp,
-    title: "ShiftFlow Score",
-    color: "#22C55E",
-    bg: "rgba(34,197,94,0.1)",
-    description:
-      "Your ShiftFlow Score is a holistic view of your financial wellness — combining income consistency, pay accuracy, savings habits, and burnout levels into one actionable number.",
-    bullets: [
-      "Composite wellness score",
-      "Income stability rating",
-      "Savings consistency tracking",
-      "Week-over-week trends",
-      "Personalized improvement tips",
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "Career & Work Insights",
+    icon: ShieldCheck,
+    title: "Paycheck Tracker",
+    tag: "Pro",
     color: "#6366F1",
     bg: "rgba(99,102,241,0.1)",
     description:
-      "ShiftFlow tracks your career trajectory — income growth, skill progression, and industry benchmarks — so you can make informed decisions about raises, roles, and opportunities.",
+      "Check a paycheque against the hours you logged, so you can see if an amount looks short.",
     bullets: [
-      "Income growth tracking",
-      "Industry pay benchmarks",
-      "Raise timing suggestions",
-      "Career milestone alerts",
-      "Skills & role tracking",
-    ],
-  },
-  {
-    icon: BookOpen,
-    title: "Work Journal & Energy Tracker",
-    color: "#F59E0B",
-    bg: "rgba(245,158,11,0.1)",
-    description:
-      "Log notes, energy levels, and mood after each shift. Over time, ShiftFlow surfaces patterns — which shifts drain you most, which coworkers lift you up, and when you do your best work.",
-    bullets: [
-      "Shift journaling",
-      "Energy level logging (1–10)",
-      "Mood & sentiment tracking",
-      "Pattern recognition",
-      "Wellbeing trend reports",
+      "Compare a paycheque with logged hours",
+      "Available to subscribers",
     ],
   },
 ];
@@ -182,7 +131,7 @@ export default function FeaturesPage() {
               <span className="gradient-text">modern workforce.</span>
             </h1>
             <p className="text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
-              Every feature designed to protect, inform, and empower workers. From payroll protection to burnout prevention.
+              Track your hours, earnings, payday, budget, bills and tax estimates in one iOS app.
             </p>
           </motion.div>
         </div>
@@ -251,7 +200,7 @@ export default function FeaturesPage() {
                         className="text-4xl font-bold mb-1"
                         style={{ color: feature.color }}
                       >
-                        {i === 0 ? "4-point" : i === 1 ? "24/7" : i === 2 ? "72h" : i === 3 ? "3 days" : i === 4 ? "$0 surprise" : i === 5 ? "10s" : i === 6 ? "OCR" : i === 7 ? "Score" : i === 8 ? "Growth" : "Logged"}
+                        {feature.tag}
                       </p>
                       <p className="text-white/50 text-sm">{feature.title}</p>
                     </div>

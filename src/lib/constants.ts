@@ -144,90 +144,66 @@ export const FOOTER_LINKS = {
 
 export const FEATURES = [
   {
-    id: "payroll-protection",
-    title: "AI Payroll Protection",
+    id: "paycheck-tracker",
+    title: "Paycheck Tracker",
     description:
-      "Automatically detect underpayments, missing overtime, and payroll errors before they cost you.",
+      "Check a paycheque against the hours you logged, so a short or missing payment stands out.",
     icon: "ShieldCheck",
     color: "#14B8A6",
     bgColor: "rgba(20,184,166,0.1)",
   },
   {
     id: "payday-forecasting",
-    title: "Payday Forecasting",
+    title: "Payday Tracking",
     description:
-      "Know exactly when your next paycheck lands. No surprises, just certainty.",
+      "Set your pay schedule and see when your next payday lands.",
     icon: "CalendarCheck",
     color: "#D63C6B",
     bgColor: "rgba(214,60,107,0.1)",
   },
   {
-    id: "burnout-prevention",
-    title: "Burnout Prevention",
+    id: "budget-bills",
+    title: "Budget and Bill Reminders",
     description:
-      "Track fatigue score, consecutive days worked, and stress indicators in real time.",
+      "Keep a simple budget and get reminders before your bills are due.",
     icon: "HeartPulse",
     color: "#22C55E",
     bgColor: "rgba(34,197,94,0.1)",
   },
   {
-    id: "ai-assistant",
-    title: "Smart AI Assistant",
-    description:
-      "Ask anything. Your AI advisor explains your pay, suggests shifts, and answers tax questions.",
-    icon: "Bot",
-    color: "#6366F1",
-    bgColor: "rgba(99,102,241,0.1)",
-  },
-  {
     id: "tax-estimation",
-    title: "Tax Estimation",
+    title: "Tax Estimates",
     description:
-      "Auto-calculate your tax set-aside every week. Never get surprised at tax time.",
+      "See an estimate of what to set aside for tax, with GST/HST summaries in the tax report.",
     icon: "Receipt",
     color: "#F59E0B",
     bgColor: "rgba(245,158,11,0.1)",
   },
   {
     id: "invoice-generator",
-    title: "Invoice Generator",
+    title: "Invoices and Pay Statements",
     description:
-      "Create professional invoices in seconds for freelance and contract work.",
+      "Create invoices for freelance and contract work, and pay statements for your records.",
     icon: "FileText",
     color: "#14B8A6",
     bgColor: "rgba(20,184,166,0.1)",
   },
   {
     id: "payslip-scanner",
-    title: "Payslip Scanner",
+    title: "Receipt and Payslip Scanning",
     description:
-      "Photograph your payslip. Our OCR AI extracts and verifies every number.",
+      "Scan a receipt or payslip with your camera. Text is read on your device.",
     icon: "ScanLine",
     color: "#D63C6B",
     bgColor: "rgba(214,60,107,0.1)",
   },
-  {
-    id: "financial-health",
-    title: "ShiftFlow Score",
-    description:
-      "Your personal ShiftFlow Score — a holistic view of your financial wellness.",
-    icon: "TrendingUp",
-    color: "#22C55E",
-    bgColor: "rgba(34,197,94,0.1)",
-  },
 ];
 
 export const PRICING_FEATURES = [
-  "Unlimited shift & hour tracking",
-  "Earnings & estimated take-home pay",
-  "Payday forecasting",
-  "Tax estimates (with GST/HST where applicable)",
-  "Self-employed invoicing",
-  "AI-powered financial insights & ShiftFlow Score",
-  "ShiftFlow AI Assistant",
-  "Reports & earnings history",
-  "Payslip scanning",
-  "Career & work insights",
+  "Shift and hour tracking",
+  "Earnings and payday",
+  "Budget and bill reminders",
+  ...PRO_FEATURES,
 ];
 
 export const FAQ_ITEMS = [
@@ -254,17 +230,17 @@ export const FAQ_ITEMS = [
   {
     question: "How does payday forecasting work?",
     answer:
-      "ShiftFlow analyzes your shift history, pay schedule, and employer patterns to predict exactly when your next paycheck will arrive and how much it will be. Our AI model improves with every paycheck you log, becoming increasingly accurate over time.",
+      "ShiftFlow uses your pay schedule and the shifts you log to show when your next payday is due and an estimate of what you have earned for the period. Estimates are not a guarantee of what your employer will pay.",
   },
   {
     question: "Is my payroll data secure?",
     answer:
-      "Data is encrypted in transit (TLS 1.3), and sensitive fields are encrypted at rest. We never sell your data. Your payroll information stays private and powers only your personal insights. We support GDPR and CCPA data-subject rights.",
+      "Data is encrypted in transit (TLS 1.3), and sensitive fields are encrypted at rest. We never sell your data. Your payroll information stays private. You can export your data and delete your account from the app.",
   },
   {
-    question: "How does payroll anomaly detection work?",
+    question: "How does the paycheck tracker work?",
     answer:
-      "ShiftFlow cross-references your logged shifts against your expected pay rate, applicable overtime rules, and historical patterns. When a discrepancy is detected — like missing break premium, short overtime calculation, or a rate error — you're alerted immediately with details on what went wrong.",
+      "The paycheck tracker (a Pro feature) checks a paycheque against the hours you logged, so you can see if the amount looks short.",
   },
   {
     question: "How do I delete my account and data?",

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "How It Works — AI Shift Tracking in 3 Steps",
-  description: "Learn exactly how ShiftFlow's AI tracks your shifts, verifies pay, detects payroll errors, and protects your financial wellness in 4 simple steps.",
+  title: "How It Works — Shift Tracking in 4 Steps",
+  description: "Learn how ShiftFlow helps you log shifts, see your earnings and payday, keep a budget and bills, and check your paycheque in 4 simple steps.",
   alternates: { canonical: 'https://shiftflowx.net/how-it-works' },
 };
 
@@ -19,32 +19,32 @@ const breadcrumb = {
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "How to Protect Your Paycheck with ShiftFlow",
-  "description": "ShiftFlow works in four steps: log your shift, let AI verify your pay, get alerted to issues, and improve your financial health over time.",
+  "name": "How to Track Your Hours and Pay with ShiftFlow",
+  "description": "ShiftFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check your paycheque.",
   "step": [
     {
       "@type": "HowToStep",
       "position": 1,
       "name": "Log Your Shift",
-      "text": "Enter your shift start time, end time, breaks taken, tips, mileage, and employer. Takes under 10 seconds. ShiftFlow auto-calculates overtime using FLSA rules."
+      "text": "Enter your shift start time, end time and employer. The free plan covers one employer; Pro adds multiple employers and shift import."
     },
     {
       "@type": "HowToStep",
       "position": 2,
-      "name": "AI Verifies Your Pay",
-      "text": "ShiftFlow's AI cross-references your expected pay against your logged hours, overtime thresholds, and historical rate data to verify accuracy."
+      "name": "See Your Earnings and Payday",
+      "text": "ShiftFlow shows what you have earned from the hours you log and when your next payday is due, based on your pay schedule."
     },
     {
       "@type": "HowToStep",
       "position": 3,
-      "name": "Catch Payroll Issues",
-      "text": "Receive real-time alerts for any pay discrepancies. ShiftFlow forecasts your next payday and generates dispute reports if needed."
+      "name": "Keep Your Budget and Bills",
+      "text": "Set up a budget and bill reminders so you know what is due before it is due."
     },
     {
       "@type": "HowToStep",
       "position": 4,
-      "name": "Grow Your Financial Health",
-      "text": "Track your ShiftFlow Score, monitor burnout risk, estimate taxes, and generate invoices — all in one place."
+      "name": "Check and Export",
+      "text": "Subscribers can check a paycheque against logged hours, scan receipts and payslips, view a tax report with GST/HST summaries, and export reports and invoices."
     }
   ]
 };
@@ -72,10 +72,10 @@ export default function HowItWorksPage() {
               <span className="text-white/60">How It Works</span>
             </nav>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-              How ShiftFlow Protects Your Paycheck
+              How ShiftFlow Works
             </h1>
             <p className="text-xl text-white/60 leading-relaxed max-w-2xl">
-              ShiftFlow works in four steps: log your shift, let AI verify your pay, get alerted to issues, and improve your financial health over time. Most users catch their first payroll error within two weeks.
+              ShiftFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check and export your records.
             </p>
           </div>
 
@@ -89,13 +89,13 @@ export default function HowItWorksPage() {
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white mb-4">Log Your Shift</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    Every protected paycheck starts with a logged shift. After each shift, open ShiftFlow and enter your basic details: start time, end time, break duration, employer, and pay rate. The whole process takes under 10 seconds.
+                    After each shift, open ShiftFlow and enter your start time, end time and employer. ShiftFlow then shows your earnings for that shift.
                   </p>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    You can also add tips earned, mileage driven (important for gig workers and contractors), and any notes about the shift. ShiftFlow immediately calculates your gross earnings for that shift and automatically applies FLSA overtime rules — flagging any hours over 40 per week at the 1.5x rate.
+                    The free plan tracks one employer and keeps your last 30 days of records. Subscribers get full history, multiple employers and shift import.
                   </p>
                   <ul className="space-y-2">
-                    {["Start/end time, breaks, tips, mileage, employer", "Auto-calculates overtime using FLSA 40-hour threshold", "Takes under 10 seconds per shift", "Supports multiple employers simultaneously"].map(item => (
+                    {["Start and end time, employer", "One employer on the free plan", "Multiple employers and shift import with Pro"].map(item => (
                       <li key={item} className="flex items-center gap-3 text-white/60">
                         <span className="text-[#D63C6B] font-bold">+</span>
                         {item}
@@ -111,15 +111,15 @@ export default function HowItWorksPage() {
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#14B8A6]/20 border border-[#14B8A6]/30 flex items-center justify-center text-[#14B8A6] font-bold text-lg">2</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">AI Verifies Your Pay</h2>
+                  <h2 className="text-2xl font-bold text-white mb-4">See Your Earnings and Payday</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    Once you receive your paycheck (or payslip), ShiftFlow&apos;s AI verification engine gets to work. It cross-references your total logged hours and pay against your expected pay rate, overtime eligibility, and historical patterns. This is where ShiftFlow earns its name.
+                    ShiftFlow adds up the hours you log into earnings and uses your pay schedule to show when your next payday is due.
                   </p>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    The verification engine checks for underpayment against your agreed rate, missing overtime compensation (the #1 payroll error in the US), missing break premiums where applicable, and rate discrepancies. You can also use the Payslip OCR Scanner to photograph your physical payslip — ShiftFlow&apos;s computer vision engine extracts every number and verifies it automatically.
+                    These are estimates based on what you enter. They are not a guarantee of what your employer will pay.
                   </p>
                   <ul className="space-y-2">
-                    {["Cross-references expected vs actual pay", "Checks FLSA overtime eligibility (40h weekly threshold)", "Compares against your logged hourly/salary rate", "OCR scanner for physical payslips"].map(item => (
+                    {["Earnings from logged hours", "Next payday from your pay schedule", "Included on the free plan"].map(item => (
                       <li key={item} className="flex items-center gap-3 text-white/60">
                         <span className="text-[#14B8A6] font-bold">+</span>
                         {item}
@@ -135,15 +135,12 @@ export default function HowItWorksPage() {
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#6366F1]/20 border border-[#6366F1]/30 flex items-center justify-center text-[#6366F1] font-bold text-lg">3</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">Catch Payroll Issues</h2>
+                  <h2 className="text-2xl font-bold text-white mb-4">Keep Your Budget and Bills</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    When ShiftFlow detects a discrepancy — a short payment, missing overtime, or rate error — you receive an immediate alert. The alert shows exactly what was expected, what was received, and the dollar difference. ShiftFlow also generates a detailed dispute summary you can send directly to your employer or HR department.
-                  </p>
-                  <p className="text-white/60 leading-relaxed mb-4">
-                    The Payday Forecasting engine runs continuously in the background, analyzing your shift patterns and pay schedule to predict exactly when your next paycheck will arrive and how much it will be. No more financial uncertainty between paydays.
+                    Set up a budget and add your bills. ShiftFlow reminds you before a bill is due, so you can plan around payday.
                   </p>
                   <ul className="space-y-2">
-                    {["Real-time alerts for pay discrepancies", "Dollar-specific breakdown of what you're owed", "Dispute report generation for employers/HR", "Payday forecasting with predicted amounts"].map(item => (
+                    {["Budget", "Bill reminders", "Included on the free plan"].map(item => (
                       <li key={item} className="flex items-center gap-3 text-white/60">
                         <span className="text-[#6366F1] font-bold">+</span>
                         {item}
@@ -159,15 +156,15 @@ export default function HowItWorksPage() {
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#22C55E]/20 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] font-bold text-lg">4</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">Grow Your Financial Health</h2>
+                  <h2 className="text-2xl font-bold text-white mb-4">Check and Export</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    Beyond payroll protection, ShiftFlow is a comprehensive financial wellness platform. Your ShiftFlow Score — a proprietary financial health metric — tracks your earnings stability, tax readiness, burnout risk, and financial trajectory over time.
+                    With a subscription, the paycheck tracker checks a paycheque against the hours you logged. You can also scan receipts and payslips (text is read on your device) and export reports and documents.
                   </p>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    The Burnout Analytics system monitors consecutive days worked, weekly hours, night shift frequency, skipped breaks, and self-reported energy levels to calculate your real-time burnout risk score. Freelancers and contractors can generate professional invoices directly from logged shifts — no manual data entry required.
+                    The tax report includes GST/HST summaries. Freelancers and contractors can create invoices and pay statements.
                   </p>
                   <ul className="space-y-2">
-                    {["ShiftFlow Score: holistic financial wellness metric", "Burnout risk monitoring with recovery recommendations", "Weekly tax set-aside estimation", "Invoice generation from logged project time"].map(item => (
+                    {["Paycheck tracker", "Receipt and payslip scanning", "Tax report with GST/HST summaries", "Report export in PDF and CSV, pay statements and invoices"].map(item => (
                       <li key={item} className="flex items-center gap-3 text-white/60">
                         <span className="text-[#22C55E] font-bold">+</span>
                         {item}
@@ -186,19 +183,19 @@ export default function HowItWorksPage() {
               {[
                 {
                   q: "How long does it take to set up ShiftFlow?",
-                  a: "Most users are fully set up within 5 minutes. Download the app, create an account, enter your employer and pay rate, and log your first shift. ShiftFlow starts learning your patterns immediately."
+                  a: "Download the app, create an account, add your employer and log your first shift."
                 },
                 {
                   q: "Does ShiftFlow work for workers with multiple employers?",
-                  a: "Yes. ShiftFlow supports multiple employers simultaneously, each with their own pay rate, schedule, and overtime tracking. Ideal for gig workers and part-time employees with multiple jobs."
+                  a: "Multiple employers are a Pro feature. The free plan tracks one employer."
                 },
                 {
-                  q: "What if my employer disputes the payroll error ShiftFlow found?",
-                  a: "ShiftFlow generates a detailed dispute report with your logged shift times, expected pay calculation, and the discrepancy breakdown. This gives you a clear, documented record to present to your employer, HR, or if necessary, your state labor board."
+                  q: "What does the paycheck tracker do?",
+                  a: "It checks a paycheque against the hours you logged, so you can see if the amount looks short. It is available to subscribers."
                 },
                 {
-                  q: "How accurate is the Payday Forecasting?",
-                  a: "Forecasting accuracy improves with each logged shift. Most users see 85%+ accuracy within the first two weeks. After a full pay cycle, accuracy typically reaches 95%+ for both timing and amount."
+                  q: "How accurate is the payday estimate?",
+                  a: "It is an estimate based on your pay schedule and the shifts you log. It is not a guarantee of what your employer will pay."
                 }
               ].map(({ q, a }) => (
                 <div key={q}>
@@ -211,8 +208,8 @@ export default function HowItWorksPage() {
 
           {/* CTA */}
           <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Ready to protect your paycheck?</h3>
-            <p className="text-white/60 mb-6">Free 7-day trial. Cancel anytime.</p>
+            <h3 className="text-2xl font-bold text-white mb-3">Ready to try ShiftFlow?</h3>
+            <p className="text-white/60 mb-6">Free to start. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"

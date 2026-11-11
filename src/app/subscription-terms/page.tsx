@@ -1,5 +1,5 @@
 import LegalLayout from "@/components/legal/LegalLayout";
-import { PRICING } from "@/lib/constants";
+import { PLAN_POLICY_TEXT, PRICING, PRO_FEATURES } from "@/lib/constants";
 
 import type { Metadata } from "next";
 
@@ -32,7 +32,7 @@ export default function SubscriptionTermsPage() {
       <section id="overview">
         <h2>Overview</h2>
         <p>
-          ShiftFlow offers a free trial and paid subscription plans (&ldquo;ShiftFlow Pro&rdquo;) that unlock the full suite of AI-powered financial tools. All subscriptions are processed and managed exclusively through the Apple App Store.
+          ShiftFlow offers a free trial and paid subscription plans (&ldquo;ShiftFlow Pro&rdquo;) that unlock the Pro features listed below. All subscriptions are processed and managed exclusively through the Apple App Store.
         </p>
         <p>
           By initiating a subscription or free trial, you agree to these Subscription Terms, which supplement our general Terms of Service.
@@ -44,11 +44,11 @@ export default function SubscriptionTermsPage() {
         <ul>
           <li>New users are entitled to one (1) free 7-day trial of ShiftFlow Pro.</li>
           <li>The free trial gives you full ShiftFlow Pro access for 7 days.</li>
-          <li>The free trial begins immediately upon account creation.</li>
+          <li>The free trial is a 7-day introductory offer through the App Store. It begins when you start it in the app.</li>
           <li>During the trial, you have full access to all Pro features.</li>
           <li>We will notify you within the app before the trial expires.</li>
           <li>After the trial ends, access to Pro features requires an active paid subscription.</li>
-          <li>You will not be automatically charged at the end of the free trial.</li>
+          <li>Unless you cancel at least 24 hours before the trial ends, the trial renews automatically at the price of the plan you selected. You can manage or cancel in your Apple ID subscription settings.</li>
           <li>If you subscribe to Pro through the App Store during or after the trial, App Store billing terms apply.</li>
         </ul>
       </section>
@@ -68,7 +68,10 @@ export default function SubscriptionTermsPage() {
           Prices may vary by region and are displayed in your local currency at the point of purchase. All prices are inclusive of applicable taxes where required by law.
         </p>
         <p>
-          Both plans include the same ShiftFlow Pro access: unlimited shift & hour tracking, earnings and estimated take-home pay, payday forecasting, tax estimates (with GST/HST where applicable), self-employed invoicing, AI-powered financial insights and ShiftFlow Score, the ShiftFlow AI Assistant, reports & earnings history, payslip scanning, and career & work insights. The difference between Monthly and Annual is billing, not features.
+          Both plans include the same ShiftFlow Pro access: {PRO_FEATURES.join("; ")}. The difference between Monthly and Annual is billing, not features.
+        </p>
+        <p>
+          {PLAN_POLICY_TEXT}
         </p>
       </section>
 

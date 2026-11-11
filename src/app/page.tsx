@@ -35,28 +35,28 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "How does AI payroll anomaly detection work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "ShiftFlow cross-references every logged shift against your expected pay rate, applicable overtime rules (FLSA 40h/week threshold), and historical patterns. When a discrepancy is found — missing overtime, short rate, or break violations — you're alerted immediately." }
+      "name": "How does the paycheck tracker work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The paycheck tracker, a Pro feature, checks a paycheque against the hours you logged in ShiftFlow so you can see whether the amount looks short." }
     },
     {
       "@type": "Question",
       "name": "Can freelancers and gig workers use ShiftFlow?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. ShiftFlow is built for all worker types: employees, freelancers, contractors, gig workers, and self-employed professionals. Freelancers can generate invoices, track project earnings, estimate taxes, and manage financial health directly in the app." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. ShiftFlow is built for all worker types: employees, freelancers, contractors, gig workers, and self-employed professionals. Freelancers can generate invoices, track project earnings, and estimate taxes directly in the app." }
     },
     {
       "@type": "Question",
-      "name": "Does ShiftFlow track burnout?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. ShiftFlow includes a Burnout Analytics feature that monitors consecutive days worked, weekly hours, night shift frequency, skipped breaks, and fatigue indicators to give you a real-time burnout risk score and personalized recovery recommendations." }
+      "name": "Does ShiftFlow help with budgeting and bills?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. ShiftFlow includes a budget and bill reminders, both available on the free plan." }
     },
     {
       "@type": "Question",
       "name": "How much does ShiftFlow cost?",
-      "acceptedAnswer": { "@type": "Answer", "text": `ShiftFlow offers a free ${PRICING.trialDays}-day trial with full access to all features. After the trial, ShiftFlow Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save ~${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` }
+      "acceptedAnswer": { "@type": "Answer", "text": `ShiftFlow is free to use for shift tracking with one employer, with the last 30 days of records. ShiftFlow Pro adds full history, multiple employers, exports, tax reports and more, with a ${PRICING.trialDays}-day free trial. Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save ~${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` }
     },
     {
       "@type": "Question",
       "name": "Is my payroll data secure with ShiftFlow?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Data is encrypted in transit with TLS 1.3, and sensitive fields are encrypted at rest. ShiftFlow never sells your data and supports GDPR and CCPA data-subject rights. Authentication tokens are stored in the iOS Keychain." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Data is encrypted in transit with TLS 1.3, and sensitive fields are encrypted at rest. ShiftFlow never sells your data. You can export your data and delete your account from the app. Authentication tokens are stored in the iOS Keychain." }
     }
   ]
 };

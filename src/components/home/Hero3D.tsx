@@ -124,8 +124,8 @@ export default function Hero3D() {
             transition={{ duration: 0.7, delay: 0.14, ease: EASE }}
             className="mt-6 text-lg sm:text-xl text-white/55 leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
-            Track every shift, estimate your next paycheck and taxes, send invoices, and
-            ask your AI financial copilot anything — in one calm, private app.
+            Track every shift, see your earnings and next payday, keep your budget and bills,
+            and estimate taxes — in one calm, private app.
           </motion.p>
 
           <motion.div
@@ -212,30 +212,6 @@ export default function Hero3D() {
             my={driftY}
             icon={
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 8h18M7 12h4m-4 4h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="2"/></svg>
-            }
-          />
-          <Chip
-            className="bottom-24 -right-1 sm:right-2"
-            label="ShiftFlow Score"
-            value="57 · Fair"
-            delay={0.66}
-            depth={1.8}
-            mx={driftX}
-            my={driftY}
-            icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.5-6.5-2 2m-9 9-2 2m13 0-2-2m-9-9-2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-            }
-          />
-          <Chip
-            className="bottom-2 -left-3 sm:-left-2"
-            label="AI Copilot"
-            value="Ask anything"
-            delay={0.8}
-            depth={2.2}
-            mx={driftX}
-            my={driftY}
-            icon={
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="3" stroke="currentColor" strokeWidth="2"/><path d="M12 3v4M9 12h.01M15 12h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
             }
           />
         </div>
