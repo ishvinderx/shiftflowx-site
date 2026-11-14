@@ -19,7 +19,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: `
 Accurate hour tracking is the foundation of getting paid fairly. Yet the majority of hourly workers, freelancers, and gig workers have no reliable system for recording their time — relying instead on employer-provided records that may be incomplete, delayed, or simply wrong.
 
-The result? The US Department of Labor estimates that wage theft — which includes underpaid hours, missing overtime, and unauthorized deductions — costs workers over $15 billion per year. Most workers never catch these errors because they have no record to compare against.
+The result? Underpaid hours, missing overtime and unauthorized deductions often go unnoticed. Most workers never catch these errors because they have no record to compare against.
 
 ## Why Accurate Hour Tracking Matters
 
@@ -85,12 +85,12 @@ Yes. HoursFlow Pro supports more than one employer. The free plan tracks one emp
   {
     slug: 'how-payroll-errors-happen',
     title: 'How Payroll Errors Happen — And How to Catch Them',
-    description: 'Payroll errors cost workers billions of dollars each year. Learn the most common payroll mistakes, how they happen, and how to protect yourself.',
+    description: 'Payroll errors are more common than most workers realize. Learn the most common payroll mistakes, how they happen, and how to protect yourself.',
     date: '2026-05-21',
     category: 'Payroll Protection',
     readTime: '6 min read',
     content: `
-Payroll errors are far more common than most workers realize. The American Payroll Association estimates that between 1% and 8% of payroll is lost to errors, fraud, or inefficiency in any given year. For a worker earning $50,000 annually, that's potentially $500 to $4,000 in lost wages over the course of a year.
+Payroll errors are far more common than most workers realize. Even a 1% error on a $50,000 salary is $500 over a year, and you only catch it if you have your own record to compare against.
 
 The troubling reality: most payroll errors go undetected. Without an independent record of hours worked and pay received, workers have no way to know when they're being shortchanged.
 
@@ -159,7 +159,7 @@ HoursFlow's paycheck tracker, a Pro feature, checks a paycheque against the hour
 
 ## Key Takeaways
 
-- **1-8% of payroll is lost to errors** in a typical organization — don't assume your check is correct.
+- **Payroll errors happen** even at well-run employers — don't assume your check is correct.
 - **Missing overtime** is the most common and costly payroll error for hourly workers.
 - **Independent records** are your primary protection — always log your own hours.
 - **A paycheck tracker** can check your logged shifts against your paycheque.
@@ -345,7 +345,7 @@ Employers and banks may pay earlier or later around holidays. Check with your em
     content: `
 Getting paid is the entire point of freelancing — yet invoicing remains one of the most neglected, error-prone parts of the freelance workflow. Late payments, unprofessional invoice formats, missing information, and inconsistent follow-up can cost freelancers significant money and client relationships.
 
-According to the FreshBooks annual self-employment report, freelancers wait an average of 29 days to receive payment after an invoice is sent — and 29% of freelancers report clients who never pay at all. Professional invoicing practices don't just look better; they get you paid faster and with fewer disputes.
+Freelancers often wait weeks to be paid after sending an invoice, and some invoices are never paid at all. Professional invoicing practices don't just look better; they get you paid faster and with fewer disputes.
 
 ## What Makes an Invoice Professional
 
