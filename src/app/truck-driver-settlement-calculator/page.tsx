@@ -64,14 +64,14 @@ export default function TruckDriverSettlementCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Truck Driver Settlement Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Know what your settlement should say before it arrives — work earnings, GST/HST,
             and deductions, so you can check the statement your carrier sends.
           </p>
@@ -80,18 +80,18 @@ export default function TruckDriverSettlementCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How a settlement is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How a settlement is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Expected payment = (hours worked × hourly rate) + GST/HST on those earnings, minus
               any deductions the carrier withholds. Worked example: 100 hours at $26/hour is{' '}
-              <span className="text-white/85 font-medium">$2,600</span> work earnings; 13% HST in
-              Ontario adds <span className="text-white/85 font-medium">$338</span>; the expected
-              payment is <span className="text-[#5EEAD4] font-medium">$2,938</span>. The $338 is
+              <span className="text-ink font-medium">$2,600</span> work earnings; 13% HST in
+              Ontario adds <span className="text-ink font-medium">$338</span>; the expected
+              payment is <span className="text-positive font-medium">$2,938</span>. The $338 is
               the CRA’s money passing through your account, not yours — your earnings are still
               $2,600.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>Treating the HST portion as pay — it belongs to the CRA and must be remitted.</li>
               <li>Not reconciling settlements against your own hours — the carrier’s statement shouldn’t be the only record.</li>
               <li>Letting unexplained deductions slide — every withheld dollar should be itemized and match your contract.</li>

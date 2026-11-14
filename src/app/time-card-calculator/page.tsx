@@ -11,7 +11,7 @@ import TimeCardClient from "./TimeCardClient";
 export const metadata: Metadata = {
   title: "Time Card Calculator — Free Weekly Timesheet",
   description:
-    "Free time card calculator: enter each day's start, end, and lunch break to total your weekly timesheet with decimal hours, weekly overtime, and estimated pay.",
+ "Free time card calculator: enter each day's start, end, and lunch break to total your weekly timesheet with decimal hours, weekly overtime, and estimated pay.",
   alternates: { canonical: "https://shiftflowx.net/time-card-calculator" },
   openGraph: {
     title: "Time Card Calculator — Free Weekly Timesheet",
@@ -49,7 +49,7 @@ const SCHEMA_TOOL = {
   slug: "time-card-calculator",
   title: "Time Card Calculator",
   description:
-    "Free weekly time card calculator: per-day start/end times and lunch breaks, weekly totals, decimal hours, weekly overtime, and estimated gross pay.",
+ "Free weekly time card calculator: per-day start/end times and lunch breaks, weekly totals, decimal hours, weekly overtime, and estimated gross pay.",
 };
 
 const TRAIL = [
@@ -64,14 +64,14 @@ export default function TimeCardCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[TRAIL[0], { name: "Time Card Calculator" }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Time Card Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Fill in each day&apos;s start, end, and lunch break to total your weekly timesheet —
             decimal hours, weekly overtime, and estimated pay. Free, no signup.
           </p>
@@ -80,16 +80,16 @@ export default function TimeCardCalculatorPage() {
 
           {/* ── FAQ (matches FAQPage schema 1:1) ────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">Time card questions, answered</h2>
+            <h2 className="text-2xl font-bold text-ink mb-6">Time card questions, answered</h2>
             <div className="space-y-5">
               {FAQ.map((f) => (
                 <div key={f.q}>
-                  <h3 className="text-white font-semibold mb-1.5">{f.q}</h3>
-                  <p className="text-white/55 text-sm leading-relaxed">{f.a}</p>
+                  <h3 className="text-ink font-semibold mb-1.5">{f.q}</h3>
+                  <p className="text-ink-2 text-sm leading-relaxed">{f.a}</p>
                 </div>
               ))}
             </div>
-            <p className="text-white/40 text-sm mt-6">
+            <p className="text-ink-2 text-sm mt-6">
               Overtime thresholds and break rules vary by country, province/state, and employment
               agreement — the 40-hour weekly default here is common but not universal.
             </p>
@@ -97,21 +97,21 @@ export default function TimeCardCalculatorPage() {
 
           {/* ── Related ─────────────────────────────────────────────────────── */}
           <section className="mt-14 max-w-3xl">
-            <h2 className="text-lg font-semibold text-white mb-4">Keep going</h2>
+            <h2 className="text-lg font-semibold text-ink mb-4">Keep going</h2>
             <div className="flex flex-wrap gap-3 text-sm">
-              <Link href="/work-hours-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/work-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Single-shift hours calculator →
               </Link>
-              <Link href="/overtime-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/overtime-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Overtime calculator →
               </Link>
-              <Link href="/decimal-hours-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/decimal-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Decimal hours converter →
               </Link>
-              <Link href="/use-cases/hourly-workers" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/use-cases/hourly-workers" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 HoursFlow for hourly workers →
               </Link>
-              <Link href="/download" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/download" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Get the HoursFlow app →
               </Link>
             </div>

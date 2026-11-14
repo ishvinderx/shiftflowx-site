@@ -8,57 +8,57 @@ const values = [
     icon: Shield,
     title: "Transparency",
     description:
-      "We explain our calculations and label estimates as estimates. Your data is yours, and you always know how we use it.",
-    color: "#D63C6B",
-    bg: "rgba(214,60,107,0.1)",
+ "We explain our calculations and label estimates as estimates. Your data is yours, and you always know how we use it.",
+    color: "var(--color-ink)",
+    bg: "var(--color-rule)",
   },
   {
     icon: Eye,
     title: "Privacy",
     description:
-      "Your payroll data is among the most sensitive information you have. We encrypt everything, never sell data, and give you full control to delete at any time.",
-    color: "#6366F1",
-    bg: "rgba(99,102,241,0.1)",
+ "Your payroll data is among the most sensitive information you have. We encrypt everything, never sell data, and give you full control to delete at any time.",
+    color: "var(--color-commit)",
+    bg: "var(--color-rule)",
   },
   {
     icon: Zap,
     title: "Empowerment",
     description:
-      "Knowledge is power. HoursFlow gives you a clear record of your hours and earnings — so you can check your pay with confidence.",
-    color: "#14B8A6",
-    bg: "rgba(20,184,166,0.1)",
+ "Knowledge is power. HoursFlow gives you a clear record of your hours and earnings — so you can check your pay with confidence.",
+    color: "var(--color-positive)",
+    bg: "var(--color-rule)",
   },
   {
     icon: Heart,
     title: "Simplicity",
     description:
-      "Tracking your pay should not be another chore. We keep the app simple and quick to use.",
-    color: "#22C55E",
-    bg: "rgba(34,197,94,0.1)",
+ "Tracking your pay should not be another chore. We keep the app simple and quick to use.",
+    color: "var(--color-positive)",
+    bg: "var(--color-rule)",
   },
 ];
 
 export default function AboutClient() {
   return (
-    <div className="bg-[#0A0A0F] min-h-screen pt-24">
+    <div className="bg-ground min-h-screen pt-24">
       {/* Mission hero */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,60,107,0.1)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 " />
         <div className="relative max-w-4xl mx-auto px-6 md:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D63C6B]/10 border border-[#D63C6B]/20 mb-8">
-              <span className="text-[#D63C6B] text-xs font-semibold uppercase tracking-wider">Our Mission</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ink/10 border border-ink/20 mb-8">
+              <span className="text-ink text-xs font-semibold uppercase tracking-wider">Our Mission</span>
             </div>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white tracking-tight leading-[1.08] mb-8">
+            <h1 className="text-5xl sm:text-6xl font-bold text-ink tracking-tight leading-[1.08] mb-8">
               We believe every worker<br />
               deserves to be{" "}
-              <span className="gradient-text">paid fairly.</span>
+              <span className="text-ink">paid fairly.</span>
             </h1>
-            <p className="text-xl text-white/55 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-ink-2 leading-relaxed max-w-2xl mx-auto">
               HoursFlow was born from a simple observation: workers are at an information disadvantage.
               Employers have payroll systems, compliance teams, and legal departments.
               Workers have a pay stub and a hope that the numbers are right.
@@ -68,7 +68,7 @@ export default function AboutClient() {
       </section>
 
       {/* Story */}
-      <section className="py-20 bg-[#080810]">
+      <section className="py-20 bg-ground">
         <div className="max-w-3xl mx-auto px-6 md:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -76,8 +76,8 @@ export default function AboutClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Our story</h2>
-            <div className="space-y-5 text-white/55 text-lg leading-relaxed">
+            <h2 className="text-3xl font-bold text-ink mb-6 tracking-tight">Our story</h2>
+            <div className="space-y-5 text-ink-2 text-lg leading-relaxed">
               <p>
                 HoursFlow started with a question: why do so many workers get paid less than they&apos;re owed?
                 Research suggests that wage theft — through missed overtime, incorrect rates, and unpaid breaks —
@@ -110,18 +110,18 @@ export default function AboutClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Our philosophy</h2>
-            <div className="space-y-5 text-white/55 text-lg leading-relaxed">
+            <h2 className="text-3xl font-bold text-ink mb-6 tracking-tight">Our philosophy</h2>
+            <div className="space-y-5 text-ink-2 text-lg leading-relaxed">
               <p>
-                <strong className="text-white/85">Good tools shouldn&apos;t be a privilege.</strong>{" "}
+                <strong className="text-ink">Good tools shouldn&apos;t be a privilege.</strong>{" "}
                 Tracking your hours and pay should be available to every worker, regardless of education, background, or income level.
               </p>
               <p>
-                <strong className="text-white/85">Your data is yours.</strong>{" "}
+                <strong className="text-ink">Your data is yours.</strong>{" "}
                 You can export your data and delete your account from the app at any time.
               </p>
               <p>
-                <strong className="text-white/85">Estimates should say they are estimates.</strong>{" "}
+                <strong className="text-ink">Estimates should say they are estimates.</strong>{" "}
                 Payday and tax figures in HoursFlow are estimates based on what you enter.
                 We believe trust comes from being clear about what the app can and cannot tell you.
               </p>
@@ -131,9 +131,9 @@ export default function AboutClient() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-[#080810]">
+      <section className="py-20 bg-ground">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <h2 className="text-3xl font-bold text-white mb-12 tracking-tight text-center">Our values</h2>
+          <h2 className="text-3xl font-bold text-ink mb-12 tracking-tight text-center">Our values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v, i) => {
               const Icon = v.icon;
@@ -144,7 +144,7 @@ export default function AboutClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="bg-white/[0.03] border border-white/10 rounded-2xl p-6"
+                  className="bg-track/40 border border-rule rounded-2xl p-6"
                 >
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
@@ -152,8 +152,8 @@ export default function AboutClient() {
                   >
                     <Icon className="w-5 h-5" style={{ color: v.color }} />
                   </div>
-                  <h3 className="text-white font-semibold text-lg mb-2">{v.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{v.description}</p>
+                  <h3 className="text-ink font-semibold text-lg mb-2">{v.title}</h3>
+                  <p className="text-ink-2 text-sm leading-relaxed">{v.description}</p>
                 </motion.div>
               );
             })}
@@ -164,13 +164,13 @@ export default function AboutClient() {
       {/* CTA */}
       <section className="py-20 text-center">
         <div className="max-w-xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-white mb-4">Join the movement.</h2>
-          <p className="text-white/50 text-lg mb-8">
+          <h2 className="text-3xl font-bold text-ink mb-4">Join the movement.</h2>
+          <p className="text-ink-2 text-lg mb-8">
             Every paycheck protected is a step toward a fairer workforce. Start free today.
           </p>
           <a
             href="/download"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#D63C6B] hover:bg-[#c0355f] rounded-xl text-white font-bold text-sm shadow-lg shadow-[#D63C6B]/30 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-ink hover:bg-ink-2 rounded-xl text-ground font-bold text-sm   transition-all duration-200"
           >
             Download HoursFlow Free
           </a>

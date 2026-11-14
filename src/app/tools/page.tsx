@@ -53,30 +53,30 @@ export default function ToolsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(itemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], { name: 'Free Tools' }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Free Calculators
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Work hours, time cards, and pay — instant answers, no signup. Built by the team
             behind the HoursFlow app.
           </p>
 
           {categories.map(({ category, tools }) => (
             <section key={category} className="mb-12">
-              <h2 className="text-2xl font-bold text-white mb-6">{category}</h2>
+              <h2 className="text-2xl font-bold text-ink mb-6">{category}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {tools.map((t) => (
                   <Link
                     key={t.slug}
                     href={`/${t.slug}`}
-                    className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 hover:border-[#D63C6B]/40 transition-colors block"
+                    className="bg-track/40 border border-rule rounded-2xl p-6 hover:border-ink/40 transition-colors block"
                   >
-                    <h3 className="text-white font-semibold mb-1.5">{t.title}</h3>
-                    <p className="text-white/55 text-sm leading-relaxed">{t.shortDescription}</p>
+                    <h3 className="text-ink font-semibold mb-1.5">{t.title}</h3>
+                    <p className="text-ink-2 text-sm leading-relaxed">{t.shortDescription}</p>
                   </Link>
                 ))}
               </div>

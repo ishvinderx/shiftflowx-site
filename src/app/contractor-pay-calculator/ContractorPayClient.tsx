@@ -10,8 +10,8 @@ import { calculateContractorPay } from './contractorCalc'
 const ANALYTICS = { calculator: 'contractor-pay-calculator', category: 'Contractor & Self-Employed' }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -109,21 +109,21 @@ export default function ContractorPayClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
   const row = (label: string, value: string, accent = false) => (
     <div className="flex justify-between">
-      <dt className="text-white/50">{label}</dt>
-      <dd className={`font-medium ${accent ? 'text-[#5EEAD4]' : 'text-white'}`}>{value}</dd>
+      <dt className="text-ink-2">{label}</dt>
+      <dd className={`font-medium ${accent ? 'text-positive' : 'text-ink'}`}>{value}</dd>
     </div>
   )
 
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 space-y-5">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('cp-hours', 'Billable hours', hours, setHours, fields.hours)}
           {field('cp-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -131,7 +131,7 @@ export default function ContractorPayClient() {
 
         <fieldset>
           <legend className={labelCls}>GST/HST registration status</legend>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/80">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink">
             {(
               [
                 ['registered', 'Registered'],
@@ -149,7 +149,7 @@ export default function ContractorPayClient() {
                     markStarted()
                     setRegistration(value)
                   }}
-                  className="accent-[#D63C6B]"
+                  className="accent-ink"
                 />
                 {label}
               </label>
@@ -179,13 +179,13 @@ export default function ContractorPayClient() {
               ))}
             </select>
             {rule?.hasSeparatePst && (
-              <p className="text-white/45 text-xs mt-1.5">Does not include PST/QST.</p>
+              <p className="text-ink-2 text-xs mt-1.5">Does not include PST/QST.</p>
             )}
           </div>
         )}
 
         {registration === 'unregistered' && (
-          <p className="text-white/45 text-xs">
+          <p className="text-ink-2 text-xs">
             Unregistered contractors don’t charge GST/HST — small suppliers below the CRA’s
             registration threshold generally aren’t required to register.
           </p>
@@ -199,11 +199,11 @@ export default function ContractorPayClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             {result.available !== null ? 'Estimated available income' : 'Estimated profit'}
           </p>
-          <p className="text-5xl font-bold text-white tracking-tight">
+          <p className="text-5xl font-bold text-ink tracking-tight">
             {money(result.available !== null ? result.available : result.profit)}
           </p>
 
@@ -217,8 +217,8 @@ export default function ContractorPayClient() {
             {result.reserve !== null &&
               (result.profit <= 0 ? (
                 <div className="flex justify-between gap-4">
-                  <dt className="text-white/50">Income-tax reserve</dt>
-                  <dd className="text-white/60 text-right">
+                  <dt className="text-ink-2">Income-tax reserve</dt>
+                  <dd className="text-ink-2 text-right">
                     No profit this period — nothing to reserve
                   </dd>
                 </div>
@@ -230,17 +230,17 @@ export default function ContractorPayClient() {
           </dl>
 
           {registration === 'unsure' && (
-            <p className="text-white/45 text-xs mt-4">
+            <p className="text-ink-2 text-xs mt-4">
               GST/HST not calculated — registration status required.
             </p>
           )}
           {registration === 'registered' && !rule && (
-            <p className="text-white/45 text-xs mt-4">
+            <p className="text-ink-2 text-xs mt-4">
               GST/HST not calculated — select your province or territory.
             </p>
           )}
           {registration === 'registered' && rule && (
-            <p className="text-white/45 text-xs mt-4">
+            <p className="text-ink-2 text-xs mt-4">
               The {money(result.salesTax!)} {rule.taxType} is collected on behalf of the CRA and
               remitted — it is not income, and the tax reserve is never computed on it.
             </p>
@@ -262,7 +262,7 @@ export default function ContractorPayClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your breakdown.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your breakdown.</p>
       )}
 
       {rule && <SourceInfo rule={rule} />}

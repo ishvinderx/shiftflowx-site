@@ -37,7 +37,7 @@ const FAQ: Faq[] = [
   },
   {
     q: 'Where should my tax reserve live?',
-    a: 'Somewhere it won’t get spent by accident: a separate account from your day-to-day money is the usual answer, and one that earns a little interest while it sits is a bonus. The mechanics matter less than the separation — a reserve mixed into your spending account tends to quietly stop being a reserve.',
+    a: 'Somewhere it won’t get spent by accident: a separate account from your day- money is the usual answer, and one that earns a little interest while it sits is a bonus. The mechanics matter less than the separation — a reserve mixed into your spending account tends to quietly stop being a reserve.',
   },
 ]
 
@@ -54,14 +54,14 @@ export default function TaxReserveCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Tax Reserve Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Figure out how much of each payment to park for income tax so filing season
             doesn&rsquo;t hurt — free, instant, no signup.
           </p>
@@ -70,24 +70,24 @@ export default function TaxReserveCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How the tax reserve is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How the tax reserve is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Reserve = (revenue − expenses) × your reserve percentage. Worked example: $2,600 of
               revenue minus $400 of expenses is{' '}
-              <span className="text-white/85 font-medium">$2,200</span> of profit; at your 25%,
-              set aside <span className="text-[#5EEAD4] font-medium">$550</span> and keep{' '}
-              <span className="text-white/85 font-medium">$1,650</span>.
+              <span className="text-ink font-medium">$2,200</span> of profit; at your 25%,
+              set aside <span className="text-positive font-medium">$550</span> and keep{' '}
+              <span className="text-ink font-medium">$1,650</span>.
             </p>
-            <div className="mt-6 bg-[#5EEAD4]/[0.05] border border-[#5EEAD4]/25 rounded-xl p-5">
-              <p className="text-white/80 leading-relaxed text-sm">
-                <span className="text-[#5EEAD4] font-semibold">Reserve on profit, not on your
+            <div className="mt-6 bg-mint/[0.05] border border-positive-line rounded-xl p-5">
+              <p className="text-ink leading-relaxed text-sm">
+                <span className="text-positive font-semibold">Reserve on profit, not on your
                 invoice total</span>{' '}
                 — the GST/HST you collected is remitted separately and was never yours, and
                 expenses reduce your taxable profit.
               </p>
             </div>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>
                 Reserving a percentage of the gross invoice including HST — that sales tax is
                 remitted to the government, not saved for income tax.

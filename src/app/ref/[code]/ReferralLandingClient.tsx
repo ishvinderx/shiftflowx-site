@@ -38,19 +38,19 @@ const FEATURE_CARDS = [
     icon: Clock,
     title: "Track Shifts & Pay",
     description: "Log every shift in seconds and know exactly what you earned.",
-    accent: "#D63C6B",
+    accent: "var(--color-ink)",
   },
   {
     icon: Wallet,
     title: "Payday & Budget",
     description: "Know when you get paid, with budget and bill reminders.",
-    accent: "#22C55E",
+    accent: "var(--color-positive)",
   },
   {
     icon: Receipt,
     title: "Tax, Invoices & Scanning",
     description: "Tax reports, invoices, and receipt and payslip scanning with Pro.",
-    accent: "#F59E0B",
+    accent: "var(--color-ink)",
   },
 ];
 
@@ -108,11 +108,11 @@ export default function ReferralLandingClient({ code }: Props) {
       : "72:00:00";
 
   return (
-    <main className="min-h-screen bg-[#050508] text-white overflow-x-hidden">
+    <main className="min-h-screen bg-ground text-ink overflow-x-hidden">
       {/* Background glows */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-[0.07] bg-[#D63C6B]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-[0.05] bg-[#14B8A6]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-[0.07] bg-ink" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-[0.05] bg-mint" />
       </div>
 
       <div className="relative z-10 max-w-2xl mx-auto px-6 py-16 md:py-24 flex flex-col items-center text-center">
@@ -123,11 +123,10 @@ export default function ReferralLandingClient({ code }: Props) {
           transition={{ duration: 0.6, ease: EASE }}
           className="w-20 h-20 rounded-[22px] mb-6 flex items-center justify-center"
           style={{
-            background: "linear-gradient(135deg, #D63C6B, #6366F1)",
-            boxShadow: "0 20px 60px rgba(214,60,107,0.35)",
+            background: "var(--color-track)",
           }}
         >
-          <Clock className="w-10 h-10 text-white" />
+          <Clock className="w-10 h-10 text-ink" />
         </motion.div>
 
         {/* Headline */}
@@ -140,7 +139,7 @@ export default function ReferralLandingClient({ code }: Props) {
           You&apos;ve Been{" "}
           <span
             style={{
-              background: "linear-gradient(135deg, #D63C6B, #14B8A6)",
+              background: "var(--color-track)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -156,7 +155,7 @@ export default function ReferralLandingClient({ code }: Props) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22, ease: EASE }}
-          className="text-white/60 text-lg leading-relaxed mb-8 max-w-lg"
+          className="text-ink-2 text-lg leading-relaxed mb-8 max-w-lg"
         >
           Your friend wants you to take control of your shifts, earnings, and payday &mdash; free for 7 days.
         </motion.p>
@@ -168,12 +167,12 @@ export default function ReferralLandingClient({ code }: Props) {
           transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
           className="mb-10 flex flex-col items-center gap-2"
         >
-          <p className="text-white/40 text-xs uppercase tracking-widest font-medium">
+          <p className="text-ink-2 text-xs uppercase tracking-widest font-medium">
             Offer expires in
           </p>
           <div
             className="font-mono text-4xl sm:text-5xl font-bold tabular-nums"
-            style={{ color: "#D63C6B", textShadow: "0 0 20px rgba(214,60,107,0.4)" }}
+            style={{ color: "var(--color-ink)" }}
           >
             {countdownDisplay}
           </div>
@@ -191,8 +190,8 @@ export default function ReferralLandingClient({ code }: Props) {
                 transition={{ duration: 0.55, delay: 0.35 + i * 0.1, ease: EASE }}
                 className="rounded-2xl p-5 text-left"
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "var(--color-rule)",
+                  border: "1px solid var(--color-rule)",
                   backdropFilter: "blur(20px)",
                 }}
               >
@@ -202,8 +201,8 @@ export default function ReferralLandingClient({ code }: Props) {
                 >
                   <Icon className="w-5 h-5" style={{ color: card.accent }} />
                 </div>
-                <h3 className="text-white font-semibold text-sm mb-1.5">{card.title}</h3>
-                <p className="text-white/45 text-xs leading-relaxed">{card.description}</p>
+                <h3 className="text-ink font-semibold text-sm mb-1.5">{card.title}</h3>
+                <p className="text-ink-2 text-xs leading-relaxed">{card.description}</p>
               </motion.div>
             );
           })}
@@ -220,11 +219,10 @@ export default function ReferralLandingClient({ code }: Props) {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 w-full max-w-xs rounded-2xl px-7 py-4 font-semibold text-white text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-3 w-full max-w-xs rounded-2xl px-7 py-4 font-semibold text-ink text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
             style={{
-              background: "#000",
-              border: "1px solid rgba(255,255,255,0.12)",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)",
+              background: "var(--color-ground)",
+              border: "1px solid var(--color-rule)",
             }}
           >
             <Apple className="w-5 h-5 flex-shrink-0" />
@@ -232,7 +230,7 @@ export default function ReferralLandingClient({ code }: Props) {
           </Link>
 
           {/* Trust line */}
-          <p className="text-white/30 text-sm mt-1">
+          <p className="text-ink-2 text-sm mt-1">
             Free to download &middot; 7-day Pro trial &middot; Cancel anytime
           </p>
         </motion.div>
@@ -242,7 +240,7 @@ export default function ReferralLandingClient({ code }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.85 }}
-          className="mt-10 text-white/20 text-xs font-mono"
+          className="mt-10 text-ink-2 text-xs font-mono"
         >
           Referral code: {code}
         </motion.p>

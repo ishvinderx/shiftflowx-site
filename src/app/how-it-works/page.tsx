@@ -8,43 +8,43 @@ export const metadata: Metadata = {
 };
 
 const breadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "How It Works", "item": "https://shiftflowx.net/how-it-works" }
   ]
 };
 
 const howToSchema = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Track Your Hours and Pay with HoursFlow",
-  "description": "HoursFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check your paycheque.",
-  "step": [
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "How to Track Your Hours and Pay with HoursFlow",
+ "description": "HoursFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check your paycheque.",
+ "step": [
     {
-      "@type": "HowToStep",
-      "position": 1,
-      "name": "Log Your Shift",
-      "text": "Enter your shift start time, end time and employer. The free plan covers one employer; Pro adds multiple employers and shift import."
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Log Your Shift",
+ "text": "Enter your shift start time, end time and employer. The free plan covers one employer; Pro adds multiple employers and shift import."
     },
     {
-      "@type": "HowToStep",
-      "position": 2,
-      "name": "See Your Earnings and Payday",
-      "text": "HoursFlow shows what you have earned from the hours you log and when your next payday is due, based on your pay schedule."
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "See Your Earnings and Payday",
+ "text": "HoursFlow shows what you have earned from the hours you log and when your next payday is due, based on your pay schedule."
     },
     {
-      "@type": "HowToStep",
-      "position": 3,
-      "name": "Keep Your Budget and Bills",
-      "text": "Set up a budget and bill reminders so you know what is due before it is due."
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Keep Your Budget and Bills",
+ "text": "Set up a budget and bill reminders so you know what is due before it is due."
     },
     {
-      "@type": "HowToStep",
-      "position": 4,
-      "name": "Check and Export",
-      "text": "Subscribers can check a paycheque against logged hours, scan receipts and payslips, view a tax report with GST/HST summaries, and export reports and invoices."
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Check and Export",
+ "text": "Subscribers can check a paycheque against logged hours, scan receipts and payslips, view a tax report with GST/HST summaries, and export reports and invoices."
     }
   ]
 };
@@ -61,20 +61,20 @@ export default function HowItWorksPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
 
           {/* Header */}
           <div className="mb-16">
-            <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-              <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
+            <nav className="flex items-center gap-2 text-sm text-ink-2 mb-8">
+              <Link href="/" className="hover:text-ink transition-colors">HoursFlow</Link>
               <span>/</span>
-              <span className="text-white/60">How It Works</span>
+              <span className="text-ink-2">How It Works</span>
             </nav>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 leading-tight">
               How HoursFlow Works
             </h1>
-            <p className="text-xl text-white/60 leading-relaxed max-w-2xl">
+            <p className="text-xl text-ink-2 leading-relaxed max-w-2xl">
               HoursFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check and export your records.
             </p>
           </div>
@@ -85,19 +85,19 @@ export default function HowItWorksPage() {
             {/* Step 1 */}
             <section>
               <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#D63C6B]/20 border border-[#D63C6B]/30 flex items-center justify-center text-[#D63C6B] font-bold text-lg">1</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-ink/20 border border-ink/30 flex items-center justify-center text-ink font-bold text-lg">1</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">Log Your Shift</h2>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <h2 className="text-2xl font-bold text-ink mb-4">Log Your Shift</h2>
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     After each shift, open HoursFlow and enter your start time, end time and employer. HoursFlow then shows your earnings for that shift.
                   </p>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     The free plan tracks one employer and keeps your last 30 days of records. Subscribers get full history, multiple employers and shift import.
                   </p>
                   <ul className="space-y-2">
                     {["Start and end time, employer", "One employer on the free plan", "Multiple employers and shift import with Pro"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-white/60">
-                        <span className="text-[#D63C6B] font-bold">+</span>
+                      <li key={item} className="flex items-center gap-3 text-ink-2">
+                        <span className="text-ink font-bold">+</span>
                         {item}
                       </li>
                     ))}
@@ -109,19 +109,19 @@ export default function HowItWorksPage() {
             {/* Step 2 */}
             <section>
               <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#14B8A6]/20 border border-[#14B8A6]/30 flex items-center justify-center text-[#14B8A6] font-bold text-lg">2</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-mint border border-positive-line flex items-center justify-center text-positive font-bold text-lg">2</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">See Your Earnings and Payday</h2>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <h2 className="text-2xl font-bold text-ink mb-4">See Your Earnings and Payday</h2>
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     HoursFlow adds up the hours you log into earnings and uses your pay schedule to show when your next payday is due.
                   </p>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     These are estimates based on what you enter. They are not a guarantee of what your employer will pay.
                   </p>
                   <ul className="space-y-2">
                     {["Earnings from logged hours", "Next payday from your pay schedule", "Included on the free plan"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-white/60">
-                        <span className="text-[#14B8A6] font-bold">+</span>
+                      <li key={item} className="flex items-center gap-3 text-ink-2">
+                        <span className="text-positive font-bold">+</span>
                         {item}
                       </li>
                     ))}
@@ -133,16 +133,16 @@ export default function HowItWorksPage() {
             {/* Step 3 */}
             <section>
               <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#6366F1]/20 border border-[#6366F1]/30 flex items-center justify-center text-[#6366F1] font-bold text-lg">3</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-periwinkle border text-commit/30 flex items-center justify-center text-commit font-bold text-lg">3</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">Keep Your Budget and Bills</h2>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <h2 className="text-2xl font-bold text-ink mb-4">Keep Your Budget and Bills</h2>
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     Set up a budget and add your bills. HoursFlow reminds you before a bill is due, so you can plan around payday.
                   </p>
                   <ul className="space-y-2">
                     {["Budget", "Bill reminders", "Included on the free plan"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-white/60">
-                        <span className="text-[#6366F1] font-bold">+</span>
+                      <li key={item} className="flex items-center gap-3 text-ink-2">
+                        <span className="text-commit font-bold">+</span>
                         {item}
                       </li>
                     ))}
@@ -154,19 +154,19 @@ export default function HowItWorksPage() {
             {/* Step 4 */}
             <section>
               <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#22C55E]/20 border border-[#22C55E]/30 flex items-center justify-center text-[#22C55E] font-bold text-lg">4</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-mint border border-positive-line flex items-center justify-center text-positive font-bold text-lg">4</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-4">Check and Export</h2>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <h2 className="text-2xl font-bold text-ink mb-4">Check and Export</h2>
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     With a subscription, the paycheck tracker checks a paycheque against the hours you logged. You can also scan receipts and payslips (text is read on your device) and export reports and documents.
                   </p>
-                  <p className="text-white/60 leading-relaxed mb-4">
+                  <p className="text-ink-2 leading-relaxed mb-4">
                     The tax report includes GST/HST summaries. Freelancers and contractors can create invoices and pay statements.
                   </p>
                   <ul className="space-y-2">
                     {["Paycheck tracker", "Receipt and payslip scanning", "Tax report with GST/HST summaries", "Report export in PDF and CSV, pay statements and invoices"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-white/60">
-                        <span className="text-[#22C55E] font-bold">+</span>
+                      <li key={item} className="flex items-center gap-3 text-ink-2">
+                        <span className="text-positive font-bold">+</span>
                         {item}
                       </li>
                     ))}
@@ -177,8 +177,8 @@ export default function HowItWorksPage() {
           </div>
 
           {/* FAQ */}
-          <section className="mt-20 pt-16 border-t border-white/5">
-            <h2 className="text-2xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+          <section className="mt-20 pt-16 border-t border-rule">
+            <h2 className="text-2xl font-bold text-ink mb-8">Frequently Asked Questions</h2>
             <dl className="space-y-8">
               {[
                 {
@@ -199,20 +199,20 @@ export default function HowItWorksPage() {
                 }
               ].map(({ q, a }) => (
                 <div key={q}>
-                  <dt className="text-lg font-semibold text-white mb-2">{q}</dt>
-                  <dd className="text-white/60 leading-relaxed">{a}</dd>
+                  <dt className="text-lg font-semibold text-ink mb-2">{q}</dt>
+                  <dd className="text-ink-2 leading-relaxed">{a}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
           {/* CTA */}
-          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Ready to try HoursFlow?</h3>
-            <p className="text-white/60 mb-6">Free to start. Pro includes a 7-day free trial.</p>
+          <div className="mt-16 p-8 rounded-2xl border border-ink/20 text-center">
+            <h3 className="text-2xl font-bold text-ink mb-3">Ready to try HoursFlow?</h3>
+            <p className="text-ink-2 mb-6">Free to start. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
-              className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"
+              className="inline-block bg-ink text-ground px-8 py-3 rounded-full font-semibold hover:bg-ink-2 transition-colors"
             >
               Download HoursFlow Free
             </Link>

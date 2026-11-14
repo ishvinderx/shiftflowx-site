@@ -8,8 +8,8 @@ import { calculateReserve } from './reserveCalc'
 const ANALYTICS = { calculator: 'tax-reserve-calculator', category: 'Contractor & Self-Employed' }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -94,15 +94,15 @@ export default function TaxReserveClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {opts?.help && !parsed.error && <p className="text-white/35 text-xs mt-1.5">{opts.help}</p>}
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {opts?.help && !parsed.error && <p className="text-ink-2 text-xs mt-1.5">{opts.help}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {field('tr-revenue', 'Business revenue ($)', revenue, setRevenue, fields.revenue, {
             step: '0.01',
@@ -122,27 +122,27 @@ export default function TaxReserveClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             Estimated profit (revenue − expenses)
           </p>
-          <p className="text-5xl font-bold text-white tracking-tight">{money(result.profit)}</p>
+          <p className="text-5xl font-bold text-ink tracking-tight">{money(result.profit)}</p>
 
           {result.profit <= 0 ? (
-            <p className="mt-5 text-white/60 text-sm">No profit this period — nothing to reserve.</p>
+            <p className="mt-5 text-ink-2 text-sm">No profit this period — nothing to reserve.</p>
           ) : result.reserve === null ? (
-            <p className="mt-5 text-white/60 text-sm">
+            <p className="mt-5 text-ink-2 text-sm">
               Enter your reserve percentage to see how much to set aside.
             </p>
           ) : (
             <dl className="mt-5 space-y-2 text-sm max-w-xs">
               <div className="flex justify-between">
-                <dt className="text-white/50">Recommended reserve</dt>
-                <dd className="text-[#5EEAD4] font-medium">{money(result.reserve)}</dd>
+                <dt className="text-ink-2">Recommended reserve</dt>
+                <dd className="text-positive font-medium">{money(result.reserve)}</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-white/50">Left after reserve</dt>
-                <dd className="text-white font-medium">{money(result.remaining!)}</dd>
+                <dt className="text-ink-2">Left after reserve</dt>
+                <dd className="text-ink font-medium">{money(result.remaining!)}</dd>
               </div>
             </dl>
           )}
@@ -164,7 +164,7 @@ export default function TaxReserveClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your reserve.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your reserve.</p>
       )}
     </div>
   )

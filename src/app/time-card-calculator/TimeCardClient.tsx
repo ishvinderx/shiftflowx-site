@@ -73,18 +73,18 @@ export default function TimeCardClient() {
   }
 
   const inputCls =
-    'bg-white/[0.04] border border-white/10 rounded-lg px-2 py-1.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
+    'bg-track/40 border border-rule rounded-lg px-2 py-1.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
 
   return (
     <div className="space-y-6">
       {/* ── Week grid ─────────────────────────────────────────────────────── */}
       <div
-        className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-4 sm:p-6 overflow-x-auto print:hidden"
+        className="bg-track/40 border border-rule rounded-2xl p-4 sm:p-6 overflow-x-auto print:hidden"
         onChangeCapture={markStarted}
       >
         <table className="w-full min-w-[560px] text-sm">
           <thead>
-            <tr className="text-left text-xs text-white/40 uppercase tracking-wide">
+            <tr className="text-left text-xs text-ink-2 uppercase tracking-wide">
               <th className="pb-2 pr-2 font-semibold">Day</th>
               <th className="pb-2 pr-2 font-semibold">Start</th>
               <th className="pb-2 pr-2 font-semibold">End</th>
@@ -94,16 +94,16 @@ export default function TimeCardClient() {
           </thead>
           <tbody>
             {rows.map((row, i) => (
-              <tr key={DAY_NAMES[i]} className="border-t border-white/[0.06]">
+              <tr key={DAY_NAMES[i]} className="border-t border-rule">
                 <td className="py-2 pr-2">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="checkbox" checked={row.enabled}
                       onChange={(e) => setRow(i, { enabled: e.target.checked })}
-                      className="accent-[#D63C6B]"
+                      className="accent-ink"
                       aria-label={`Include ${DAY_NAMES[i]}`}
                     />
-                    <span className={row.enabled ? 'text-white/85' : 'text-white/35'}>{DAY_NAMES[i]}</span>
+                    <span className={row.enabled ? 'text-ink' : 'text-ink-2'}>{DAY_NAMES[i]}</span>
                   </label>
                 </td>
                 <td className="py-2 pr-2">
@@ -121,7 +121,7 @@ export default function TimeCardClient() {
                     onChange={(e) => setRow(i, { breakMinutes: Math.max(0, parseInt(e.target.value) || 0) })}
                     className={`${inputCls} w-20 disabled:opacity-30`} aria-label={`${DAY_NAMES[i]} unpaid break minutes`} />
                 </td>
-                <td className="py-2 text-right text-white/70 tabular-nums">
+                <td className="py-2 text-right text-ink-2 tabular-nums">
                   {row.enabled && result.perDayMinutes[i] > 0 ? fmtHM(result.perDayMinutes[i]) : '—'}
                 </td>
               </tr>
@@ -129,25 +129,25 @@ export default function TimeCardClient() {
           </tbody>
         </table>
 
-        <div className="flex flex-wrap items-end gap-4 mt-5 pt-4 border-t border-white/[0.06]">
+        <div className="flex flex-wrap items-end gap-4 mt-5 pt-4 border-t border-rule">
           <div>
-            <label htmlFor="tc-rate" className="block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1">Hourly rate</label>
+            <label htmlFor="tc-rate" className="block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1">Hourly rate</label>
             <input id="tc-rate" type="number" min={0} step="0.01" placeholder="Optional" value={rate}
               onChange={(e) => setRate(e.target.value)} className={`${inputCls} w-28`} />
           </div>
           <div>
-            <label htmlFor="tc-ot" className="block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1">Weekly OT after (h)</label>
+            <label htmlFor="tc-ot" className="block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1">Weekly OT after (h)</label>
             <input id="tc-ot" type="number" min={0} step="1" value={otThreshold}
               onChange={(e) => setOtThreshold(e.target.value)} className={`${inputCls} w-24`} />
           </div>
           <div>
-            <label htmlFor="tc-mult" className="block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1">OT rate ×</label>
+            <label htmlFor="tc-mult" className="block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1">OT rate ×</label>
             <input id="tc-mult" type="number" min={1} step="0.1" value={otMultiplier}
               onChange={(e) => setOtMultiplier(e.target.value)} className={`${inputCls} w-20`} />
           </div>
           <button
             onClick={() => { setRows(DAY_NAMES.map((_, i) => defaultRow(i < 5))); setRate(''); setOtThreshold('40'); setOtMultiplier('1.5') }}
-            className="ml-auto text-sm text-white/40 hover:text-white/70 transition-colors pb-1.5"
+            className="ml-auto text-sm text-ink-2 hover:text-ink transition-colors pb-1.5"
           >
             Reset
           </button>
@@ -155,46 +155,46 @@ export default function TimeCardClient() {
       </div>
 
       {/* ── Weekly summary ────────────────────────────────────────────────── */}
-      <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-        <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-3">Week total</p>
+      <div className="border border-ink/25 rounded-2xl p-6">
+        <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-3">Week total</p>
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-          <p className="text-5xl font-bold text-white tracking-tight">{fmtHM(result.totalMinutes)}</p>
-          <p className="text-white/50 text-sm">= {result.decimalHours} decimal hours</p>
+          <p className="text-5xl font-bold text-ink tracking-tight">{fmtHM(result.totalMinutes)}</p>
+          <p className="text-ink-2 text-sm">= {result.decimalHours} decimal hours</p>
         </div>
         <dl className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm max-w-lg">
-          <div><dt className="text-white/50">Regular</dt><dd className="text-white/90 font-medium">{fmtHM(result.regularMinutes)}</dd></div>
+          <div><dt className="text-ink-2">Regular</dt><dd className="text-ink font-medium">{fmtHM(result.regularMinutes)}</dd></div>
           <div>
-            <dt className="text-white/50">Overtime</dt>
-            <dd className={result.overtimeMinutes > 0 ? 'text-[#5EEAD4] font-medium' : 'text-white/90 font-medium'}>{fmtHM(result.overtimeMinutes)}</dd>
+            <dt className="text-ink-2">Overtime</dt>
+            <dd className={result.overtimeMinutes > 0 ? 'text-positive font-medium' : 'text-ink font-medium'}>{fmtHM(result.overtimeMinutes)}</dd>
           </div>
           {result.grossPay != null && (
-            <div><dt className="text-white/50">Est. gross pay</dt><dd className="text-white font-bold">${result.grossPay.toFixed(2)}</dd></div>
+            <div><dt className="text-ink-2">Est. gross pay</dt><dd className="text-ink font-bold">${result.grossPay.toFixed(2)}</dd></div>
           )}
         </dl>
 
         <div className="flex flex-wrap gap-2 mt-6 print:hidden">
-          <button onClick={copy} className="text-xs font-medium text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/10 rounded-full px-4 py-2 transition-colors">
+          <button onClick={copy} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
             {copied ? 'Copied ✓' : 'Copy timesheet'}
           </button>
-          <button onClick={() => window.print()} className="text-xs font-medium text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/10 rounded-full px-4 py-2 transition-colors">
+          <button onClick={() => window.print()} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
             Print
           </button>
         </div>
 
-        <div className="mt-6 bg-white/[0.03] border border-white/[0.08] rounded-xl p-4">
-          <p className="text-sm text-white/80 font-medium">Filling this in every week?</p>
-          <p className="text-xs text-white/45 mt-1">
+        <div className="mt-6 bg-track/40 border border-rule rounded-xl p-4">
+          <p className="text-sm text-ink font-medium">Filling this in every week?</p>
+          <p className="text-xs text-ink-2 mt-1">
             HoursFlow tracks every shift automatically, splits regular and overtime hours, and predicts your next paycheck.
           </p>
           <div className="flex flex-wrap items-center gap-3 mt-3">
             <a
               href={appStoreCampaignUrl('time-card-calculator')}
               onClick={() => trackToolEvent('calculator_cta_clicked', ANALYTICS)}
-              className="text-xs font-semibold text-white bg-[#D63C6B] hover:bg-[#c0355f] rounded-full px-4 py-2 transition-colors"
+              className="text-xs font-semibold text-ground bg-ink hover:bg-ink-2 rounded-full px-4 py-2 transition-colors"
             >
               Track Hours with HoursFlow
             </a>
-            <Link href="/work-hours-calculator" className="text-xs text-white/50 hover:text-white transition-colors">
+            <Link href="/work-hours-calculator" className="text-xs text-ink-2 hover:text-ink transition-colors">
               Single-shift calculator →
             </Link>
           </div>

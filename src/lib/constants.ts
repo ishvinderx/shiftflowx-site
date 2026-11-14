@@ -127,9 +127,8 @@ export const BILLING_FAQ = [
 export const NAV_LINKS = [
   { href: "/features", label: "Features" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/tools", label: "Free Tools" },
-  { href: "/download", label: "Download" },
-  { href: "/about", label: "About" },
+  { href: "/tools", label: "Tools" },
+  { href: "/blog", label: "Blog" },
   { href: "/support", label: "Support" },
 ];
 
@@ -139,77 +138,24 @@ export const FOOTER_LINKS = {
     { href: "/pricing", label: "Pricing" },
     { href: "/download", label: "Download" },
   ],
-  Legal: [
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Service" },
-    { href: "/eula", label: "EULA" },
-    { href: "/subscription-terms", label: "Subscription Terms" },
-    { href: "/cookie-policy", label: "Cookie Policy" },
-    { href: "/refund", label: "Refund Policy" },
+  Tools: [
+    { href: "/tools", label: "Calculators" },
+    { href: "/blog", label: "Blog" },
   ],
   Company: [
     { href: "/about", label: "About" },
     { href: "/support", label: "Support" },
-    { href: "/delete", label: "Delete Account" },
+    { href: "/referral", label: "Referral" },
+  ],
+  Legal: [
+    { href: "/privacy", label: "Privacy" },
+    { href: "/terms", label: "Terms" },
+    { href: "/subscription-terms", label: "Subscription terms" },
+    { href: "/security", label: "Security" },
+    { href: "/cookie-policy", label: "Cookie policy" },
+    { href: "/delete", label: "Delete account" },
   ],
 };
-
-export const FEATURES = [
-  {
-    id: "paycheck-tracker",
-    title: "Paycheck Tracker",
-    description:
-      "Check a paycheque against the hours you logged, so a short or missing payment stands out.",
-    icon: "ShieldCheck",
-    color: "#14B8A6",
-    bgColor: "rgba(20,184,166,0.1)",
-  },
-  {
-    id: "payday-forecasting",
-    title: "Payday Tracking",
-    description:
-      "Set your pay schedule and see when your next payday lands.",
-    icon: "CalendarCheck",
-    color: "#D63C6B",
-    bgColor: "rgba(214,60,107,0.1)",
-  },
-  {
-    id: "budget-bills",
-    title: "Budget and Bill Reminders",
-    description:
-      "Keep a simple budget and get reminders before your bills are due.",
-    icon: "HeartPulse",
-    color: "#22C55E",
-    bgColor: "rgba(34,197,94,0.1)",
-  },
-  {
-    id: "tax-estimation",
-    title: "Tax Estimates",
-    description:
-      "See an estimate of what to set aside for tax, with GST/HST summaries in the tax report.",
-    icon: "Receipt",
-    color: "#F59E0B",
-    bgColor: "rgba(245,158,11,0.1)",
-  },
-  {
-    id: "invoice-generator",
-    title: "Invoices and Pay Statements",
-    description:
-      "Create invoices for freelance and contract work, and pay statements for your records.",
-    icon: "FileText",
-    color: "#14B8A6",
-    bgColor: "rgba(20,184,166,0.1)",
-  },
-  {
-    id: "payslip-scanner",
-    title: "Receipt and Payslip Scanning",
-    description:
-      "Scan a receipt or payslip with your camera. Text is read on your device.",
-    icon: "ScanLine",
-    color: "#D63C6B",
-    bgColor: "rgba(214,60,107,0.1)",
-  },
-];
 
 export const PRICING_FEATURES = [
   "Shift and hour tracking",

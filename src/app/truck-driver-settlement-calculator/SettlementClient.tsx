@@ -10,8 +10,8 @@ import { calculateSettlement, type GstHstStatus } from './settlementCalc'
 const ANALYTICS = { calculator: 'truck-driver-settlement-calculator', category: 'Owner-Operator & Trucking' }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -40,7 +40,7 @@ const REGISTRATION_OPTIONS: { value: GstHstStatus; label: string }[] = [
 function StatementRow({
   label,
   value,
-  valueCls = 'text-white font-medium',
+  valueCls = 'text-ink font-medium',
 }: {
   label: string
   value: string
@@ -48,10 +48,10 @@ function StatementRow({
 }) {
   return (
     <div className="flex items-baseline gap-3">
-      <dt className="text-xs font-semibold text-white/50 uppercase tracking-wide whitespace-nowrap">
+      <dt className="text-xs font-semibold text-ink-2 uppercase tracking-wide whitespace-nowrap">
         {label}
       </dt>
-      <div className="flex-1 border-b border-dotted border-white/20 translate-y-[-3px]" aria-hidden />
+      <div className="flex-1 border-b border-dotted border-rule translate-y-[-3px]" aria-hidden />
       <dd className={valueCls}>{value}</dd>
     </div>
   )
@@ -133,7 +133,7 @@ export default function SettlementClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -143,7 +143,7 @@ export default function SettlementClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 space-y-5">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('ts-hours', 'Hours worked', hours, setHours, fields.hours)}
           {field('ts-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -153,7 +153,7 @@ export default function SettlementClient() {
           <legend className={labelCls}>GST/HST registration</legend>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {REGISTRATION_OPTIONS.map((opt) => (
-              <label key={opt.value} className="flex items-center gap-2 text-sm text-white/80 cursor-pointer">
+              <label key={opt.value} className="flex items-center gap-2 text-sm text-ink cursor-pointer">
                 <input
                   type="radio"
                   name="ts-registration"
@@ -163,7 +163,7 @@ export default function SettlementClient() {
                     markStarted()
                     setStatus(opt.value)
                   }}
-                  className="accent-[#D63C6B]"
+                  className="accent-ink"
                 />
                 {opt.label}
               </label>
@@ -193,7 +193,7 @@ export default function SettlementClient() {
               ))}
             </select>
             {rule?.hasSeparatePst && (
-              <p className="text-white/45 text-xs mt-1.5">
+              <p className="text-ink-2 text-xs mt-1.5">
                 {rule.jurisdiction} charges a separate PST/QST on top of GST — it is not included here.
               </p>
             )}
@@ -201,7 +201,7 @@ export default function SettlementClient() {
         )}
 
         {status === 'not-registered' && (
-          <p className="text-white/45 text-xs">
+          <p className="text-ink-2 text-xs">
             Not GST/HST registered — your expected payment is your work earnings only, with no tax added.
           </p>
         )}
@@ -214,8 +214,8 @@ export default function SettlementClient() {
 
       {/* ── Result: the expected-settlement statement ──────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-4">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-4">
             What your settlement should say
           </p>
 
@@ -224,23 +224,23 @@ export default function SettlementClient() {
 
             {result.tax !== null && (
               <div>
-                <StatementRow label={taxLabel} value={money(result.tax)} valueCls="text-[#5EEAD4] font-medium" />
-                <p className="text-white/45 text-xs mt-1 text-right">collected for the CRA — not earnings</p>
+                <StatementRow label={taxLabel} value={money(result.tax)} valueCls="text-positive font-medium" />
+                <p className="text-ink-2 text-xs mt-1 text-right">collected for the CRA — not earnings</p>
               </div>
             )}
 
             {result.expectedPayment !== null ? (
               <div className="flex items-baseline gap-3 pt-1">
-                <dt className="text-xs font-semibold text-white/70 uppercase tracking-wide whitespace-nowrap">
+                <dt className="text-xs font-semibold text-ink-2 uppercase tracking-wide whitespace-nowrap">
                   Expected payment
                 </dt>
-                <div className="flex-1 border-b border-dotted border-white/20 translate-y-[-6px]" aria-hidden />
-                <dd className="text-5xl font-bold text-white tracking-tight">{money(result.expectedPayment)}</dd>
+                <div className="flex-1 border-b border-dotted border-rule translate-y-[-6px]" aria-hidden />
+                <dd className="text-5xl font-bold text-ink tracking-tight">{money(result.expectedPayment)}</dd>
               </div>
             ) : (
               <div className="pt-1">
-                <StatementRow label="Expected payment" value="Incomplete" valueCls="text-white/50 font-medium italic" />
-                <p className="text-[#FBBF24] text-xs mt-1.5">
+                <StatementRow label="Expected payment" value="Incomplete" valueCls="text-ink-2 font-medium italic" />
+                <p className="text-ink text-xs mt-1.5">
                   GST/HST not calculated — registration status required.
                 </p>
               </div>
@@ -251,18 +251,18 @@ export default function SettlementClient() {
                 <StatementRow
                   label="Minus carrier deductions"
                   value={`−${money(fields.deductions.value!)}`}
-                  valueCls="text-white/70 font-medium"
+                  valueCls="text-ink-2 font-medium"
                 />
                 <StatementRow
                   label="Expected net settlement"
                   value={money(result.netAfterDeductions)}
-                  valueCls="text-2xl font-bold text-white tracking-tight"
+                  valueCls="text-2xl font-bold text-ink tracking-tight"
                 />
               </>
             )}
           </dl>
 
-          <p className="text-white/50 text-sm mt-5">
+          <p className="text-ink-2 text-sm mt-5">
             Settlement short? Compare this against the statement your carrier sent.
           </p>
 
@@ -282,7 +282,7 @@ export default function SettlementClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">
+        <p className="text-ink-2 text-sm">
           {needsProvince && !fields.hours.error && !fields.rate.error && !fields.deductions.error
             ? 'Select your province to calculate GST/HST and see your expected settlement.'
             : 'Fix the highlighted fields to see your expected settlement.'}

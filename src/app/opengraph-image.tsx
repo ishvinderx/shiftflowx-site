@@ -6,20 +6,32 @@ export const alt = `${BRAND.name} — ${BRAND.tagline}`
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
+// Colour literals are allowed here (ImageResponse cannot read CSS variables); they mirror
+// the light-scheme tokens in globals.css: ground, ink, secondary text, mint, rule.
+const GROUND = '#F5F3EE'
+const INK = '#111827'
+const INK_2 = '#5B6170'
+const MINT = '#A8E6CF'
+const RULE = '#DDD8CC'
+
 export default function Image() {
   return new ImageResponse(
-    <div style={{ background: '#050508', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '32px' }}>
-        <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(145deg,#FF2D8B,#8B5CF6)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '30px', fontWeight: '900', fontStyle: 'italic' }}>{BRAND.name.charAt(0)}</div>
-        <span style={{ color: 'white', fontSize: '36px', fontWeight: '800' }}>{BRAND.name}</span>
+    <div style={{ background: GROUND, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '72px 80px', fontFamily: 'system-ui, sans-serif' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        {/* The H mark: midnight tile, ivory stems, mint crossbar */}
+        <div style={{ width: '72px', height: '72px', background: INK, borderRadius: '16px', position: 'relative', display: 'flex' }}>
+          <div style={{ position: 'absolute', left: '19px', top: '16px', width: '9px', height: '40px', background: GROUND, borderRadius: '4px' }} />
+          <div style={{ position: 'absolute', left: '44px', top: '16px', width: '9px', height: '40px', background: GROUND, borderRadius: '4px' }} />
+          <div style={{ position: 'absolute', left: '24px', top: '34px', width: '24px', height: '6px', background: MINT, transform: 'rotate(-12deg)' }} />
+        </div>
+        <span style={{ color: INK, fontSize: '44px', fontWeight: 600, letterSpacing: '-0.02em' }}>{BRAND.name}</span>
       </div>
-      <h1 style={{ color: 'white', fontSize: '64px', fontWeight: '900', margin: '0 0 16px', textAlign: 'center', lineHeight: 1.1 }}>{BRAND.tagline}</h1>
-      <p style={{ color: '#9ca3af', fontSize: '24px', margin: '0 0 40px', textAlign: 'center' }}>Track hours, earnings, bills and tax estimates</p>
-      <div style={{ display: 'flex', gap: '20px' }}>
-        {['Shift Tracking', 'Payday', 'Budget and Bills', 'Tax Estimates'].map(f => (
-          <div key={f} style={{ background: 'rgba(214,60,107,0.15)', border: '1px solid rgba(214,60,107,0.3)', borderRadius: '100px', padding: '8px 16px', color: '#D63C6B', fontSize: '14px', fontWeight: '600' }}>{f}</div>
-        ))}
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ color: INK, fontSize: '112px', fontWeight: 600, letterSpacing: '-0.03em', lineHeight: 1.0, maxWidth: '900px' }}>{BRAND.tagline}</div>
+        <div style={{ marginTop: '36px', height: '2px', width: '100%', background: RULE, display: 'flex' }} />
+        <div style={{ marginTop: '24px', color: INK_2, fontSize: '28px' }}>Track hours, earnings, bills and tax estimates</div>
       </div>
-    </div>
+    </div>,
+    { ...size }
   )
 }

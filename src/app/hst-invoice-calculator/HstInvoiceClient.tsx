@@ -10,8 +10,8 @@ import { calculateInvoice } from './invoiceCalc'
 const ANALYTICS = { calculator: 'hst-invoice-calculator', category: 'GST/HST & Invoices' }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -90,7 +90,7 @@ export default function HstInvoiceClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -99,7 +99,7 @@ export default function HstInvoiceClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {field('hst-hours', 'Hours worked', hours, setHours, fields.hours)}
           {field('hst-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -128,8 +128,8 @@ export default function HstInvoiceClient() {
 
       {/* ── Result: LABOUR + GST/HST = TOTAL INVOICE ───────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-4">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-4">
             Your invoice
           </p>
 
@@ -137,46 +137,46 @@ export default function HstInvoiceClient() {
               is money you collect for the CRA, not money you earned. */}
           <dl className="max-w-md">
             <div className="flex items-baseline justify-between gap-4 py-2">
-              <dt className="text-sm text-white/60 uppercase tracking-wide">
+              <dt className="text-sm text-ink-2 uppercase tracking-wide">
                 Labour{' '}
-                <span className="normal-case text-white/40">
+                <span className="normal-case text-ink-2">
                   ({Number(hours)} h × {money(Number(rate))})
                 </span>
               </dt>
-              <dd className="text-xl font-semibold text-white tabular-nums">
+              <dd className="text-xl font-semibold text-ink tabular-nums">
                 {money(result.labour)}
               </dd>
             </div>
 
-            <div className="flex items-baseline justify-between gap-4 py-2 border-t border-white/10">
-              <dt className="text-sm text-[#5EEAD4]/80 uppercase tracking-wide">+ {taxLabel}</dt>
-              <dd className="text-xl font-semibold text-[#5EEAD4] tabular-nums">
+            <div className="flex items-baseline justify-between gap-4 py-2 border-t border-rule">
+              <dt className="text-sm text-positive/80 uppercase tracking-wide">+ {taxLabel}</dt>
+              <dd className="text-xl font-semibold text-positive tabular-nums">
                 {money(result.tax)}
               </dd>
             </div>
-            <p className="text-xs text-[#5EEAD4]/60 -mt-1 mb-2">
+            <p className="text-xs text-positive/60 -mt-1 mb-2">
               collected for the CRA — not your income
             </p>
 
-            <div className="flex items-baseline justify-between gap-4 py-3 border-t-2 border-white/20">
-              <dt className="text-sm font-semibold text-white/80 uppercase tracking-wide">
+            <div className="flex items-baseline justify-between gap-4 py-3 border-t-2 border-rule">
+              <dt className="text-sm font-semibold text-ink uppercase tracking-wide">
                 = Total invoice
               </dt>
-              <dd className="text-5xl font-bold text-white tracking-tight tabular-nums">
+              <dd className="text-5xl font-bold text-ink tracking-tight tabular-nums">
                 {money(result.total)}
               </dd>
             </div>
           </dl>
 
-          <p className="mt-3 text-sm text-white/50 max-w-md">
-            You invoice <span className="text-white/80 font-medium">{money(result.total)}</span>,
-            you earned <span className="text-white/80 font-medium">{money(result.labour)}</span>,
+          <p className="mt-3 text-sm text-ink-2 max-w-md">
+            You invoice <span className="text-ink font-medium">{money(result.total)}</span>,
+            you earned <span className="text-ink font-medium">{money(result.labour)}</span>,
             and you remit{' '}
-            <span className="text-[#5EEAD4] font-medium">{money(result.tax)}</span> to the CRA.
+            <span className="text-positive font-medium">{money(result.tax)}</span> to the CRA.
           </p>
 
           {rule.hasSeparatePst && (
-            <p className="mt-3 text-xs text-[#FBBF24]/80 max-w-md">
+            <p className="mt-3 text-xs text-ink/80 max-w-md">
               Does not include PST/QST — {rule.jurisdiction} charges a separate provincial sales
               tax on top of the {rule.ratePercent}% {rule.taxType}.
             </p>
@@ -198,7 +198,7 @@ export default function HstInvoiceClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your invoice.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your invoice.</p>
       )}
 
       <SourceInfo rule={rule} />

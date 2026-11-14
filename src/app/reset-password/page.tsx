@@ -50,13 +50,13 @@ function ResetForm() {
     return (
       <>
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full text-3xl"
-             style={{ backgroundColor: "rgba(34,197,94,0.15)" }}>✅</div>
+             style={{ backgroundColor: "var(--color-rule)" }}>✅</div>
         <h1 className="text-2xl font-bold mb-3">Password updated</h1>
         <p className="text-gray-400 mb-8 leading-relaxed">
           Your password has been changed. Open HoursFlow and sign in with your new password.
         </p>
         <a href={APP_STORE_URL}
-           className="inline-block rounded-full bg-[#E91E63] px-8 py-3 font-semibold text-white">
+           className="inline-block rounded-full bg-ink px-8 py-3 font-semibold text-ground">
           Open HoursFlow
         </a>
       </>
@@ -73,14 +73,14 @@ function ResetForm() {
       <label className="block text-sm text-gray-300 mb-2">New password</label>
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
              minLength={8} required autoComplete="new-password"
-             className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 mb-4 text-white outline-none focus:border-[#E91E63]" />
+             className="w-full rounded-xl bg-track/40 border border-rule px-4 py-3 mb-4 text-ink outline-none focus:border-ink" />
       <label className="block text-sm text-gray-300 mb-2">Confirm password</label>
       <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)}
              minLength={8} required autoComplete="new-password"
-             className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 mb-6 text-white outline-none focus:border-[#E91E63]" />
-      {message && <p className="text-[#FF6B9D] text-sm mb-4">{message}</p>}
+             className="w-full rounded-xl bg-track/40 border border-rule px-4 py-3 mb-6 text-ink outline-none focus:border-ink" />
+      {message && <p className="text-ink text-sm mb-4">{message}</p>}
       <button type="submit" disabled={state === "busy"}
-              className="w-full rounded-full bg-[#E91E63] py-3 font-semibold text-white disabled:opacity-50">
+              className="w-full rounded-full bg-ink py-3 font-semibold text-ground disabled:opacity-50">
         {state === "busy" ? "Updating…" : "Update password"}
       </button>
     </form>
@@ -89,7 +89,7 @@ function ResetForm() {
 
 export default function ResetPasswordPage() {
   return (
-    <main className="min-h-screen bg-[#0A0A0F] text-white flex items-center justify-center px-6">
+    <main className="min-h-screen bg-ground text-ink flex items-center justify-center px-6">
       <div className="w-full max-w-md text-center">
         <div className="flex items-center justify-center gap-3 mb-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}

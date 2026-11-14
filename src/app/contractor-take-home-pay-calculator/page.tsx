@@ -58,14 +58,14 @@ export default function ContractorTakeHomePayCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Contractor Take-Home Pay Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             From billable hours to the money that’s really yours — expenses out, tax reserve set
             aside, GST/HST kept separate. Free, instant, no signup.
           </p>
@@ -74,24 +74,24 @@ export default function ContractorTakeHomePayCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">
+            <h2 className="text-2xl font-bold text-ink mb-6">
               How your take-home is calculated
             </h2>
-            <p className="text-white/60 leading-relaxed">
+            <p className="text-ink-2 leading-relaxed">
               The waterfall runs top to bottom: gross labour, minus business expenses, is your
               estimated profit; minus your income-tax reserve, is what’s actually available.
               Worked example: 100 hours at $26/hour is{' '}
-              <span className="text-white/85 font-medium">$2,600</span> gross labour; $400 of
-              expenses leaves <span className="text-white/85 font-medium">$2,200</span> profit; a
-              25% reserve sets aside <span className="text-white/85 font-medium">$550</span>,
-              leaving <span className="text-[#5EEAD4] font-medium">$1,650</span> available. These
+              <span className="text-ink font-medium">$2,600</span> gross labour; $400 of
+              expenses leaves <span className="text-ink font-medium">$2,200</span> profit; a
+              25% reserve sets aside <span className="text-ink font-medium">$550</span>,
+              leaving <span className="text-positive font-medium">$1,650</span> available. These
               are the two numbers people confuse: in Ontario you’d{' '}
-              <span className="text-white/85 font-medium">invoice $2,938</span> (labour plus $338
-              HST), but your <span className="text-[#5EEAD4] font-medium">available income is
+              <span className="text-ink font-medium">invoice $2,938</span> (labour plus $338
+              HST), but your <span className="text-positive font-medium">available income is
               $1,650</span> — the HST is collected for the CRA and never enters the waterfall.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>Spending the HST — it sits in your account, but it belongs to the CRA.</li>
               <li>
                 Treating the invoice total as income — the tax on top of your labour was never

@@ -8,8 +8,8 @@ import { calculateTakeHome, type DeductionKind } from './takeHomeCalc'
 const ANALYTICS = { calculator: 'take-home-pay-calculator', category: 'Pay & Earnings' }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -114,7 +114,7 @@ export default function TakeHomeClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label htmlFor="th-gross" className={labelCls}>
@@ -134,7 +134,7 @@ export default function TakeHomeClient() {
               aria-invalid={grossParsed.error !== null}
             />
             {grossParsed.error && (
-              <p className="text-[#F87171] text-xs mt-1.5">{grossParsed.error}</p>
+              <p className="text-alert text-xs mt-1.5">{grossParsed.error}</p>
             )}
           </div>
           <div>
@@ -161,7 +161,7 @@ export default function TakeHomeClient() {
 
         <div className="mt-6">
           <p className={labelCls}>Deductions (from your paystub)</p>
-          <p className="text-white/40 text-xs mb-3">
+          <p className="text-ink-2 text-xs mb-3">
             Enter dollar-amount deductions for the same period as your gross pay. Rows without a
             value are ignored.
           </p>
@@ -201,19 +201,19 @@ export default function TakeHomeClient() {
                     type="button"
                     onClick={() => removeRow(row.id)}
                     aria-label={`Remove ${row.label || 'deduction'} row`}
-                    className="text-white/40 hover:text-white text-sm px-3 py-2.5 border border-white/10 rounded-xl transition-colors"
+                    className="text-ink-2 hover:text-ink text-sm px-3 py-2.5 border border-rule rounded-xl transition-colors"
                   >
                     Remove
                   </button>
                 </div>
-                {rowErrors[i] && <p className="text-[#F87171] text-xs mt-1.5">{rowErrors[i]}</p>}
+                {rowErrors[i] && <p className="text-alert text-xs mt-1.5">{rowErrors[i]}</p>}
               </div>
             ))}
           </div>
           <button
             type="button"
             onClick={addRow}
-            className="mt-3 text-sm text-white/60 hover:text-white border border-white/10 rounded-full px-4 py-2 transition-colors"
+            className="mt-3 text-sm text-ink-2 hover:text-ink border border-rule rounded-full px-4 py-2 transition-colors"
           >
             + Add deduction
           </button>
@@ -222,49 +222,49 @@ export default function TakeHomeClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {hasErrors ? (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your estimate.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your estimate.</p>
       ) : result === null ? (
-        <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+        <div className="bg-track/40 border border-rule rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             Gross pay
           </p>
-          <p className="text-3xl font-bold text-white tracking-tight">
-            {money(grossParsed.value!)} <span className="text-white/40 text-base font-normal">{per}</span>
+          <p className="text-3xl font-bold text-ink tracking-tight">
+            {money(grossParsed.value!)} <span className="text-ink-2 text-base font-normal">{per}</span>
           </p>
-          <p className="text-white/50 text-sm mt-3">
+          <p className="text-ink-2 text-sm mt-3">
             Enter your deductions to estimate take-home pay.
           </p>
         </div>
       ) : (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
+        <div className="border border-ink/25 rounded-2xl p-6">
           <dl className="space-y-2 text-sm max-w-xs">
             <div className="flex justify-between">
-              <dt className="text-white/50">Gross pay</dt>
-              <dd className="text-white font-medium">{money(result.gross)}</dd>
+              <dt className="text-ink-2">Gross pay</dt>
+              <dd className="text-ink font-medium">{money(result.gross)}</dd>
             </div>
             {result.rows.map((r, i) => (
               <div key={i} className="flex justify-between pl-4">
-                <dt className="text-white/40">{r.label}</dt>
-                <dd className="text-white/60">−{money(r.amount)}</dd>
+                <dt className="text-ink-2">{r.label}</dt>
+                <dd className="text-ink-2">−{money(r.amount)}</dd>
               </div>
             ))}
-            <div className="flex justify-between border-t border-white/10 pt-2">
-              <dt className="text-white/50">Total deductions</dt>
-              <dd className="text-[#5EEAD4] font-medium">−{money(result.totalDeductions)}</dd>
+            <div className="flex justify-between border-t border-rule pt-2">
+              <dt className="text-ink-2">Total deductions</dt>
+              <dd className="text-positive font-medium">−{money(result.totalDeductions)}</dd>
             </div>
           </dl>
 
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mt-5 mb-1.5">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mt-5 mb-1.5">
             Estimated take-home pay
           </p>
           <p
-            className={`text-5xl font-bold tracking-tight ${result.net < 0 ? 'text-[#F87171]' : 'text-white'}`}
+            className={`text-5xl font-bold tracking-tight ${result.net < 0 ? 'text-alert' : 'text-ink'}`}
           >
-            {money(result.net)} <span className="text-white/40 text-lg font-normal">{per}</span>
+            {money(result.net)} <span className="text-ink-2 text-lg font-normal">{per}</span>
           </p>
 
           {exceedsGross && (
-            <p className="text-[#F87171] text-sm mt-3">
+            <p className="text-alert text-sm mt-3">
               Deductions exceed gross pay — check your entries.
             </p>
           )}

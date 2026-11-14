@@ -60,14 +60,14 @@ export default function OwnerOperatorPayCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Owner-Operator Pay Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             What a week of trucking really pays after fuel, fixed costs, and the taxman’s
             share — free, instant, no signup.
           </p>
@@ -76,23 +76,23 @@ export default function OwnerOperatorPayCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How owner-operator pay is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How owner-operator pay is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Revenue − expenses = profit; a slice of profit goes into the tax reserve; the rest
               is yours. GST/HST sits outside all of it — collected on top and remitted to the
               CRA, never income. Worked example: 100 hours at $26/hour is{' '}
-              <span className="text-white/85 font-medium">$2,600</span> revenue; registered in
-              Ontario, you also collect <span className="text-white/85 font-medium">$338</span>{' '}
+              <span className="text-ink font-medium">$2,600</span> revenue; registered in
+              Ontario, you also collect <span className="text-ink font-medium">$338</span>{' '}
               HST (13%) for the CRA. Fuel $600 + maintenance $200 ={' '}
-              <span className="text-white/85 font-medium">$800</span> expenses, leaving{' '}
-              <span className="text-white/85 font-medium">$1,800</span> profit. A 25% reserve
-              sets aside <span className="text-white/85 font-medium">$450</span>, so available
-              income is <span className="text-[#5EEAD4] font-medium">$1,350</span>. Over 1,000
-              km that’s a cost of <span className="text-white/85 font-medium">$0.80/km</span>{' '}
-              against revenue of <span className="text-white/85 font-medium">$2.60/km</span>.
+              <span className="text-ink font-medium">$800</span> expenses, leaving{' '}
+              <span className="text-ink font-medium">$1,800</span> profit. A 25% reserve
+              sets aside <span className="text-ink font-medium">$450</span>, so available
+              income is <span className="text-positive font-medium">$1,350</span>. Over 1,000
+              km that’s a cost of <span className="text-ink font-medium">$0.80/km</span>{' '}
+              against revenue of <span className="text-ink font-medium">$2.60/km</span>.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>Counting the HST as revenue — it’s the CRA’s money passing through your account.</li>
               <li>Judging a contract on gross revenue instead of cost per km — big gross can still lose money.</li>
               <li>Skipping the reserve because the settlement looked big — tax time doesn’t care how it looked.</li>

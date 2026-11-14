@@ -62,14 +62,14 @@ export default function GstHstCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             GST/HST Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Add GST/HST to an amount or back it out of a tax-included total, using verified CRA
             rates for every province and territory — free, instant, no signup.
           </p>
@@ -78,18 +78,18 @@ export default function GstHstCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How GST/HST is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How GST/HST is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Adding tax: tax = pre-tax amount × rate; total = pre-tax amount + tax. Worked
               example: $2,600 in Ontario at 13% HST is{' '}
-              <span className="text-white/85 font-medium">$338</span> of tax, for a total of{' '}
-              <span className="text-[#5EEAD4] font-medium">$2,938</span>. Removing tax runs the
+              <span className="text-ink font-medium">$338</span> of tax, for a total of{' '}
+              <span className="text-positive font-medium">$2,938</span>. Removing tax runs the
               same math in reverse: pre-tax = total ÷ (1 + rate), so $2,938 ÷ 1.13 ={' '}
-              <span className="text-white/85 font-medium">$2,600</span> before tax and{' '}
-              <span className="text-white/85 font-medium">$338</span> of HST.
+              <span className="text-ink font-medium">$2,600</span> before tax and{' '}
+              <span className="text-ink font-medium">$338</span> of HST.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>
                 Using 15% for Nova Scotia — its HST dropped to 14% on April 1, 2025.
               </li>

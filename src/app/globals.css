@@ -1,193 +1,180 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brand: #D63C6B;
-  --color-teal: #14B8A6;
-  --color-indigo: #6366F1;
-  --color-amber: #F59E0B;
-  --color-surface: #111827;
-  --color-card: #1E293B;
-  --color-success: #22C55E;
-  --color-muted: #CBD5E1;
-
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-
-  --background-image-brand-gradient: linear-gradient(135deg, #D63C6B, #6366F1);
-  --background-image-teal-gradient: linear-gradient(135deg, #14B8A6, #6366F1);
-  --background-image-dark-radial: radial-gradient(ellipse at 50% 0%, rgba(214,60,107,0.08) 0%, transparent 70%);
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
+/*
+ * "Ledger" design tokens. THIS IS THE ONLY FILE (besides the og image route) that may
+ * contain colour literals; src/lib/design-guard.test.ts fails on hex, text-white, bg-black,
+ * from-/to-/via- gradients or shadow- classes anywhere else under src/app and src/components.
+ *
+ * Use the Tailwind utilities generated from the tokens below:
+ *   bg-ground  text-ink  text-ink-2 (secondary)  border-rule  bg-track
+ *   text-positive / border-positive-line   (money in, "on track")
+ *   text-commit / border-commit-line       (commitments: bills, plan)
+ *   bg-mint  (the ONE marketing accent: a fill behind ink text, or a thin line - never text)
+ *   bg-periwinkle (only inside product-style data visuals)
+ *   text-alert
+ * Dark scheme follows prefers-color-scheme automatically; never branch on it in components.
+ * Do not use opacity modifiers for text colour (contrast); use text-ink-2 instead.
+ */
+:root {
+  --ground: #F5F3EE;
+  --ink: #111827;
+  --ink-2: #5B6170;
+  --rule: #DDD8CC;
+  --track: #E2DDD1;
+  --positive: #166B4F;
+  --positive-line: #1B7F5E;
+  --commit: #3D4CB8;
+  --commit-line: #4A5BD4;
+  --mint: #A8E6CF;
+  --periwinkle: #A7B5FF;
+  --alert: #A1331F;
+  --on-fill: #111827; /* text on mint / periwinkle / dark-mode primary button */
+  --focus: #111827;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #111827;
+    --ink: #F5F3EE;
+    --ink-2: #9AA3B2;
+    --rule: #2A3346;
+    --track: #2A3346;
+    --positive: #A8E6CF;
+    --positive-line: #A8E6CF;
+    --commit: #A7B5FF;
+    --commit-line: #A7B5FF;
+    --alert: #F2A093;
+    --focus: #F5F3EE;
+    color-scheme: dark;
   }
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-rule: var(--rule);
+  --color-track: var(--track);
+  --color-positive: var(--positive);
+  --color-positive-line: var(--positive-line);
+  --color-commit: var(--commit);
+  --color-commit-line: var(--commit-line);
+  --color-mint: var(--mint);
+  --color-periwinkle: var(--periwinkle);
+  --color-alert: var(--alert);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
-
+  * { box-sizing: border-box; }
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
   }
-
   body {
-    background-color: #0A0A0F;
-    color: #F8FAFC;
+    background-color: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    font-variant-numeric: tabular-nums;
     overflow-x: hidden;
   }
+  h1, h2, h3, h4 { text-wrap: balance; letter-spacing: -0.02em; }
+  p, li, dd { text-wrap: pretty; }
+  a { color: inherit; }
+  /* Selection stays inside the palette. */
+  ::selection { background: var(--mint); color: var(--on-fill); }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0A0A0F;
-}
-::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #D63C6B;
+/* Fills that are not ink-on-ground must carry dark text in both schemes. Unlayered so it
+   beats the text-ink utility that the legacy pages put on the same element. */
+.bg-mint, .bg-periwinkle { color: var(--on-fill); }
+
+/* Focus ring: 2px ink, offset. Applies to every focusable element. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(135deg, #D63C6B, #14B8A6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Skip link (rendered first in layout.tsx). */
+.skip-link {
+  position: absolute; left: 16px; top: -64px; z-index: 100;
+  background: var(--ink); color: var(--ground);
+  padding: 12px 16px; min-height: 44px; display: inline-flex; align-items: center;
+  transition: top 200ms ease-out;
+}
+.skip-link:focus { top: 12px; }
+
+/* Display type: 56-72px, tight, ~1.0. Use via <Heading level="display"> or class "t-display". */
+.t-display {
+  font-size: clamp(2.75rem, 1.6rem + 5vw, 4.5rem);
+  line-height: 1.02; letter-spacing: -0.03em; font-weight: 600;
+}
+.t-h2 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 600; }
+.t-h3 { font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; }
+.t-label { font-size: 0.75rem; line-height: 1.3; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.t-lede { font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem); line-height: 1.55; color: var(--ink-2); max-width: 60ch; }
+.t-body { max-width: 65ch; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Buttons (see ui/Button.tsx). 44px minimum target, 200-300ms ease-out, press = 1px down. */
+@layer components {
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px; font-weight: 600; font-size: 0.9375rem;
+  border: 1px solid var(--ink); border-radius: 8px; cursor: pointer; text-decoration: none;
+  transition: background-color 220ms ease-out, color 220ms ease-out, transform 120ms ease-out, border-color 220ms ease-out;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--ink); color: var(--ground); }
+.btn-primary:hover { background: color-mix(in srgb, var(--ink) 86%, var(--ground)); }
+.btn-secondary { background: transparent; color: var(--ink); }
+.btn-secondary:hover { background: var(--track); }
+.btn-text { border-color: transparent; padding: 0 4px; background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.btn-text:hover { text-decoration-thickness: 2px; }
+@media (prefers-color-scheme: dark) {
+  .btn-primary { background: var(--mint); color: var(--on-fill); border-color: var(--mint); }
+  .btn-primary:hover { background: color-mix(in srgb, var(--mint) 88%, var(--ground)); }
+}
 }
 
-.gradient-text-indigo {
-  background: linear-gradient(135deg, #D63C6B, #6366F1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* Reveal: one staggered fade-up per section (ui/Reveal.tsx). Visible by default without JS. */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease-out, transform 500ms ease-out; transition-delay: calc(var(--i, 0) * 80ms); }
+.js .reveal.is-in { opacity: 1; transform: none; }
 
-.gradient-text-teal {
-  background: linear-gradient(135deg, #14B8A6, #6366F1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* Charts draw once when their Reveal parent is in view. */
+.draw-line { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.js .reveal .draw-line { stroke-dashoffset: 1; transition: stroke-dashoffset 1100ms ease-out 200ms; }
+.js .reveal.is-in .draw-line { stroke-dashoffset: 0; }
+.js .reveal .grow-x { transform: scaleX(0); transform-origin: left; transition: transform 800ms ease-out 200ms; }
+.js .reveal.is-in .grow-x { transform: none; }
 
-/* Glassmorphism card */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
+.link-hover { transition: color 200ms ease-out, border-color 200ms ease-out; }
 
-/* Premium glow button */
-.btn-primary {
-  background: #D63C6B;
-  box-shadow: 0 0 20px rgba(214, 60, 107, 0.3);
-  transition: all 0.2s ease;
-}
-.btn-primary:hover {
-  background: #c0355f;
-  box-shadow: 0 0 35px rgba(214, 60, 107, 0.5);
-  transform: translateY(-1px);
-}
-
-/* Shimmer animation */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-.shimmer {
-  background: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.06) 50%, transparent 75%);
-  background-size: 200% auto;
-  animation: shimmer 2.5s linear infinite;
-}
-
-/* Float animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-.float {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* ─── 3D / Glass system (redesign) ─────────────────────────────────────────── */
-
-/* Frosted glass panel — hairline rgba border, layered highlight, deep blur. */
-.glass {
-  background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
-  backdrop-filter: blur(24px) saturate(140%);
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.10), 0 20px 50px -20px rgba(0,0,0,0.7);
-}
-.glass-soft {
-  background: rgba(255,255,255,0.035);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.07);
-}
-
-/* Ambient light blobs — slow oscillation, sit behind content (never pure black bg). */
-@keyframes blob-a { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-30px) scale(1.12); } }
-@keyframes blob-b { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,30px) scale(1.08); } }
-.blob { position: absolute; border-radius: 9999px; filter: blur(90px); pointer-events: none; opacity: 0.5; }
-.blob-a { animation: blob-a 14s ease-in-out infinite; }
-.blob-b { animation: blob-b 18s ease-in-out infinite; }
-
-/* 3D stage + device — perspective wrapper, GPU-composited. */
-.stage-3d { perspective: 1400px; perspective-origin: 50% 40%; }
-.device-3d { transform-style: preserve-3d; will-change: transform; }
-
-/* Realistic phone shell (titanium rail + inner bezel). */
-.phone-shell {
-  border-radius: 3rem;
-  background:
-    linear-gradient(150deg, #2a2a30, #0d0d11 55%);
-  padding: 10px;
-  box-shadow:
-    0 2px 2px rgba(255,255,255,0.18) inset,
-    0 -2px 3px rgba(0,0,0,0.6) inset,
-    0 60px 120px -30px rgba(0,0,0,0.85),
-    0 0 60px -10px rgba(214,60,107,0.35);
-}
-.phone-screen { border-radius: 2.35rem; overflow: hidden; background: #0A0A0F; position: relative; }
-
-/* Slow float used by the hovering device + orbiting chips. */
-@keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
-.float-y { animation: float-y 7s ease-in-out infinite; }
-.float-y-slow { animation: float-y 10s ease-in-out infinite; }
-
-/* Conic border sheen for premium cards. */
-.sheen-border { position: relative; }
-.sheen-border::before {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-  background: conic-gradient(from 120deg, transparent, rgba(214,60,107,0.5), transparent 40%, rgba(99,102,241,0.4), transparent 70%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
-}
+/* Long-form legal text (ui layout: components/legal/LegalLayout.tsx). */
+.legal-content { max-width: 65ch; }
+.legal-content h2 { font-size: 1.375rem; font-weight: 600; line-height: 1.2; margin: 3rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.legal-content h3 { font-size: 1.0625rem; font-weight: 600; margin: 1.75rem 0 0.5rem; }
+.legal-content p, .legal-content li { color: var(--ink); line-height: 1.7; font-size: 1.0625rem; }
+.legal-content p { margin-bottom: 1rem; }
+.legal-content ul, .legal-content ol { margin: 0 0 1rem 1.25rem; }
+.legal-content ul { list-style: disc; }
+.legal-content ol { list-style: decimal; }
+.legal-content li { margin-bottom: 0.4rem; }
+.legal-content a { text-decoration: underline; text-underline-offset: 3px; }
+.legal-content strong { font-weight: 600; }
+.legal-content table { display: block; overflow-x: auto; border-collapse: collapse; }
+.legal-content th, .legal-content td { border-bottom: 1px solid var(--rule); padding: 8px 12px; text-align: left; font-size: 0.9375rem; }
 
 @media (prefers-reduced-motion: reduce) {
-  .blob-a, .blob-b, .float, .float-y, .float-y-slow, .shimmer { animation: none !important; }
   html { scroll-behavior: auto; }
-}
-
-/* Focus styles */
-*:focus-visible {
-  outline: 2px solid #D63C6B;
-  outline-offset: 2px;
-}
-
-/* Selection */
-::selection {
-  background: rgba(214, 60, 107, 0.3);
-  color: #F8FAFC;
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .js .reveal, .js .reveal .grow-x { opacity: 1 !important; transform: none !important; }
+  .js .reveal .draw-line { stroke-dashoffset: 0 !important; }
 }

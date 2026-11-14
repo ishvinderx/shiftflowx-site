@@ -11,8 +11,8 @@ const CALCULATOR = 'gst-hst-calculator'
 const CATEGORY = 'GST/HST & Invoices'
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -72,8 +72,8 @@ export default function GstHstClient() {
       aria-pressed={direction === value}
       className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
         direction === value
-          ? 'bg-[#D63C6B] text-white'
-          : 'bg-white/[0.04] text-white/60 hover:text-white'
+          ? 'bg-ink text-ground'
+          : 'bg-track/40 text-ink-2 hover:text-ink'
       }`}
     >
       {label}
@@ -83,7 +83,7 @@ export default function GstHstClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label htmlFor="gst-province" className={labelCls}>
@@ -123,7 +123,7 @@ export default function GstHstClient() {
               className={inputCls}
               aria-invalid={parsed.error !== null}
             />
-            {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+            {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
           </div>
 
           <div className="sm:col-span-2">
@@ -138,28 +138,28 @@ export default function GstHstClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null && rule !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             {direction === 'add' ? 'Total including tax' : 'Pre-tax amount'}
           </p>
-          <p className="text-5xl font-bold text-white tracking-tight">
+          <p className="text-5xl font-bold text-ink tracking-tight">
             {money(direction === 'add' ? result.total : result.preTax)}
           </p>
 
           <dl className="mt-5 space-y-2 text-sm max-w-xs">
             <div className="flex justify-between">
-              <dt className="text-white/50">Pre-tax amount</dt>
-              <dd className="text-white font-medium">{money(result.preTax)}</dd>
+              <dt className="text-ink-2">Pre-tax amount</dt>
+              <dd className="text-ink font-medium">{money(result.preTax)}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-white/50">
+              <dt className="text-ink-2">
                 {rule.taxType} ({rule.ratePercent}%)
               </dt>
-              <dd className="text-[#5EEAD4] font-medium">{money(result.tax)}</dd>
+              <dd className="text-positive font-medium">{money(result.tax)}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-white/50">Total including tax</dt>
-              <dd className="text-white font-medium">{money(result.total)}</dd>
+              <dt className="text-ink-2">Total including tax</dt>
+              <dd className="text-ink font-medium">{money(result.total)}</dd>
             </div>
           </dl>
 
@@ -179,13 +179,13 @@ export default function GstHstClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your result.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your result.</p>
       )}
 
       {rule !== null && (
         <>
           {rule.hasSeparatePst && (
-            <p className="text-xs text-[#FBBF24]/90 leading-relaxed max-w-md">
+            <p className="text-xs text-ink/90 leading-relaxed max-w-md">
               This is GST only — {rule.jurisdiction} also charges a separate PST/QST that is
               not included here.
             </p>

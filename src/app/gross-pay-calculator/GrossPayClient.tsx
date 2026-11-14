@@ -8,8 +8,8 @@ import { calculateGrossPay, type PayFrequency } from './grossPayCalc'
 const ANALYTICS = { calculator: 'gross-pay-calculator', category: 'Pay & Earnings' }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -99,7 +99,7 @@ export default function GrossPayClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -117,7 +117,7 @@ export default function GrossPayClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('gp-amount', 'Gross pay amount ($)', amount, setAmount, fields.amount, { step: '0.01' })}
           <div>
@@ -149,20 +149,20 @@ export default function GrossPayClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-4">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-4">
             Gross pay by period
           </p>
 
           <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm max-w-2xl">
             {rows.map((r) => (
-              <div key={r.label} className="flex justify-between border-b border-white/[0.06] py-2">
-                <dt className="text-white/50">{r.label}</dt>
+              <div key={r.label} className="flex justify-between border-b border-rule py-2">
+                <dt className="text-ink-2">{r.label}</dt>
                 <dd
                   className={
                     r.label === FREQUENCIES.find((f) => f.value === frequency)?.label
-                      ? 'text-[#5EEAD4] font-medium'
-                      : 'text-white font-medium'
+                      ? 'text-positive font-medium'
+                      : 'text-ink font-medium'
                   }
                 >
                   {money(r.value)}
@@ -187,7 +187,7 @@ export default function GrossPayClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your pay.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your pay.</p>
       )}
     </div>
   )

@@ -13,8 +13,8 @@ export default function SourceInfo({
   }
 }) {
   return (
-    <div className="mt-6 bg-white/[0.02] border border-white/[0.08] rounded-xl p-4 text-xs text-white/45 leading-relaxed">
-      <p className="text-white/60 font-semibold uppercase tracking-wide text-[10px] mb-2">
+    <div className="mt-6 bg-track/40 border border-rule rounded-xl p-4 text-xs text-ink-2 leading-relaxed">
+      <p className="text-ink-2 font-semibold uppercase tracking-wide text-[10px] mb-2">
         Calculation rules
       </p>
       <p>
@@ -26,7 +26,7 @@ export default function SourceInfo({
           href={rule.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white/60 hover:text-white underline underline-offset-2 transition-colors"
+          className="text-ink-2 hover:text-ink underline underline-offset-2 transition-colors"
         >
           {rule.source}
         </a>{' '}

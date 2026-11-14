@@ -13,8 +13,8 @@ const ANALYTICS = {
 }
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -114,18 +114,18 @@ export default function ContractorTakeHomeClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
   // One waterfall step: label on the left, amount on the right. Deductions are
-  // prefixed with a minus so the top-to-bottom flow reads like arithmetic.
+  // prefixed with a minus so the top- flow reads like arithmetic.
   const step = (label: string, value: string, opts?: { minus?: boolean; strong?: boolean }) => (
     <div
-      className={`flex justify-between items-baseline py-2 ${opts?.strong ? 'border-t border-white/10' : ''}`}
+      className={`flex justify-between items-baseline py-2 ${opts?.strong ? 'border-t border-rule' : ''}`}
     >
-      <dt className={opts?.strong ? 'text-white/80 font-medium' : 'text-white/50'}>{label}</dt>
-      <dd className={`font-medium ${opts?.strong ? 'text-white' : 'text-white/80'}`}>
+      <dt className={opts?.strong ? 'text-ink font-medium' : 'text-ink-2'}>{label}</dt>
+      <dd className={`font-medium ${opts?.strong ? 'text-ink' : 'text-ink'}`}>
         {opts?.minus ? '− ' : ''}
         {value}
       </dd>
@@ -135,7 +135,7 @@ export default function ContractorTakeHomeClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 space-y-5">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('cth-hours', 'Billable hours', hours, setHours, fields.hours)}
           {field('cth-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -143,7 +143,7 @@ export default function ContractorTakeHomeClient() {
 
         <fieldset>
           <legend className={labelCls}>GST/HST registration status</legend>
-          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/80">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink">
             {(
               [
                 ['registered', 'Registered'],
@@ -161,7 +161,7 @@ export default function ContractorTakeHomeClient() {
                     markStarted()
                     setRegistration(value)
                   }}
-                  className="accent-[#D63C6B]"
+                  className="accent-ink"
                 />
                 {label}
               </label>
@@ -191,13 +191,13 @@ export default function ContractorTakeHomeClient() {
               ))}
             </select>
             {rule?.hasSeparatePst && (
-              <p className="text-white/45 text-xs mt-1.5">Does not include PST/QST.</p>
+              <p className="text-ink-2 text-xs mt-1.5">Does not include PST/QST.</p>
             )}
           </div>
         )}
 
         {registration === 'unregistered' && (
-          <p className="text-white/45 text-xs">
+          <p className="text-ink-2 text-xs">
             Unregistered contractors don’t charge GST/HST — small suppliers below the CRA’s
             registration threshold generally aren’t required to register.
           </p>
@@ -211,20 +211,20 @@ export default function ContractorTakeHomeClient() {
 
       {/* ── Result: the take-home waterfall ────────────────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             What you actually keep
           </p>
 
-          <dl className="text-sm max-w-sm divide-y divide-white/[0.06]">
+          <dl className="text-sm max-w-sm divide-y divide-rule">
             {step('Gross labour', money(result.labour))}
             {step('Business expenses', money(result.expenses), { minus: true })}
             {step('Estimated profit', money(result.profit), { strong: true })}
             {result.reserve !== null &&
               (result.profit <= 0 ? (
                 <div className="flex justify-between gap-4 py-2">
-                  <dt className="text-white/50">Income-tax reserve</dt>
-                  <dd className="text-white/60 text-right">
+                  <dt className="text-ink-2">Income-tax reserve</dt>
+                  <dd className="text-ink-2 text-right">
                     No profit this period — nothing to reserve
                   </dd>
                 </div>
@@ -238,18 +238,18 @@ export default function ContractorTakeHomeClient() {
           </dl>
 
           {result.available !== null ? (
-            <div className="mt-4 pt-4 border-t border-[#D63C6B]/25">
-              <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+            <div className="mt-4 pt-4 border-t border-ink/25">
+              <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
                 Estimated available income
               </p>
-              <p className="text-5xl font-bold text-[#5EEAD4] tracking-tight">
+              <p className="text-5xl font-bold text-positive tracking-tight">
                 {money(result.available)}
               </p>
             </div>
           ) : (
             // Reserve % absent: the waterfall stops at profit. Absence ≠ 0% —
             // never show profit dressed up as available income.
-            <p className="text-white/60 text-sm mt-4">
+            <p className="text-ink-2 text-sm mt-4">
               Add your income-tax reserve % above to see what’s actually yours to spend — leaving
               it blank doesn’t mean 0%.
             </p>
@@ -257,14 +257,14 @@ export default function ContractorTakeHomeClient() {
 
           {/* GST/HST is a side line, never a waterfall step — it isn’t income. */}
           {result.salesTax !== null && rule && (
-            <div className="mt-5 max-w-sm bg-white/[0.03] border border-white/[0.08] rounded-xl p-3.5 text-sm">
+            <div className="mt-5 max-w-sm bg-track/40 border border-rule rounded-xl p-3.5 text-sm">
               <div className="flex justify-between">
-                <span className="text-white/50">
+                <span className="text-ink-2">
                   {rule.taxType} collected ({rule.ratePercent}%)
                 </span>
-                <span className="text-white/80 font-medium">{money(result.salesTax)}</span>
+                <span className="text-ink font-medium">{money(result.salesTax)}</span>
               </div>
-              <p className="text-white/45 text-xs mt-1.5">
+              <p className="text-ink-2 text-xs mt-1.5">
                 Pass-through — remitted to the CRA, never yours. Deliberately excluded from the
                 waterfall above: you invoice {money(result.grossInvoice!)}, but the{' '}
                 {money(result.salesTax)} was never income.
@@ -273,12 +273,12 @@ export default function ContractorTakeHomeClient() {
           )}
 
           {registration === 'unsure' && (
-            <p className="text-white/45 text-xs mt-4">
+            <p className="text-ink-2 text-xs mt-4">
               GST/HST not calculated — registration status required.
             </p>
           )}
           {registration === 'registered' && !rule && (
-            <p className="text-white/45 text-xs mt-4">
+            <p className="text-ink-2 text-xs mt-4">
               GST/HST not calculated — select your province or territory.
             </p>
           )}
@@ -299,7 +299,7 @@ export default function ContractorTakeHomeClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see what you keep.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see what you keep.</p>
       )}
 
       {rule && <SourceInfo rule={rule} />}

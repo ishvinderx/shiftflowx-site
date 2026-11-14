@@ -6,13 +6,13 @@ import { Share2, Download, Gift, Clock, Wallet, Receipt, Apple } from "lucide-re
 export const metadata: Metadata = {
   title: "Referral Program — Earn 30 Days of Pro",
   description:
-    "Share HoursFlow with friends and earn 30 days of Pro when a friend you referred completes their first paid billing period. Limits may apply.",
+ "Share HoursFlow with friends and earn 30 days of Pro when a friend you referred completes their first paid billing period. Limits may apply.",
   // Without this the root layout's canonical is inherited, pointing this page at the homepage.
   alternates: { canonical: 'https://shiftflowx.net/referral' },
   openGraph: {
     title: "HoursFlow Referral Program — Earn 30 Days of Pro",
     description:
-      "Share HoursFlow and earn 30 days of Pro when a friend you referred completes their first paid billing period.",
+ "Share HoursFlow and earn 30 days of Pro when a friend you referred completes their first paid billing period.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
@@ -24,24 +24,24 @@ const HOW_IT_WORKS_STEPS = [
     icon: Share2,
     title: "Share your unique link",
     description:
-      "Open HoursFlow, go to Profile → Referrals, and copy your personal invite link. Share it anywhere — iMessage, Instagram, TikTok, wherever your friends are.",
-    accent: "#D63C6B",
+ "Open HoursFlow, go to Profile → Referrals, and copy your personal invite link. Share it anywhere — iMessage, Instagram, TikTok, wherever your friends are.",
+    accent: "var(--color-ink)",
   },
   {
     number: "02",
     icon: Download,
     title: "Friend signs up and subscribes",
     description:
-      "Your friend downloads HoursFlow using your link, creates their account, and subscribes to HoursFlow Pro. The reward is earned once they complete their first paid billing period — a free trial on its own does not count.",
-    accent: "#14B8A6",
+ "Your friend downloads HoursFlow using your link, creates their account, and subscribes to HoursFlow Pro. The reward is earned once they complete their first paid billing period — a free trial on its own does not count.",
+    accent: "var(--color-positive)",
   },
   {
     number: "03",
     icon: Gift,
     title: "You get 30 days of Pro",
     description:
-      "You receive 30 days of HoursFlow Pro, added to your account automatically. The reward goes to you as the referrer; there is no reward for the friend. Limits may apply.",
-    accent: "#22C55E",
+ "You receive 30 days of HoursFlow Pro, added to your account automatically. The reward goes to you as the referrer; there is no reward for the friend. Limits may apply.",
+    accent: "var(--color-positive)",
   },
 ];
 
@@ -49,32 +49,32 @@ const FAQ_ITEMS = [
   {
     question: "How do I get my referral link?",
     answer:
-      "Your unique referral link is in the HoursFlow app under Profile → Referrals. Tap 'Copy Link' to share it anywhere. Every link is tied to your account so rewards are tracked automatically.",
+ "Your unique referral link is in the HoursFlow app under Profile → Referrals. Tap 'Copy Link' to share it anywhere. Every link is tied to your account so rewards are tracked automatically.",
   },
   {
     question: "When do I receive my 30 days of Pro?",
     answer:
-      "Your 30 days of Pro are added after your referred friend completes their first paid billing period. Signing up or starting a free trial is not enough on its own.",
+ "Your 30 days of Pro are added after your referred friend completes their first paid billing period. Signing up or starting a free trial is not enough on its own.",
   },
   {
     question: "Is there a limit on how many friends I can refer?",
     answer:
-      "You can share your link with as many friends as you like, but limits may apply to the number of rewards one account can earn.",
+ "You can share your link with as many friends as you like, but limits may apply to the number of rewards one account can earn.",
   },
   {
     question: "What does my friend need to do to qualify?",
     answer:
-      "Your friend needs to create a HoursFlow account using your link, subscribe to HoursFlow Pro, and complete their first paid billing period. Your friend does not receive a referral reward.",
+ "Your friend needs to create a HoursFlow account using your link, subscribe to HoursFlow Pro, and complete their first paid billing period. Your friend does not receive a referral reward.",
   },
 ];
 
 export default function ReferralPage() {
   return (
-    <main className="min-h-screen bg-[#050508] text-white">
+    <main className="min-h-screen bg-ground text-ink">
       {/* Background glows */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full blur-3xl opacity-[0.06] bg-[#D63C6B]" />
-        <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-[0.05] bg-[#22C55E]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full blur-3xl opacity-[0.06] bg-ink" />
+        <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-[0.05] bg-mint" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 md:py-28">
@@ -83,9 +83,9 @@ export default function ReferralPage() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
             style={{
-              background: "rgba(214,60,107,0.12)",
-              border: "1px solid rgba(214,60,107,0.28)",
-              color: "#D63C6B",
+              background: "var(--color-rule)",
+              border: "1px solid var(--color-rule)",
+              color: "var(--color-ink)",
             }}
           >
             <Gift className="w-4 h-4" />
@@ -97,7 +97,7 @@ export default function ReferralPage() {
             <br />
             <span
               style={{
-                background: "linear-gradient(135deg, #D63C6B, #14B8A6)",
+                background: "var(--color-track)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -107,7 +107,7 @@ export default function ReferralPage() {
             </span>
           </h1>
 
-          <p className="text-white/55 text-xl leading-relaxed max-w-xl mx-auto mb-8">
+          <p className="text-ink-2 text-xl leading-relaxed max-w-xl mx-auto mb-8">
             Earn 30 days of HoursFlow Pro when a friend you referred completes their first paid billing period. Limits may apply.
           </p>
 
@@ -115,21 +115,21 @@ export default function ReferralPage() {
           <div
             className="inline-flex items-center gap-4 px-6 py-4 rounded-2xl mx-auto"
             style={{
-              background: "rgba(34,197,94,0.07)",
-              border: "1px solid rgba(34,197,94,0.18)",
+              background: "var(--color-rule)",
+              border: "1px solid var(--color-rule)",
             }}
           >
             <div
               className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: "rgba(34,197,94,0.15)" }}
+              style={{ background: "var(--color-rule)" }}
             >
-              <Gift className="w-6 h-6 text-[#22C55E]" />
+              <Gift className="w-6 h-6 text-positive" />
             </div>
             <div className="text-left">
-              <div className="text-white font-bold text-lg leading-tight">
+              <div className="text-ink font-bold text-lg leading-tight">
                 Earn 30 days of Pro
               </div>
-              <div className="text-white/50 text-sm">
+              <div className="text-ink-2 text-sm">
                 When a referred friend completes their first paid billing period &middot; Limits may apply
               </div>
             </div>
@@ -138,13 +138,13 @@ export default function ReferralPage() {
 
         {/* ─── How It Works ──────────────────────────────────────────────────── */}
         <div className="mb-24">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-12">
             How it works
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             {/* Connecting line — desktop only */}
-            <div className="hidden md:block absolute top-8 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-white/[0.06]" />
+            <div className="hidden md:block absolute top-8 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-track/40" />
 
             {HOW_IT_WORKS_STEPS.map((step, i) => {
               const Icon = step.icon;
@@ -153,8 +153,8 @@ export default function ReferralPage() {
                   key={step.number}
                   className="relative rounded-2xl p-6 text-center"
                   style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    background: "var(--color-rule)",
+                    border: "1px solid var(--color-rule)",
                   }}
                 >
                   {/* Number circle */}
@@ -178,8 +178,8 @@ export default function ReferralPage() {
                     <Icon className="w-5 h-5" style={{ color: step.accent }} />
                   </div>
 
-                  <h3 className="text-white font-semibold text-lg mb-3">{step.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-ink font-semibold text-lg mb-3">{step.title}</h3>
+                  <p className="text-ink-2 text-sm leading-relaxed">{step.description}</p>
                 </div>
               );
             })}
@@ -188,14 +188,14 @@ export default function ReferralPage() {
 
         {/* ─── Features reminder ────────────────────────────────────────────── */}
         <div className="mb-24">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-ink text-center mb-10">
             What your friends get with HoursFlow
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: Clock, title: "Track Shifts & Pay", desc: "Instant shift logging with earnings breakdown.", accent: "#D63C6B" },
-              { icon: Wallet, title: "Payday & Budget", desc: "Know when you get paid, with budget and bill reminders.", accent: "#22C55E" },
-              { icon: Receipt, title: "Tax, Invoices & Scanning", desc: "Tax reports, invoices, and receipt and payslip scanning with Pro.", accent: "#F59E0B" },
+              { icon: Clock, title: "Track Shifts & Pay", desc: "Instant shift logging with earnings breakdown.", accent: "var(--color-ink)" },
+              { icon: Wallet, title: "Payday & Budget", desc: "Know when you get paid, with budget and bill reminders.", accent: "var(--color-positive)" },
+              { icon: Receipt, title: "Tax, Invoices & Scanning", desc: "Tax reports, invoices, and receipt and payslip scanning with Pro.", accent: "var(--color-ink)" },
             ].map((item) => {
               const Icon = item.icon;
               return (
@@ -203,8 +203,8 @@ export default function ReferralPage() {
                   key={item.title}
                   className="rounded-2xl p-5"
                   style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    background: "var(--color-rule)",
+                    border: "1px solid var(--color-rule)",
                   }}
                 >
                   <div
@@ -213,8 +213,8 @@ export default function ReferralPage() {
                   >
                     <Icon className="w-5 h-5" style={{ color: item.accent }} />
                   </div>
-                  <h3 className="text-white font-semibold text-sm mb-1.5">{item.title}</h3>
-                  <p className="text-white/45 text-xs leading-relaxed">{item.desc}</p>
+                  <h3 className="text-ink font-semibold text-sm mb-1.5">{item.title}</h3>
+                  <p className="text-ink-2 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               );
             })}
@@ -223,7 +223,7 @@ export default function ReferralPage() {
 
         {/* ─── FAQ ──────────────────────────────────────────────────────────── */}
         <div className="mb-24">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-12">
             Frequently asked questions
           </h2>
 
@@ -233,14 +233,14 @@ export default function ReferralPage() {
                 key={item.question}
                 className="rounded-2xl p-6"
                 style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  background: "var(--color-rule)",
+                  border: "1px solid var(--color-rule)",
                 }}
               >
-                <h3 className="text-white font-semibold text-base mb-2.5">
+                <h3 className="text-ink font-semibold text-base mb-2.5">
                   {item.question}
                 </h3>
-                <p className="text-white/55 text-sm leading-relaxed">{item.answer}</p>
+                <p className="text-ink-2 text-sm leading-relaxed">{item.answer}</p>
               </div>
             ))}
           </div>
@@ -251,16 +251,16 @@ export default function ReferralPage() {
           className="rounded-3xl p-10 md:p-14 text-center relative overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, rgba(214,60,107,0.1) 0%, rgba(20,184,166,0.08) 100%)",
-            border: "1px solid rgba(214,60,107,0.2)",
+ "var(--color-track)",
+            border: "1px solid var(--color-rule)",
           }}
         >
-          <div className="absolute inset-0 rounded-3xl" style={{ background: "radial-gradient(circle at 50% 0%, rgba(214,60,107,0.12), transparent 60%)" }} />
+          <div className="absolute inset-0 rounded-3xl" style={{ background: "var(--color-track)" }} />
           <div className="relative">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-3">
               Ready to start earning?
             </h2>
-            <p className="text-white/55 text-lg mb-8 max-w-md mx-auto">
+            <p className="text-ink-2 text-lg mb-8 max-w-md mx-auto">
               Download HoursFlow, then share your link from Profile → Referrals.
             </p>
 
@@ -268,18 +268,17 @@ export default function ReferralPage() {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-ink text-base transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
               style={{
-                background: "#000",
-                border: "1px solid rgba(255,255,255,0.12)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+                background: "var(--color-ground)",
+                border: "1px solid var(--color-rule)",
               }}
             >
               <Apple className="w-5 h-5" />
               Download on the App Store
             </Link>
 
-            <p className="text-white/30 text-sm mt-5">
+            <p className="text-ink-2 text-sm mt-5">
               Free to download &middot; 7-day Pro trial &middot; Cancel anytime
             </p>
           </div>

@@ -59,14 +59,14 @@ export default function HourlyPayCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Hourly Pay Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Enter your hours worked and hourly rate to get your gross pay — with overtime,
             free, instant, no signup.
           </p>
@@ -75,16 +75,16 @@ export default function HourlyPayCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How hourly pay is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How hourly pay is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Gross pay = (regular hours × hourly rate) + (overtime hours × hourly rate ×
               overtime multiplier). Worked example: 40 hours at $25/hour is{' '}
-              <span className="text-white/85 font-medium">$1,000</span> regular pay; 5 overtime
-              hours at $25 × 1.5 add <span className="text-white/85 font-medium">$187.50</span>;
-              gross pay is <span className="text-[#5EEAD4] font-medium">$1,187.50</span>.
+              <span className="text-ink font-medium">$1,000</span> regular pay; 5 overtime
+              hours at $25 × 1.5 add <span className="text-ink font-medium">$187.50</span>;
+              gross pay is <span className="text-positive font-medium">$1,187.50</span>.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>Counting unpaid meal breaks as worked hours — subtract them first.</li>
               <li>Applying the overtime multiplier to all hours instead of only the hours past the threshold.</li>
               <li>Treating gross pay as take-home pay — taxes and deductions come out of this number.</li>
@@ -96,7 +96,7 @@ export default function HourlyPayCalculatorPage() {
           <RelatedTools
             slug={TOOL.slug}
             extraLinks={[
-              { href: '/blog/how-to-calculate-work-hours', label: 'How to calculate work hours' },
+              { href: '/blog/how-', label: 'How to calculate work hours' },
               { href: '/download', label: 'Get the HoursFlow app' },
             ]}
           />

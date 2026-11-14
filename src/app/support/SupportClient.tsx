@@ -14,15 +14,15 @@ function FAQItem({ q, a, i }: { q: string; a: string; i: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: i * 0.04, duration: 0.4 }}
-      className="border border-white/8 rounded-2xl overflow-hidden"
+      className="border border-rule rounded-2xl overflow-hidden"
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors"
+        className="w-full flex items-center justify-between p-5 text-left hover:bg-track/40 transition-colors"
       >
-        <span className="text-white font-medium text-sm pr-4">{q}</span>
-        <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${open ? "bg-[#D63C6B]" : "bg-white/8"}`}>
-          {open ? <Minus className="w-3 h-3 text-white" /> : <Plus className="w-3 h-3 text-white/60" />}
+        <span className="text-ink font-medium text-sm pr-4">{q}</span>
+        <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${open ? "bg-ink" : "bg-track/40"}`}>
+          {open ? <Minus className="w-3 h-3 text-ink" /> : <Plus className="w-3 h-3 text-ink-2" />}
         </div>
       </button>
       <AnimatePresence initial={false}>
@@ -33,8 +33,8 @@ function FAQItem({ q, a, i }: { q: string; a: string; i: number }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="px-5 pb-5 border-t border-white/5 pt-4">
-              <p className="text-white/55 text-sm leading-relaxed">{a}</p>
+            <div className="px-5 pb-5 border-t border-rule pt-4">
+              <p className="text-ink-2 text-sm leading-relaxed">{a}</p>
             </div>
           </motion.div>
         )}
@@ -44,14 +44,14 @@ function FAQItem({ q, a, i }: { q: string; a: string; i: number }) {
 }
 
 const subjects = [
-  "General Question",
-  "Account Issue",
-  "Billing & Subscription",
-  "Payroll Discrepancy",
-  "Technical Bug",
-  "Feature Request",
-  "Delete My Account",
-  "Other",
+ "General Question",
+ "Account Issue",
+ "Billing & Subscription",
+ "Payroll Discrepancy",
+ "Technical Bug",
+ "Feature Request",
+ "Delete My Account",
+ "Other",
 ];
 
 export default function SupportClient() {
@@ -77,7 +77,7 @@ export default function SupportClient() {
       setSubmitted(true);
     } catch {
       setError(
-        "We couldn't send your message right now. Please email us directly at support@shiftflowx.net."
+ "We couldn't send your message right now. Please email us directly at support@shiftflowx.net."
       );
     } finally {
       setSending(false);
@@ -85,20 +85,20 @@ export default function SupportClient() {
   }
 
   return (
-    <div className="bg-[#0A0A0F] min-h-screen pt-24">
+    <div className="bg-ground min-h-screen pt-24">
       {/* Header */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(214,60,107,0.08)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 " />
         <div className="relative max-w-4xl mx-auto px-6 md:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl font-bold text-white tracking-tight mb-4">
-              How can we <span className="gradient-text">help?</span>
+            <h1 className="text-5xl font-bold text-ink tracking-tight mb-4">
+              How can we <span className="text-ink">help?</span>
             </h1>
-            <p className="text-xl text-white/50">
+            <p className="text-xl text-ink-2">
               We&apos;re here for you. Send us a message and we&apos;ll get back within 24 hours.
             </p>
           </motion.div>
@@ -114,16 +114,16 @@ export default function SupportClient() {
               { icon: Clock, label: "Response time", value: "Within 24 hours", link: null },
               { icon: MessageSquare, label: "Delete account", value: "Visit /delete", link: "/delete" },
             ].map(({ icon: Icon, label, value, link }) => (
-              <div key={label} className="bg-white/[0.03] border border-white/10 rounded-2xl p-5 flex items-start gap-4">
-                <div className="w-9 h-9 rounded-xl bg-[#D63C6B]/10 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4 text-[#D63C6B]" />
+              <div key={label} className="bg-track/40 border border-rule rounded-2xl p-5 flex items-start gap-4">
+                <div className="w-9 h-9 rounded-xl bg-ink/10 flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-ink" />
                 </div>
                 <div>
-                  <p className="text-white/40 text-xs mb-1">{label}</p>
+                  <p className="text-ink-2 text-xs mb-1">{label}</p>
                   {link ? (
-                    <a href={link} className="text-white text-sm font-medium hover:text-[#D63C6B] transition-colors">{value}</a>
+                    <a href={link} className="text-ink text-sm font-medium hover:text-ink transition-colors">{value}</a>
                   ) : (
-                    <p className="text-white text-sm font-medium">{value}</p>
+                    <p className="text-ink text-sm font-medium">{value}</p>
                   )}
                 </div>
               </div>
@@ -140,55 +140,55 @@ export default function SupportClient() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-2xl font-bold text-white mb-6 tracking-tight">Send a message</h2>
+            <h2 className="text-2xl font-bold text-ink mb-6 tracking-tight">Send a message</h2>
 
             {submitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-[#22C55E]/10 border border-[#22C55E]/25 rounded-2xl p-8 text-center"
+                className="bg-mint border border-positive-line rounded-2xl p-8 text-center"
               >
-                <div className="w-12 h-12 rounded-full bg-[#22C55E]/20 flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-6 h-6 text-[#22C55E]" />
+                <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-6 h-6 text-positive" />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">Message sent!</h3>
-                <p className="text-white/55 text-sm">
-                  Thanks for reaching out. We&apos;ll reply to <strong className="text-white/80">{form.email}</strong> within 24 hours.
+                <h3 className="text-ink font-bold text-lg mb-2">Message sent!</h3>
+                <p className="text-ink-2 text-sm">
+                  Thanks for reaching out. We&apos;ll reply to <strong className="text-ink">{form.email}</strong> within 24 hours.
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white/50 text-xs font-medium mb-1.5">Name</label>
+                    <label className="block text-ink-2 text-xs font-medium mb-1.5">Name</label>
                     <input
                       type="text"
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#D63C6B]/50 transition-colors"
+                      className="w-full bg-track/40 border border-rule rounded-xl px-4 py-3 text-ink text-sm placeholder:text-ink focus:outline-none focus:border-ink/50 transition-colors"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label className="block text-white/50 text-xs font-medium mb-1.5">Email</label>
+                    <label className="block text-ink-2 text-xs font-medium mb-1.5">Email</label>
                     <input
                       type="email"
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#D63C6B]/50 transition-colors"
+                      className="w-full bg-track/40 border border-rule rounded-xl px-4 py-3 text-ink text-sm placeholder:text-ink focus:outline-none focus:border-ink/50 transition-colors"
                       placeholder="you@email.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-white/50 text-xs font-medium mb-1.5">Subject</label>
+                  <label className="block text-ink-2 text-xs font-medium mb-1.5">Subject</label>
                   <select
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#D63C6B]/50 transition-colors appearance-none"
+                    className="w-full bg-track/40 border border-rule rounded-xl px-4 py-3 text-ink text-sm focus:outline-none focus:border-ink/50 transition-colors appearance-none"
                     style={{ colorScheme: "dark" }}
                   >
                     {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -196,13 +196,13 @@ export default function SupportClient() {
                 </div>
 
                 <div>
-                  <label className="block text-white/50 text-xs font-medium mb-1.5">Message</label>
+                  <label className="block text-ink-2 text-xs font-medium mb-1.5">Message</label>
                   <textarea
                     required
                     rows={6}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/25 focus:outline-none focus:border-[#D63C6B]/50 transition-colors resize-none"
+                    className="w-full bg-track/40 border border-rule rounded-xl px-4 py-3 text-ink text-sm placeholder:text-ink focus:outline-none focus:border-ink/50 transition-colors resize-none"
                     placeholder="Describe your issue or question in detail..."
                   />
                 </div>
@@ -216,7 +216,7 @@ export default function SupportClient() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full py-3.5 bg-[#D63C6B] hover:bg-[#c0355f] disabled:opacity-60 rounded-xl text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-[#D63C6B]/25"
+                  className="w-full py-3.5 bg-ink hover:bg-ink-2 disabled:opacity-60 rounded-xl text-ground font-semibold text-sm transition-all duration-200 "
                 >
                   {sending ? "Sending…" : "Send Message"}
                 </button>
@@ -230,7 +230,7 @@ export default function SupportClient() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className="text-2xl font-bold text-white mb-6 tracking-tight">Quick answers</h2>
+            <h2 className="text-2xl font-bold text-ink mb-6 tracking-tight">Quick answers</h2>
             <div className="space-y-3">
               {FAQ_ITEMS.slice(0, 5).map((item, i) => (
                 <FAQItem key={i} q={item.question} a={item.answer} i={i} />
@@ -238,15 +238,15 @@ export default function SupportClient() {
             </div>
 
             {/* Subscription help */}
-            <div className="mt-8 bg-white/[0.03] border border-white/10 rounded-2xl p-5">
-              <h3 className="text-white font-semibold mb-2 text-sm">Subscription help</h3>
-              <p className="text-white/50 text-xs leading-relaxed mb-3">
+            <div className="mt-8 bg-track/40 border border-rule rounded-2xl p-5">
+              <h3 className="text-ink font-semibold mb-2 text-sm">Subscription help</h3>
+              <p className="text-ink-2 text-xs leading-relaxed mb-3">
                 All subscriptions are managed by Apple. To cancel or manage your plan, go to
                 Settings → Apple ID → Subscriptions on your iPhone.
               </p>
               <Link
                 href="/subscription-terms"
-                className="text-[#D63C6B] text-xs hover:text-[#D63C6B]/80 transition-colors"
+                className="text-ink text-xs hover:text-ink/80 transition-colors"
               >
                 View Subscription Terms →
               </Link>

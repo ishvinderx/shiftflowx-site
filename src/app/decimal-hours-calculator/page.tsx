@@ -10,7 +10,7 @@ import DecimalClient from "./DecimalClient";
 export const metadata: Metadata = {
   title: "Decimal Hours Calculator — Convert Hours & Minutes for Payroll",
   description:
-    "Free decimal hours calculator: convert hours and minutes to decimal time for payroll and timesheets (8h 45m = 8.75), or decimal back to hours — with the full minutes conversion chart.",
+ "Free decimal hours calculator: convert hours and minutes to decimal time for payroll and timesheets (8h 45m = 8.75), or decimal back to hours — with the full minutes conversion chart.",
   alternates: { canonical: "https://shiftflowx.net/decimal-hours-calculator" },
   openGraph: {
     title: "Decimal Hours Calculator — Hours ↔ Decimal for Payroll",
@@ -61,32 +61,32 @@ export default function DecimalHoursCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[TRAIL[0], { name: "Decimal Hours Calculator" }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Decimal Hours Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Convert hours and minutes to decimal time for payroll — or decimal back to
-            h:mm. 8h 45m = <strong className="text-white/85">8.75</strong>. Free, instant.
+            h:mm. 8h 45m = <strong className="text-ink">8.75</strong>. Free, instant.
           </p>
 
           <DecimalClient />
 
           {/* ── Conversion chart (server-rendered — the reference content) ──── */}
           <section className="mt-14">
-            <h2 className="text-2xl font-bold text-white mb-2">Minutes → decimal hours chart</h2>
-            <p className="text-white/50 text-sm mb-6">
+            <h2 className="text-2xl font-bold text-ink mb-2">Minutes → decimal hours chart</h2>
+            <p className="text-ink-2 text-sm mb-6">
               Divide minutes by 60. Values rounded to two decimals — the convention payroll
               systems use.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-1 max-w-3xl">
               {rows.map(({ m, dec }) => (
-                <div key={m} className="flex justify-between text-sm border-b border-white/[0.05] py-1.5">
-                  <span className="text-white/55">{m} min</span>
-                  <span className="text-white/85 font-medium tabular-nums">{dec}</span>
+                <div key={m} className="flex justify-between text-sm border-b border-rule py-1.5">
+                  <span className="text-ink-2">{m} min</span>
+                  <span className="text-ink font-medium tabular-nums">{dec}</span>
                 </div>
               ))}
             </div>
@@ -94,12 +94,12 @@ export default function DecimalHoursCalculatorPage() {
 
           {/* ── FAQ (matches FAQPage schema 1:1) ────────────────────────────── */}
           <section className="mt-14 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">Decimal time questions, answered</h2>
+            <h2 className="text-2xl font-bold text-ink mb-6">Decimal time questions, answered</h2>
             <div className="space-y-5">
               {FAQ.map((f) => (
                 <div key={f.q}>
-                  <h3 className="text-white font-semibold mb-1.5">{f.q}</h3>
-                  <p className="text-white/55 text-sm leading-relaxed">{f.a}</p>
+                  <h3 className="text-ink font-semibold mb-1.5">{f.q}</h3>
+                  <p className="text-ink-2 text-sm leading-relaxed">{f.a}</p>
                 </div>
               ))}
             </div>
@@ -107,15 +107,15 @@ export default function DecimalHoursCalculatorPage() {
 
           {/* ── Related ─────────────────────────────────────────────────────── */}
           <section className="mt-14 max-w-3xl">
-            <h2 className="text-lg font-semibold text-white mb-4">Keep going</h2>
+            <h2 className="text-lg font-semibold text-ink mb-4">Keep going</h2>
             <div className="flex flex-wrap gap-3 text-sm">
-              <Link href="/work-hours-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/work-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Work hours calculator →
               </Link>
-              <Link href="/time-card-calculator" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/time-card-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Weekly time card calculator →
               </Link>
-              <Link href="/download" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
+              <Link href="/download" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
                 Get the HoursFlow app →
               </Link>
             </div>

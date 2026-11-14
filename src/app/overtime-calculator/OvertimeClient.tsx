@@ -13,9 +13,9 @@ const OTHER = 'OTHER'
 const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
-const errCls = 'text-[#F87171] text-xs mt-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
+const errCls = 'text-alert text-xs mt-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 const hrs = (n: number) => n.toLocaleString('en-US', { maximumFractionDigits: 2 })
@@ -170,7 +170,7 @@ export default function OvertimeClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6 space-y-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-6">
         <div className="max-w-xs">
           <label htmlFor="ot-jurisdiction" className={labelCls}>
             Jurisdiction
@@ -195,17 +195,17 @@ export default function OvertimeClient() {
 
         {isManual && (
           <div className="space-y-4">
-            <p className="text-white/80 text-sm font-medium">
+            <p className="text-ink text-sm font-medium">
               Overtime rule not verified for this jurisdiction.
             </p>
-            <p className="text-white/50 text-sm leading-relaxed max-w-2xl">
+            <p className="text-ink-2 text-sm leading-relaxed max-w-2xl">
               We only calculate statutory overtime from rules verified against official government
               sources, so no statutory result is shown here. If you know your own threshold and
               multiplier, use manual mode below — the result is computed from your numbers, not a
               verified rule.
             </p>
-            <div className="border border-white/10 rounded-xl p-4 space-y-4">
-              <p className="text-xs font-semibold text-white/60 uppercase tracking-wide">
+            <div className="border border-rule rounded-xl p-4 space-y-4">
+              <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide">
                 Manual mode — your numbers
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -258,7 +258,7 @@ export default function OvertimeClient() {
         {!isManual && isDaily && (
           <div>
             <p className={labelCls}>Hours worked each day</p>
-            <p className="text-white/40 text-xs mb-3">
+            <p className="text-ink-2 text-xs mb-3">
               Decimal hours (8.5 = 8 h 30 m). Leave a day blank if you didn’t work — it counts as 0.
             </p>
             <div className="grid grid-cols-4 sm:grid-cols-7 gap-3">
@@ -314,7 +314,7 @@ export default function OvertimeClient() {
       {rule && (
         <div>
           <SourceInfo rule={rule} />
-          <p className="mt-2 text-xs text-white/45 leading-relaxed">
+          <p className="mt-2 text-xs text-ink-2 leading-relaxed">
             This rule does not cover everyone: {rule.exceptionsNote}
           </p>
         </div>
@@ -322,51 +322,51 @@ export default function OvertimeClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
+        <div className="border border-ink/25 rounded-2xl p-6">
           {isManual && (
-            <p className="text-xs text-[#FBBF24] font-semibold uppercase tracking-wide mb-3">
+            <p className="text-xs text-ink font-semibold uppercase tracking-wide mb-3">
               Computed from your numbers — not a verified statutory rule
             </p>
           )}
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             {result.grossPay !== null ? 'Estimated gross pay' : 'Overtime hours'}
           </p>
-          <p className="text-5xl font-bold text-white tracking-tight">
+          <p className="text-5xl font-bold text-ink tracking-tight">
             {result.grossPay !== null ? money(result.grossPay) : `${hrs(result.otHours)} h`}
           </p>
 
           <dl className="mt-5 space-y-2 text-sm max-w-xs">
             <div className="flex justify-between">
-              <dt className="text-white/50">Regular hours</dt>
-              <dd className="text-white font-medium">{hrs(result.regularHours)} h</dd>
+              <dt className="text-ink-2">Regular hours</dt>
+              <dd className="text-ink font-medium">{hrs(result.regularHours)} h</dd>
             </div>
             {result.otBreakdown.length === 0 && (
               <div className="flex justify-between">
-                <dt className="text-white/50">Overtime hours</dt>
-                <dd className="text-white font-medium">0 h</dd>
+                <dt className="text-ink-2">Overtime hours</dt>
+                <dd className="text-ink font-medium">0 h</dd>
               </div>
             )}
             {result.otBreakdown.map((b) => (
               <div key={b.multiplier} className="flex justify-between">
-                <dt className="text-white/50">Overtime @ {b.multiplier}×</dt>
-                <dd className="text-[#5EEAD4] font-medium">{hrs(b.hours)} h</dd>
+                <dt className="text-ink-2">Overtime @ {b.multiplier}×</dt>
+                <dd className="text-positive font-medium">{hrs(b.hours)} h</dd>
               </div>
             ))}
             {result.regularPay !== null && (
-              <div className="flex justify-between border-t border-white/10 pt-2">
-                <dt className="text-white/50">Regular pay</dt>
-                <dd className="text-white font-medium">{money(result.regularPay)}</dd>
+              <div className="flex justify-between border-t border-rule pt-2">
+                <dt className="text-ink-2">Regular pay</dt>
+                <dd className="text-ink font-medium">{money(result.regularPay)}</dd>
               </div>
             )}
             {result.otPay !== null && (
               <div className="flex justify-between">
-                <dt className="text-white/50">Overtime pay</dt>
-                <dd className="text-[#5EEAD4] font-medium">{money(result.otPay)}</dd>
+                <dt className="text-ink-2">Overtime pay</dt>
+                <dd className="text-positive font-medium">{money(result.otPay)}</dd>
               </div>
             )}
           </dl>
           {result.grossPay === null && (
-            <p className="mt-3 text-xs text-white/40">Add an hourly rate to see the pay breakdown.</p>
+            <p className="mt-3 text-xs text-ink-2">Add an hourly rate to see the pay breakdown.</p>
           )}
 
           <div
@@ -385,7 +385,7 @@ export default function OvertimeClient() {
           </div>
         </div>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your overtime.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your overtime.</p>
       )}
     </div>
   )

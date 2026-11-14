@@ -62,14 +62,14 @@ export default function OvertimeCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Overtime Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Overtime rules verified from official government sources for Ontario, BC, Alberta,
             federally regulated Canada, and the US. Jurisdictions we haven’t verified aren’t
             calculated — no guessed numbers.
@@ -79,19 +79,19 @@ export default function OvertimeCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How overtime is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How overtime is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Pick your jurisdiction and the calculator applies that jurisdiction’s verified
               statutory rule — its threshold(s), multiplier, and how daily and weekly overtime
               interact — instead of a one-size-fits-all formula. Worked example (Ontario): you work
               50 hours at $20/hour. Ontario’s threshold is 44 hours per week with no daily
               overtime, so 44 regular hours pay{' '}
-              <span className="text-white/85 font-medium">$880</span> and 6 overtime hours at $20 ×
-              1.5 add <span className="text-white/85 font-medium">$180</span> — gross pay{' '}
-              <span className="text-[#5EEAD4] font-medium">$1,060</span>.
+              <span className="text-ink font-medium">$880</span> and 6 overtime hours at $20 ×
+              1.5 add <span className="text-ink font-medium">$180</span> — gross pay{' '}
+              <span className="text-positive font-medium">$1,060</span>.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>
                 Applying the overtime multiplier to all hours instead of only the hours past the
                 threshold.
@@ -112,7 +112,7 @@ export default function OvertimeCalculatorPage() {
           <RelatedTools
             slug={TOOL.slug}
             extraLinks={[
-              { href: '/blog/how-to-calculate-overtime-hours', label: 'How to calculate overtime hours' },
+              { href: '/blog/how-', label: 'How to calculate overtime hours' },
               { href: '/download', label: 'Get the HoursFlow app' },
             ]}
           />

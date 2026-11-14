@@ -29,7 +29,7 @@ export default async function VerifyPage({
   }
 
   return (
-    <main className="min-h-screen bg-[#0A0A0F] text-white flex items-center justify-center px-6">
+    <main className="min-h-screen bg-ground text-ink flex items-center justify-center px-6">
       <div className="w-full max-w-md text-center">
         <div className="flex items-center justify-center gap-3 mb-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -39,7 +39,7 @@ export default async function VerifyPage({
 
         <div
           className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full text-3xl"
-          style={{ backgroundColor: ok ? "rgba(34,197,94,0.15)" : "rgba(214,60,107,0.15)" }}
+          style={{ backgroundColor: ok ? "var(--color-rule)" : "var(--color-rule)" }}
         >
           {ok ? "✅" : "⚠️"}
         </div>
@@ -55,8 +55,8 @@ export default async function VerifyPage({
 
         <Link
           href={APP_STORE_URL}
-          className="inline-block rounded-full px-8 py-4 font-semibold text-white"
-          style={{ backgroundColor: "#D63C6B" }}
+          className="inline-block rounded-full px-8 py-4 font-semibold text-ink"
+          style={{ backgroundColor: "var(--color-ink)" }}
         >
           Open HoursFlow
         </Link>

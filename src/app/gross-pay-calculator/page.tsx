@@ -59,14 +59,14 @@ export default function GrossPayCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Gross Pay Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Convert gross pay between pay periods — hourly, daily, weekly, biweekly, monthly,
             and annual. Free, instant, no signup.
           </p>
@@ -75,20 +75,20 @@ export default function GrossPayCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How these numbers are calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How these numbers are calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Every conversion pivots through weekly pay using standard payroll conventions:
               52 weeks per year, biweekly = weekly × 2 (26 pay periods), annual = weekly × 52,
               and monthly = annual ÷ 12. Hourly pay × hours per week gives weekly pay, and
               daily pay × days per week gives weekly pay — going the other way, deriving an
               hourly or daily rate from a salary divides by those same numbers. Worked example:{' '}
-              <span className="text-white/85 font-medium">$25/hour</span> at 40 hours/week is{' '}
-              <span className="text-white/85 font-medium">$1,000/week</span>, which is{' '}
-              <span className="text-white/85 font-medium">$52,000/year</span>; monthly is
-              annual ÷ 12 = <span className="text-[#5EEAD4] font-medium">$4,333.33</span>.
+              <span className="text-ink font-medium">$25/hour</span> at 40 hours/week is{' '}
+              <span className="text-ink font-medium">$1,000/week</span>, which is{' '}
+              <span className="text-ink font-medium">$52,000/year</span>; monthly is
+              annual ÷ 12 = <span className="text-positive font-medium">$4,333.33</span>.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>Assuming monthly pay is 4 weeks of pay — it is annual ÷ 12, about 4.33 weeks.</li>
               <li>Comparing a gross offer against your current take-home pay — compare gross to gross.</li>
               <li>Forgetting that a salary conversion assumes your stated hours — overtime isn’t in it.</li>
@@ -100,7 +100,7 @@ export default function GrossPayCalculatorPage() {
           <RelatedTools
             slug={TOOL.slug}
             extraLinks={[
-              { href: '/blog/how-to-calculate-work-hours', label: 'How to calculate work hours' },
+              { href: '/blog/how-', label: 'How to calculate work hours' },
               { href: '/download', label: 'Get the HoursFlow app' },
             ]}
           />

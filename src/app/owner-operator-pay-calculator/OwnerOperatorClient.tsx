@@ -11,8 +11,8 @@ const CALCULATOR = 'owner-operator-pay-calculator'
 const CATEGORY = 'Owner-Operator & Trucking'
 
 const inputCls =
-  'w-full bg-white/[0.04] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-[#D63C6B]/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5'
+  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
+const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -147,7 +147,7 @@ export default function OwnerOperatorClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-[#F87171] text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -160,7 +160,7 @@ export default function OwnerOperatorClient() {
       }}
       aria-pressed={current === value}
       className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-        current === value ? 'bg-[#D63C6B] text-white' : 'bg-white/[0.04] text-white/60 hover:text-white'
+        current === value ? 'bg-ink text-ground' : 'bg-track/40 text-ink-2 hover:text-ink'
       }`}
     >
       {label}
@@ -177,7 +177,7 @@ export default function OwnerOperatorClient() {
   return (
     <div className="space-y-6">
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-white/[0.02] border border-white/[0.08] rounded-2xl p-6">
+      <div className="bg-track/40 border border-rule rounded-2xl p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="sm:col-span-2">
             <span className={labelCls}>Revenue basis</span>
@@ -231,7 +231,7 @@ export default function OwnerOperatorClient() {
           )}
 
           {registration === 'not-registered' && (
-            <p className="sm:col-span-2 text-xs text-white/45 leading-relaxed">
+            <p className="sm:col-span-2 text-xs text-ink-2 leading-relaxed">
               Not registered — you don’t collect GST/HST on your loads, so there’s no tax line
               in the breakdown.
             </p>
@@ -248,82 +248,82 @@ export default function OwnerOperatorClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="bg-gradient-to-b from-[#D63C6B]/[0.07] to-transparent border border-[#D63C6B]/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-white/50 uppercase tracking-wide mb-1.5">
+        <div className="border border-ink/25 rounded-2xl p-6">
+          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
             Estimated available income
           </p>
-          <p className="text-5xl font-bold text-white tracking-tight">{money(result.available)}</p>
+          <p className="text-5xl font-bold text-ink tracking-tight">{money(result.available)}</p>
           {!result.expensesEntered && (
-            <p className="text-[#FBBF24]/90 text-xs mt-2">
+            <p className="text-ink/90 text-xs mt-2">
               Before expenses — enter your costs for a real number.
             </p>
           )}
 
           <dl className="mt-5 space-y-2 text-sm max-w-sm">
             <div className="flex justify-between">
-              <dt className="text-white/50">Revenue</dt>
-              <dd className="text-white font-medium">{money(result.revenue)}</dd>
+              <dt className="text-ink-2">Revenue</dt>
+              <dd className="text-ink font-medium">{money(result.revenue)}</dd>
             </div>
 
             {result.gstHst !== null && rule !== null && (
               <div>
                 <div className="flex justify-between">
-                  <dt className="text-white/50">
+                  <dt className="text-ink-2">
                     {rule.taxType} collected ({rule.ratePercent}%)
                   </dt>
-                  <dd className="text-[#FBBF24] font-medium">{money(result.gstHst)}</dd>
+                  <dd className="text-ink font-medium">{money(result.gstHst)}</dd>
                 </div>
-                <p className="text-white/35 text-xs text-right">remitted to CRA — not income</p>
+                <p className="text-ink-2 text-xs text-right">remitted to CRA — not income</p>
               </div>
             )}
 
             <div className="flex justify-between">
-              <dt className="text-white/50">Total expenses</dt>
-              <dd className="text-white font-medium">{money(result.totalExpenses)}</dd>
+              <dt className="text-ink-2">Total expenses</dt>
+              <dd className="text-ink font-medium">{money(result.totalExpenses)}</dd>
             </div>
             {enteredExpenses.map(([label, value]) => (
               <div key={label} className="flex justify-between pl-4">
-                <dt className="text-white/35">{label}</dt>
-                <dd className="text-white/60">{money(value)}</dd>
+                <dt className="text-ink-2">{label}</dt>
+                <dd className="text-ink-2">{money(value)}</dd>
               </div>
             ))}
 
             <div>
               <div className="flex justify-between">
-                <dt className="text-white/50">Estimated profit</dt>
-                <dd className="text-white font-medium">{money(result.profit)}</dd>
+                <dt className="text-ink-2">Estimated profit</dt>
+                <dd className="text-ink font-medium">{money(result.profit)}</dd>
               </div>
               {!result.expensesEntered && (
-                <p className="text-[#FBBF24]/90 text-xs text-right">
+                <p className="text-ink/90 text-xs text-right">
                   before expenses — enter your costs for a real number
                 </p>
               )}
             </div>
 
             <div className="flex justify-between">
-              <dt className="text-white/50">Tax reserve ({fields.reserve.value}%)</dt>
+              <dt className="text-ink-2">Tax reserve ({fields.reserve.value}%)</dt>
               {result.profit <= 0 ? (
-                <dd className="text-white/60">No profit — nothing to reserve</dd>
+                <dd className="text-ink-2">No profit — nothing to reserve</dd>
               ) : (
-                <dd className="text-[#5EEAD4] font-medium">{money(result.reserve)}</dd>
+                <dd className="text-positive font-medium">{money(result.reserve)}</dd>
               )}
             </div>
 
             <div className="flex justify-between">
-              <dt className="text-white/50">Estimated available income</dt>
-              <dd className="text-white font-medium">{money(result.available)}</dd>
+              <dt className="text-ink-2">Estimated available income</dt>
+              <dd className="text-ink font-medium">{money(result.available)}</dd>
             </div>
           </dl>
 
           {result.costPerKm !== null && result.revenuePerKm !== null && (
-            <dl className="mt-4 pt-4 border-t border-white/10 space-y-2 text-sm max-w-sm">
+            <dl className="mt-4 pt-4 border-t border-rule space-y-2 text-sm max-w-sm">
               <div className="flex justify-between">
-                <dt className="text-white/50">Cost per km</dt>
-                <dd className="text-white font-medium">{money(result.costPerKm)}/km</dd>
+                <dt className="text-ink-2">Cost per km</dt>
+                <dd className="text-ink font-medium">{money(result.costPerKm)}/km</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-white/50">Revenue per km</dt>
-                <dd className="text-white font-medium">{money(result.revenuePerKm)}/km</dd>
+                <dt className="text-ink-2">Revenue per km</dt>
+                <dd className="text-ink font-medium">{money(result.revenuePerKm)}/km</dd>
               </div>
             </dl>
           )}
@@ -344,18 +344,18 @@ export default function OwnerOperatorClient() {
           </div>
         </div>
       ) : registration === 'unknown' ? (
-        <p className="text-[#FBBF24]/90 text-sm leading-relaxed max-w-md">
+        <p className="text-ink/90 text-sm leading-relaxed max-w-md">
           GST/HST not calculated — registration status required. Choose “Registered” or “Not
           registered” to see your breakdown.
         </p>
       ) : (
-        <p className="text-white/40 text-sm">Fix the highlighted fields to see your pay.</p>
+        <p className="text-ink-2 text-sm">Fix the highlighted fields to see your pay.</p>
       )}
 
       {rule !== null && (
         <>
           {rule.hasSeparatePst && (
-            <p className="text-xs text-[#FBBF24]/90 leading-relaxed max-w-md">
+            <p className="text-xs text-ink/90 leading-relaxed max-w-md">
               This is GST only — {rule.jurisdiction} also charges a separate PST/QST that is
               not included here.
             </p>

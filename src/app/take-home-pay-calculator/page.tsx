@@ -27,7 +27,7 @@ export const metadata: Metadata = toolMetadata({
 const FAQ: Faq[] = [
   {
     q: 'Why doesn’t this calculate income tax automatically?',
-    a: 'Because it can’t do it honestly. Income tax depends on jurisdiction, credits, filing details, and year-to-date earnings — a calculator guessing a rate from unverified tables would give you a confident wrong number, which is worse than none. Instead, you enter the deductions from a real paystub (or your own estimates) and this tool does the arithmetic.',
+    a: 'Because it can’t do it honestly. Income tax depends on jurisdiction, credits, filing details, and year- earnings — a calculator guessing a rate from unverified tables would give you a confident wrong number, which is worse than none. Instead, you enter the deductions from a real paystub (or your own estimates) and this tool does the arithmetic.',
   },
   {
     q: 'What deductions typically appear on a paystub?',
@@ -60,14 +60,14 @@ export default function TakeHomePayCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             Take-Home Pay Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Enter your gross pay and the deductions from your paystub to estimate your take-home
             pay. This tool turns your own deduction numbers into a net estimate — it doesn’t guess
             tax rates for you.
@@ -77,23 +77,23 @@ export default function TakeHomePayCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">
+            <h2 className="text-2xl font-bold text-ink mb-6">
               Gross pay, deductions, and net pay
             </h2>
-            <p className="text-white/60 leading-relaxed">
+            <p className="text-ink-2 leading-relaxed">
               Gross pay is what you earned before anything comes out. Deductions are the amounts
               withheld — income tax, payroll contributions, benefits. Estimated take-home (net)
               pay = gross − total deductions. Worked example: on{' '}
-              <span className="text-white/85 font-medium">$4,000</span> gross, 20% income tax
+              <span className="text-ink font-medium">$4,000</span> gross, 20% income tax
               ($800) + $200 CPP + $80 EI make{' '}
-              <span className="text-white/85 font-medium">$1,080</span> in deductions, leaving{' '}
-              <span className="text-[#5EEAD4] font-medium">$2,920</span> estimated take-home pay.
+              <span className="text-ink font-medium">$1,080</span> in deductions, leaving{' '}
+              <span className="text-positive font-medium">$2,920</span> estimated take-home pay.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>
                 Assuming one flat “tax percent” equals a bracket — effective rates depend on
-                jurisdiction, credits, and year-to-date earnings.
+                jurisdiction, credits, and year- earnings.
               </li>
               <li>Forgetting employer benefit deductions like health or dental premiums.</li>
               <li>Comparing job offers on gross alone — different deductions can flip which offer pays more.</li>

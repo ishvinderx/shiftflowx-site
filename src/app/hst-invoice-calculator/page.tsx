@@ -60,14 +60,14 @@ export default function HstInvoiceCalculatorPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
           <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
             HST Invoice Calculator
           </h1>
-          <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
+          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
             Build an hourly invoice total with GST/HST added correctly — and see exactly which
             part is yours.
           </p>
@@ -76,16 +76,16 @@ export default function HstInvoiceCalculatorPage() {
 
           {/* ── How it works ─────────────────────────────────────────────────── */}
           <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-white mb-6">How an HST invoice is calculated</h2>
-            <p className="text-white/60 leading-relaxed">
+            <h2 className="text-2xl font-bold text-ink mb-6">How an HST invoice is calculated</h2>
+            <p className="text-ink-2 leading-relaxed">
               Labour + GST/HST = total invoice. Worked example: 100 hours at $26/hour is{' '}
-              <span className="text-white/85 font-medium">$2,600</span> labour; 13% HST adds{' '}
-              <span className="text-white/85 font-medium">$338</span>; the total invoice is{' '}
-              <span className="text-[#5EEAD4] font-medium">$2,938</span>. You invoice $2,938, you
+              <span className="text-ink font-medium">$2,600</span> labour; 13% HST adds{' '}
+              <span className="text-ink font-medium">$338</span>; the total invoice is{' '}
+              <span className="text-positive font-medium">$2,938</span>. You invoice $2,938, you
               earned $2,600, and you remit $338 to the CRA — the tax line was never your income.
             </p>
-            <h3 className="text-white font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-white/60 leading-relaxed">
+            <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
+            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
               <li>
                 Quoting a rate “including HST” and eating the tax — the HST belongs on top of your
                 rate, not inside it.

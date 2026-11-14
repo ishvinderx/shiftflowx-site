@@ -9,20 +9,20 @@ export const metadata: Metadata = {
 };
 
 const breadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://shiftflowx.net/blog" }
   ]
 };
 
 const categoryColors: Record<string, string> = {
-  'Shift Tracking': '#14B8A6',
-  'Payroll Protection': '#D63C6B',
-  'Tax Guide': '#F59E0B',
-  'Freelancer Guide': '#D63C6B',
-  'Pay & Hours': '#14B8A6',
+  'Shift Tracking': 'var(--color-positive)',
+  'Payroll Protection': 'var(--color-ink)',
+  'Tax Guide': 'var(--color-ink)',
+  'Freelancer Guide': 'var(--color-ink)',
+  'Pay & Hours': 'var(--color-positive)',
 };
 
 function getExcerpt(content: string): string {
@@ -39,20 +39,20 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
 
           {/* Header */}
           <div className="mb-16">
-            <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-              <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
+            <nav className="flex items-center gap-2 text-sm text-ink-2 mb-8">
+              <Link href="/" className="hover:text-ink transition-colors">HoursFlow</Link>
               <span>/</span>
-              <span className="text-white/60">Blog</span>
+              <span className="text-ink-2">Blog</span>
             </nav>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6">
               HoursFlow Blog
             </h1>
-            <p className="text-xl text-white/60 max-w-2xl">
+            <p className="text-xl text-ink-2 max-w-2xl">
               Guides on paychecks, payday, gig worker taxes and freelancer invoicing.
             </p>
           </div>
@@ -60,9 +60,9 @@ export default function BlogPage() {
           {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {BLOG_POSTS.map(post => {
-              const color = categoryColors[post.category] || '#D63C6B';
+              const color = categoryColors[post.category] || 'var(--color-ink)';
               return (
-                <article key={post.slug} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-white/20 transition-colors group">
+                <article key={post.slug} className="rounded-2xl border border-rule bg-track/40 p-6 hover:border-rule transition-colors group">
                   <div className="flex items-center justify-between mb-4">
                     <span
                       className="text-xs font-semibold px-2.5 py-1 rounded-full"
@@ -70,26 +70,26 @@ export default function BlogPage() {
                     >
                       {post.category}
                     </span>
-                    <span className="text-xs text-white/30">{post.readTime}</span>
+                    <span className="text-xs text-ink-2">{post.readTime}</span>
                   </div>
 
-                  <h2 className="text-lg font-bold text-white mb-3 leading-snug group-hover:text-white/90 transition-colors">
+                  <h2 className="text-lg font-bold text-ink mb-3 leading-snug group-hover:text-ink transition-colors">
                     <Link href={`/blog/${post.slug}`} className="hover:underline decoration-white/20">
                       {post.title}
                     </Link>
                   </h2>
 
-                  <p className="text-sm text-white/50 leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-sm text-ink-2 leading-relaxed mb-4 line-clamp-3">
                     {getExcerpt(post.content)}
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <time className="text-xs text-white/30" dateTime={post.date}>
+                    <time className="text-xs text-ink-2" dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </time>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-sm font-medium text-[#D63C6B] hover:text-[#c0355f] transition-colors"
+                      className="text-sm font-medium text-ink hover:text-ink transition-colors"
                     >
                       Read article →
                     </Link>
@@ -100,12 +100,12 @@ export default function BlogPage() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Track your hours with HoursFlow</h3>
-            <p className="text-white/60 mb-6">Track hours, earnings, bills and tax estimates. Pro includes a 7-day free trial.</p>
+          <div className="mt-16 p-8 rounded-2xl border border-ink/20 text-center">
+            <h3 className="text-2xl font-bold text-ink mb-3">Track your hours with HoursFlow</h3>
+            <p className="text-ink-2 mb-6">Track hours, earnings, bills and tax estimates. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
-              className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"
+              className="inline-block bg-ink text-ground px-8 py-3 rounded-full font-semibold hover:bg-ink-2 transition-colors"
             >
               Download HoursFlow Free
             </Link>

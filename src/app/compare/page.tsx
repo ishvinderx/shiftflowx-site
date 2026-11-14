@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 };
 
 const breadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://shiftflowx.net/compare" }
   ]
@@ -35,56 +35,56 @@ export default function ComparePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <div className="min-h-screen bg-[#0A0A0F] pt-24 pb-20">
+      <div className="min-h-screen bg-ground pt-24 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
 
           {/* Header */}
           <div className="mb-16">
-            <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-              <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
+            <nav className="flex items-center gap-2 text-sm text-ink-2 mb-8">
+              <Link href="/" className="hover:text-ink transition-colors">HoursFlow</Link>
               <span>/</span>
-              <span className="text-white/60">Compare</span>
+              <span className="text-ink-2">Compare</span>
             </nav>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 leading-tight">
               Why Workers Choose HoursFlow
             </h1>
-            <p className="text-xl text-white/60 leading-relaxed max-w-2xl">
+            <p className="text-xl text-ink-2 leading-relaxed max-w-2xl">
               HoursFlow combines shift tracking, payday, budget and bill reminders, tax estimates and a paycheck tracker in one place. It is built to help you check your pay, not just track your time.
             </p>
           </div>
 
           {/* Comparison Table */}
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6">Feature Comparison</h2>
-            <div className="rounded-2xl border border-white/10 overflow-hidden">
+            <h2 className="text-2xl font-bold text-ink mb-6">Feature Comparison</h2>
+            <div className="rounded-2xl border border-rule overflow-hidden">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-white/5 border-b border-white/10">
-                    <th className="text-left px-6 py-4 text-white/60 font-semibold text-sm">Feature</th>
-                    <th className="text-center px-6 py-4 text-[#D63C6B] font-bold text-sm">HoursFlow</th>
-                    <th className="text-center px-6 py-4 text-white/40 font-semibold text-sm">Generic Trackers</th>
+                  <tr className="bg-track/40 border-b border-rule">
+                    <th className="text-left px-6 py-4 text-ink-2 font-semibold text-sm">Feature</th>
+                    <th className="text-center px-6 py-4 text-ink font-bold text-sm">HoursFlow</th>
+                    <th className="text-center px-6 py-4 text-ink-2 font-semibold text-sm">Generic Trackers</th>
                   </tr>
                 </thead>
                 <tbody>
                   {features.map((f, i) => (
-                    <tr key={f.name} className={`border-b border-white/5 ${i % 2 === 0 ? '' : 'bg-white/[0.02]'}`}>
-                      <td className="px-6 py-4 text-white/70 text-sm">{f.name}</td>
+                    <tr key={f.name} className={`border-b border-rule ${i % 2 === 0 ? '' : 'bg-track/40'}`}>
+                      <td className="px-6 py-4 text-ink-2 text-sm">{f.name}</td>
                       <td className="px-6 py-4 text-center">
                         {f.app === true ? (
-                          <span className="text-[#22C55E] font-bold">✓</span>
+                          <span className="text-positive font-bold">✓</span>
                         ) : (
-                          <span className="text-[#22C55E] text-sm font-medium">{f.app}</span>
+                          <span className="text-positive text-sm font-medium">{f.app}</span>
                         )}
                       </td>
                       <td className="px-6 py-4 text-center">
                         {f.generic === false ? (
-                          <span className="text-white/25 font-bold">✗</span>
+                          <span className="text-ink-2 font-bold">✗</span>
                         ) : f.generic === "partial" ? (
-                          <span className="text-[#F59E0B] text-sm font-medium">Partial</span>
+                          <span className="text-ink text-sm font-medium">Partial</span>
                         ) : f.generic === true ? (
-                          <span className="text-white/50 font-bold">✓</span>
+                          <span className="text-ink-2 font-bold">✓</span>
                         ) : (
-                          <span className="text-white/40 text-sm">{f.generic}</span>
+                          <span className="text-ink-2 text-sm">{f.generic}</span>
                         )}
                       </td>
                     </tr>
@@ -96,7 +96,7 @@ export default function ComparePage() {
 
           {/* Who it&apos;s for */}
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6">Who HoursFlow Is Built For</h2>
+            <h2 className="text-2xl font-bold text-ink mb-6">Who HoursFlow Is Built For</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { group: "Hourly Employees", desc: "Retail, hospitality, manufacturing, and service workers who want to check their paycheque against the hours they logged.", href: "/use-cases/hourly-workers" },
@@ -104,9 +104,9 @@ export default function ComparePage() {
                 { group: "Gig Workers", desc: "Rideshare drivers, delivery workers, and task-based gig workers who need income tracking across multiple platforms.", href: "/use-cases/gig-workers" },
                 { group: "Nurses & Healthcare", desc: "Shift workers with complex schedules including night differentials, on-call pay, and overtime regulations.", href: "/use-cases/nurses" },
               ].map(({ group, desc, href }) => (
-                <Link key={group} href={href} className="p-6 rounded-xl border border-white/10 hover:border-[#D63C6B]/30 transition-colors group">
-                  <h3 className="text-white font-semibold mb-2 group-hover:text-[#D63C6B] transition-colors">{group}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+                <Link key={group} href={href} className="p-6 rounded-xl border border-rule hover:border-ink/30 transition-colors group">
+                  <h3 className="text-ink font-semibold mb-2 group-hover:text-ink transition-colors">{group}</h3>
+                  <p className="text-ink-2 text-sm leading-relaxed">{desc}</p>
                 </Link>
               ))}
             </div>
@@ -114,25 +114,25 @@ export default function ComparePage() {
 
           {/* The HoursFlow Difference */}
           <section className="mb-16">
-            <h2 className="text-2xl font-bold text-white mb-6">The HoursFlow Difference</h2>
-            <p className="text-white/60 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold text-ink mb-6">The HoursFlow Difference</h2>
+            <p className="text-ink-2 leading-relaxed mb-4">
               Most time tracking apps were built for businesses — to help employers see how their staff spends time. HoursFlow was built for workers — to track hours, earnings, payday and bills.
             </p>
-            <p className="text-white/60 leading-relaxed mb-4">
+            <p className="text-ink-2 leading-relaxed mb-4">
               The US Department of Labor estimates that wage theft — underpaid wages, missing overtime, illegal deductions — costs workers over $15 billion annually. HoursFlow gives you a clear record of the hours you worked, so you can check what you were paid against it.
             </p>
-            <p className="text-white/60 leading-relaxed">
+            <p className="text-ink-2 leading-relaxed">
               HoursFlow brings shift tracking, payday, budget and bill reminders, tax estimates, and invoices together in a single mobile-first app built for workers.
             </p>
           </section>
 
           {/* CTA */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Start tracking your hours today</h3>
-            <p className="text-white/60 mb-6">Free to start; Pro includes a 7-day free trial. Available on iPhone &amp; iPad.</p>
+          <div className="p-8 rounded-2xl border border-ink/20 text-center">
+            <h3 className="text-2xl font-bold text-ink mb-3">Start tracking your hours today</h3>
+            <p className="text-ink-2 mb-6">Free to start; Pro includes a 7-day free trial. Available on iPhone &amp; iPad.</p>
             <Link
               href="/download"
-              className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"
+              className="inline-block bg-ink text-ground px-8 py-3 rounded-full font-semibold hover:bg-ink-2 transition-colors"
             >
               Download HoursFlow
             </Link>
