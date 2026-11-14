@@ -1,5 +1,7 @@
-// Provenance box for jurisdiction-rule calculators (GST/HST, overtime):
-// shows exactly which rule version produced the numbers and where it came from.
+import { Callout } from '@/components/ui'
+
+// Provenance note for jurisdiction-rule calculators (GST/HST, overtime): which rule version
+// produced the numbers and where it came from. Spans both columns of the calculator grid.
 export default function SourceInfo({
   rule,
 }: {
@@ -13,25 +15,17 @@ export default function SourceInfo({
   }
 }) {
   return (
-    <div className="mt-6 bg-track/40 border border-rule rounded-xl p-4 text-xs text-ink-2 leading-relaxed">
-      <p className="text-ink-2 font-semibold uppercase tracking-wide text-[10px] mb-2">
-        Calculation rules
-      </p>
-      <p>
+    <Callout label="Calculation rules" className="lg:col-span-2 text-[0.9375rem]">
+      <span className="block">
         {rule.jurisdiction} · rule v{rule.ruleVersion} · effective {rule.effectiveDate}
-      </p>
-      <p className="mt-1">
+      </span>
+      <span className="mt-1 block text-ink-2">
         Source:{' '}
-        <a
-          href={rule.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-ink-2 hover:text-ink underline underline-offset-2 transition-colors"
-        >
+        <a href={rule.sourceUrl} target="_blank" rel="noopener noreferrer" className="link-hover text-ink underline underline-offset-4 decoration-1 hover:decoration-2">
           {rule.source}
         </a>{' '}
         · last reviewed {rule.lastReviewed}
-      </p>
-    </div>
+      </span>
+    </Callout>
   )
 }

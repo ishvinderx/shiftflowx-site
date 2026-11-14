@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import TakeHomeClient from './TakeHomeClient'
 
 // Design decision of record: this tool does NOT compute statutory income tax,
@@ -48,38 +45,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function TakeHomePayCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Take-Home Pay Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Enter your gross pay and the deductions from your paystub to estimate your take-home
-            pay. This tool turns your own deduction numbers into a net estimate — it doesn’t guess
-            tax rates for you.
-          </p>
-
-          <TakeHomeClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">
-              Gross pay, deductions, and net pay
-            </h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="Take-Home Pay Calculator"
+        lede={`Enter your gross pay and the deductions from your paystub to estimate your take-home pay. This tool turns your own deduction numbers into a net estimate — it doesn’t guess tax rates for you.`}
+        explainTitle="Gross pay, deductions, and net pay"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Gross pay is what you earned before anything comes out. Deductions are the amounts
               withheld — income tax, payroll contributions, benefits. Estimated take-home (net)
@@ -90,7 +67,7 @@ export default function TakeHomePayCalculatorPage() {
               <span className="text-positive font-medium">$2,920</span> estimated take-home pay.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>
                 Assuming one flat “tax percent” equals a bracket — effective rates depend on
                 jurisdiction, credits, and year- earnings.
@@ -98,21 +75,19 @@ export default function TakeHomePayCalculatorPage() {
               <li>Forgetting employer benefit deductions like health or dental premiums.</li>
               <li>Comparing job offers on gross alone — different deductions can flip which offer pays more.</li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not tax, payroll, or legal
             advice. Actual deductions vary by jurisdiction and personal circumstances.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <TakeHomeClient />
+      </ToolLayout>
     </>
   )
 }

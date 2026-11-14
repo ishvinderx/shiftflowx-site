@@ -4,12 +4,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
 import AppCta from '@/components/calculator/AppCta'
 import { calculateHourlyPay } from './payCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = { calculator: 'hourly-pay-calculator', category: 'Pay & Earnings' }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -89,14 +87,14 @@ export default function HourlyPayClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6">
+      <div className="min-w-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('hp-hours', 'Hours worked', hours, setHours, fields.hours)}
           {field('hp-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -107,13 +105,13 @@ export default function HourlyPayClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+        <div className={resultsCls}>
+          <p className="t-label mb-1.5">
             Estimated gross pay
           </p>
-          <p className="text-5xl font-bold text-ink tracking-tight">{money(result.grossPay)}</p>
+          <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">{money(result.grossPay)}</p>
 
-          <dl className="mt-5 space-y-2 text-sm max-w-xs">
+          <dl className="ledger-dl mt-6">
             <div className="flex justify-between">
               <dt className="text-ink-2">Regular pay</dt>
               <dd className="text-ink font-medium">{money(result.regularPay)}</dd>

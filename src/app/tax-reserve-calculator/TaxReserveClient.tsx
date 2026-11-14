@@ -4,12 +4,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
 import AppCta from '@/components/calculator/AppCta'
 import { calculateReserve } from './reserveCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = { calculator: 'tax-reserve-calculator', category: 'Contractor & Self-Employed' }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -95,14 +93,14 @@ export default function TaxReserveClient() {
         aria-invalid={parsed.error !== null}
       />
       {opts?.help && !parsed.error && <p className="text-ink-2 text-xs mt-1.5">{opts.help}</p>}
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6">
+      <div className="min-w-0">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {field('tr-revenue', 'Business revenue ($)', revenue, setRevenue, fields.revenue, {
             step: '0.01',
@@ -122,11 +120,11 @@ export default function TaxReserveClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+        <div className={resultsCls}>
+          <p className="t-label mb-1.5">
             Estimated profit (revenue − expenses)
           </p>
-          <p className="text-5xl font-bold text-ink tracking-tight">{money(result.profit)}</p>
+          <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">{money(result.profit)}</p>
 
           {result.profit <= 0 ? (
             <p className="mt-5 text-ink-2 text-sm">No profit this period — nothing to reserve.</p>
@@ -135,7 +133,7 @@ export default function TaxReserveClient() {
               Enter your reserve percentage to see how much to set aside.
             </p>
           ) : (
-            <dl className="mt-5 space-y-2 text-sm max-w-xs">
+            <dl className="ledger-dl mt-6">
               <div className="flex justify-between">
                 <dt className="text-ink-2">Recommended reserve</dt>
                 <dd className="text-positive font-medium">{money(result.reserve)}</dd>

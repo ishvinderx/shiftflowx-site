@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Link from 'next/link'
 import { trackToolEvent } from '@/lib/analytics'
 import { appStoreCampaignUrl } from '@/lib/constants'
 import { calculate, fmtHM, type BreakEntry } from './calc'
+import { inputCls, labelCls, calcGridCls, resultsCls, miniBtnCls } from '@/components/calculator/kit'
 
 // The acquisition tool itself (Phase 18.3): works instantly, no signup, no paywall.
 // Native <input type="time"> keeps it fast and accessible on mobile — where most
@@ -104,15 +104,12 @@ export default function CalculatorClient() {
   const setBreak = (i: number, patch: Partial<BreakEntry>) =>
     setBreaks((prev) => prev.map((b, j) => (j === i ? { ...b, ...patch } : b)))
 
-  const inputCls =
-    'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-  const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
-
+    
   return (
-    <div className="grid lg:grid-cols-2 gap-6 print:block">
+    <div className={`${calcGridCls} print:block`}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
       <div
-        className="bg-track/40 border border-rule rounded-2xl p-6 print:hidden"
+        className="min-w-0 print:hidden"
         onChangeCapture={markStarted}
       >
         <div className="grid grid-cols-2 gap-4">
@@ -187,14 +184,14 @@ export default function CalculatorClient() {
       </div>
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
-      <div className="border border-ink/25 rounded-2xl p-6 flex flex-col">
-        <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-3">Your result</p>
+      <div className={`${resultsCls} flex flex-col`}>
+        <p className="t-label mb-3">Your result</p>
         {result ? (
           <>
-            <p className="text-5xl font-bold text-ink tracking-tight">{fmtHM(result.workedMinutes)}</p>
+            <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">{fmtHM(result.workedMinutes)}</p>
             <p className="text-ink-2 mt-1 text-sm">= {result.decimalHours} decimal hours worked</p>
 
-            <dl className="mt-6 space-y-2.5 text-sm">
+            <dl className="ledger-dl mt-6">
               <div className="flex justify-between"><dt className="text-ink-2">Shift span</dt><dd className="text-ink">{fmtHM(result.totalShiftMinutes)}</dd></div>
               <div className="flex justify-between"><dt className="text-ink-2">Unpaid breaks</dt><dd className="text-ink">−{fmtHM(result.unpaidBreakMinutes)}</dd></div>
               {result.paidBreakMinutes > 0 && (
@@ -206,7 +203,7 @@ export default function CalculatorClient() {
                 <dd className={result.overtimeMinutes > 0 ? 'text-positive font-medium' : 'text-ink'}>{fmtHM(result.overtimeMinutes)}</dd>
               </div>
               {result.grossPay != null && (
-                <div className="flex justify-between pt-2.5 border-t border-rule">
+                <div className="flex justify-between ">
                   <dt className="text-ink-2 font-medium">Estimated gross pay</dt>
                   <dd className="text-ink font-bold">${result.grossPay.toFixed(2)}</dd>
                 </div>
@@ -214,39 +211,29 @@ export default function CalculatorClient() {
             </dl>
 
             <div className="flex flex-wrap gap-2 mt-6 print:hidden">
-              <button onClick={copy} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
+              <button onClick={copy} className={miniBtnCls}>
                 {copied ? 'Copied ✓' : 'Copy result'}
               </button>
-              <button onClick={share} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
+              <button onClick={share} className={miniBtnCls}>
                 Share
               </button>
-              <button onClick={() => window.print()} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
+              <button onClick={() => window.print()} className={miniBtnCls}>
                 Print
               </button>
             </div>
 
             {/* SEO → app funnel (Phase 18.4): contextual, after the value is delivered,
                 never interrupting the calculator. */}
-            <div className="mt-auto pt-6">
-              <div className="bg-track/40 border border-rule rounded-xl p-4">
-                <p className="text-sm text-ink font-medium">Tracking these hours by hand every shift?</p>
-                <p className="text-xs text-ink-2 mt-1">
-                  HoursFlow logs your shifts, calculates overtime and take-home pay automatically, and predicts your next payday.
-                </p>
-                <div className="flex flex-wrap items-center gap-3 mt-3">
-                  <a
-                    href={appStoreCampaignUrl('work-hours-calculator')}
-                    onClick={() => trackToolEvent('calculator_cta_clicked', ANALYTICS)}
-                    className="text-xs font-semibold text-ground bg-ink hover:bg-ink-2 rounded-full px-4 py-2 transition-colors"
-                  >
-                    Track Hours with HoursFlow
-                  </a>
-                  <Link href="/features" className="text-xs text-ink-2 hover:text-ink transition-colors">
-                    See how it works →
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <p className="mt-8 text-[0.9375rem] text-ink-2 print:hidden">
+              Tracking these hours by hand every shift? HoursFlow logs your shifts, works out overtime and estimates your next payday.{' '}
+              <a
+                href={appStoreCampaignUrl('work-hours-calculator')}
+                onClick={() => trackToolEvent('calculator_cta_clicked', ANALYTICS)}
+                className="link-hover whitespace-nowrap text-ink underline underline-offset-4 decoration-1 hover:decoration-2"
+              >
+                Track hours with HoursFlow
+              </a>
+            </p>
           </>
         ) : (
           <p className="text-ink-2 text-sm">Enter a start and end time to calculate.</p>

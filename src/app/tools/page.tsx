@@ -1,27 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import { breadcrumbSchema, jsonLd, toolMetadata } from '@/lib/seo'
-import { TOOLS, type ToolCategory } from '@/lib/tools/registry'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
+import { Container, PageHeader, Section } from '@/components/ui'
+import { jsonLd, toolMetadata } from '@/lib/seo'
+import { getTool, TOOLS } from '@/lib/tools/registry'
+import { TOOL_GROUPS, TOOL_PAIRS } from '@/content/tool-guidance'
+import { SITE_URL } from '@/lib/constants'
 
-// Free-tools hub: everything here derives from the registry — a tool flipped
-// to 'live' appears automatically (cards, ItemList schema, sitemap).
+// Free-tools hub: everything here derives from the registry. A tool flipped to 'live'
+// still needs a place in TOOL_GROUPS (src/content/tool-guidance.ts) to be listed.
 
 export const metadata: Metadata = toolMetadata({
   slug: 'tools',
   title: 'Free Calculators for Hourly & Self-Employed Workers',
   description:
-    'Free calculators from HoursFlow: work hours, time cards, decimal hours, and hourly pay. Instant answers, no signup.',
+    'Free calculators from HoursFlow: work hours, time cards, decimal hours, overtime, pay, GST/HST and contractor take-home. Instant answers, no signup.',
 })
-
-const CATEGORY_ORDER: ToolCategory[] = [
-  'Work & Time',
-  'Pay & Earnings',
-  'Overtime',
-  'Contractor & Self-Employed',
-  'GST/HST & Invoices',
-  'Owner-Operator & Trucking',
-]
 
 const LIVE_TOOLS = TOOLS.filter((t) => t.status === 'live')
 
@@ -33,57 +27,80 @@ const itemListSchema = {
     '@type': 'ListItem',
     position: i + 1,
     name: t.title,
-    url: `https://shiftflowx.net/${t.slug}`,
+    url: `${SITE_URL}/${t.slug}`,
   })),
 }
 
-const trail = [
+const TRAIL = [
   { name: 'HoursFlow', path: '/' },
-  { name: 'Free Tools', path: '/tools' },
+  { name: 'Free tools', path: '/tools' },
 ]
 
 export default function ToolsPage() {
-  const categories = CATEGORY_ORDER.map((category) => ({
-    category,
-    tools: LIVE_TOOLS.filter((t) => t.category === category),
-  })).filter((g) => g.tools.length > 0)
+  const groups = TOOL_GROUPS.map((g) => ({
+    heading: g.heading,
+    tools: g.slugs.map(getTool).filter((t): t is NonNullable<typeof t> => !!t && t.status === 'live'),
+  }))
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(itemListSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
+      <Breadcrumbs trail={TRAIL} />
+      <PageHeader
+        label="Free tools"
+        title="Free calculators"
+        lede="Work hours, time cards, pay and tax, with instant answers and no signup. Built by the team behind the HoursFlow app."
+      />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], { name: 'Free Tools' }]} />
+      {groups.map((g, gi) => (
+        <Section key={g.heading} rule={gi > 0} title={g.heading} className="py-12 sm:py-16">
+          <ul className="border-b border-rule">
+            {g.tools.map((t) => (
+              <li key={t.slug} className="border-t border-rule">
+                <Link
+                  href={`/${t.slug}`}
+                  className="link-hover grid min-h-[44px] gap-1 py-5 text-ink md:grid-cols-[5fr_7fr] md:gap-16 hover:underline underline-offset-4"
+                >
+                  <span className="text-[1.0625rem] font-semibold">{t.title}</span>
+                  <span className="text-ink-2">{t.shortDescription}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ))}
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Free Calculators
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Work hours, time cards, and pay — instant answers, no signup. Built by the team
-            behind the HoursFlow app.
+      <Section title="Which one should I use?" lede="A few calculators overlap. Here is how they differ.">
+        <ul className="border-b border-rule">
+          {TOOL_PAIRS.map((p) => {
+            const a = getTool(p.a)
+            const b = getTool(p.b)
+            if (!a || !b) return null
+            return (
+              <li key={p.a} className="grid gap-3 border-t border-rule py-6 md:grid-cols-[5fr_7fr] md:gap-16">
+                <p className="font-semibold text-ink">
+                  <Link href={`/${a.slug}`} className="link-hover underline underline-offset-4 decoration-1 hover:decoration-2">{a.title}</Link>
+                  <span className="text-ink-2"> or </span>
+                  <Link href={`/${b.slug}`} className="link-hover underline underline-offset-4 decoration-1 hover:decoration-2">{b.title}</Link>
+                </p>
+                <p className="t-body text-ink-2">{p.text}</p>
+              </li>
+            )
+          })}
+        </ul>
+      </Section>
+
+      <section className="border-t border-rule">
+        <Container className="py-12 sm:py-16">
+          <p className="t-body text-ink-2">
+            Tracking hours every week?{' '}
+            <Link href="/features" className="link-hover text-ink underline underline-offset-4 decoration-1 hover:decoration-2">
+              See what the HoursFlow app does
+            </Link>
+            .
           </p>
-
-          {categories.map(({ category, tools }) => (
-            <section key={category} className="mb-12">
-              <h2 className="text-2xl font-bold text-ink mb-6">{category}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {tools.map((t) => (
-                  <Link
-                    key={t.slug}
-                    href={`/${t.slug}`}
-                    className="bg-track/40 border border-rule rounded-2xl p-6 hover:border-ink/40 transition-colors block"
-                  >
-                    <h3 className="text-ink font-semibold mb-1.5">{t.title}</h3>
-                    <p className="text-ink-2 text-sm leading-relaxed">{t.shortDescription}</p>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      </div>
+        </Container>
+      </section>
     </>
   )
 }

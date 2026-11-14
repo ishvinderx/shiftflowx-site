@@ -4,12 +4,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
 import AppCta from '@/components/calculator/AppCta'
 import { calculateGrossPay, type PayFrequency } from './grossPayCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = { calculator: 'gross-pay-calculator', category: 'Pay & Earnings' }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -99,7 +97,7 @@ export default function GrossPayClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -115,9 +113,9 @@ export default function GrossPayClient() {
     : []
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6">
+      <div className="min-w-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('gp-amount', 'Gross pay amount ($)', amount, setAmount, fields.amount, { step: '0.01' })}
           <div>
@@ -149,12 +147,12 @@ export default function GrossPayClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-4">
+        <div className={resultsCls}>
+          <p className="t-label mb-4">
             Gross pay by period
           </p>
 
-          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm max-w-2xl">
+          <dl className="ledger-dl mt-6">
             {rows.map((r) => (
               <div key={r.label} className="flex justify-between border-b border-rule py-2">
                 <dt className="text-ink-2">{r.label}</dt>

@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import ContractorTakeHomeClient from './ContractorTakeHomeClient'
 
 // Same engine as /contractor-pay-calculator (imported, not duplicated) — this
@@ -46,37 +43,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function ContractorTakeHomePayCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Contractor Take-Home Pay Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            From billable hours to the money that’s really yours — expenses out, tax reserve set
-            aside, GST/HST kept separate. Free, instant, no signup.
-          </p>
-
-          <ContractorTakeHomeClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">
-              How your take-home is calculated
-            </h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="Contractor Take-Home Pay Calculator"
+        lede={`From billable hours to the money that’s really yours — expenses out, tax reserve set aside, GST/HST kept separate. Free, instant, no signup.`}
+        explainTitle="How your take-home is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               The waterfall runs top to bottom: gross labour, minus business expenses, is your
               estimated profit; minus your income-tax reserve, is what’s actually available.
@@ -91,7 +69,7 @@ export default function ContractorTakeHomePayCalculatorPage() {
               $1,650</span> — the HST is collected for the CRA and never enters the waterfall.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>Spending the HST — it sits in your account, but it belongs to the CRA.</li>
               <li>
                 Treating the invoice total as income — the tax on top of your labour was never
@@ -102,23 +80,21 @@ export default function ContractorTakeHomePayCalculatorPage() {
                 optional.
               </li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not tax, accounting, or legal
             advice, and do not represent your actual CRA liability. GST/HST obligations, deductible
             expenses, and income-tax rates depend on your circumstances — confirm with an
             accountant.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <ContractorTakeHomeClient />
+      </ToolLayout>
     </>
   )
 }

@@ -6,13 +6,11 @@ import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { getSalesTaxRule, SALES_TAX_RULES } from '@/lib/rules/salesTax'
 import { calculateOwnerOperatorPay, type GstRegistration, type RevenueBasis } from './ownerOpCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const CALCULATOR = 'owner-operator-pay-calculator'
 const CATEGORY = 'Owner-Operator & Trucking'
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -147,7 +145,7 @@ export default function OwnerOperatorClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -159,8 +157,8 @@ export default function OwnerOperatorClient() {
         set(value)
       }}
       aria-pressed={current === value}
-      className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-        current === value ? 'bg-ink text-ground' : 'bg-track/40 text-ink-2 hover:text-ink'
+      className={`min-h-[44px] flex-1 border px-3 text-[0.9375rem] font-medium transition-colors ${
+        current === value ? 'border-ink bg-ink text-ground' : 'border-rule bg-transparent text-ink-2 hover:text-ink'
       }`}
     >
       {label}
@@ -175,9 +173,9 @@ export default function OwnerOperatorClient() {
   ].filter((e): e is [string, number] => e[1] !== null)
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6">
+      <div className="min-w-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="sm:col-span-2">
             <span className={labelCls}>Revenue basis</span>
@@ -248,18 +246,18 @@ export default function OwnerOperatorClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+        <div className={resultsCls}>
+          <p className="t-label mb-1.5">
             Estimated available income
           </p>
-          <p className="text-5xl font-bold text-ink tracking-tight">{money(result.available)}</p>
+          <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">{money(result.available)}</p>
           {!result.expensesEntered && (
             <p className="text-ink/90 text-xs mt-2">
               Before expenses — enter your costs for a real number.
             </p>
           )}
 
-          <dl className="mt-5 space-y-2 text-sm max-w-sm">
+          <dl className="ledger-dl mt-6">
             <div className="flex justify-between">
               <dt className="text-ink-2">Revenue</dt>
               <dd className="text-ink font-medium">{money(result.revenue)}</dd>
@@ -316,7 +314,7 @@ export default function OwnerOperatorClient() {
           </dl>
 
           {result.costPerKm !== null && result.revenuePerKm !== null && (
-            <dl className="mt-4 pt-4 border-t border-rule space-y-2 text-sm max-w-sm">
+            <dl className="ledger-dl mt-6">
               <div className="flex justify-between">
                 <dt className="text-ink-2">Cost per km</dt>
                 <dd className="text-ink font-medium">{money(result.costPerKm)}/km</dd>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import ToolBreadcrumb from "@/components/calculator/ToolBreadcrumb";
-import { breadcrumbSchema, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
+import ToolLayout from "@/components/calculator/ToolLayout";
+import { faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import TimeCardClient from "./TimeCardClient";
 
 // P0 SEO landing page #2 (Phase 18.2): weekly time-card / timesheet intent — a
@@ -52,72 +51,40 @@ const SCHEMA_TOOL = {
  "Free weekly time card calculator: per-day start/end times and lunch breaks, weekly totals, decimal hours, weekly overtime, and estimated gross pay.",
 };
 
-const TRAIL = [
-  { name: "HoursFlow", path: "/" },
-  { name: "Time Card Calculator", path: "/time-card-calculator" },
-];
 
 export default function TimeCardCalculatorPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(SCHEMA_TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[TRAIL[0], { name: "Time Card Calculator" }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Time Card Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Fill in each day&apos;s start, end, and lunch break to total your weekly timesheet —
-            decimal hours, weekly overtime, and estimated pay. Free, no signup.
-          </p>
-
-          <TimeCardClient />
-
-          {/* ── FAQ (matches FAQPage schema 1:1) ────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">Time card questions, answered</h2>
-            <div className="space-y-5">
-              {FAQ.map((f) => (
-                <div key={f.q}>
-                  <h3 className="text-ink font-semibold mb-1.5">{f.q}</h3>
-                  <p className="text-ink-2 text-sm leading-relaxed">{f.a}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-ink-2 text-sm mt-6">
-              Overtime thresholds and break rules vary by country, province/state, and employment
-              agreement — the 40-hour weekly default here is common but not universal.
+      <ToolLayout
+        slug="time-card-calculator"
+        title="Time Card Calculator"
+        lede={"Fill in each day's start, end and lunch break to total your weekly timesheet: decimal hours, weekly overtime and estimated pay."}
+        explainTitle="How a time card adds up"
+        explain={
+          <>
+            <p>
+              For each day, subtract the start time from the end time and take off the unpaid break. Add the days for the weekly total, convert to decimal hours (minutes divided by 60) and multiply by the rate. Hours past the weekly threshold are paid at the overtime multiplier.
             </p>
-          </section>
-
-          {/* ── Related ─────────────────────────────────────────────────────── */}
-          <section className="mt-14 max-w-3xl">
-            <h2 className="text-lg font-semibold text-ink mb-4">Keep going</h2>
-            <div className="flex flex-wrap gap-3 text-sm">
-              <Link href="/work-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Single-shift hours calculator →
-              </Link>
-              <Link href="/overtime-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Overtime calculator →
-              </Link>
-              <Link href="/decimal-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Decimal hours converter →
-              </Link>
-              <Link href="/use-cases/hourly-workers" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                HoursFlow for hourly workers →
-              </Link>
-              <Link href="/download" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Get the HoursFlow app →
-              </Link>
-            </div>
-          </section>
-        </div>
-      </div>
+            <p>
+              Overtime thresholds and break rules vary by country, province or state and employment agreement. The 40-hour weekly default here is common but not universal.
+            </p>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[
+          { href: "/blog/how-to-track-work-hours", label: "How to track work hours" },
+          { href: "/use-cases/hourly-workers", label: "HoursFlow for hourly workers" },
+          { href: "/download", label: "Get the HoursFlow app" },
+        ]}
+        disclaimer={
+          <>Results are estimates for informational purposes only, not legal or payroll advice. Overtime thresholds and break rules vary by jurisdiction and contract.</>
+        }
+      >
+        <TimeCardClient />
+      </ToolLayout>
     </>
   );
 }

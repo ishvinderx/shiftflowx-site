@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import ContractorPayClient from './ContractorPayClient'
 
 const TOOL = {
@@ -46,35 +43,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function ContractorPayCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Contractor Pay Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            See what a contract really pays — labour, GST/HST, expenses, and what to set
-            aside. Free, instant, no signup.
-          </p>
-
-          <ContractorPayClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">How contractor pay is calculated</h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="Contractor Pay Calculator"
+        lede={`See what a contract really pays — labour, GST/HST, expenses, and what to set aside. Free, instant, no signup.`}
+        explainTitle="How contractor pay is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Labour revenue = billable hours × hourly rate. If you are GST/HST-registered, the tax
               is charged on top of labour — not carved out of it. Worked example: 100 hours at
@@ -88,7 +68,7 @@ export default function ContractorPayCalculatorPage() {
               <span className="text-positive font-medium">$1,650</span> available.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>Treating the HST you collect as income — it passes through you to the CRA.</li>
               <li>
                 Reserving income tax on the invoice total instead of profit — the invoice includes
@@ -96,23 +76,21 @@ export default function ContractorPayCalculatorPage() {
               </li>
               <li>Forgetting that business expenses reduce your taxable profit before any reserve.</li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not tax, accounting, or legal
             advice, and do not represent your actual CRA liability. GST/HST obligations, deductible
             expenses, and income-tax rates depend on your circumstances — confirm with an
             accountant.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <ContractorPayClient />
+      </ToolLayout>
     </>
   )
 }

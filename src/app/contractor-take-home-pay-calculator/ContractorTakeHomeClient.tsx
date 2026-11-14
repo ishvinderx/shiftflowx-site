@@ -6,15 +6,13 @@ import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { SALES_TAX_RULES, getSalesTaxRule } from '@/lib/rules/salesTax'
 import { calculateContractorPay } from '../contractor-pay-calculator/contractorCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = {
   calculator: 'contractor-take-home-pay-calculator',
   category: 'Contractor & Self-Employed',
 }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -114,7 +112,7 @@ export default function ContractorTakeHomeClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -133,9 +131,9 @@ export default function ContractorTakeHomeClient() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-5">
+      <div className="min-w-0 space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('cth-hours', 'Billable hours', hours, setHours, fields.hours)}
           {field('cth-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -211,12 +209,12 @@ export default function ContractorTakeHomeClient() {
 
       {/* ── Result: the take-home waterfall ────────────────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+        <div className={resultsCls}>
+          <p className="t-label mb-1.5">
             What you actually keep
           </p>
 
-          <dl className="text-sm max-w-sm divide-y divide-rule">
+          <dl className="ledger-dl mt-6">
             {step('Gross labour', money(result.labour))}
             {step('Business expenses', money(result.expenses), { minus: true })}
             {step('Estimated profit', money(result.profit), { strong: true })}
@@ -238,11 +236,11 @@ export default function ContractorTakeHomeClient() {
           </dl>
 
           {result.available !== null ? (
-            <div className="mt-4 pt-4 border-t border-ink/25">
-              <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+            <div className="mt-4 border-t border-ink pt-4">
+              <p className="t-label mb-1.5">
                 Estimated available income
               </p>
-              <p className="text-5xl font-bold text-positive tracking-tight">
+              <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-positive">
                 {money(result.available)}
               </p>
             </div>
@@ -257,7 +255,7 @@ export default function ContractorTakeHomeClient() {
 
           {/* GST/HST is a side line, never a waterfall step — it isn’t income. */}
           {result.salesTax !== null && rule && (
-            <div className="mt-5 max-w-sm bg-track/40 border border-rule rounded-xl p-3.5 text-sm">
+            <div className="mt-5 max-w-sm border-t border-rule pt-4 text-[0.9375rem]">
               <div className="flex justify-between">
                 <span className="text-ink-2">
                   {rule.taxType} collected ({rule.ratePercent}%)

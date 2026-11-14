@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import HstInvoiceClient from './HstInvoiceClient'
 
 // Pattern mirrors the exemplar (hourly-pay-calculator): seo helpers + shared
@@ -48,35 +45,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function HstInvoiceCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            HST Invoice Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Build an hourly invoice total with GST/HST added correctly — and see exactly which
-            part is yours.
-          </p>
-
-          <HstInvoiceClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">How an HST invoice is calculated</h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="HST Invoice Calculator"
+        lede={`Build an hourly invoice total with GST/HST added correctly — and see exactly which part is yours.`}
+        explainTitle="How an HST invoice is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Labour + GST/HST = total invoice. Worked example: 100 hours at $26/hour is{' '}
               <span className="text-ink font-medium">$2,600</span> labour; 13% HST adds{' '}
@@ -85,7 +65,7 @@ export default function HstInvoiceCalculatorPage() {
               earned $2,600, and you remit $338 to the CRA — the tax line was never your income.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>
                 Quoting a rate “including HST” and eating the tax — the HST belongs on top of your
                 rate, not inside it.
@@ -96,22 +76,20 @@ export default function HstInvoiceCalculatorPage() {
               </li>
               <li>Charging HST when you are not registered for GST/HST.</li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not tax advice. Place-of-supply
             and exemption rules can change which rate applies to your invoices — confirm your
             situation with the CRA or a tax professional.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <HstInvoiceClient />
+      </ToolLayout>
     </>
   )
 }

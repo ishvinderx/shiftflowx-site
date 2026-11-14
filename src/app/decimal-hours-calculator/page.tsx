@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import ToolBreadcrumb from "@/components/calculator/ToolBreadcrumb";
-import { breadcrumbSchema, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
+import ToolLayout from "@/components/calculator/ToolLayout";
+import { faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import DecimalClient from "./DecimalClient";
 
 // P1 SEO page: "hours to decimal" — know+do intent. Distinct functionality: two-way
@@ -49,79 +48,39 @@ const SCHEMA_TOOL = {
   description: "Free two-way converter between hours:minutes and decimal hours for payroll, with the full minutes conversion chart.",
 };
 
-const TRAIL = [
-  { name: "HoursFlow", path: "/" },
-  { name: "Decimal Hours Calculator", path: "/decimal-hours-calculator" },
-];
-
 export default function DecimalHoursCalculatorPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(SCHEMA_TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[TRAIL[0], { name: "Decimal Hours Calculator" }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Decimal Hours Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Convert hours and minutes to decimal time for payroll — or decimal back to
-            h:mm. 8h 45m = <strong className="text-ink">8.75</strong>. Free, instant.
-          </p>
-
-          <DecimalClient />
-
-          {/* ── Conversion chart (server-rendered — the reference content) ──── */}
-          <section className="mt-14">
-            <h2 className="text-2xl font-bold text-ink mb-2">Minutes → decimal hours chart</h2>
-            <p className="text-ink-2 text-sm mb-6">
-              Divide minutes by 60. Values rounded to two decimals — the convention payroll
-              systems use.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-1 max-w-3xl">
+      <ToolLayout
+        slug="decimal-hours-calculator"
+        title="Decimal Hours Calculator"
+        lede="Convert hours and minutes to decimal time for payroll, or decimal back to h:mm. 8h 45m is 8.75."
+        explainTitle="Minutes to decimal hours chart"
+        explain={
+          <>
+            <p>Divide minutes by 60. Values are rounded to two decimals, the convention payroll systems use.</p>
+            <dl className="grid grid-cols-2 gap-x-8 sm:grid-cols-3 lg:grid-cols-4">
               {rows.map(({ m, dec }) => (
-                <div key={m} className="flex justify-between text-sm border-b border-rule py-1.5">
-                  <span className="text-ink-2">{m} min</span>
-                  <span className="text-ink font-medium tabular-nums">{dec}</span>
+                <div key={m} className="flex justify-between border-b border-rule py-1.5 text-[0.9375rem]">
+                  <dt className="text-ink-2">{m} min</dt>
+                  <dd className="num font-medium text-ink">{dec}</dd>
                 </div>
               ))}
-            </div>
-          </section>
-
-          {/* ── FAQ (matches FAQPage schema 1:1) ────────────────────────────── */}
-          <section className="mt-14 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">Decimal time questions, answered</h2>
-            <div className="space-y-5">
-              {FAQ.map((f) => (
-                <div key={f.q}>
-                  <h3 className="text-ink font-semibold mb-1.5">{f.q}</h3>
-                  <p className="text-ink-2 text-sm leading-relaxed">{f.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Related ─────────────────────────────────────────────────────── */}
-          <section className="mt-14 max-w-3xl">
-            <h2 className="text-lg font-semibold text-ink mb-4">Keep going</h2>
-            <div className="flex flex-wrap gap-3 text-sm">
-              <Link href="/work-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Work hours calculator →
-              </Link>
-              <Link href="/time-card-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Weekly time card calculator →
-              </Link>
-              <Link href="/download" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Get the HoursFlow app →
-              </Link>
-            </div>
-          </section>
-        </div>
-      </div>
+            </dl>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[
+          { href: "/blog/how-to-convert-hours-to-decimal", label: "How to convert hours to decimal" },
+          { href: "/download", label: "Get the HoursFlow app" },
+        ]}
+        disclaimer={<>Results are estimates for informational purposes only. Check how your employer rounds time before relying on a conversion.</>}
+      >
+        <DecimalClient />
+      </ToolLayout>
     </>
   );
 }

@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import GstHstClient from './GstHstClient'
 
 // GST/HST calculator page — follows the exemplar pattern (hourly-pay-calculator):
@@ -50,35 +47,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function GstHstCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            GST/HST Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Add GST/HST to an amount or back it out of a tax-included total, using verified CRA
-            rates for every province and territory — free, instant, no signup.
-          </p>
-
-          <GstHstClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">How GST/HST is calculated</h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="GST/HST Calculator"
+        lede={`Add GST/HST to an amount or back it out of a tax-included total, using verified CRA rates for every province and territory — free, instant, no signup.`}
+        explainTitle="How GST/HST is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Adding tax: tax = pre-tax amount × rate; total = pre-tax amount + tax. Worked
               example: $2,600 in Ontario at 13% HST is{' '}
@@ -89,7 +69,7 @@ export default function GstHstCalculatorPage() {
               <span className="text-ink font-medium">$338</span> of HST.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>
                 Using 15% for Nova Scotia — its HST dropped to 14% on April 1, 2025.
               </li>
@@ -102,22 +82,20 @@ export default function GstHstCalculatorPage() {
                 dividing by 1 + rate — that overstates the tax portion.
               </li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not tax or legal advice.
             Confirm the rate for your specific supply with the CRA — some goods and services are
             zero-rated or exempt.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <GstHstClient />
+      </ToolLayout>
     </>
   )
 }

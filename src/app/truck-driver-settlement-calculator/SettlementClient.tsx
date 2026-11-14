@@ -6,12 +6,10 @@ import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { SALES_TAX_RULES, getSalesTaxRule } from '@/lib/rules/salesTax'
 import { calculateSettlement, type GstHstStatus } from './settlementCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = { calculator: 'truck-driver-settlement-calculator', category: 'Owner-Operator & Trucking' }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -48,7 +46,7 @@ function StatementRow({
 }) {
   return (
     <div className="flex items-baseline gap-3">
-      <dt className="text-xs font-semibold text-ink-2 uppercase tracking-wide whitespace-nowrap">
+      <dt className="t-label whitespace-nowrap">
         {label}
       </dt>
       <div className="flex-1 border-b border-dotted border-rule translate-y-[-3px]" aria-hidden />
@@ -133,7 +131,7 @@ export default function SettlementClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
@@ -141,9 +139,9 @@ export default function SettlementClient() {
   const deductionsEntered = fields.deductions.value !== null && fields.deductions.error === null
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-5">
+      <div className="min-w-0 space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {field('ts-hours', 'Hours worked', hours, setHours, fields.hours)}
           {field('ts-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -214,12 +212,12 @@ export default function SettlementClient() {
 
       {/* ── Result: the expected-settlement statement ──────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-4">
+        <div className={resultsCls}>
+          <p className="t-label mb-4">
             What your settlement should say
           </p>
 
-          <dl className="space-y-3 max-w-md">
+          <dl className="ledger-dl mt-6">
             <StatementRow label="Work earnings" value={money(result.earnings)} />
 
             {result.tax !== null && (
@@ -231,11 +229,11 @@ export default function SettlementClient() {
 
             {result.expectedPayment !== null ? (
               <div className="flex items-baseline gap-3 pt-1">
-                <dt className="text-xs font-semibold text-ink-2 uppercase tracking-wide whitespace-nowrap">
+                <dt className="t-label whitespace-nowrap">
                   Expected payment
                 </dt>
                 <div className="flex-1 border-b border-dotted border-rule translate-y-[-6px]" aria-hidden />
-                <dd className="text-5xl font-bold text-ink tracking-tight">{money(result.expectedPayment)}</dd>
+                <dd className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">{money(result.expectedPayment)}</dd>
               </div>
             ) : (
               <div className="pt-1">

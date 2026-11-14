@@ -178,3 +178,17 @@
   .js .reveal, .js .reveal .grow-x { opacity: 1 !important; transform: none !important; }
   .js .reveal .draw-line { stroke-dashoffset: 0 !important; }
 }
+
+/* Calculator explanation text (components/calculator/ToolLayout.tsx). */
+.tool-prose p, .tool-prose ul, .tool-prose ol { max-width: 65ch; }
+.tool-prose p { color: var(--ink-2); line-height: 1.7; margin-bottom: 1rem; }
+.tool-prose h3 { font-size: 1.125rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--ink); }
+.tool-prose ul { list-style: disc; margin: 0 0 1rem 1.25rem; }
+.tool-prose li { color: var(--ink-2); line-height: 1.7; margin-bottom: 0.5rem; }
+.tool-prose strong, .tool-prose .font-medium { font-weight: 600; color: var(--ink); }
+
+/* Result breakdowns in the calculators: a <dl> laid out as ledger rows. */
+.ledger-dl { font-size: 0.9375rem; font-variant-numeric: tabular-nums; border-top: 1px solid var(--ink); }
+.ledger-dl > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+.ledger-dl dt { color: var(--ink-2); }
+.ledger-dl dd { color: var(--ink); text-align: right; font-weight: 500; }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import ToolBreadcrumb from "@/components/calculator/ToolBreadcrumb";
-import { breadcrumbSchema, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
+import ToolLayout from "@/components/calculator/ToolLayout";
+import { faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import CalculatorClient from "./CalculatorClient";
 
 // P0 SEO landing page (Phase 18.2/18.3): a REAL free tool, not an article with a
@@ -58,84 +57,43 @@ const SCHEMA_TOOL = {
  "Free calculator for hours worked: start and end times, paid/unpaid breaks, overtime split, decimal hours, and estimated gross pay.",
 };
 
-const TRAIL = [
-  { name: "HoursFlow", path: "/" },
-  { name: "Work Hours Calculator", path: "/work-hours-calculator" },
-];
 
 export default function WorkHoursCalculatorPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(SCHEMA_TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(TRAIL)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[TRAIL[0], { name: "Work Hours Calculator" }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Work Hours Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Enter your start time, end time, and breaks to get total hours worked, decimal
-            hours, overtime, and estimated pay — free, instant, no signup.
-          </p>
-
-          <CalculatorClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-4">How to calculate work hours</h2>
-            <ol className="list-decimal list-inside space-y-3 text-ink-2 leading-relaxed">
-              <li><strong className="text-ink">Find the shift span</strong> — subtract the start time from the end time. If a shift crosses midnight (10:00 PM → 6:00 AM), add 24 hours to the end.</li>
-              <li><strong className="text-ink">Subtract unpaid breaks</strong> — unpaid meal breaks come off your worked time; paid rest breaks stay in.</li>
-              <li><strong className="text-ink">Split regular vs. overtime</strong> — time past your overtime threshold (commonly 8 hours/day or 40 hours/week, jurisdiction-dependent) is paid at a multiplier, usually 1.5×.</li>
-              <li><strong className="text-ink">Convert to decimal hours for pay</strong> — minutes ÷ 60: 8h 45m = 8.75. Multiply decimal hours by your rate for gross pay.</li>
+      <ToolLayout
+        slug="work-hours-calculator"
+        title="Work Hours Calculator"
+        lede={"Enter your start time, end time and breaks to get total hours worked, decimal hours, overtime and estimated pay."}
+        explainTitle="How to calculate work hours"
+        explain={
+          <>
+            <ol className="list-decimal pl-5">
+              <li className="mb-3"><strong>Find the shift span.</strong> Subtract the start time from the end time. If a shift crosses midnight (10:00 PM to 6:00 AM), add 24 hours to the end.</li>
+              <li className="mb-3"><strong>Subtract unpaid breaks.</strong> Unpaid meal breaks come off your worked time; paid rest breaks stay in.</li>
+              <li className="mb-3"><strong>Split regular and overtime.</strong> Time past your overtime threshold (commonly 8 hours a day or 40 a week, depending on where you work) is paid at a multiplier, usually 1.5.</li>
+              <li className="mb-3"><strong>Convert to decimal hours for pay.</strong> Minutes divided by 60: 8h 45m is 8.75. Multiply decimal hours by your rate for gross pay.</li>
             </ol>
-            <p className="text-ink-2 text-sm mt-4">
-              Overtime thresholds, multipliers, and break rules vary by country, province/state,
-              and employment agreement — the defaults here (8h daily, 1.5×) are common but not
-              universal. Check your local rules for payroll purposes.
+            <p>
+              Overtime thresholds, multipliers and break rules vary by country, province or state, and employment agreement. The defaults here (8 hours a day, 1.5 times) are common but not universal.
             </p>
-          </section>
-
-          {/* ── FAQ (matches FAQPage schema 1:1) ────────────────────────────── */}
-          <section className="mt-14 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">Work hours questions, answered</h2>
-            <div className="space-y-5">
-              {FAQ.map((f) => (
-                <div key={f.q}>
-                  <h3 className="text-ink font-semibold mb-1.5">{f.q}</h3>
-                  <p className="text-ink-2 text-sm leading-relaxed">{f.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ── Related ─────────────────────────────────────────────────────── */}
-          <section className="mt-14 max-w-3xl">
-            <h2 className="text-lg font-semibold text-ink mb-4">Keep going</h2>
-            <div className="flex flex-wrap gap-3 text-sm">
-              <Link href="/time-card-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Weekly time card calculator →
-              </Link>
-              <Link href="/decimal-hours-calculator" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Hours to decimal converter →
-              </Link>
-              <Link href="/blog/how-" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                How to track work hours →
-              </Link>
-              <Link href="/use-cases/hourly-workers" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                HoursFlow for hourly workers →
-              </Link>
-              <Link href="/download" className="text-ink-2 hover:text-ink bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
-                Get the HoursFlow app →
-              </Link>
-            </div>
-          </section>
-        </div>
-      </div>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[
+          { href: "/blog/how-to-track-work-hours", label: "How to track work hours" },
+          { href: "/use-cases/hourly-workers", label: "HoursFlow for hourly workers" },
+          { href: "/download", label: "Get the HoursFlow app" },
+        ]}
+        disclaimer={
+          <>Results are estimates for informational purposes only, not legal or payroll advice. Overtime and break rules vary by jurisdiction and contract.</>
+        }
+      >
+        <CalculatorClient />
+      </ToolLayout>
     </>
   );
 }

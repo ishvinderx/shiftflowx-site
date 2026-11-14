@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Link from 'next/link'
 import { trackToolEvent } from '@/lib/analytics'
 import { appStoreCampaignUrl } from '@/lib/constants'
 import { fmtHM } from '../work-hours-calculator/calc'
 import { calculateWeek, type DayRow } from './weekCalc'
+import { inputCls, resultsCls, miniBtnCls } from '@/components/calculator/kit'
 
 // Weekly time-card grid (SEO P0 #2). Distinct UX from the single-shift calculator:
 // one row per day, weekly overtime threshold. Works instantly, no signup.
@@ -72,14 +72,12 @@ export default function TimeCardClient() {
     } catch { /* clipboard unavailable */ }
   }
 
-  const inputCls =
-    'bg-track/40 border border-rule rounded-lg px-2 py-1.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-
+  
   return (
     <div className="space-y-6">
       {/* ── Week grid ─────────────────────────────────────────────────────── */}
       <div
-        className="bg-track/40 border border-rule rounded-2xl p-4 sm:p-6 overflow-x-auto print:hidden"
+        className="min-w-0 overflow-x-auto print:hidden"
         onChangeCapture={markStarted}
       >
         <table className="w-full min-w-[560px] text-sm">
@@ -131,17 +129,17 @@ export default function TimeCardClient() {
 
         <div className="flex flex-wrap items-end gap-4 mt-5 pt-4 border-t border-rule">
           <div>
-            <label htmlFor="tc-rate" className="block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1">Hourly rate</label>
+            <label htmlFor="tc-rate" className="block t-label mb-1">Hourly rate</label>
             <input id="tc-rate" type="number" min={0} step="0.01" placeholder="Optional" value={rate}
               onChange={(e) => setRate(e.target.value)} className={`${inputCls} w-28`} />
           </div>
           <div>
-            <label htmlFor="tc-ot" className="block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1">Weekly OT after (h)</label>
+            <label htmlFor="tc-ot" className="block t-label mb-1">Weekly OT after (h)</label>
             <input id="tc-ot" type="number" min={0} step="1" value={otThreshold}
               onChange={(e) => setOtThreshold(e.target.value)} className={`${inputCls} w-24`} />
           </div>
           <div>
-            <label htmlFor="tc-mult" className="block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1">OT rate ×</label>
+            <label htmlFor="tc-mult" className="block t-label mb-1">OT rate ×</label>
             <input id="tc-mult" type="number" min={1} step="0.1" value={otMultiplier}
               onChange={(e) => setOtMultiplier(e.target.value)} className={`${inputCls} w-20`} />
           </div>
@@ -155,13 +153,13 @@ export default function TimeCardClient() {
       </div>
 
       {/* ── Weekly summary ────────────────────────────────────────────────── */}
-      <div className="border border-ink/25 rounded-2xl p-6">
-        <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-3">Week total</p>
+      <div className={resultsCls}>
+        <p className="t-label mb-3">Week total</p>
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
-          <p className="text-5xl font-bold text-ink tracking-tight">{fmtHM(result.totalMinutes)}</p>
+          <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">{fmtHM(result.totalMinutes)}</p>
           <p className="text-ink-2 text-sm">= {result.decimalHours} decimal hours</p>
         </div>
-        <dl className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm max-w-lg">
+        <dl className="ledger-dl mt-6">
           <div><dt className="text-ink-2">Regular</dt><dd className="text-ink font-medium">{fmtHM(result.regularMinutes)}</dd></div>
           <div>
             <dt className="text-ink-2">Overtime</dt>
@@ -173,32 +171,24 @@ export default function TimeCardClient() {
         </dl>
 
         <div className="flex flex-wrap gap-2 mt-6 print:hidden">
-          <button onClick={copy} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
+          <button onClick={copy} className={miniBtnCls}>
             {copied ? 'Copied ✓' : 'Copy timesheet'}
           </button>
-          <button onClick={() => window.print()} className="text-xs font-medium text-ink bg-track/40 hover:bg-track/40 border border-rule rounded-full px-4 py-2 transition-colors">
+          <button onClick={() => window.print()} className={miniBtnCls}>
             Print
           </button>
         </div>
 
-        <div className="mt-6 bg-track/40 border border-rule rounded-xl p-4">
-          <p className="text-sm text-ink font-medium">Filling this in every week?</p>
-          <p className="text-xs text-ink-2 mt-1">
-            HoursFlow tracks every shift automatically, splits regular and overtime hours, and predicts your next paycheck.
-          </p>
-          <div className="flex flex-wrap items-center gap-3 mt-3">
-            <a
-              href={appStoreCampaignUrl('time-card-calculator')}
-              onClick={() => trackToolEvent('calculator_cta_clicked', ANALYTICS)}
-              className="text-xs font-semibold text-ground bg-ink hover:bg-ink-2 rounded-full px-4 py-2 transition-colors"
-            >
-              Track Hours with HoursFlow
-            </a>
-            <Link href="/work-hours-calculator" className="text-xs text-ink-2 hover:text-ink transition-colors">
-              Single-shift calculator →
-            </Link>
-          </div>
-        </div>
+        <p className="mt-6 text-[0.9375rem] text-ink-2 print:hidden">
+          Filling this in every week? HoursFlow tracks every shift, splits regular and overtime hours, and shows your next payday.{' '}
+          <a
+            href={appStoreCampaignUrl('time-card-calculator')}
+            onClick={() => trackToolEvent('calculator_cta_clicked', ANALYTICS)}
+            className="link-hover whitespace-nowrap text-ink underline underline-offset-4 decoration-1 hover:decoration-2"
+          >
+            Track hours with HoursFlow
+          </a>
+        </p>
       </div>
     </div>
   )

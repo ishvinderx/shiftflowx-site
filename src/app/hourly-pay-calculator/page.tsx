@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import HourlyPayClient from './HourlyPayClient'
 
 // EXEMPLAR calculator page — the reference implementation for every tool built
@@ -47,35 +44,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function HourlyPayCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Hourly Pay Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Enter your hours worked and hourly rate to get your gross pay — with overtime,
-            free, instant, no signup.
-          </p>
-
-          <HourlyPayClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">How hourly pay is calculated</h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="Hourly Pay Calculator"
+        lede={`Enter your hours worked and hourly rate to get your gross pay — with overtime, free, instant, no signup.`}
+        explainTitle="How hourly pay is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Gross pay = (regular hours × hourly rate) + (overtime hours × hourly rate ×
               overtime multiplier). Worked example: 40 hours at $25/hour is{' '}
@@ -84,29 +64,27 @@ export default function HourlyPayCalculatorPage() {
               gross pay is <span className="text-positive font-medium">$1,187.50</span>.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>Counting unpaid meal breaks as worked hours — subtract them first.</li>
               <li>Applying the overtime multiplier to all hours instead of only the hours past the threshold.</li>
               <li>Treating gross pay as take-home pay — taxes and deductions come out of this number.</li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[
-              { href: '/blog/how-', label: 'How to calculate work hours' },
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[
+              { href: '/blog/how-to-calculate-work-hours', label: 'How to calculate work hours' },
               { href: '/download', label: 'Get the HoursFlow app' },
             ]}
-          />
-
-          <ToolDisclaimer>
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not payroll, tax, or legal
             advice. Overtime rules and deductions vary by jurisdiction and employment agreement.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <HourlyPayClient />
+      </ToolLayout>
     </>
   )
 }

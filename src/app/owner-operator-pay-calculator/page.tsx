@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import OwnerOperatorClient from './OwnerOperatorClient'
 
 // Owner-operator / independent truck driver pay breakdown (Canada). Follows
@@ -48,35 +45,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function OwnerOperatorPayCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Owner-Operator Pay Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            What a week of trucking really pays after fuel, fixed costs, and the taxman’s
-            share — free, instant, no signup.
-          </p>
-
-          <OwnerOperatorClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">How owner-operator pay is calculated</h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="Owner-Operator Pay Calculator"
+        lede={`What a week of trucking really pays after fuel, fixed costs, and the taxman’s share — free, instant, no signup.`}
+        explainTitle="How owner-operator pay is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Revenue − expenses = profit; a slice of profit goes into the tax reserve; the rest
               is yours. GST/HST sits outside all of it — collected on top and remitted to the
@@ -92,28 +72,26 @@ export default function OwnerOperatorPayCalculatorPage() {
               against revenue of <span className="text-ink font-medium">$2.60/km</span>.
             </p>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>Counting the HST as revenue — it’s the CRA’s money passing through your account.</li>
               <li>Judging a contract on gross revenue instead of cost per km — big gross can still lose money.</li>
               <li>Skipping the reserve because the settlement looked big — tax time doesn’t care how it looked.</li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             Results are estimates for informational purposes only, not tax or accounting advice.
             The tax reserve is a percentage you choose, not a tax calculation — CPP and
             income-tax specifics are excluded. GST/HST treatment varies by registration status
             and load; confirm your situation with the CRA or an accountant.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <OwnerOperatorClient />
+      </ToolLayout>
     </>
   )
 }

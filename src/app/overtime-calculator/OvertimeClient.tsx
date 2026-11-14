@@ -6,16 +6,13 @@ import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { OVERTIME_RULES, getOvertimeRule } from '@/lib/rules/overtime'
 import { calculateOvertime, type OvertimeInput, type OvertimeResult } from './overtimeCalc'
+import { inputCls, labelCls, errCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const CALCULATOR = 'overtime-calculator'
 const CATEGORY = 'Overtime'
 const OTHER = 'OTHER'
 const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
-const errCls = 'text-alert text-xs mt-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 const hrs = (n: number) => n.toLocaleString('en-US', { maximumFractionDigits: 2 })
@@ -168,9 +165,9 @@ export default function OvertimeClient() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6 space-y-6">
+      <div className="min-w-0 space-y-6">
         <div className="max-w-xs">
           <label htmlFor="ot-jurisdiction" className={labelCls}>
             Jurisdiction
@@ -204,8 +201,8 @@ export default function OvertimeClient() {
               multiplier, use manual mode below — the result is computed from your numbers, not a
               verified rule.
             </p>
-            <div className="border border-rule rounded-xl p-4 space-y-4">
-              <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide">
+            <div className="space-y-4 border-t border-rule pt-4">
+              <p className="t-label">
                 Manual mode — your numbers
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -322,20 +319,20 @@ export default function OvertimeClient() {
 
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
+        <div className={resultsCls}>
           {isManual && (
             <p className="text-xs text-ink font-semibold uppercase tracking-wide mb-3">
               Computed from your numbers — not a verified statutory rule
             </p>
           )}
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+          <p className="t-label mb-1.5">
             {result.grossPay !== null ? 'Estimated gross pay' : 'Overtime hours'}
           </p>
-          <p className="text-5xl font-bold text-ink tracking-tight">
+          <p className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink">
             {result.grossPay !== null ? money(result.grossPay) : `${hrs(result.otHours)} h`}
           </p>
 
-          <dl className="mt-5 space-y-2 text-sm max-w-xs">
+          <dl className="ledger-dl mt-6">
             <div className="flex justify-between">
               <dt className="text-ink-2">Regular hours</dt>
               <dd className="text-ink font-medium">{hrs(result.regularHours)} h</dd>

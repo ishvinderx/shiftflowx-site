@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
+import { Callout } from '@/components/ui'
 
-// Concise estimate disclaimer — keep it short and honest, not a legal wall.
+// The "estimate, not advice" note. Keep it short and honest.
 export default function ToolDisclaimer({ children }: { children: ReactNode }) {
-  return <p className="mt-10 max-w-3xl text-xs text-ink-2 leading-relaxed">{children}</p>
+  return <Callout label="Estimate, not advice">{children}</Callout>
 }

@@ -4,12 +4,10 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
 import AppCta from '@/components/calculator/AppCta'
 import { calculateTakeHome, type DeductionKind } from './takeHomeCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = { calculator: 'take-home-pay-calculator', category: 'Pay & Earnings' }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 
@@ -112,9 +110,9 @@ export default function TakeHomeClient() {
   const exceedsGross = result !== null && result.totalDeductions > result.gross
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6">
+      <div className="min-w-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label htmlFor="th-gross" className={labelCls}>
@@ -134,7 +132,7 @@ export default function TakeHomeClient() {
               aria-invalid={grossParsed.error !== null}
             />
             {grossParsed.error && (
-              <p className="text-alert text-xs mt-1.5">{grossParsed.error}</p>
+              <p className="text-alert text-[0.875rem] mt-1.5">{grossParsed.error}</p>
             )}
           </div>
           <div>
@@ -201,19 +199,19 @@ export default function TakeHomeClient() {
                     type="button"
                     onClick={() => removeRow(row.id)}
                     aria-label={`Remove ${row.label || 'deduction'} row`}
-                    className="text-ink-2 hover:text-ink text-sm px-3 py-2.5 border border-rule rounded-xl transition-colors"
+                    className="btn btn-secondary"
                   >
                     Remove
                   </button>
                 </div>
-                {rowErrors[i] && <p className="text-alert text-xs mt-1.5">{rowErrors[i]}</p>}
+                {rowErrors[i] && <p className="text-alert text-[0.875rem] mt-1.5">{rowErrors[i]}</p>}
               </div>
             ))}
           </div>
           <button
             type="button"
             onClick={addRow}
-            className="mt-3 text-sm text-ink-2 hover:text-ink border border-rule rounded-full px-4 py-2 transition-colors"
+            className="btn btn-secondary mt-3"
           >
             + Add deduction
           </button>
@@ -224,8 +222,8 @@ export default function TakeHomeClient() {
       {hasErrors ? (
         <p className="text-ink-2 text-sm">Fix the highlighted fields to see your estimate.</p>
       ) : result === null ? (
-        <div className="bg-track/40 border border-rule rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5">
+        <div className="min-w-0">
+          <p className="t-label mb-1.5">
             Gross pay
           </p>
           <p className="text-3xl font-bold text-ink tracking-tight">
@@ -236,8 +234,8 @@ export default function TakeHomeClient() {
           </p>
         </div>
       ) : (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <dl className="space-y-2 text-sm max-w-xs">
+        <div className={resultsCls}>
+          <dl className="ledger-dl mt-6">
             <div className="flex justify-between">
               <dt className="text-ink-2">Gross pay</dt>
               <dd className="text-ink font-medium">{money(result.gross)}</dd>
@@ -254,7 +252,7 @@ export default function TakeHomeClient() {
             </div>
           </dl>
 
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mt-5 mb-1.5">
+          <p className="t-label mt-5 mb-1.5">
             Estimated take-home pay
           </p>
           <p

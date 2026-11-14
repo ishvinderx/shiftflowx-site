@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
-import FaqSection from '@/components/calculator/FaqSection'
-import RelatedTools from '@/components/calculator/RelatedTools'
-import ToolBreadcrumb from '@/components/calculator/ToolBreadcrumb'
-import ToolDisclaimer from '@/components/calculator/ToolDisclaimer'
-import { breadcrumbSchema, faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
+import ToolLayout from '@/components/calculator/ToolLayout'
+import { faqSchema, jsonLd, toolMetadata, webAppSchema, type Faq } from '@/lib/seo'
 import TaxReserveClient from './TaxReserveClient'
 
 const TOOL = {
@@ -42,35 +39,18 @@ const FAQ: Faq[] = [
 ]
 
 export default function TaxReserveCalculatorPage() {
-  const trail = [
-    { name: 'HoursFlow', path: '/' },
-    { name: 'Free Tools', path: '/tools' },
-    { name: TOOL.title, path: `/${TOOL.slug}` },
-  ]
-
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(webAppSchema(TOOL)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(FAQ)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema(trail)) }} />
 
-      <div className="min-h-screen bg-ground pt-24 pb-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
-          <ToolBreadcrumb trail={[trail[0], trail[1], { name: TOOL.title }]} />
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-            Tax Reserve Calculator
-          </h1>
-          <p className="text-xl text-ink-2 leading-relaxed mb-10 max-w-2xl">
-            Figure out how much of each payment to park for income tax so filing season
-            doesn&rsquo;t hurt — free, instant, no signup.
-          </p>
-
-          <TaxReserveClient />
-
-          {/* ── How it works ─────────────────────────────────────────────────── */}
-          <section className="mt-16 max-w-3xl">
-            <h2 className="text-2xl font-bold text-ink mb-6">How the tax reserve is calculated</h2>
+      <ToolLayout
+        slug={TOOL.slug}
+        title="Tax Reserve Calculator"
+        lede={`Figure out how much of each payment to park for income tax so filing season doesn’t hurt — free, instant, no signup.`}
+        explainTitle="How the tax reserve is calculated"
+        explain={
+          <>
             <p className="text-ink-2 leading-relaxed">
               Reserve = (revenue − expenses) × your reserve percentage. Worked example: $2,600 of
               revenue minus $400 of expenses is{' '}
@@ -87,7 +67,7 @@ export default function TaxReserveCalculatorPage() {
               </p>
             </div>
             <h3 className="text-ink font-semibold mt-6 mb-2">Common mistakes</h3>
-            <ul className="list-disc list-inside space-y-2 text-ink-2 leading-relaxed">
+            <ul className="list-disc text-ink-2 leading-relaxed">
               <li>
                 Reserving a percentage of the gross invoice including HST — that sales tax is
                 remitted to the government, not saved for income tax.
@@ -101,22 +81,20 @@ export default function TaxReserveCalculatorPage() {
                 filing-season bill is more than income tax alone.
               </li>
             </ul>
-          </section>
-
-          <FaqSection faq={FAQ} />
-
-          <RelatedTools
-            slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
-          />
-
-          <ToolDisclaimer>
+          </>
+        }
+        faq={FAQ}
+        extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
+        disclaimer={
+          <>
             The reserve amount is a savings guideline, not your actual CRA tax liability, and this
             tool is not tax advice. Your liability depends on total income, brackets, credits,
             deductions, and CPP contributions — talk to a tax professional for your number.
-          </ToolDisclaimer>
-        </div>
-      </div>
+          </>
+        }
+      >
+        <TaxReserveClient />
+      </ToolLayout>
     </>
   )
 }

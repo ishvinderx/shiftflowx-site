@@ -6,12 +6,10 @@ import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { SALES_TAX_RULES, getSalesTaxRule } from '@/lib/rules/salesTax'
 import { calculateInvoice } from './invoiceCalc'
+import { inputCls, labelCls, calcGridCls, resultsCls } from '@/components/calculator/kit'
 
 const ANALYTICS = { calculator: 'hst-invoice-calculator', category: 'GST/HST & Invoices' }
 
-const inputCls =
-  'w-full bg-track/40 border border-rule rounded-xl px-3 py-2.5 text-ink text-sm focus:outline-none focus:border-ink/60 [color-scheme:dark]'
-const labelCls = 'block text-xs font-semibold text-ink-2 uppercase tracking-wide mb-1.5'
 
 const money = (n: number) => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' })
 
@@ -90,16 +88,16 @@ export default function HstInvoiceClient() {
         className={inputCls}
         aria-invalid={parsed.error !== null}
       />
-      {parsed.error && <p className="text-alert text-xs mt-1.5">{parsed.error}</p>}
+      {parsed.error && <p className="text-alert text-[0.875rem] mt-1.5">{parsed.error}</p>}
     </div>
   )
 
   const taxLabel = `${rule.taxType} (${rule.ratePercent}%)`
 
   return (
-    <div className="space-y-6">
+    <div className={calcGridCls}>
       {/* ── Inputs ─────────────────────────────────────────────────────────── */}
-      <div className="bg-track/40 border border-rule rounded-2xl p-6">
+      <div className="min-w-0">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {field('hst-hours', 'Hours worked', hours, setHours, fields.hours)}
           {field('hst-rate', 'Hourly rate ($)', rate, setRate, fields.rate, { step: '0.01' })}
@@ -128,14 +126,14 @@ export default function HstInvoiceClient() {
 
       {/* ── Result: LABOUR + GST/HST = TOTAL INVOICE ───────────────────────── */}
       {result !== null ? (
-        <div className="border border-ink/25 rounded-2xl p-6">
-          <p className="text-xs font-semibold text-ink-2 uppercase tracking-wide mb-4">
+        <div className={resultsCls}>
+          <p className="t-label mb-4">
             Your invoice
           </p>
 
           {/* Three-line invoice: the tax line is visually set apart because it
               is money you collect for the CRA, not money you earned. */}
-          <dl className="max-w-md">
+          <dl className="ledger-dl mt-6">
             <div className="flex items-baseline justify-between gap-4 py-2">
               <dt className="text-sm text-ink-2 uppercase tracking-wide">
                 Labour{' '}
@@ -162,7 +160,7 @@ export default function HstInvoiceClient() {
               <dt className="text-sm font-semibold text-ink uppercase tracking-wide">
                 = Total invoice
               </dt>
-              <dd className="text-5xl font-bold text-ink tracking-tight tabular-nums">
+              <dd className="num text-[clamp(2.5rem,1.8rem+3vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] text-ink tabular-nums">
                 {money(result.total)}
               </dd>
             </div>
