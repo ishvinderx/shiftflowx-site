@@ -9,7 +9,15 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
           {Object.entries(FOOTER_LINKS).map(([group, links]) => (
             <nav key={group} aria-label={group}>
-              <Label className="mb-3">{group}</Label>
+              <Label className="mb-3">
+                {group === "Legal" ? (
+                  <Link href="/legal" className="link-hover inline-flex min-h-[44px] items-center underline underline-offset-4 decoration-1 hover:text-ink">
+                    {group}
+                  </Link>
+                ) : (
+                  group
+                )}
+              </Label>
               <ul>
                 {links.map((l) => (
                   <li key={l.href}>

@@ -31,7 +31,10 @@ export default function LegalLayout({
             <Link href="/" className="hover:underline underline-offset-4">
               {BRAND.name}
             </Link>{" "}
-            / Legal
+            /{" "}
+            <Link href="/legal" className="hover:underline underline-offset-4">
+              Legal
+            </Link>
           </Label>
           <Heading level="h2" as="h1">
             {title}

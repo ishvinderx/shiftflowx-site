@@ -58,6 +58,10 @@ const nextConfig: NextConfig = {
         destination: "/work-hours-calculator",
         permanent: true,
       },
+      // Information architecture (2026-11): /how-it-works was folded into /features;
+      // /compare was removed (unverified competitor claims).
+      { source: "/how-it-works", destination: "/features", permanent: true },
+      { source: "/compare", destination: "/features", permanent: true },
     ];
   },
   async headers() {

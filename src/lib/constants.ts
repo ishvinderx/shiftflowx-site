@@ -157,13 +157,6 @@ export const FOOTER_LINKS = {
   ],
 };
 
-export const PRICING_FEATURES = [
-  "Shift and hour tracking",
-  "Earnings and payday",
-  "Budget and bill reminders",
-  ...PRO_FEATURES,
-];
-
 export const FAQ_ITEMS = [
   {
     question: `How does the ${TRIAL_DAYS}-day free trial work?`,

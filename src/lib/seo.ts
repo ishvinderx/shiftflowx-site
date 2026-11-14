@@ -15,6 +15,11 @@ export function jsonLd(data: object): string {
   return JSON.stringify(data).replace(/</g, '\\u003c')
 }
 
+/** `alternates` value with this site's absolute canonical for `path` (e.g. "/pricing"). */
+export function canonicalAlt(path: string): { canonical: string } {
+  return { canonical: `${SITE_URL}${path}` }
+}
+
 export function toolMetadata(cfg: { slug: string; title: string; description: string }): Metadata {
   const url = `${SITE_URL}/${cfg.slug}`
   return {

@@ -13,6 +13,11 @@ const RULES: [string, RegExp][] = [
   ["text-white / bg-black / bg-white", /\b(?:text-white|bg-black|bg-white)\b/],
   ["gradient", /(?:^|[\s"'`:])(?:from|via|to)-(?:\[|ink|ground|mint|periwinkle|rule|track|transparent|white|black|brand|teal|indigo|[a-z]+-\d)|\bbg-gradient|(?:linear|radial|conic)-gradient/],
   ["shadow", /\b(?:drop-)?shadow(?:-|\b)|box-?[sS]hadow|text-?[sS]hadow/],
+  // No leftover "card" styling: large-radius panels, translucent fills, blur, motion library.
+  ["rounded-2xl / rounded-3xl panel", /\brounded-(?:2xl|3xl)\b/],
+  ["translucent card fill (bg-track/NN)", /\bbg-track\/\d+/],
+  ["backdrop blur", /backdrop-blur|backdropFilter|\bblur-(?:\d|\[)/],
+  ["framer-motion", /framer-motion/],
 ];
 
 function walk(dir: string, out: string[] = []): string[] {

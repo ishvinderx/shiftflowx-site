@@ -642,3 +642,8 @@ HoursFlow keeps a record of every shift you log, and its paycheck tracker (a Pro
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find(p => p.slug === slug);
 }
+
+/** "20 May 2026"-style date from the post's ISO date (UTC, so it never shifts a day). */
+export function formatPostDate(iso: string, opts: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' }): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { ...opts, timeZone: 'UTC' });
+}

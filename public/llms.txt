@@ -85,10 +85,13 @@ gross invoices including tax. Results are estimates, not tax or legal advice.
 ## Key Pages
 - Pricing: https://shiftflowx.net/pricing
 - Features: https://shiftflowx.net/features
-- How it works: https://shiftflowx.net/how-it-works
+- Use cases: https://shiftflowx.net/use-cases
 - For gig workers: https://shiftflowx.net/use-cases/gig-workers
 - For freelancers: https://shiftflowx.net/use-cases/freelancers
 - For hourly workers: https://shiftflowx.net/use-cases/hourly-workers
+- For contractors: https://shiftflowx.net/use-cases/contractors
+- For nurses: https://shiftflowx.net/use-cases/nurses
+- Legal documents: https://shiftflowx.net/legal
 - Security: https://shiftflowx.net/security
 - Blog: https://shiftflowx.net/blog
 
