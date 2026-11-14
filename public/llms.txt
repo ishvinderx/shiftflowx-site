@@ -1,15 +1,15 @@
-# ShiftFlow — Shift, Earnings and Payday Tracker for iOS
+# HoursFlow — Shift, Earnings and Payday Tracker for iOS
 
-> Last updated: 2026-11-10 · Machine-readable pricing: https://shiftflowx.net/pricing.md
+> Last updated: 2026-11-14 · Machine-readable pricing: https://shiftflowx.net/pricing.md
 
 
-## What is ShiftFlow?
-ShiftFlow is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.
+## What is HoursFlow?
+HoursFlow is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.
 
 ## Core Mission
-"Protect every paycheck." — ShiftFlow gives workers a clear record of the hours they worked and what they should expect to be paid.
+"Make every hour count." — HoursFlow, operated by Flowmatix Creative Inc., gives workers a clear record of the hours they worked and what they should expect to be paid.
 
-## Who uses ShiftFlow?
+## Who uses HoursFlow?
 - Hourly employees (retail, hospitality, healthcare, manufacturing)
 - Shift workers (nurses, security guards, factory workers)
 - Gig workers (rideshare drivers, delivery workers, task workers)
@@ -27,9 +27,9 @@ ShiftFlow is an iOS app that helps employees, freelancers, contractors, and gig 
 8. **Reports and Import** — PDF and CSV export, shift import and full history (subscribers)
 
 ## Pricing
-- Free Trial: 7 days, full access to every ShiftFlow Pro feature
-- ShiftFlow Pro Monthly: $6.49/month
-- ShiftFlow Pro Annual: $64.99/year (~17% savings vs monthly)
+- Free Trial: 7 days, full access to every HoursFlow Pro feature
+- HoursFlow Pro Monthly: $6.49/month
+- HoursFlow Pro Annual: $64.99/year (~17% savings vs monthly)
 - Free: shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records. Subscribers: full history, multiple employers, report and document export, tax reports, scanning and import, and the paycheck tracker. If a subscription lapses nothing is deleted — older records become available again when you resubscribe.
 - Subscriptions managed through Apple App Store and renew automatically unless cancelled
 - Canonical, always-current machine-readable pricing: https://shiftflowx.net/pricing.md
@@ -96,4 +96,4 @@ gross invoices including tax. Results are estimates, not tax or legal advice.
 - Website: https://shiftflowx.net
 - Support: support@shiftflowx.net
 - Privacy: privacy@shiftflowx.net
-- App Store: https://apps.apple.com/app/shiftflow/id6768095892
+- App Store: https://apps.apple.com/app/hoursflow/id6768095892

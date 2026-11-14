@@ -19,9 +19,9 @@ describe("PRICING (single source of truth)", () => {
 
   it("public/llms.txt (static, cannot import constants) has not drifted", () => {
     const llms = readFileSync(join(process.cwd(), "public/llms.txt"), "utf8");
-    expect(llms).toContain(`ShiftFlow Pro Monthly: ${PRICING.monthly.perLabel}`);
+    expect(llms).toContain(`HoursFlow Pro Monthly: ${PRICING.monthly.perLabel}`);
     expect(llms).toContain(
-      `ShiftFlow Pro Annual: ${PRICING.annual.perLabel} (~${PRICING.annual.savingsPct}% savings vs monthly)`
+      `HoursFlow Pro Annual: ${PRICING.annual.perLabel} (~${PRICING.annual.savingsPct}% savings vs monthly)`
     );
     expect(llms).toContain(`Free Trial: ${PRICING.trialDays} days`);
   });

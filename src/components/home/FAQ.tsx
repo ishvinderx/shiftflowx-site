@@ -67,7 +67,7 @@ export default function FAQ() {
         <SectionHeader
           label="FAQ"
           title="Common questions."
-          subtitle="Everything you need to know about ShiftFlow."
+          subtitle="Everything you need to know about HoursFlow."
         />
 
         <div className="space-y-3">

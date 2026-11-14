@@ -48,7 +48,7 @@ const FAQ: Faq[] = [
 
 export default function HourlyPayCalculatorPage() {
   const trail = [
-    { name: 'ShiftFlow', path: '/' },
+    { name: 'HoursFlow', path: '/' },
     { name: 'Free Tools', path: '/tools' },
     { name: TOOL.title, path: `/${TOOL.slug}` },
   ]
@@ -97,7 +97,7 @@ export default function HourlyPayCalculatorPage() {
             slug={TOOL.slug}
             extraLinks={[
               { href: '/blog/how-to-calculate-work-hours', label: 'How to calculate work hours' },
-              { href: '/download', label: 'Get the ShiftFlow app' },
+              { href: '/download', label: 'Get the HoursFlow app' },
             ]}
           />
 

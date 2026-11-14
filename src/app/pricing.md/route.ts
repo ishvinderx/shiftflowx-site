@@ -6,6 +6,7 @@ import {
   APP_STORE_URL,
   SUPPORT_EMAIL,
   SITE_URL,
+  BRAND,
 } from "@/lib/constants";
 
 // /pricing.md — machine-readable pricing for automated readers (2026-08).
@@ -20,9 +21,9 @@ export const dynamic = "force-static";
 
 export function GET() {
   const { monthly, annual } = PRICING;
-  const body = `# Pricing — ShiftFlow
+  const body = `# Pricing — ${BRAND.name}
 
-ShiftFlow is an iOS app for shift, hourly and self-employed workers: shift tracking,
+${BRAND.name} is an iOS app for shift, hourly and self-employed workers: shift tracking,
 earnings and take-home estimates, payday tracking, budget and bill reminders, tax
 estimates (GST/HST where applicable), invoicing, and a paycheck tracker.
 
@@ -31,7 +32,7 @@ iPhone Settings → Apple ID → Subscriptions.
 
 ## Free Trial
 - Price: $0 for ${TRIAL_DAYS} days
-- Access: every ShiftFlow Pro feature, full access
+- Access: every ${BRAND.proName} feature, full access
 - Billing: your selected plan begins after ${TRIAL_DAYS} days unless cancelled before the trial ends
 
 ## ${monthly.name}

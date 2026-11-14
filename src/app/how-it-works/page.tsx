@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "How It Works — Shift Tracking in 4 Steps",
-  description: "Learn how ShiftFlow helps you log shifts, see your earnings and payday, keep a budget and bills, and check your paycheque in 4 simple steps.",
+  description: "Learn how HoursFlow helps you log shifts, see your earnings and payday, keep a budget and bills, and check your paycheque in 4 simple steps.",
   alternates: { canonical: 'https://shiftflowx.net/how-it-works' },
 };
 
@@ -11,7 +11,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "How It Works", "item": "https://shiftflowx.net/how-it-works" }
   ]
 };
@@ -19,8 +19,8 @@ const breadcrumb = {
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "How to Track Your Hours and Pay with ShiftFlow",
-  "description": "ShiftFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check your paycheque.",
+  "name": "How to Track Your Hours and Pay with HoursFlow",
+  "description": "HoursFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check your paycheque.",
   "step": [
     {
       "@type": "HowToStep",
@@ -32,7 +32,7 @@ const howToSchema = {
       "@type": "HowToStep",
       "position": 2,
       "name": "See Your Earnings and Payday",
-      "text": "ShiftFlow shows what you have earned from the hours you log and when your next payday is due, based on your pay schedule."
+      "text": "HoursFlow shows what you have earned from the hours you log and when your next payday is due, based on your pay schedule."
     },
     {
       "@type": "HowToStep",
@@ -67,15 +67,15 @@ export default function HowItWorksPage() {
           {/* Header */}
           <div className="mb-16">
             <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-              <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+              <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
               <span>/</span>
               <span className="text-white/60">How It Works</span>
             </nav>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-              How ShiftFlow Works
+              How HoursFlow Works
             </h1>
             <p className="text-xl text-white/60 leading-relaxed max-w-2xl">
-              ShiftFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check and export your records.
+              HoursFlow works in four steps: log your shift, see your earnings and payday, keep your budget and bills, and check and export your records.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export default function HowItWorksPage() {
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white mb-4">Log Your Shift</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    After each shift, open ShiftFlow and enter your start time, end time and employer. ShiftFlow then shows your earnings for that shift.
+                    After each shift, open HoursFlow and enter your start time, end time and employer. HoursFlow then shows your earnings for that shift.
                   </p>
                   <p className="text-white/60 leading-relaxed mb-4">
                     The free plan tracks one employer and keeps your last 30 days of records. Subscribers get full history, multiple employers and shift import.
@@ -113,7 +113,7 @@ export default function HowItWorksPage() {
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white mb-4">See Your Earnings and Payday</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    ShiftFlow adds up the hours you log into earnings and uses your pay schedule to show when your next payday is due.
+                    HoursFlow adds up the hours you log into earnings and uses your pay schedule to show when your next payday is due.
                   </p>
                   <p className="text-white/60 leading-relaxed mb-4">
                     These are estimates based on what you enter. They are not a guarantee of what your employer will pay.
@@ -137,7 +137,7 @@ export default function HowItWorksPage() {
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white mb-4">Keep Your Budget and Bills</h2>
                   <p className="text-white/60 leading-relaxed mb-4">
-                    Set up a budget and add your bills. ShiftFlow reminds you before a bill is due, so you can plan around payday.
+                    Set up a budget and add your bills. HoursFlow reminds you before a bill is due, so you can plan around payday.
                   </p>
                   <ul className="space-y-2">
                     {["Budget", "Bill reminders", "Included on the free plan"].map(item => (
@@ -182,11 +182,11 @@ export default function HowItWorksPage() {
             <dl className="space-y-8">
               {[
                 {
-                  q: "How long does it take to set up ShiftFlow?",
+                  q: "How long does it take to set up HoursFlow?",
                   a: "Download the app, create an account, add your employer and log your first shift."
                 },
                 {
-                  q: "Does ShiftFlow work for workers with multiple employers?",
+                  q: "Does HoursFlow work for workers with multiple employers?",
                   a: "Multiple employers are a Pro feature. The free plan tracks one employer."
                 },
                 {
@@ -208,13 +208,13 @@ export default function HowItWorksPage() {
 
           {/* CTA */}
           <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Ready to try ShiftFlow?</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Ready to try HoursFlow?</h3>
             <p className="text-white/60 mb-6">Free to start. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"
             >
-              Download ShiftFlow Free
+              Download HoursFlow Free
             </Link>
           </div>
         </div>

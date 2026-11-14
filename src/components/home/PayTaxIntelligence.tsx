@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
  * Section 4 — "Pay & Tax Estimates."
  * Explains the canonical dual-stream calculation architecture in consumer-friendly language.
  * HARD RULES (mission): never imply HST is income, never imply the SE reserve was withheld,
- * never imply ShiftFlow replaces an accountant or tax authority.
+ * never imply HoursFlow replaces an accountant or tax authority.
  */
 
 function Flow({
@@ -128,7 +128,7 @@ export default function PayTaxIntelligence() {
           {[
             "Sales tax you collect is held for the tax authority — never counted as income.",
             "Self-employed tax reserve is money to set aside — nothing is withheld from your pay.",
-            "Estimates use supported jurisdiction rules. ShiftFlow isn’t your accountant or the tax authority.",
+            "Estimates use supported jurisdiction rules. HoursFlow isn’t your accountant or the tax authority.",
           ].map((note) => (
             <p
               key={note}

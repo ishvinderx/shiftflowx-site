@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import { calculateGrossPay, type PayFrequency } from './grossPayCalc'
 
 const ANALYTICS = { calculator: 'gross-pay-calculator', category: 'Pay & Earnings' }
@@ -179,10 +179,10 @@ export default function GrossPayClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="gross-pay-calculator"
               headline="Want to know what every paycheck should be?"
-              sub="ShiftFlow tracks your shifts and shows your expected gross pay for each pay period automatically."
+              sub="HoursFlow tracks your shifts and shows your expected gross pay for each pay period automatically."
             />
           </div>
         </div>

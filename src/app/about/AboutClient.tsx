@@ -24,7 +24,7 @@ const values = [
     icon: Zap,
     title: "Empowerment",
     description:
-      "Knowledge is power. ShiftFlow gives you a clear record of your hours and earnings — so you can check your pay with confidence.",
+      "Knowledge is power. HoursFlow gives you a clear record of your hours and earnings — so you can check your pay with confidence.",
     color: "#14B8A6",
     bg: "rgba(20,184,166,0.1)",
   },
@@ -59,7 +59,7 @@ export default function AboutClient() {
               <span className="gradient-text">paid fairly.</span>
             </h1>
             <p className="text-xl text-white/55 leading-relaxed max-w-2xl mx-auto">
-              ShiftFlow was born from a simple observation: workers are at an information disadvantage.
+              HoursFlow was born from a simple observation: workers are at an information disadvantage.
               Employers have payroll systems, compliance teams, and legal departments.
               Workers have a pay stub and a hope that the numbers are right.
             </p>
@@ -79,21 +79,21 @@ export default function AboutClient() {
             <h2 className="text-3xl font-bold text-white mb-6 tracking-tight">Our story</h2>
             <div className="space-y-5 text-white/55 text-lg leading-relaxed">
               <p>
-                ShiftFlow started with a question: why do so many workers get paid less than they&apos;re owed?
+                HoursFlow started with a question: why do so many workers get paid less than they&apos;re owed?
                 Research suggests that wage theft — through missed overtime, incorrect rates, and unpaid breaks —
                 costs workers billions of dollars every year. Most of it goes undetected.
               </p>
               <p>
-                We built ShiftFlow to change that. With simple,
+                We built HoursFlow to change that. With simple,
                 intuitive design, we created a tool that any worker — nurse, driver, barista, contractor —
                 can use to track their hours, income, bills and tax estimates.
               </p>
               <p>
                 When you don&apos;t know when your next paycheck arrives or what it should be,
-                planning is hard. ShiftFlow helps by keeping your hours, payday and bills in one place.
+                planning is hard. HoursFlow helps by keeping your hours, payday and bills in one place.
               </p>
               <p>
-                ShiftFlow is built for workers across the US, Canada, UK, and Australia.
+                HoursFlow is built for workers across the US, Canada, UK, and Australia.
                 We&apos;re just getting started.
               </p>
             </div>
@@ -122,7 +122,7 @@ export default function AboutClient() {
               </p>
               <p>
                 <strong className="text-white/85">Estimates should say they are estimates.</strong>{" "}
-                Payday and tax figures in ShiftFlow are estimates based on what you enter.
+                Payday and tax figures in HoursFlow are estimates based on what you enter.
                 We believe trust comes from being clear about what the app can and cannot tell you.
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function AboutClient() {
             href="/download"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#D63C6B] hover:bg-[#c0355f] rounded-xl text-white font-bold text-sm shadow-lg shadow-[#D63C6B]/30 transition-all duration-200"
           >
-            Download ShiftFlow Free
+            Download HoursFlow Free
           </a>
         </div>
       </section>

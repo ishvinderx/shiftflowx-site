@@ -4,17 +4,17 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "How ShiftFlow uses cookies and tracking technologies on our website and in the app.",
+  description: "How HoursFlow uses cookies and tracking technologies on our website and in the app.",
   alternates: { canonical: "https://shiftflowx.net/cookie-policy" },
 };
 
 
 const toc = [
-  { id: "what-are-cookies", label: "What Are Cookies" },
-  { id: "how-we-use", label: "How We Use Cookies" },
-  { id: "types", label: "Types of Cookies" },
-  { id: "third-party", label: "Third-Party Cookies" },
-  { id: "mobile-app", label: "Mobile App Tracking" },
+  { id: "what-are-cookies", label: "Cookies and Similar Technologies" },
+  { id: "how-we-use", label: "Cookies Set by This Website" },
+  { id: "types", label: "What the Website Stores" },
+  { id: "third-party", label: "Third-Party Services" },
+  { id: "mobile-app", label: "Mobile App" },
   { id: "opt-out", label: "How to Opt Out" },
   { id: "changes", label: "Changes" },
   { id: "contact", label: "Contact" },
@@ -24,94 +24,64 @@ export default function CookiePolicyPage() {
   return (
     <LegalLayout
       title="Cookie Policy"
-      effectiveDate="January 1, 2025"
+      effectiveDate="November 14, 2026"
       toc={toc}
     >
       <p>
-        This Cookie Policy explains how ShiftFlow uses cookies and similar tracking technologies on our website (shiftflowx.net) and mobile application. It also explains your choices regarding these technologies.
+        HoursFlow is operated by Flowmatix Creative Inc. This Cookie Policy explains what our website (shiftflowx.net) stores in your browser and your choices regarding it.
       </p>
 
       <section id="what-are-cookies">
-        <h2>What Are Cookies</h2>
+        <h2>Cookies and Similar Technologies</h2>
         <p>
-          Cookies are small text files that are placed on your device (computer, smartphone, or tablet) when you visit a website. They are widely used to make websites work more efficiently, improve user experience, and provide website owners with analytics information.
-        </p>
-        <p>
-          Similar technologies include web beacons (also called tracking pixels), local storage, and session storage. This policy covers all of these technologies collectively referred to as &ldquo;cookies.&rdquo;
+          Cookies are small text files that a website places on your device. Similar technologies include local storage and session storage, which a website can use to keep small pieces of information in your browser. This policy covers all of these.
         </p>
       </section>
 
       <section id="how-we-use">
-        <h2>How We Use Cookies</h2>
-        <p>We use cookies and similar technologies for the following purposes:</p>
-        <ul>
-          <li><strong>Authentication:</strong> To keep you logged in and securely identify your session</li>
-          <li><strong>Preferences:</strong> To remember your settings and preferences</li>
-          <li><strong>Analytics:</strong> To understand how visitors use our website and where we can improve</li>
-          <li><strong>Performance:</strong> To monitor and optimize the performance of our website</li>
-          <li><strong>Security:</strong> To help detect and prevent fraud and unauthorized access</li>
-        </ul>
+        <h2>Cookies Set by This Website</h2>
         <p>
-          We do not use cookies for targeted advertising or to build advertising profiles. We do not share cookie data with advertising networks.
+          <strong>The HoursFlow website (shiftflowx.net) does not set any cookies.</strong> It does not use cookies for sign-in, advertising, or load balancing, and we do not use Google Analytics, Facebook Pixel, or any advertising network.
         </p>
       </section>
 
       <section id="types">
-        <h2>Types of Cookies We Use</h2>
-        <h3>Strictly Necessary Cookies</h3>
+        <h2>What the Website Stores in Your Browser</h2>
+        <h3>Analytics (only when enabled)</h3>
         <p>
-          These cookies are essential for the website to function and cannot be disabled. They enable core features such as page navigation, authentication, and security. Without these cookies, the website cannot function properly.
+          When analytics is configured, the website sends anonymous usage events for our free calculators and pages (for example, that a calculator was viewed or completed) directly to PostHog. These events never include the figures you enter. No cookie is set and no analytics script is loaded. If analytics is not configured, nothing is sent.
         </p>
         <ul>
-          <li><strong>Session cookie:</strong> Maintains your login session</li>
-          <li><strong>Security token:</strong> Protects against CSRF attacks</li>
-          <li><strong>Load balancer cookie:</strong> Ensures consistent server routing</li>
+          <li>
+            <strong>sf_anon_id</strong> (sessionStorage): a random identifier used to group the events from one browsing session. It is not linked to an account, is not derived from anything you enter, and is removed when you close the tab or browser.
+          </li>
         </ul>
 
-        <h3>Analytics Cookies</h3>
+        <h3>Referral links</h3>
         <p>
-          These cookies help us understand how visitors interact with our website. All analytics data is anonymized and aggregated — it cannot be used to identify you personally.
+          If you open a referral link (shiftflowx.net/ref/&hellip;), the website stores two items in your browser&apos;s localStorage. They stay on your device until you clear your browser data.
         </p>
         <ul>
-          <li><strong>Page view tracking:</strong> Records which pages are visited most</li>
-          <li><strong>Traffic source:</strong> How visitors arrive at our website (e.g., search engine, direct)</li>
-          <li><strong>Session duration:</strong> How long visitors spend on the site</li>
-        </ul>
-
-        <h3>Preference Cookies</h3>
-        <p>
-          These cookies remember your choices and settings to provide a more personalized experience.
-        </p>
-        <ul>
-          <li><strong>Pricing toggle state:</strong> Remembers if you prefer monthly or annual pricing display</li>
-          <li><strong>Theme preference:</strong> If applicable, remembers display preferences</li>
+          <li>
+            <strong>sf_ref_code</strong> (localStorage): the referral code from the link you opened, so it is remembered on this device.
+          </li>
+          <li>
+            <strong>sf_ref_start</strong> (localStorage): the time you first opened the referral page, used to run the offer countdown shown on that page.
+          </li>
         </ul>
       </section>
 
       <section id="third-party">
-        <h2>Third-Party Cookies</h2>
+        <h2>Third-Party Services</h2>
         <p>
-          We use a limited number of trusted third-party services that may set their own cookies:
-        </p>
-        <ul>
-        </ul>
-        <p>
-          We do not use Google Analytics, Facebook Pixel, or any advertising-related tracking cookies.
+          The only third-party service the website sends data to is PostHog, and only for the anonymous events described above, when analytics is enabled. If you choose to open the App Store, Apple&apos;s own policies apply on its pages.
         </p>
       </section>
 
       <section id="mobile-app">
-        <h2>Mobile App Tracking</h2>
+        <h2>Mobile App</h2>
         <p>
-          The ShiftFlow mobile application does not use browser cookies. Instead, it may use equivalent technologies such as:
-        </p>
-        <ul>
-          <li><strong>Device identifiers:</strong> Used for crash reporting and analytics (anonymized)</li>
-          <li><strong>Local storage:</strong> Used to cache app data locally for offline access</li>
-          <li><strong>App analytics SDK:</strong> Anonymized usage analytics to improve the app experience</li>
-        </ul>
-        <p>
-          You can limit ad tracking and analytics on your iPhone by going to Settings → Privacy & Security → Tracking and toggling off &ldquo;Allow Apps to Request to Track.&rdquo;
+          The HoursFlow mobile application does not use browser cookies. Details of the data the app collects, including analytics and crash reports, are in our <a href="/privacy">Privacy Policy</a> and <a href="/data-policy">Data Collection Policy</a>.
         </p>
       </section>
 
@@ -128,7 +98,7 @@ export default function CookiePolicyPage() {
           <li>Enable a &ldquo;Do Not Track&rdquo; signal</li>
         </ul>
         <p>
-          Please note that disabling certain cookies may affect the functionality of our website. Strictly necessary cookies cannot be disabled without breaking core features.
+          You can clear localStorage and sessionStorage items through your browser&apos;s site-data settings. Doing so does not affect your use of the website.
         </p>
         <p>Browser-specific instructions:</p>
         <ul>
@@ -139,7 +109,7 @@ export default function CookiePolicyPage() {
 
         <h3>Analytics Opt-Out</h3>
         <p>
-          To opt out of anonymized analytics, please contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a> and we will add your browser to our exclusion list.
+          To stop analytics events, you can use your browser&apos;s tracking-protection or content-blocking features, or contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.
         </p>
       </section>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { SALES_TAX_RULES, getSalesTaxRule } from '@/lib/rules/salesTax'
 import { calculateSettlement, type GstHstStatus } from './settlementCalc'
@@ -274,10 +274,10 @@ export default function SettlementClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="truck-driver-settlement-calculator"
               headline="Verify every settlement, not just this one."
-              sub="ShiftFlow logs every hour you drive, so you can check each statement your carrier sends against your own records."
+              sub="HoursFlow logs every hour you drive, so you can check each statement your carrier sends against your own records."
             />
           </div>
         </div>

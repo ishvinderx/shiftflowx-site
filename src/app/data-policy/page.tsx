@@ -4,7 +4,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 export const metadata: Metadata = {
   title: "Data Collection Policy — What We Store",
   description:
-    "Understand exactly what data ShiftFlow collects, why we collect it, how long we keep it, and your rights to access, export, and delete it.",
+    "Understand exactly what data HoursFlow collects, why we collect it, how long we keep it, and your rights to access, export, and delete it.",
   alternates: { canonical: "https://shiftflowx.net/data-policy" },
 };
 
@@ -12,8 +12,6 @@ const toc = [
   { id: "overview", label: "Overview" },
   { id: "what-we-collect", label: "What We Collect" },
   { id: "what-is-optional", label: "What Is Optional" },
-  { id: "ai-memory", label: "AI Memory Behaviour" },
-  { id: "training-usage", label: "AI Training Usage" },
   { id: "third-parties", label: "Third-Party Providers" },
   { id: "retention", label: "Retention Periods" },
   { id: "deletion", label: "Deletion Behaviour" },
@@ -23,16 +21,16 @@ const toc = [
 
 export default function DataPolicyPage() {
   return (
-    <LegalLayout title="Data Collection Policy" effectiveDate="May 1, 2026" toc={toc}>
+    <LegalLayout title="Data Collection Policy" effectiveDate="November 14, 2026" toc={toc}>
       <section id="overview">
         <h2>Overview</h2>
         <p>
-          This policy explains exactly what data ShiftFlow collects from you, why we collect it,
+          HoursFlow is operated by Flowmatix Creative Inc. This policy explains exactly what data HoursFlow collects from you, why we collect it,
           how long we keep it, and what happens when you delete it. We believe transparency is
           non-negotiable when an app touches your payroll and financial records.
         </p>
         <p>
-          ShiftFlow is designed on a <strong>data minimisation</strong> principle: we collect only
+          HoursFlow is designed on a <strong>data minimisation</strong> principle: we collect only
           what is necessary to deliver the features you use, and nothing more.
         </p>
       </section>
@@ -66,7 +64,6 @@ export default function DataPolicyPage() {
           <li>Tax rate (user-configured)</li>
           <li>Tax profile (filing status, deductions — optional)</li>
           <li>Invoice data (client name, line items, amounts, due dates)</li>
-          <li>Paycheck anomaly detection results</li>
         </ul>
 
         <h3>Device & Session Data</h3>
@@ -93,23 +90,17 @@ export default function DataPolicyPage() {
             is handled exclusively by Apple in-app purchase</li>
         </ul>
 
-        <h3>AI & Wellbeing Data</h3>
+        <h3>Journal Data</h3>
         <ul>
-          <li>Energy scores and mood entries (logged per shift — optional)</li>
-          <li>Stress scores (1–10, optional)</li>
-          <li>AI Memory Profile: preferred shift patterns, financial goals, burnout triggers,
-            income priorities — stored server-side and used only to personalise your AI recommendations</li>
           <li>Work journal entries (text, optional)</li>
         </ul>
       </section>
 
       <section id="what-is-optional">
         <h2>What Is Optional</h2>
-        <p>The following data is never required to use ShiftFlow&apos;s core features:</p>
+        <p>The following data is never required to use HoursFlow&apos;s core features:</p>
         <ul>
-          <li>Energy scores, mood, and stress entries per shift</li>
           <li>Work journal entries</li>
-          <li>AI Memory (can be disabled in Profile → AI Settings → AI Memory)</li>
           <li>Location data for automatic clock-in (requires explicit permission, can be revoked at any time in iOS Settings)</li>
           <li>Push notifications (can be declined or disabled in iOS Settings)</li>
           <li>Analytics participation (linked to your account — cannot be opted out of individually, but
@@ -117,42 +108,6 @@ export default function DataPolicyPage() {
           <li>Tax profile details beyond your basic tax rate</li>
           <li>Invoice client details</li>
         </ul>
-      </section>
-
-      <section id="ai-memory">
-        <h2>AI Memory Behaviour</h2>
-        <p>
-          ShiftFlow&apos;s AI assistant maintains an optional memory profile that stores preferences
-          and patterns to personalise responses. This memory:
-        </p>
-        <ul>
-          <li>Is stored in our database under your user ID and encrypted at rest by our database provider</li>
-          <li>Is used only to improve AI recommendations within your account — it is never used
-            to train models or shared with any third party</li>
-          <li>Can be cleared at any time: Profile → AI Settings → Delete AI History</li>
-          <li>Can be disabled entirely: Profile → AI Settings → Disable AI Memory</li>
-          <li>Is deleted permanently on account deletion (no grace period)</li>
-        </ul>
-        <p>
-          To generate insights and answer your questions, ShiftFlow sends the relevant financial
-          context — such as your earnings totals, hourly and tax rates, paycheck amounts, employer
-          names, and the messages you send in AI chat — to our AI provider, <strong>DeepSeek</strong>,
-          for processing. This information is sent to produce your requested insight or reply and is
-          subject to DeepSeek&apos;s privacy terms. ShiftFlow does not store your AI conversations on
-          our servers; only a short-lived cache of generated results (cleared within 24 hours) and
-          anonymous token-usage counts are kept. You can clear or disable your AI Memory at any time
-          in the app.
-        </p>
-      </section>
-
-      <section id="training-usage">
-        <h2>AI Training Usage</h2>
-        <p>
-          <strong>ShiftFlow does not train any AI models on your data.</strong> ShiftFlow builds no
-          first-party models; AI features call the DeepSeek API in inference-only mode. We do not use
-          your data to train models and we do not sell it. Whether the AI provider retains or trains
-          on API inputs is governed by that provider&apos;s own terms, which we encourage you to review.
-        </p>
       </section>
 
       <section id="third-parties">
@@ -187,11 +142,6 @@ export default function DataPolicyPage() {
               <td>Stack traces, device model, OS version — no user data, no payroll data</td>
             </tr>
             <tr>
-              <td>DeepSeek</td>
-              <td>AI insights &amp; chat</td>
-              <td>Financial context for your request — earnings, rates, paycheck amounts, employer names, and your chat messages</td>
-            </tr>
-            <tr>
               <td>Railway / Cloudflare</td>
               <td>Cloud hosting and CDN</td>
               <td>Encrypted data at rest — providers cannot read your financial records</td>
@@ -223,10 +173,6 @@ export default function DataPolicyPage() {
               <td>30-day grace period for recovery, then hard-deleted</td>
             </tr>
             <tr>
-              <td>AI Memory Profile</td>
-              <td>Deleted immediately on account deletion or manual clear</td>
-            </tr>
-            <tr>
               <td>Audit logs (admin-only)</td>
               <td>90 days</td>
             </tr>
@@ -243,8 +189,8 @@ export default function DataPolicyPage() {
               <td>90 days per Sentry&apos;s default policy</td>
             </tr>
             <tr>
-              <td>OCR-processed paystub files</td>
-              <td>Not stored server-side — processed and discarded immediately</td>
+              <td>Scanned receipt and payslip images (text is recognised on your device)</td>
+              <td>Not uploaded for text recognition and not stored server-side</td>
             </tr>
           </tbody>
         </table>
@@ -253,7 +199,7 @@ export default function DataPolicyPage() {
       <section id="deletion">
         <h2>Deletion Behaviour</h2>
         <p>
-          When you delete your account (Profile → Settings → Delete Account), ShiftFlow
+          When you delete your account (Profile → Settings → Delete Account), HoursFlow
           initiates a full deletion sequence:
         </p>
         <ul>
@@ -261,9 +207,8 @@ export default function DataPolicyPage() {
             no longer accessible</li>
           <li>You have a 30-day window to contact support and recover your account</li>
           <li>After 30 days, a scheduled job hard-deletes all records associated with your account:
-            shifts, invoices, payroll records, journals, AI memory, goals, device tokens,
+            shifts, invoices, payroll records, journals, goals, device tokens,
             notification preferences, and analytics identifiers</li>
-          <li>AI Memory is deleted immediately — no grace period</li>
           <li>Analytics events already sent to PostHog are retained under PostHog’s own retention policy</li>
           <li>RevenueCat retains your subscription history for their own legal compliance requirements</li>
         </ul>
@@ -284,7 +229,7 @@ export default function DataPolicyPage() {
           <li><strong>Portability</strong> — export your shifts and earnings as CSV or JSON</li>
           <li><strong>Restriction</strong> — request that we stop processing your data while a complaint is investigated</li>
           <li><strong>Objection</strong> — object to any processing based on legitimate interests</li>
-          <li><strong>Withdraw consent</strong> — disable AI Memory, revoke notification permissions, or delete your AI chat history at any time</li>
+          <li><strong>Withdraw consent</strong> — revoke notification permissions at any time</li>
         </ul>
         <p>
           <strong>GDPR users (EEA/UK):</strong> You may lodge a complaint with your local supervisory authority.

@@ -16,7 +16,7 @@ export default function Pricing() {
         <SectionHeader
           label="Pricing"
           title="Simple, transparent pricing."
-          subtitle={`Try ShiftFlow Pro free for ${trialDays} days. Choose monthly flexibility or save with annual billing.`}
+          subtitle={`Try HoursFlow Pro free for ${trialDays} days. Choose monthly flexibility or save with annual billing.`}
         />
 
         {/* Two paid plans */}

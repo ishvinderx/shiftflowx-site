@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import { calculateHourlyPay } from './payCalc'
 
 const ANALYTICS = { calculator: 'hourly-pay-calculator', category: 'Pay & Earnings' }
@@ -132,10 +132,10 @@ export default function HourlyPayClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="hourly-pay-calculator"
               headline="Doing this math every payday?"
-              sub="ShiftFlow tracks your shifts and calculates regular, overtime, and gross pay automatically."
+              sub="HoursFlow tracks your shifts and calculates regular, overtime, and gross pay automatically."
             />
           </div>
         </div>

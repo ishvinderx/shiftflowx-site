@@ -47,7 +47,7 @@ const FAQ: Faq[] = [
 
 export default function ContractorPayCalculatorPage() {
   const trail = [
-    { name: 'ShiftFlow', path: '/' },
+    { name: 'HoursFlow', path: '/' },
     { name: 'Free Tools', path: '/tools' },
     { name: TOOL.title, path: `/${TOOL.slug}` },
   ]
@@ -102,7 +102,7 @@ export default function ContractorPayCalculatorPage() {
 
           <RelatedTools
             slug={TOOL.slug}
-            extraLinks={[{ href: '/download', label: 'Get the ShiftFlow app' }]}
+            extraLinks={[{ href: '/download', label: 'Get the HoursFlow app' }]}
           />
 
           <ToolDisclaimer>

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { getSalesTaxRule, SALES_TAX_RULES } from '@/lib/rules/salesTax'
 import { addTax, removeTax } from './gstCalc'
@@ -171,10 +171,10 @@ export default function GstHstClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="gst-hst-calculator"
               headline="Invoicing with GST/HST every month?"
-              sub="ShiftFlow tracks GST/HST on contractor earnings automatically."
+              sub="HoursFlow tracks GST/HST on contractor earnings automatically."
             />
           </div>
         </div>

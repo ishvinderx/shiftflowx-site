@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Delete Your Account",
-  description: "How to permanently delete your ShiftFlow account and data, including the grace period and what gets removed.",
+  description: "How to permanently delete your HoursFlow account and data, including the grace period and what gets removed.",
   alternates: { canonical: "https://shiftflowx.net/delete" },
 };
 
@@ -30,10 +30,10 @@ export default function DeletePage() {
       <section id="overview">
         <h2>Overview</h2>
         <p>
-          You have the right to delete your ShiftFlow account and all associated data at any time. Account deletion is permanent and irreversible — once completed, all your data will be permanently removed from our systems.
+          You have the right to delete your HoursFlow account and all associated data at any time. Account deletion is permanent and irreversible — once completed, all your data will be permanently removed from our systems.
         </p>
         <p>
-          We want to make this process as straightforward as possible. You can delete your account directly through the ShiftFlow app, or by contacting our support team.
+          We want to make this process as straightforward as possible. You can delete your account directly through the HoursFlow app, or by contacting our support team.
         </p>
       </section>
 
@@ -56,9 +56,9 @@ export default function DeletePage() {
 
       <section id="in-app">
         <h2>Delete Your Account Via the App</h2>
-        <p>The easiest way to delete your account is directly through ShiftFlow:</p>
+        <p>The easiest way to delete your account is directly through HoursFlow:</p>
         <ol>
-          <li>Open the ShiftFlow app on your iPhone or iPad</li>
+          <li>Open the HoursFlow app on your iPhone or iPad</li>
           <li>Tap the <strong>Profile</strong> icon or navigate to the <strong>Settings</strong> tab</li>
           <li>Scroll down to find <strong>Account</strong></li>
           <li>Tap <strong>Delete Account</strong></li>
@@ -79,7 +79,7 @@ export default function DeletePage() {
         <ul>
           <li><strong>Email:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
           <li><strong>Subject:</strong> Account Deletion Request</li>
-          <li><strong>Include:</strong> The email address associated with your ShiftFlow account</li>
+          <li><strong>Include:</strong> The email address associated with your HoursFlow account</li>
         </ul>
         <p>
           We will verify your identity and confirm the deletion request within 2 business days. Once confirmed, deletion will be initiated and completed within 30 days.
@@ -102,13 +102,13 @@ export default function DeletePage() {
       <section id="subscription">
         <h2>Subscription Impact</h2>
         <p>
-          Deleting your ShiftFlow account does <strong>not</strong> automatically cancel your App Store subscription. To avoid future charges, you must cancel your subscription separately through Apple before deleting your account.
+          Deleting your HoursFlow account does <strong>not</strong> automatically cancel your App Store subscription. To avoid future charges, you must cancel your subscription separately through Apple before deleting your account.
         </p>
         <p>To cancel your subscription before deleting your account:</p>
         <ol>
           <li>Open Settings on your iPhone</li>
           <li>Tap your name → Subscriptions</li>
-          <li>Find ShiftFlow and tap it</li>
+          <li>Find HoursFlow and tap it</li>
           <li>Tap Cancel Subscription</li>
         </ol>
         <p>

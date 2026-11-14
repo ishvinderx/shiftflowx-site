@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "For Hourly Workers — Hours, Pay & Paycheck Check",
-  description: "ShiftFlow helps hourly workers track shifts and earnings, see their payday, keep bills in view, and check a paycheque against their logged hours.",
+  description: "HoursFlow helps hourly workers track shifts and earnings, see their payday, keep bills in view, and check a paycheque against their logged hours.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/hourly-workers' },
 };
 
@@ -11,7 +11,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://shiftflowx.net/use-cases/hourly-workers" },
     { "@type": "ListItem", "position": 3, "name": "Hourly Workers", "item": "https://shiftflowx.net/use-cases/hourly-workers" }
   ]
@@ -29,7 +29,7 @@ export default function HourlyWorkersPage() {
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
 
           <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
             <span>/</span>
             <Link href="/use-cases/hourly-workers" className="text-white/60">Hourly Workers</Link>
           </nav>
@@ -51,7 +51,7 @@ export default function HourlyWorkersPage() {
               Most hourly workers have no simple way to check a paycheque against the time they actually worked. A clear record of your own hours is the first step.
             </p>
             <p className="text-white/60 leading-relaxed">
-              ShiftFlow keeps a record of your shifts and earnings. With a subscription, the paycheck tracker checks a paycheque against your logged hours so you can see if an amount looks short.
+              HoursFlow keeps a record of your shifts and earnings. With a subscription, the paycheck tracker checks a paycheque against your logged hours so you can see if an amount looks short.
             </p>
           </section>
 
@@ -59,7 +59,7 @@ export default function HourlyWorkersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Key Features for Hourly Workers</h2>
             <div className="space-y-4">
               {[
-                { title: "Shift and Earnings Tracking", desc: "Log each shift with start and end time. ShiftFlow shows what you have earned. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
+                { title: "Shift and Earnings Tracking", desc: "Log each shift with start and end time. HoursFlow shows what you have earned. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
                 { title: "Paycheck Tracker", desc: "Checks a paycheque against the hours you logged. Available to subscribers." },
                 { title: "Payday", desc: "Set your pay schedule and see when your next payday is due. Estimates are not a guarantee of what your employer will pay." },
                 { title: "Payslip Scanning", desc: "Scan your payslip with your camera. Text is read on your device. Available to subscribers." },
@@ -77,9 +77,9 @@ export default function HourlyWorkersPage() {
             <h2 className="text-2xl font-bold text-white mb-6">FAQ for Hourly Workers</h2>
             <dl className="space-y-6">
               {[
-                { q: "What does the paycheck tracker do?", a: "It checks a paycheque against the hours you logged in ShiftFlow, so you can see if the amount looks short. It is a Pro feature." },
-                { q: "Can I use ShiftFlow if I work in retail, hospitality, or manufacturing?", a: "Yes. ShiftFlow works for any hourly worker regardless of industry." },
-                { q: "Is ShiftFlow free?", a: "The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records. Pro adds more." },
+                { q: "What does the paycheck tracker do?", a: "It checks a paycheque against the hours you logged in HoursFlow, so you can see if the amount looks short. It is a Pro feature." },
+                { q: "Can I use HoursFlow if I work in retail, hospitality, or manufacturing?", a: "Yes. HoursFlow works for any hourly worker regardless of industry." },
+                { q: "Is HoursFlow free?", a: "The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records. Pro adds more." },
               ].map(({ q, a }) => (
                 <div key={q}>
                   <dt className="text-white font-semibold mb-2">{q}</dt>
@@ -93,7 +93,7 @@ export default function HourlyWorkersPage() {
             <h3 className="text-2xl font-bold text-white mb-3">Never get underpaid again</h3>
             <p className="text-white/60 mb-6">Free 7-day trial. Cancel anytime.</p>
             <Link href="/download" className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors">
-              Download ShiftFlow Free
+              Download HoursFlow Free
             </Link>
           </div>
         </div>

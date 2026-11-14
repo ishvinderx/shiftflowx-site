@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import { calculateTakeHome, type DeductionKind } from './takeHomeCalc'
 
 const ANALYTICS = { calculator: 'take-home-pay-calculator', category: 'Pay & Earnings' }
@@ -277,10 +277,10 @@ export default function TakeHomeClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="take-home-pay-calculator"
               headline="Guessing what a shift is worth?"
-              sub="ShiftFlow tracks your expected pay per shift, so you know your gross before payday."
+              sub="HoursFlow tracks your expected pay per shift, so you know your gross before payday."
             />
           </div>
         </div>

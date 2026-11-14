@@ -5,7 +5,7 @@ import { Briefcase, Receipt, Layers, Check } from "lucide-react";
 
 /**
  * Section 2 — "Works the way you work."
- * The core v1.4 differentiator: ShiftFlow adapts to how the user earns income.
+ * The core v1.4 differentiator: HoursFlow adapts to how the user earns income.
  * Three honest worker profiles, each listing only capabilities that exist in the app.
  * No unsupported tax-accuracy claims; sales tax is never framed as income.
  */
@@ -71,7 +71,7 @@ export default function WorkerModes() {
             One app that adapts to how you get paid
           </h2>
           <p className="mt-4 text-white/60 text-lg leading-relaxed">
-            Tell ShiftFlow how you earn and it configures itself around you — the right
+            Tell HoursFlow how you earn and it configures itself around you — the right
             numbers, the right words, nothing that doesn&apos;t apply.
           </p>
         </div>

@@ -5,7 +5,7 @@ import { PRICING, BILLING_FAQ, SITE_URL, APP_STORE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: `Pricing — Free ${PRICING.trialDays}-Day Trial, Then ${PRICING.monthly.shortLabel}`,
   description:
-    `Simple, transparent pricing. Try ShiftFlow Pro free for ${PRICING.trialDays} days, then ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}. Cancel anytime.`,
+    `Simple, transparent pricing. Try HoursFlow Pro free for ${PRICING.trialDays} days, then ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}. Cancel anytime.`,
   // Without this the root layout's canonical ('https://shiftflowx.net') is inherited,
   // telling Google this page duplicates the homepage — which drops it from the index.
   alternates: { canonical: 'https://shiftflowx.net/pricing' },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const offersJsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "ShiftFlow",
+  name: "HoursFlow",
   operatingSystem: "iOS",
   applicationCategory: "FinanceApplication",
   url: `${SITE_URL}/pricing`,

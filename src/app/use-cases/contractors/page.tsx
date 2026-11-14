@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "For Contractors — Hours & Invoicing",
-  description: "ShiftFlow helps independent contractors track their hours and earnings, create invoices, and prepare a tax report with GST/HST summaries.",
+  description: "HoursFlow helps independent contractors track their hours and earnings, create invoices, and prepare a tax report with GST/HST summaries.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/contractors' },
 };
 
@@ -11,7 +11,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://shiftflowx.net/use-cases/contractors" },
     { "@type": "ListItem", "position": 3, "name": "Contractors", "item": "https://shiftflowx.net/use-cases/contractors" }
   ]
@@ -29,7 +29,7 @@ export default function ContractorsPage() {
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
 
           <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
             <span>/</span>
             <Link href="/use-cases/contractors" className="text-white/60">Contractors</Link>
           </nav>
@@ -39,7 +39,7 @@ export default function ContractorsPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-            ShiftFlow for Independent Contractors
+            HoursFlow for Independent Contractors
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
             Track your hours and earnings, create invoices, and keep tax time in view — without the spreadsheet headache.
@@ -51,7 +51,7 @@ export default function ContractorsPage() {
               Independent contractors often juggle multiple clients, different billing rates, and a tax burden that most employees never think about.
             </p>
             <p className="text-white/60 leading-relaxed">
-              ShiftFlow helps by keeping your hours, earnings and invoices together, and giving subscribers a tax report with GST/HST summaries.
+              HoursFlow helps by keeping your hours, earnings and invoices together, and giving subscribers a tax report with GST/HST summaries.
             </p>
           </section>
 
@@ -78,8 +78,8 @@ export default function ContractorsPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Contractor FAQ</h2>
             <dl className="space-y-6">
               {[
-                { q: "Where do I create invoices?", a: "In the ShiftFlow app. Invoicing is a Pro feature." },
-                { q: "Does ShiftFlow help me with GST/HST?", a: "Subscribers get a tax report with GST/HST summaries. These are estimates and not tax advice." },
+                { q: "Where do I create invoices?", a: "In the HoursFlow app. Invoicing is a Pro feature." },
+                { q: "Does HoursFlow help me with GST/HST?", a: "Subscribers get a tax report with GST/HST summaries. These are estimates and not tax advice." },
                 { q: "Can I scan my receipts?", a: "Yes, with a subscription. Text is read on your device." },
               ].map(({ q, a }) => (
                 <div key={q}>
@@ -94,7 +94,7 @@ export default function ContractorsPage() {
             <h3 className="text-2xl font-bold text-white mb-3">Run your contracting business smarter</h3>
             <p className="text-white/60 mb-6">Free 7-day trial. Cancel anytime.</p>
             <Link href="/download" className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors">
-              Download ShiftFlow Free
+              Download HoursFlow Free
             </Link>
           </div>
         </div>

@@ -1,6 +1,18 @@
 export const SITE_URL = "https://shiftflowx.net";
 export const SUPPORT_EMAIL = "support@shiftflowx.net";
-export const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892";
+// ─── Brand (SINGLE SOURCE OF TRUTH) ──────────────────────────────────────────
+// Product name, paid-tier name, operator and tagline. Metadata, JSON-LD, the OG image
+// and shared components read these; src/lib/brand.test.ts blocks the old name returning.
+export const BRAND = {
+  name: "HoursFlow",
+  proName: "HoursFlow Pro",
+  legalEntity: "Flowmatix Creative Inc.",
+  tagline: "Make every hour count.",
+} as const;
+
+// The numeric id is what App Store resolves; the slug is cosmetic.
+export const APP_STORE_ID = "6768095892";
+export const APP_STORE_URL = `https://apps.apple.com/app/hoursflow/id${APP_STORE_ID}`;
 
 // ─── Backend API (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
 // Every browser/server call to the backend goes through these, and next.config.ts
@@ -105,10 +117,10 @@ export const PRO_FEATURES = [
 export const BILLING_FAQ = [
   { q: "When does the free trial start?", a: `Your ${TRIAL_DAYS}-day Pro trial begins when you start it in the app. You get full access to every Pro feature during the trial.` },
   { q: "What happens after the trial ends?", a: `After ${TRIAL_DAYS} days, your selected Pro plan (Monthly or Annual) begins unless you cancel. You can cancel any time before the trial ends and you won't be charged.` },
-  { q: "How do I subscribe to Pro?", a: "Subscriptions are managed through the Apple App Store. In the ShiftFlow app, go to Settings → Upgrade to Pro and choose Monthly or Annual." },
+  { q: "How do I subscribe to Pro?", a: `Subscriptions are managed through the Apple App Store. In the ${BRAND.name} app, go to Settings → Upgrade to Pro and choose Monthly or Annual.` },
   { q: "Can I switch between monthly and annual?", a: "Yes. Change your billing period any time in your Apple ID subscription settings. Changes take effect at your next billing date." },
   { q: "How do I cancel?", a: "Cancel any time in iPhone Settings → Apple ID → Subscriptions. You keep Pro access until the end of your current billing period. Apple does not offer partial refunds for unused time." },
-  { q: "How do I restore my purchase on a new device?", a: "Open ShiftFlow → Settings → Restore Purchases. Your subscription is tied to your Apple ID and transfers automatically." },
+  { q: "How do I restore my purchase on a new device?", a: `Open ${BRAND.name} → Settings → Restore Purchases. Your subscription is tied to your Apple ID and transfers automatically.` },
   { q: "Do you offer refunds?", a: "Refunds are handled by Apple. Visit reportaproblem.apple.com to request one — Apple reviews each case individually." },
 ] as const;
 
@@ -210,7 +222,7 @@ export const FAQ_ITEMS = [
   {
     question: `How does the ${TRIAL_DAYS}-day free trial work?`,
     answer:
-      `Your free trial gives you full access to every ShiftFlow Pro feature for ${TRIAL_DAYS} days. After the trial, your selected Monthly or Annual plan begins unless you cancel. We'll remind you before the trial ends.`,
+      `Your free trial gives you full access to every ${BRAND.proName} feature for ${TRIAL_DAYS} days. After the trial, your selected Monthly or Annual plan begins unless you cancel. We'll remind you before the trial ends.`,
   },
   {
     question: "Does my subscription renew automatically?",
@@ -220,17 +232,17 @@ export const FAQ_ITEMS = [
   {
     question: "Can I cancel anytime?",
     answer:
-      "Absolutely. Cancel anytime through the Apple App Store: Settings → Apple ID → Subscriptions → ShiftFlow → Cancel Subscription. You keep Pro access until the end of your current billing period. No penalties, no questions asked.",
+      `Absolutely. Cancel anytime through the Apple App Store: Settings → Apple ID → Subscriptions → ${BRAND.name} → Cancel Subscription. You keep Pro access until the end of your current billing period. No penalties, no questions asked.`,
   },
   {
     question: "How do I manage my subscription?",
     answer:
-      "Your subscription is fully managed through Apple. On your iPhone: Settings → [Your Name] → Subscriptions → ShiftFlow. From there you can upgrade, downgrade (Annual ↔ Monthly), or cancel. You can also tap 'Manage Subscription' inside the ShiftFlow app.",
+      `Your subscription is fully managed through Apple. On your iPhone: Settings → [Your Name] → Subscriptions → ${BRAND.name}. From there you can upgrade, downgrade (Annual ↔ Monthly), or cancel. You can also tap 'Manage Subscription' inside the ${BRAND.name} app.`,
   },
   {
     question: "How does payday forecasting work?",
     answer:
-      "ShiftFlow uses your pay schedule and the shifts you log to show when your next payday is due and an estimate of what you have earned for the period. Estimates are not a guarantee of what your employer will pay.",
+      `${BRAND.name} uses your pay schedule and the shifts you log to show when your next payday is due and an estimate of what you have earned for the period. Estimates are not a guarantee of what your employer will pay.`,
   },
   {
     question: "Is my payroll data secure?",

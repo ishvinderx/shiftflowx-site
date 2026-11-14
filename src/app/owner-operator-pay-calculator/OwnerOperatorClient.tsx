@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { getSalesTaxRule, SALES_TAX_RULES } from '@/lib/rules/salesTax'
 import { calculateOwnerOperatorPay, type GstRegistration, type RevenueBasis } from './ownerOpCalc'
@@ -336,10 +336,10 @@ export default function OwnerOperatorClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="owner-operator-pay-calculator"
               headline="Doing this math after every settlement?"
-              sub="ShiftFlow tracks loads, expenses and reserves automatically."
+              sub="HoursFlow tracks loads, expenses and reserves automatically."
             />
           </div>
         </div>

@@ -45,7 +45,7 @@ const FAQ: Faq[] = [
   },
   {
     q: "Is this work hours calculator free?",
-    a: "Yes — completely free, no signup, no limits. If you want your hours tracked automatically every shift with overtime detection and payday forecasting, that's what the ShiftFlow iOS app does.",
+    a: "Yes — completely free, no signup, no limits. If you want your hours tracked automatically every shift with overtime detection and payday forecasting, that's what the HoursFlow iOS app does.",
   },
 ];
 
@@ -59,7 +59,7 @@ const SCHEMA_TOOL = {
 };
 
 const TRAIL = [
-  { name: "ShiftFlow", path: "/" },
+  { name: "HoursFlow", path: "/" },
   { name: "Work Hours Calculator", path: "/work-hours-calculator" },
 ];
 
@@ -127,10 +127,10 @@ export default function WorkHoursCalculatorPage() {
                 How to track work hours →
               </Link>
               <Link href="/use-cases/hourly-workers" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
-                ShiftFlow for hourly workers →
+                HoursFlow for hourly workers →
               </Link>
               <Link href="/download" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
-                Get the ShiftFlow app →
+                Get the HoursFlow app →
               </Link>
             </div>
           </section>

@@ -5,16 +5,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, BRAND } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-function ShiftFlowLogo() {
+function BrandLogo() {
   return (
     <Link href="/" className="flex items-center gap-2.5 group">
       <div className="relative w-8 h-8 flex-shrink-0">
         <Image
           src="/icon-192.png"
-          alt="ShiftFlow"
+          alt={BRAND.name}
           width={32}
           height={32}
           className="rounded-[9px]"
@@ -23,7 +23,7 @@ function ShiftFlowLogo() {
         <div className="absolute inset-0 rounded-[9px] bg-[#D63C6B] opacity-0 group-hover:opacity-20 blur-[6px] transition-opacity duration-300" />
       </div>
       <span className="text-white font-bold text-[17px] tracking-tight">
-        Shift<span className="text-[#D63C6B]">Flow</span>
+        {BRAND.name}
       </span>
     </Link>
   );
@@ -65,7 +65,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <ShiftFlowLogo />
+            <BrandLogo />
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-0.5">

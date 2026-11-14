@@ -11,7 +11,7 @@ export const metadata: Metadata = toolMetadata({
   slug: 'tools',
   title: 'Free Calculators for Hourly & Self-Employed Workers',
   description:
-    'Free calculators from ShiftFlow: work hours, time cards, decimal hours, and hourly pay. Instant answers, no signup.',
+    'Free calculators from HoursFlow: work hours, time cards, decimal hours, and hourly pay. Instant answers, no signup.',
 })
 
 const CATEGORY_ORDER: ToolCategory[] = [
@@ -38,7 +38,7 @@ const itemListSchema = {
 }
 
 const trail = [
-  { name: 'ShiftFlow', path: '/' },
+  { name: 'HoursFlow', path: '/' },
   { name: 'Free Tools', path: '/tools' },
 ]
 
@@ -62,7 +62,7 @@ export default function ToolsPage() {
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-2xl">
             Work hours, time cards, and pay — instant answers, no signup. Built by the team
-            behind the ShiftFlow app.
+            behind the HoursFlow app.
           </p>
 
           {categories.map(({ category, tools }) => (

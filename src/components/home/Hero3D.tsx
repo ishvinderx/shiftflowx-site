@@ -187,7 +187,7 @@ export default function Hero3D() {
               <div className="phone-screen aspect-[9/19.5]">
                 <Image
                   src="/screenshots/home.png"
-                  alt="ShiftFlow home dashboard showing total earnings and next payday"
+                  alt="HoursFlow home screen showing what is still to earn this month and the expected paycheck"
                   fill
                   priority
                   sizes="310px"

@@ -39,7 +39,7 @@ const FAQ: Faq[] = [
   },
   {
     q: "Is this time card calculator free?",
-    a: "Yes — free, no signup, no limits. If you want your timesheet built automatically from tracked shifts with overtime detection and payday forecasting, that's what the ShiftFlow iOS app does.",
+    a: "Yes — free, no signup, no limits. If you want your timesheet built automatically from tracked shifts with overtime detection and payday forecasting, that's what the HoursFlow iOS app does.",
   },
 ];
 
@@ -53,7 +53,7 @@ const SCHEMA_TOOL = {
 };
 
 const TRAIL = [
-  { name: "ShiftFlow", path: "/" },
+  { name: "HoursFlow", path: "/" },
   { name: "Time Card Calculator", path: "/time-card-calculator" },
 ];
 
@@ -109,10 +109,10 @@ export default function TimeCardCalculatorPage() {
                 Decimal hours converter →
               </Link>
               <Link href="/use-cases/hourly-workers" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
-                ShiftFlow for hourly workers →
+                HoursFlow for hourly workers →
               </Link>
               <Link href="/download" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
-                Get the ShiftFlow app →
+                Get the HoursFlow app →
               </Link>
             </div>
           </section>

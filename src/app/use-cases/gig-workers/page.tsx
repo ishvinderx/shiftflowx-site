@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "For Gig Workers — Income & Tax Tracking",
-  description: "ShiftFlow helps gig workers track what they earn, keep a budget and bills, see a tax report with GST/HST summaries, and create invoices.",
+  description: "HoursFlow helps gig workers track what they earn, keep a budget and bills, see a tax report with GST/HST summaries, and create invoices.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/gig-workers' },
 };
 
@@ -11,7 +11,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://shiftflowx.net/use-cases/gig-workers" },
     { "@type": "ListItem", "position": 3, "name": "Gig Workers", "item": "https://shiftflowx.net/use-cases/gig-workers" }
   ]
@@ -29,7 +29,7 @@ export default function GigWorkersPage() {
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
 
           <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
             <span>/</span>
             <Link href="/use-cases/gig-workers" className="text-white/60">Gig Workers</Link>
           </nav>
@@ -42,14 +42,14 @@ export default function GigWorkersPage() {
             The Income Tracking App Built for Gig Workers
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
-            Whether you drive for Uber, deliver for DoorDash, or complete tasks on TaskRabbit — ShiftFlow helps you track your earnings, keep your bills in view, and prepare for tax time.
+            Whether you drive for Uber, deliver for DoorDash, or complete tasks on TaskRabbit — HoursFlow helps you track your earnings, keep your bills in view, and prepare for tax time.
           </p>
 
           {/* Who it&apos;s for */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Built for Every Type of Gig Worker</h2>
             <p className="text-white/60 leading-relaxed mb-4">
-              ShiftFlow is designed for the modern gig economy worker — someone who earns income across multiple platforms, faces unpredictable pay schedules, and has to handle their own taxes without employer support. This includes:
+              HoursFlow is designed for the modern gig economy worker — someone who earns income across multiple platforms, faces unpredictable pay schedules, and has to handle their own taxes without employer support. This includes:
             </p>
             <ul className="space-y-2 mb-4">
               {[
@@ -69,7 +69,7 @@ export default function GigWorkersPage() {
 
           {/* Problems solved */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6">Problems ShiftFlow Solves for Gig Workers</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Problems HoursFlow Solves for Gig Workers</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
                 { title: "Income Tracking", desc: "Log your shifts and see what you earned. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
@@ -93,7 +93,7 @@ export default function GigWorkersPage() {
             <dl className="space-y-6">
               {[
                 { q: "Can I track income from multiple gig apps in one place?", a: "Pro includes multiple employers, so you can keep each source of income separate. The free plan tracks one employer." },
-                { q: "How does ShiftFlow help with taxes?", a: "Subscribers get a tax report with GST/HST summaries. ShiftFlow provides estimates only and is not tax advice." },
+                { q: "How does HoursFlow help with taxes?", a: "Subscribers get a tax report with GST/HST summaries. HoursFlow provides estimates only and is not tax advice." },
                 { q: "Can I scan my receipts?", a: "Yes, with a subscription. Receipt scanning reads text on your device." },
                 { q: "Do I need a subscription?", a: "No. The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records." },
               ].map(({ q, a }) => (
@@ -110,7 +110,7 @@ export default function GigWorkersPage() {
             <h3 className="text-2xl font-bold text-white mb-3">Track every dollar you earn</h3>
             <p className="text-white/60 mb-6">Free 7-day trial. Cancel anytime.</p>
             <Link href="/download" className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors">
-              Download ShiftFlow Free
+              Download HoursFlow Free
             </Link>
           </div>
         </div>

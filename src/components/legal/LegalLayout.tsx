@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { BRAND } from "@/lib/constants";
 
 interface TocItem {
   id: string;
@@ -27,7 +28,7 @@ export default function LegalLayout({
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 text-sm text-white/30 mb-6">
             <Link href="/" className="hover:text-white/60 transition-colors">
-              ShiftFlow
+              {BRAND.name}
             </Link>
             <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-white/60">{title}</span>

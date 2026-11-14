@@ -15,39 +15,27 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   {
     src: "/screenshots/home.png",
-    alt: "ShiftFlow home dashboard showing total earnings and next payday",
-    label: "Dashboard",
-    accentColor: "#D63C6B",
-  },
-  {
-    src: "/screenshots/earnings.png",
-    alt: "ShiftFlow earnings with estimated tax breakdown",
-    label: "Earnings & Tax",
-    accentColor: "#22C55E",
-  },
-  {
-    src: "/screenshots/reports.png",
-    alt: "ShiftFlow reports with income trend over time",
-    label: "Reports",
-    accentColor: "#EC4899",
-  },
-  {
-    src: "/screenshots/invoice.png",
-    alt: "ShiftFlow invoices for freelancers and contractors",
-    label: "Invoices",
-    accentColor: "#F97316",
+    alt: "HoursFlow home screen showing what is still to earn this month and the expected paycheck",
+    label: "Home",
+    accentColor: "#A8E6CF",
   },
   {
     src: "/screenshots/shifts.png",
-    alt: "ShiftFlow shift calendar heatmap",
-    label: "Shifts",
-    accentColor: "#D63C6B",
+    alt: "HoursFlow work history listing logged shifts by day with hours and earnings",
+    label: "Work",
+    accentColor: "#A7B5FF",
   },
   {
-    src: "/screenshots/profile.png",
-    alt: "ShiftFlow profile with financial tools and calculators",
-    label: "Tools",
-    accentColor: "#8B5CF6",
+    src: "/screenshots/budget.png",
+    alt: "HoursFlow monthly budget showing income, planned bills and what is still to earn",
+    label: "Budget",
+    accentColor: "#A8E6CF",
+  },
+  {
+    src: "/screenshots/reports.png",
+    alt: "HoursFlow reports with a summary of gross pay, hours worked and the expected payment",
+    label: "Reports",
+    accentColor: "#A7B5FF",
   },
 ];
 
@@ -152,7 +140,7 @@ export default function AppGallery() {
         <SectionHeader
           label="App Gallery"
           title="Every screen. Built for you."
-          subtitle="Real screenshots from ShiftFlow running on iPhone. What you see is what you get."
+          subtitle="Real screenshots from HoursFlow running on iPhone. What you see is what you get."
         />
       </div>
 
@@ -177,7 +165,7 @@ export default function AppGallery() {
       {/* Attribution */}
       <div className="relative max-w-6xl mx-auto px-6 md:px-8 lg:px-12 mt-8 text-center">
         <p className="text-white/20 text-xs">
-          All screenshots captured from ShiftFlow running on iPhone 17 Pro simulator · iOS 26.4
+          All screenshots captured from HoursFlow running on iPhone 17 Pro simulator · iOS 26.4
         </p>
       </div>
     </section>

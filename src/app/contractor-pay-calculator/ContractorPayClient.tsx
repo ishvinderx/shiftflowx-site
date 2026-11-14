@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { SALES_TAX_RULES, getSalesTaxRule } from '@/lib/rules/salesTax'
 import { calculateContractorPay } from './contractorCalc'
@@ -254,10 +254,10 @@ export default function ContractorPayClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="contractor-pay-calculator"
               headline="Doing this math for every invoice?"
-              sub="ShiftFlow tracks contractor earnings, GST/HST and tax reserves automatically."
+              sub="HoursFlow tracks contractor earnings, GST/HST and tax reserves automatically."
             />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { SITE_URL } from '@/lib/constants'
+import { SITE_URL, BRAND } from '@/lib/constants'
 
 // SEO helpers for calculator pages — the exact house metadata + JSON-LD shapes
 // already used by the live calculators. New tool pages use these; existing
@@ -35,7 +35,7 @@ export function webAppSchema(cfg: { slug: string; title: string; description: st
     operatingSystem: 'Any (web browser)',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: cfg.description,
-    publisher: { '@type': 'Organization', name: 'ShiftFlow', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: BRAND.name, url: SITE_URL },
   }
 }
 

@@ -51,7 +51,7 @@ const FAQ: Faq[] = [
 
 export default function OvertimeCalculatorPage() {
   const trail = [
-    { name: 'ShiftFlow', path: '/' },
+    { name: 'HoursFlow', path: '/' },
     { name: 'Free Tools', path: '/tools' },
     { name: TOOL.title, path: `/${TOOL.slug}` },
   ]
@@ -113,7 +113,7 @@ export default function OvertimeCalculatorPage() {
             slug={TOOL.slug}
             extraLinks={[
               { href: '/blog/how-to-calculate-overtime-hours', label: 'How to calculate overtime hours' },
-              { href: '/download', label: 'Get the ShiftFlow app' },
+              { href: '/download', label: 'Get the HoursFlow app' },
             ]}
           />
 

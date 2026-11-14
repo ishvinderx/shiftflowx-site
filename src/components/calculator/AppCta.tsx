@@ -1,14 +1,14 @@
-import { appStoreCampaignUrl } from '@/lib/constants'
+import { appStoreCampaignUrl, BRAND } from '@/lib/constants'
 
 // App Store CTA card — place INSIDE/AFTER the result, never before the tool.
 // Plain anchor so it works in both server and client components. Click
 // tracking (calculator_cta_clicked) is the caller's job: wrap in a
 // client-side onClickCapture where needed.
-export default function ShiftFlowCta({
+export default function AppCta({
   ct,
   headline,
   sub,
-  label = 'Track Hours with ShiftFlow',
+  label = `Track Hours with ${BRAND.name}`,
 }: {
   ct: string
   headline: string

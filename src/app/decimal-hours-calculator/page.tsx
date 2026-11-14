@@ -50,7 +50,7 @@ const SCHEMA_TOOL = {
 };
 
 const TRAIL = [
-  { name: "ShiftFlow", path: "/" },
+  { name: "HoursFlow", path: "/" },
   { name: "Decimal Hours Calculator", path: "/decimal-hours-calculator" },
 ];
 
@@ -116,7 +116,7 @@ export default function DecimalHoursCalculatorPage() {
                 Weekly time card calculator →
               </Link>
               <Link href="/download" className="text-white/60 hover:text-white bg-white/[0.04] border border-white/10 rounded-full px-4 py-2 transition-colors">
-                Get the ShiftFlow app →
+                Get the HoursFlow app →
               </Link>
             </div>
           </section>

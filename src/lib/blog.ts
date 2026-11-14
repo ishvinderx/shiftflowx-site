@@ -47,11 +47,11 @@ More durable than paper and easier to calculate totals, spreadsheets like Google
 Many employers use punch-in systems or electronic time clocks. These are convenient but carry a critical risk: you don't control the record. Employers have been found to manipulate time clock data — rounding down shift start times, rounding up break durations, or removing punch-in records entirely.
 
 ### Dedicated Shift Tracking Apps
-Apps like ShiftFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. With a subscription, ShiftFlow's paycheck tracker can also check a paycheque against your logged hours.
+Apps like HoursFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. With a subscription, HoursFlow's paycheck tracker can also check a paycheque against your logged hours.
 
 ## What a Shift Tracking App Adds
 
-A good shift tracking app does more than record your hours. ShiftFlow, for example:
+A good shift tracking app does more than record your hours. HoursFlow, for example:
 
 1. Shows your earnings from the hours and rate you log
 2. Shows when your next payday is due, based on your pay schedule
@@ -65,7 +65,7 @@ This turns hour tracking from a passive record into something you can check your
 - **Log every shift the same day.** Memory fades quickly — same-day logging is far more accurate than end-of-week reconstruction.
 - **Track breaks separately.** Unpaid break time affects your pay calculation; record exact break durations.
 - **Know your overtime threshold.** Most hourly workers are entitled to 1.5x pay after 40 hours per week under federal FLSA rules.
-- **Use technology.** Apps like ShiftFlow make hour tracking quick, and subscribers can check a paycheque against their logged hours.
+- **Use technology.** Apps like HoursFlow make hour tracking quick, and subscribers can check a paycheque against their logged hours.
 
 ## Frequently Asked Questions
 
@@ -79,7 +79,7 @@ Your independent records are legally valid documentation. If you have consistent
 Yes. Unpaid break time directly reduces your payable hours. If you're paid for a 30-minute break but your employer is deducting it, or vice versa, that creates a pay discrepancy. Log break start and end times for each shift.
 
 **Can I track hours if I have multiple employers?**
-Yes. ShiftFlow Pro supports more than one employer. The free plan tracks one employer.
+Yes. HoursFlow Pro supports more than one employer. The free plan tracks one employer.
 `,
   },
   {
@@ -155,7 +155,7 @@ When your paycheck arrives, calculate what you expected to receive based on your
 
 ### Use a Paycheck Tracker
 
-ShiftFlow's paycheck tracker, a Pro feature, checks a paycheque against the hours you logged, so you can see if an amount looks short.
+HoursFlow's paycheck tracker, a Pro feature, checks a paycheque against the hours you logged, so you can see if an amount looks short.
 
 ## Key Takeaways
 
@@ -176,8 +176,8 @@ Under federal FLSA, you can claim unpaid wages going back 2 years (3 years for w
 **Can an employer retaliate if I report a payroll error?**
 Retaliation for reporting wage violations is illegal under the FLSA. If you experience retaliation after reporting a payroll issue, document it and report it alongside your wage claim.
 
-**Does ShiftFlow keep a record I can use if I raise a question about my pay?**
-ShiftFlow keeps a record of the shifts you log, and subscribers can export reports as PDF or CSV to share with your employer or payroll department.
+**Does HoursFlow keep a record I can use if I raise a question about my pay?**
+HoursFlow keeps a record of the shifts you log, and subscribers can export reports as PDF or CSV to share with your employer or payroll department.
 `,
   },
   {
@@ -254,15 +254,15 @@ Self-employed workers can deduct 100% of health insurance premiums paid for them
 ### Home Office Deduction
 If you use part of your home exclusively and regularly for business (managing your gig business, client communications, record keeping), you may qualify for the home office deduction.
 
-## How ShiftFlow Helps With Gig Taxes
+## How HoursFlow Helps With Gig Taxes
 
-ShiftFlow keeps your earnings in one place and gives subscribers a tax report:
+HoursFlow keeps your earnings in one place and gives subscribers a tax report:
 
 - **Earnings tracking**: Log your shifts and see what you earned
 - **Tax report**: Subscribers get a tax report with GST/HST summaries, exported as PDF or CSV
 - **Receipt scanning**: Subscribers can scan receipts, with text read on the device
 
-ShiftFlow provides estimates only. It is not tax advice.
+HoursFlow provides estimates only. It is not tax advice.
 
 ## Key Takeaways
 
@@ -304,7 +304,7 @@ A payday estimate uses two things you already know:
 1. **Your pay schedule** (weekly, bi-weekly, semi-monthly or monthly), which tells you when the next payday falls
 2. **The shifts you have logged** in the current pay period, which show roughly what you have earned so far
 
-ShiftFlow shows both. Set your pay schedule, log your shifts, and the app shows when your next payday is due and what you have earned in the period.
+HoursFlow shows both. Set your pay schedule, log your shifts, and the app shows when your next payday is due and what you have earned in the period.
 
 ## Limits of an Estimate
 
@@ -314,7 +314,7 @@ An estimate is not a guarantee. Your employer's actual payment depends on their 
 
 ### Planning Bills
 
-Knowing when payday falls lets you schedule bills around it. ShiftFlow's free plan includes budget and bill reminders, so you get a reminder before a bill is due.
+Knowing when payday falls lets you schedule bills around it. HoursFlow's free plan includes budget and bill reminders, so you get a reminder before a bill is due.
 
 ### Checking Your Paycheque
 
@@ -396,7 +396,7 @@ The payment terms you set have a measurable impact on when you actually receive 
 
 Manual invoice creation — adding up hours from memory, building tables in Word documents or Google Docs — is time-consuming and error-prone. The more efficient approach: log your project time as you work and generate invoices directly from those logs.
 
-ShiftFlow Pro includes invoicing for self-employed work. Log your hours as you work, and create an invoice when the project or month ends, then export it.
+HoursFlow Pro includes invoicing for self-employed work. Log your hours as you work, and create an invoice when the project or month ends, then export it.
 
 The benefits of log-based invoicing:
 
@@ -496,7 +496,7 @@ Shift: 10:00 PM to 6:30 AM with one 45-minute unpaid break.
 - **Rounding minutes casually.** 7:47 to 4:02 is 8 hours 15 minutes, not 8 hours. Small daily rounding compounds into real money across a pay period.
 - **Mixing h:mm and decimal.** 8 hours 30 minutes is 8.5 decimal hours, never 8.30.
 
-If you are doing this every shift, that is exactly the job ShiftFlow automates — it logs each shift and shows your earnings as you go. The calculator is the manual version; [the app](/download) is the automatic one.
+If you are doing this every shift, that is exactly the job HoursFlow automates — it logs each shift and shows your earnings as you go. The calculator is the manual version; [the app](/download) is the automatic one.
 `,
   },
   {
@@ -540,7 +540,7 @@ For a split shift (say 7:00–11:00 AM and 4:00–8:00 PM), calculate each segme
 
 ## Weekly totals
 
-Totalling a full week of varied shifts by hand is where errors compound. The [weekly time card calculator](/time-card-calculator) takes each day's start, end, and lunch and produces the weekly total with weekly overtime — or ShiftFlow [tracks it automatically](/download) shift by shift.
+Totalling a full week of varied shifts by hand is where errors compound. The [weekly time card calculator](/time-card-calculator) takes each day's start, end, and lunch and produces the weekly total with weekly overtime — or HoursFlow [tracks it automatically](/download) shift by shift.
 `,
   },
   {
@@ -583,7 +583,7 @@ Every minute value from 0 to 59 is on the [decimal hours calculator](/decimal-ho
 
 ## Where this fits in your pay
 
-Decimal conversion is the LAST step of an hours calculation: first total your time and subtract unpaid breaks (the [work hours calculator](/work-hours-calculator) does both), then convert, then multiply by your rate. ShiftFlow [does the whole chain automatically](/download) for every shift you log.
+Decimal conversion is the LAST step of an hours calculation: first total your time and subtract unpaid breaks (the [work hours calculator](/work-hours-calculator) does both), then convert, then multiply by your rate. HoursFlow [does the whole chain automatically](/download) for every shift you log.
 `,
   },
   {
@@ -634,7 +634,7 @@ The [single-shift calculator](/work-hours-calculator) handles the daily version,
 - **The multiplier applies to your regular rate** — check how your agreement defines it if you earn premiums or differentials.
 - **Averaging agreements and exemptions can change everything** — the categories exempted from overtime vary widely.
 
-ShiftFlow keeps a record of every shift you log, and its paycheck tracker (a Pro feature) checks a paycheque against the hours you actually worked — [that is the whole point of the app](/download).
+HoursFlow keeps a record of every shift you log, and its paycheck tracker (a Pro feature) checks a paycheque against the hours you actually worked — [that is the whole point of the app](/download).
 `,
   },
 ];

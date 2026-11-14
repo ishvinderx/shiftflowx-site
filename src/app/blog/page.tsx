@@ -12,7 +12,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://shiftflowx.net/blog" }
   ]
 };
@@ -45,12 +45,12 @@ export default function BlogPage() {
           {/* Header */}
           <div className="mb-16">
             <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-              <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+              <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
               <span>/</span>
               <span className="text-white/60">Blog</span>
             </nav>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              ShiftFlow Blog
+              HoursFlow Blog
             </h1>
             <p className="text-xl text-white/60 max-w-2xl">
               Guides on paychecks, payday, gig worker taxes and freelancer invoicing.
@@ -101,13 +101,13 @@ export default function BlogPage() {
 
           {/* Bottom CTA */}
           <div className="mt-16 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-2xl font-bold text-white mb-3">Track your hours with ShiftFlow</h3>
+            <h3 className="text-2xl font-bold text-white mb-3">Track your hours with HoursFlow</h3>
             <p className="text-white/60 mb-6">Track hours, earnings, bills and tax estimates. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"
               className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors"
             >
-              Download ShiftFlow Free
+              Download HoursFlow Free
             </Link>
           </div>
         </div>

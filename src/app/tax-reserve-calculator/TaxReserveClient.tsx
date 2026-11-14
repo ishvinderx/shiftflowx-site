@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import { calculateReserve } from './reserveCalc'
 
 const ANALYTICS = { calculator: 'tax-reserve-calculator', category: 'Contractor & Self-Employed' }
@@ -155,11 +155,11 @@ export default function TaxReserveClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="tax-reserve-calculator"
               headline="Setting money aside every payment?"
-              sub="ShiftFlow tracks income, expenses and tax reserves per shift automatically."
-              label="Get ShiftFlow"
+              sub="HoursFlow tracks income, expenses and tax reserves per shift automatically."
+              label="Get HoursFlow"
             />
           </div>
         </div>

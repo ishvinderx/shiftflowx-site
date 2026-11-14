@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ToolPageView from "@/components/analytics/ToolPageView";
-import { PRICING } from "@/lib/constants";
+import { PRICING, BRAND, SITE_URL, SUPPORT_EMAIL, APP_STORE_URL } from "@/lib/constants";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,13 +12,15 @@ const inter = Inter({
   display: "swap",
 });
 
+const TITLE = `${BRAND.name} — Shift Tracker & Payday App`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shiftflowx.net'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'ShiftFlow — Shift Tracker & Payday App',
-    template: '%s | ShiftFlow'
+    default: TITLE,
+    template: `%s | ${BRAND.name}`
   },
-  description: 'ShiftFlow is an iOS app for tracking work hours, earnings, budget, bills and tax estimates. Free to start; Pro adds a 7-day free trial.',
+  description: `${BRAND.name} is an iOS app for tracking work hours, earnings, budget, bills and tax estimates. Free to start; Pro adds a ${PRICING.trialDays}-day free trial.`,
   keywords: [
     'shift tracker app', 'payday tracker app', 'gig worker finance app',
     'employee paycheck tracker', 'freelancer invoice tracker',
@@ -26,9 +28,9 @@ export const metadata: Metadata = {
     'budget and bill reminders', 'income tracker',
     'overtime calculator app'
   ],
-  authors: [{ name: 'ShiftFlow', url: 'https://shiftflowx.net' }],
-  creator: 'ShiftFlow',
-  publisher: 'ShiftFlow',
+  authors: [{ name: BRAND.name, url: SITE_URL }],
+  creator: BRAND.name,
+  publisher: BRAND.legalEntity,
   robots: {
     index: true,
     follow: true,
@@ -38,17 +40,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://shiftflowx.net',
-    siteName: 'ShiftFlow',
-    title: 'ShiftFlow — Shift Tracker & Payday App',
+    siteName: BRAND.name,
+    title: TITLE,
     description: 'Track work hours, earnings, payday, budget, bills and tax estimates. Free to start.',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'ShiftFlow — Know exactly what you’ve earned' }]
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: `${BRAND.name} — ${BRAND.tagline}` }]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShiftFlow — Shift Tracker & Payday App',
+    title: TITLE,
     description: 'Track work hours, earnings, payday, budget, bills and tax estimates.',
     images: ['/opengraph-image'],
-    creator: '@shiftflowapp'
   },
   alternates: { canonical: 'https://shiftflowx.net' },
   category: 'Finance',
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "ShiftFlow",
+    title: BRAND.name,
   },
 };
 
@@ -74,19 +75,19 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "ShiftFlow",
-    "alternateName": ["ShiftFlow App", "ShiftFlow — Shift & Payday Tracker"],
-    "description": "ShiftFlow is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.",
+    "name": BRAND.name,
+    "alternateName": [`${BRAND.name} App`, `${BRAND.name} — Shift & Payday Tracker`],
+    "description": `${BRAND.name} is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.`,
     "applicationCategory": "FinanceApplication",
     "applicationSubCategory": "Workforce Management",
     "operatingSystem": "iOS 16+",
     "url": "https://shiftflowx.net",
-    "downloadUrl": "https://apps.apple.com/app/shiftflow/id6768095892",
+    "downloadUrl": APP_STORE_URL,
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": `${PRICING.trialDays}-day free trial. ShiftFlow Pro from ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}.`
+      "description": `${PRICING.trialDays}-day free trial. ${BRAND.proName} from ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}.`
     },
     "featureList": [
       "Shift Tracking",
@@ -103,13 +104,13 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "ShiftFlow",
+    "name": BRAND.name,
     "url": "https://shiftflowx.net",
     "logo": "https://shiftflowx.net/icon.png",
-    "description": "ShiftFlow builds an iOS app for employees, freelancers, and gig workers to track hours, earnings, bills and tax estimates.",
+    "description": `${BRAND.name} is operated by ${BRAND.legalEntity} and is an iOS app for employees, freelancers, and gig workers to track hours, earnings, bills and tax estimates.`,
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "support@shiftflowx.net",
+      "email": SUPPORT_EMAIL,
       "contactType": "customer support"
     },
     "sameAs": []
@@ -117,7 +118,7 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ShiftFlow",
+    "name": BRAND.name,
     "url": "https://shiftflowx.net",
     "description": "iOS app for tracking work hours, earnings, budget, bills and tax estimates"
   }

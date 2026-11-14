@@ -38,7 +38,7 @@ export default function AppStoreBanner() {
 
           {/* Headline */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
-            Download ShiftFlow.{" "}
+            Download HoursFlow.{" "}
             <span className="gradient-text">Protect your income</span>{" "}
             starting today.
           </h2>

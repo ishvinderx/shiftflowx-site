@@ -2,20 +2,12 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 
-// Features the ShiftFlow app does NOT have. None of these may be advertised in src/ or public/.
-const BANNED = ["ShiftFlow Score", "burnout", "AI Assistant", "credit score", "net worth"];
+// Features the HoursFlow app does NOT have. None of these may be advertised in src/ or public/.
+const BANNED = ["HoursFlow Score", "ShiftFlow Score", "burnout", "AI Assistant", "credit score", "net worth"];
 
-// Files that still contain banned text and are deliberately out of scope of the marketing
-// clean-up. Each needs an owner decision, then should be removed from this list (the
-// "stale exemption" test below fails once a listed file is clean, so the list can only shrink).
-//  - referral pages: excluded from the clean-up brief (not to be touched).
-//  - privacy / data-policy / security: legal text; edits need owner/lawyer review.
-const EXEMPT = new Set([
-  "src/app/referral/page.tsx",
-  "src/app/privacy/page.tsx",
-  "src/app/data-policy/page.tsx",
-  "src/app/security/page.tsx",
-]);
+// Files deliberately exempt from the scan. The list is now empty; the stale-exemption
+// test below keeps it honest (a listed file that is clean fails the test).
+const EXEMPT = new Set<string>([]);
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {

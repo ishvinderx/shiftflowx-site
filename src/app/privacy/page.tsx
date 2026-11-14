@@ -3,7 +3,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Data Protection & Your Rights",
-  description: "Read ShiftFlow's privacy policy. We encrypt data in transit with TLS 1.3 and at rest, never sell your data, and support GDPR and CCPA data-subject rights.",
+  description: "Read HoursFlow's privacy policy. We encrypt data in transit with TLS 1.3 and at rest, never sell your data, and support GDPR and CCPA data-subject rights.",
   alternates: { canonical: 'https://shiftflowx.net/privacy' },
 };
 
@@ -11,7 +11,7 @@ const toc = [
   { id: "overview", label: "Overview" },
   { id: "data-collected", label: "Data We Collect" },
   { id: "how-we-use", label: "How We Use Your Data" },
-  { id: "ai-ocr", label: "AI & OCR Processing" },
+  { id: "ocr", label: "Receipt & Payslip Scanning" },
   { id: "sharing", label: "Data Sharing" },
   { id: "retention", label: "Data Retention" },
   { id: "security", label: "Security" },
@@ -24,14 +24,14 @@ const toc = [
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Privacy Policy" effectiveDate="July 21, 2026" toc={toc}>
+    <LegalLayout title="Privacy Policy" effectiveDate="November 14, 2026" toc={toc}>
       <section id="overview">
         <h2>Overview</h2>
         <p>
-          ShiftFlow (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the ShiftFlow mobile application and related services (collectively, the &ldquo;Service&rdquo;).
+          HoursFlow is operated by Flowmatix Creative Inc. (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), which is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the HoursFlow mobile application and related services (collectively, the &ldquo;Service&rdquo;).
         </p>
         <p>
-          By using ShiftFlow, you agree to the collection and use of information in accordance with this Policy. If you do not agree with the terms of this Policy, please do not use the Service.
+          By using HoursFlow, you agree to the collection and use of information in accordance with this Policy. If you do not agree with the terms of this Policy, please do not use the Service.
         </p>
       </section>
 
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
           <li><strong>Work information:</strong> Employer name, pay rate, shift times, break durations, and work schedule</li>
           <li><strong>Financial data:</strong> Earnings, tips, mileage, tax information, and invoice data you create</li>
           <li><strong>Payslip images:</strong> Photographs of payslips you choose to scan using our OCR feature</li>
-          <li><strong>Journal entries:</strong> Work notes, energy levels, mood logs, and shift reflections</li>
+          <li><strong>Journal entries:</strong> Work notes and shift reflections</li>
           <li><strong>Support communications:</strong> Messages you send to our support team</li>
         </ul>
 
@@ -63,13 +63,11 @@ export default function PrivacyPage() {
         <h2>How We Use Your Data</h2>
         <p>We use the information we collect to:</p>
         <ul>
-          <li>Provide, operate, and maintain the ShiftFlow Service</li>
+          <li>Provide, operate, and maintain the HoursFlow Service</li>
           <li>Process and verify your shift data and payroll calculations</li>
-          <li>Generate payday forecasts, earnings reports, and financial insights</li>
-          <li>Power the AI assistant to answer your financial and payroll questions</li>
-          <li>Calculate burnout scores and wellness indicators</li>
-          <li>Send you alerts about pay discrepancies, upcoming paydays, and important account events</li>
-          <li>Improve ShiftFlow’s features, reliability, and insight quality</li>
+          <li>Generate payday forecasts and earnings reports</li>
+          <li>Send you alerts about upcoming paydays, bills, and important account events</li>
+          <li>Improve HoursFlow’s features and reliability</li>
           <li>Respond to your customer support requests</li>
           <li>Comply with legal obligations</li>
         </ul>
@@ -78,22 +76,10 @@ export default function PrivacyPage() {
         </p>
       </section>
 
-      <section id="ai-ocr">
-        <h2>AI & OCR Processing</h2>
+      <section id="ocr">
+        <h2>Receipt &amp; Payslip Scanning</h2>
         <p>
-          ShiftFlow uses AI models to power features including payroll verification, the AI financial assistant, and payslip scanning (OCR). Here is how we handle data in these contexts:
-        </p>
-        <h3>AI Financial Assistant</h3>
-        <p>
-          When you interact with the AI assistant, your queries and relevant account context are processed by our AI provider. Queries are not used to train AI models without your explicit consent. Conversation history is stored securely and associated with your account.
-        </p>
-        <h3>Payslip OCR Scanner</h3>
-        <p>
-          When you photograph a payslip, text is extracted on your device. The payslip image is not uploaded to our servers for OCR processing — only the data you review and confirm is saved to your account.
-        </p>
-        <h3>Payroll Anomaly Detection</h3>
-        <p>
-          Your shift logs are processed by our anomaly detection engine to identify potential pay discrepancies. This processing uses your own shift and pay data to flag discrepancies. ShiftFlow does not train machine-learning models on your payroll records.
+          When you photograph a receipt or payslip, text is recognised on your device. The image is not uploaded to our servers for text recognition &mdash; only the data you review and confirm is saved to your account. This scanning is not processed by a third-party AI provider.
         </p>
       </section>
 
@@ -101,7 +87,7 @@ export default function PrivacyPage() {
         <h2>Data Sharing</h2>
         <p>We do not sell your personal data. We share your information only in the following limited circumstances:</p>
         <ul>
-          <li><strong>Service providers:</strong> We use trusted third-party vendors (cloud hosting, analytics, AI processing) who are contractually bound to handle your data securely and only as instructed by us.</li>
+          <li><strong>Service providers:</strong> We use trusted third-party vendors (cloud hosting and analytics) who are contractually bound to handle your data securely and only as instructed by us.</li>
           <li><strong>Apple App Store:</strong> Subscription and purchase data is processed by Apple Inc. and governed by Apple&apos;s privacy policy.</li>
           <li><strong>Legal requirements:</strong> We may disclose information if required by law, court order, or government authority.</li>
           <li><strong>Business transfers:</strong> In the event of a merger, acquisition, or asset sale, your data may be transferred. We will notify you before this occurs.</li>
@@ -116,7 +102,6 @@ export default function PrivacyPage() {
         </p>
         <ul>
           <li><strong>Shift logs and earnings:</strong> Retained for the lifetime of your account. Exported or deleted upon account deletion.</li>
-          <li><strong>AI chat history:</strong> Retained for 12 months, then automatically purged.</li>
           <li><strong>Payslip images:</strong> Processed on-device and not stored on our servers; only the confirmed data is saved.</li>
           <li><strong>Support communications:</strong> Retained for 3 years for legal and quality purposes.</li>
           <li><strong>Anonymized analytics:</strong> Retained under our analytics provider’s retention policy.</li>
@@ -171,7 +156,7 @@ export default function PrivacyPage() {
       <section id="deletion">
         <h2>Account Deletion</h2>
         <p>
-          You can delete your ShiftFlow account and all associated data at any time. To do so:
+          You can delete your HoursFlow account and all associated data at any time. To do so:
         </p>
         <ul>
           <li>In the app: Settings → Account → Delete Account</li>
@@ -179,14 +164,14 @@ export default function PrivacyPage() {
           <li>By email: Contact <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
         </ul>
         <p>
-          Deletion is permanent and irreversible. All your shift logs, earnings data, AI chat history, and personal information will be permanently removed from our systems within 30 days.
+          Deletion is permanent and irreversible. All your shift logs, earnings data, and personal information will be permanently removed from our systems within 30 days.
         </p>
       </section>
 
       <section id="children">
         <h2>Children&apos;s Privacy</h2>
         <p>
-          ShiftFlow is not directed to individuals under the age of 16. We do not knowingly collect personal data from children under 16. If you believe a child under 16 has provided us with personal information, please contact us and we will delete that information promptly.
+          HoursFlow is not directed to individuals under the age of 16. We do not knowingly collect personal data from children under 16. If you believe a child under 16 has provided us with personal information, please contact us and we will delete that information promptly.
         </p>
       </section>
 
@@ -201,7 +186,7 @@ export default function PrivacyPage() {
           <li>Emailing registered users for changes that materially affect their rights</li>
         </ul>
         <p>
-          Your continued use of ShiftFlow after changes become effective constitutes acceptance of the revised policy.
+          Your continued use of HoursFlow after changes become effective constitutes acceptance of the revised policy.
         </p>
       </section>
 

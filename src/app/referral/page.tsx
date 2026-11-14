@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Share2, Download, Gift, Clock, ShieldCheck, Brain, Apple } from "lucide-react";
+import { APP_STORE_URL } from "@/lib/constants";
+import { Share2, Download, Gift, Clock, Wallet, Receipt, Apple } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Referral Program — Earn 30 Days of Pro",
   description:
-    "Share ShiftFlow with friends and earn 30 days of Pro when a friend you referred completes their first paid billing period. Limits may apply.",
+    "Share HoursFlow with friends and earn 30 days of Pro when a friend you referred completes their first paid billing period. Limits may apply.",
   // Without this the root layout's canonical is inherited, pointing this page at the homepage.
   alternates: { canonical: 'https://shiftflowx.net/referral' },
   openGraph: {
-    title: "ShiftFlow Referral Program — Earn 30 Days of Pro",
+    title: "HoursFlow Referral Program — Earn 30 Days of Pro",
     description:
-      "Share ShiftFlow and earn 30 days of Pro when a friend you referred completes their first paid billing period.",
+      "Share HoursFlow and earn 30 days of Pro when a friend you referred completes their first paid billing period.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
-const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892";
 
 const HOW_IT_WORKS_STEPS = [
   {
@@ -24,7 +24,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: Share2,
     title: "Share your unique link",
     description:
-      "Open ShiftFlow, go to Profile → Referrals, and copy your personal invite link. Share it anywhere — iMessage, Instagram, TikTok, wherever your friends are.",
+      "Open HoursFlow, go to Profile → Referrals, and copy your personal invite link. Share it anywhere — iMessage, Instagram, TikTok, wherever your friends are.",
     accent: "#D63C6B",
   },
   {
@@ -32,7 +32,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: Download,
     title: "Friend signs up and subscribes",
     description:
-      "Your friend downloads ShiftFlow using your link, creates their account, and subscribes to ShiftFlow Pro. The reward is earned once they complete their first paid billing period — a free trial on its own does not count.",
+      "Your friend downloads HoursFlow using your link, creates their account, and subscribes to HoursFlow Pro. The reward is earned once they complete their first paid billing period — a free trial on its own does not count.",
     accent: "#14B8A6",
   },
   {
@@ -40,7 +40,7 @@ const HOW_IT_WORKS_STEPS = [
     icon: Gift,
     title: "You get 30 days of Pro",
     description:
-      "You receive 30 days of ShiftFlow Pro, added to your account automatically. The reward goes to you as the referrer; there is no reward for the friend. Limits may apply.",
+      "You receive 30 days of HoursFlow Pro, added to your account automatically. The reward goes to you as the referrer; there is no reward for the friend. Limits may apply.",
     accent: "#22C55E",
   },
 ];
@@ -49,7 +49,7 @@ const FAQ_ITEMS = [
   {
     question: "How do I get my referral link?",
     answer:
-      "Your unique referral link is in the ShiftFlow app under Profile → Referrals. Tap 'Copy Link' to share it anywhere. Every link is tied to your account so rewards are tracked automatically.",
+      "Your unique referral link is in the HoursFlow app under Profile → Referrals. Tap 'Copy Link' to share it anywhere. Every link is tied to your account so rewards are tracked automatically.",
   },
   {
     question: "When do I receive my 30 days of Pro?",
@@ -64,7 +64,7 @@ const FAQ_ITEMS = [
   {
     question: "What does my friend need to do to qualify?",
     answer:
-      "Your friend needs to create a ShiftFlow account using your link, subscribe to ShiftFlow Pro, and complete their first paid billing period. Your friend does not receive a referral reward.",
+      "Your friend needs to create a HoursFlow account using your link, subscribe to HoursFlow Pro, and complete their first paid billing period. Your friend does not receive a referral reward.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function ReferralPage() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-6">
-            Share ShiftFlow.
+            Share HoursFlow.
             <br />
             <span
               style={{
@@ -108,7 +108,7 @@ export default function ReferralPage() {
           </h1>
 
           <p className="text-white/55 text-xl leading-relaxed max-w-xl mx-auto mb-8">
-            Earn 30 days of ShiftFlow Pro when a friend you referred completes their first paid billing period. Limits may apply.
+            Earn 30 days of HoursFlow Pro when a friend you referred completes their first paid billing period. Limits may apply.
           </p>
 
           {/* Reward detail card */}
@@ -189,13 +189,13 @@ export default function ReferralPage() {
         {/* ─── Features reminder ────────────────────────────────────────────── */}
         <div className="mb-24">
           <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
-            What your friends get with ShiftFlow
+            What your friends get with HoursFlow
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { icon: Clock, title: "Track Shifts & Pay", desc: "Instant shift logging with earnings breakdown.", accent: "#D63C6B" },
-              { icon: ShieldCheck, title: "Catch Payroll Errors", desc: "AI detects underpayments and missing overtime.", accent: "#22C55E" },
-              { icon: Brain, title: "AI Career Insights", desc: "Personalised coaching to grow income and reduce burnout.", accent: "#F59E0B" },
+              { icon: Wallet, title: "Payday & Budget", desc: "Know when you get paid, with budget and bill reminders.", accent: "#22C55E" },
+              { icon: Receipt, title: "Tax, Invoices & Scanning", desc: "Tax reports, invoices, and receipt and payslip scanning with Pro.", accent: "#F59E0B" },
             ].map((item) => {
               const Icon = item.icon;
               return (
@@ -261,7 +261,7 @@ export default function ReferralPage() {
               Ready to start earning?
             </h2>
             <p className="text-white/55 text-lg mb-8 max-w-md mx-auto">
-              Download ShiftFlow, then share your link from Profile → Referrals.
+              Download HoursFlow, then share your link from Profile → Referrals.
             </p>
 
             <Link

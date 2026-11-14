@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "For Nurses — Shift Tracker",
-  description: "ShiftFlow helps nurses and healthcare workers track their shifts and earnings, see payday, and keep bills in view. Multiple employers with Pro.",
+  description: "HoursFlow helps nurses and healthcare workers track their shifts and earnings, see payday, and keep bills in view. Multiple employers with Pro.",
   alternates: { canonical: 'https://shiftflowx.net/use-cases/nurses' },
 };
 
@@ -11,7 +11,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://shiftflowx.net/use-cases/nurses" },
     { "@type": "ListItem", "position": 3, "name": "Nurses & Healthcare Workers", "item": "https://shiftflowx.net/use-cases/nurses" }
   ]
@@ -29,7 +29,7 @@ export default function NursesPage() {
         <div className="max-w-4xl mx-auto px-6 md:px-8 lg:px-12">
 
           <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
             <span>/</span>
             <Link href="/use-cases/nurses" className="text-white/60">Nurses & Healthcare</Link>
           </nav>
@@ -42,7 +42,7 @@ export default function NursesPage() {
             A Shift Tracker for Healthcare Workers
           </h1>
           <p className="text-xl text-white/60 leading-relaxed mb-12 max-w-2xl">
-            Healthcare schedules are demanding. ShiftFlow helps you keep a clear record of your shifts and earnings, and see when payday is due.
+            Healthcare schedules are demanding. HoursFlow helps you keep a clear record of your shifts and earnings, and see when payday is due.
           </p>
 
           <section className="mb-12">
@@ -56,7 +56,7 @@ export default function NursesPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-white mb-6">ShiftFlow for Healthcare Workers</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">HoursFlow for Healthcare Workers</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
                 { title: "Shift Tracking", desc: "Log your shifts and see your earnings. The free plan tracks one employer and keeps your last 30 days of records. Pro adds full history, multiple employers, exports, tax reports, scanning and import." },
@@ -78,9 +78,9 @@ export default function NursesPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Healthcare Worker FAQ</h2>
             <dl className="space-y-6">
               {[
-                { q: "Does ShiftFlow work for travel nurses with multiple hospital contracts?", a: "Yes, with a subscription. Pro supports more than one employer. The free plan tracks one employer." },
+                { q: "Does HoursFlow work for travel nurses with multiple hospital contracts?", a: "Yes, with a subscription. Pro supports more than one employer. The free plan tracks one employer." },
                 { q: "Can I import my shifts?", a: "Yes, with a subscription. Shift import is a Pro feature." },
-                { q: "Is ShiftFlow free?", a: "The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records." },
+                { q: "Is HoursFlow free?", a: "The free plan covers shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records." },
               ].map(({ q, a }) => (
                 <div key={q}>
                   <dt className="text-white font-semibold mb-2">{q}</dt>
@@ -94,7 +94,7 @@ export default function NursesPage() {
             <h3 className="text-2xl font-bold text-white mb-3">Protect your complex paycheck</h3>
             <p className="text-white/60 mb-6">Free 7-day trial. Cancel anytime.</p>
             <Link href="/download" className="inline-block bg-[#D63C6B] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#c0355f] transition-colors">
-              Download ShiftFlow Free
+              Download HoursFlow Free
             </Link>
           </div>
         </div>

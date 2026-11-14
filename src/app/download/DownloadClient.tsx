@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check, Smartphone, Tablet, Wifi } from "lucide-react";
-import { PRICING_FEATURES } from "@/lib/constants";
+import { PRICING_FEATURES, BRAND, APP_STORE_URL } from "@/lib/constants";
 
 export default function DownloadClient() {
   return (
@@ -20,7 +20,7 @@ export default function DownloadClient() {
             >
               <h1 className="text-5xl sm:text-6xl font-bold text-white tracking-tight mb-6">
                 Download<br />
-                <span className="gradient-text">ShiftFlow.</span>
+                <span className="gradient-text">{BRAND.name}.</span>
               </h1>
 
               <p className="text-xl text-white/50 leading-relaxed mb-8">
@@ -29,7 +29,7 @@ export default function DownloadClient() {
 
               {/* App Store CTA */}
               <a
-                href="https://apps.apple.com/app/shiftflow/id6768095892"
+                href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-4 px-6 py-4 bg-white text-[#0A0A0F] rounded-2xl font-bold hover:bg-white/90 transition-all duration-200 hover:scale-105 shadow-2xl mb-4 group"
@@ -51,7 +51,7 @@ export default function DownloadClient() {
               <div className="mt-8 inline-flex items-center gap-4 p-4 bg-white/[0.04] border border-white/10 rounded-2xl">
                 <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/qr-appstore.svg" alt="QR code linking to ShiftFlow on the App Store" width={72} height={72} />
+                  <img src="/qr-appstore.svg" alt={`QR code linking to ${BRAND.name} on the App Store`} width={72} height={72} />
                 </div>
                 <div>
                   <p className="text-white/60 text-sm font-medium">Scan to download</p>

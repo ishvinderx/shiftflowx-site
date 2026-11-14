@@ -5,7 +5,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Download", "item": "https://shiftflowx.net/download" }
   ]
 };
@@ -13,7 +13,7 @@ const breadcrumb = {
 export const metadata: Metadata = {
   title: "Download for iPhone & iPad — Free 7-Day Trial",
   description:
-    "Download ShiftFlow free on the App Store. Track shifts, earnings, payday, budget and bills; Pro adds a 7-day free trial. iOS 16+, iPhone & iPad.",
+    "Download HoursFlow free on the App Store. Track shifts, earnings, payday, budget and bills; Pro adds a 7-day free trial. iOS 16+, iPhone & iPad.",
   alternates: { canonical: 'https://shiftflowx.net/download' },
 };
 

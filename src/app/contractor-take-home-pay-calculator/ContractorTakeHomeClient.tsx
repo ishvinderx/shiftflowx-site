@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { SALES_TAX_RULES, getSalesTaxRule } from '@/lib/rules/salesTax'
 import { calculateContractorPay } from '../contractor-pay-calculator/contractorCalc'
@@ -291,10 +291,10 @@ export default function ContractorTakeHomeClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct="contractor-take-home-pay-calculator"
               headline="Want to know what you keep from every shift?"
-              sub="ShiftFlow tracks contractor earnings and tax reserves per shift, automatically."
+              sub="HoursFlow tracks contractor earnings and tax reserves per shift, automatically."
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Refund Policy",
-  description: "ShiftFlow refund policy — how App Store subscription refunds work and how to request one.",
+  description: "HoursFlow refund policy — how App Store subscription refunds work and how to request one.",
   alternates: { canonical: "https://shiftflowx.net/refund" },
 };
 
@@ -29,20 +29,20 @@ export default function RefundPage() {
       <section id="overview">
         <h2>Overview</h2>
         <p>
-          ShiftFlow subscriptions are sold exclusively through the Apple App Store. As a result, all purchase transactions, billing, and refund processing are handled entirely by Apple Inc., not by ShiftFlow directly.
+          HoursFlow subscriptions are sold exclusively through the Apple App Store. As a result, all purchase transactions, billing, and refund processing are handled entirely by Apple Inc., not by HoursFlow directly.
         </p>
         <p>
-          This Refund Policy explains how refunds work for ShiftFlow purchases, who to contact for refund requests, and what you can expect.
+          This Refund Policy explains how refunds work for HoursFlow purchases, who to contact for refund requests, and what you can expect.
         </p>
       </section>
 
       <section id="apple-refunds">
         <h2>Apple App Store Refunds</h2>
         <p>
-          Because ShiftFlow is distributed through the Apple App Store, all financial transactions — including subscription charges and refunds — are governed by Apple&apos;s Media Services Terms and Conditions and Apple&apos;s refund policies.
+          Because HoursFlow is distributed through the Apple App Store, all financial transactions — including subscription charges and refunds — are governed by Apple&apos;s Media Services Terms and Conditions and Apple&apos;s refund policies.
         </p>
         <p>
-          <strong>ShiftFlow cannot process, approve, or deny refunds directly.</strong> Only Apple has the ability to issue refunds for App Store purchases.
+          <strong>HoursFlow cannot process, approve, or deny refunds directly.</strong> Only Apple has the ability to issue refunds for App Store purchases.
         </p>
         <p>
           Apple reviews each refund request individually. Approval or denial of refund requests is at Apple&apos;s sole discretion.
@@ -70,7 +70,7 @@ export default function RefundPage() {
           <li>Dissatisfaction with the free trial experience before converting to a paid plan</li>
         </ul>
         <p>
-          Note that ShiftFlow offers a free 7-day trial, started through the App Store, which gives you an opportunity to evaluate the product before committing to a paid plan.
+          Note that HoursFlow offers a free 7-day trial, started through the App Store, which gives you an opportunity to evaluate the product before committing to a paid plan.
         </p>
       </section>
 
@@ -81,8 +81,8 @@ export default function RefundPage() {
           <li>
             Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer"><strong>reportaproblem.apple.com</strong></a>
           </li>
-          <li>Sign in with the Apple ID used to purchase the ShiftFlow subscription</li>
-          <li>Find the ShiftFlow charge in your purchase history</li>
+          <li>Sign in with the Apple ID used to purchase the HoursFlow subscription</li>
+          <li>Find the HoursFlow charge in your purchase history</li>
           <li>Tap or click &ldquo;Report a Problem&rdquo; next to the charge</li>
           <li>Select the appropriate reason for your refund request</li>
           <li>Provide any additional details that support your request</li>
@@ -106,7 +106,7 @@ export default function RefundPage() {
       <section id="exceptions">
         <h2>Exceptions &amp; Special Circumstances</h2>
         <p>
-          If you believe you have been charged incorrectly due to a technical error on ShiftFlow&apos;s part, please contact us first at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>. We will investigate and, if an error is confirmed, work with Apple to facilitate a refund on your behalf.
+          If you believe you have been charged incorrectly due to a technical error on HoursFlow&apos;s part, please contact us first at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>. We will investigate and, if an error is confirmed, work with Apple to facilitate a refund on your behalf.
         </p>
         <p>
           For subscription-related technical issues — such as features not working or access not being granted after payment — please contact our support team before requesting a refund. We are committed to resolving technical issues promptly.
@@ -119,7 +119,7 @@ export default function RefundPage() {
           For questions about this Refund Policy or for help with a billing issue:
         </p>
         <ul>
-          <li><strong>ShiftFlow Support:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
+          <li><strong>HoursFlow Support:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
           <li><strong>Apple Refund Portal:</strong> <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a></li>
           <li><strong>Apple Support:</strong> <a href="https://support.apple.com" target="_blank" rel="noopener noreferrer">support.apple.com</a></li>
         </ul>

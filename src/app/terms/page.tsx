@@ -3,7 +3,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Legal Agreement",
-  description: "Read ShiftFlow's Terms of Service. Understand your rights, subscription terms, acceptable use policy, and how our AI-powered workforce financial app is governed.",
+  description: "Read HoursFlow's Terms of Service. Understand your rights, subscription terms, acceptable use policy, and and how the app is governed.",
   alternates: { canonical: 'https://shiftflowx.net/terms' },
 };
 
@@ -26,33 +26,33 @@ const toc = [
 
 export default function TermsPage() {
   return (
-    <LegalLayout title="Terms of Service" effectiveDate="July 21, 2026" toc={toc}>
+    <LegalLayout title="Terms of Service" effectiveDate="November 14, 2026" toc={toc}>
       <section id="acceptance">
         <h2>Acceptance of Terms</h2>
         <p>
-          By downloading, installing, or using the ShiftFlow application (&ldquo;App&rdquo;) or visiting shiftflowx.net (the &ldquo;Website&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, you may not access or use the Service.
+          By downloading, installing, or using the HoursFlow application (&ldquo;App&rdquo;) or visiting shiftflowx.net (the &ldquo;Website&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, you may not access or use the Service.
         </p>
         <p>
-          These Terms constitute a legally binding agreement between you and ShiftFlow (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). Please read them carefully.
+          These Terms constitute a legally binding agreement between you and Flowmatix Creative Inc. (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). HoursFlow is operated by Flowmatix Creative Inc. Please read them carefully.
         </p>
       </section>
 
       <section id="eligibility">
         <h2>Eligibility</h2>
-        <p>You must meet the following criteria to use ShiftFlow:</p>
+        <p>You must meet the following criteria to use HoursFlow:</p>
         <ul>
           <li>Be at least 16 years of age</li>
           <li>Have the legal capacity to enter into a binding agreement</li>
           <li>Not be prohibited from using the Service under applicable laws</li>
           <li>Own or have permission to use the Apple device on which you install the App</li>
         </ul>
-        <p>By using ShiftFlow, you represent and warrant that you meet all eligibility requirements.</p>
+        <p>By using HoursFlow, you represent and warrant that you meet all eligibility requirements.</p>
       </section>
 
       <section id="account">
         <h2>Account Registration</h2>
         <p>
-          To use most features of ShiftFlow, you must create an account. You agree to:
+          To use most features of HoursFlow, you must create an account. You agree to:
         </p>
         <ul>
           <li>Provide accurate, current, and complete information during registration</li>
@@ -69,10 +69,10 @@ export default function TermsPage() {
       <section id="service">
         <h2>The Service</h2>
         <p>
-          ShiftFlow provides AI-powered tools to help workers track shifts, monitor earnings, forecast paydays, detect payroll discrepancies, and manage financial wellness. The Service is provided for informational and personal financial management purposes only.
+          HoursFlow provides tools to help workers track shifts, monitor earnings, forecast paydays, and manage budgets and bills. The Service is provided for informational and personal financial management purposes only.
         </p>
         <p>
-          <strong>Important limitations:</strong> ShiftFlow is not a licensed financial advisor, accountant, or legal professional. Information provided through the Service — including AI-generated insights, tax estimates, and payroll analysis — is for informational purposes only and does not constitute professional financial, tax, or legal advice.
+          <strong>Important limitations:</strong> HoursFlow is not a licensed financial advisor, accountant, or legal professional. Information provided through the Service — including earnings calculations and tax estimates — is for informational purposes only and does not constitute professional financial, tax, or legal advice.
         </p>
         <p>
           You should consult qualified professionals before making significant financial decisions. We are not responsible for decisions you make based on information provided by the Service.
@@ -82,7 +82,7 @@ export default function TermsPage() {
       <section id="subscriptions">
         <h2>Subscriptions &amp; Billing</h2>
         <p>
-          ShiftFlow offers a free 7-day trial and paid subscription plans (&ldquo;Pro&rdquo;). All subscriptions are managed through the Apple App Store.
+          HoursFlow offers a free 7-day trial and paid subscription plans (&ldquo;Pro&rdquo;). All subscriptions are managed through the Apple App Store.
         </p>
         <ul>
           <li><strong>Free Trial:</strong> A 7-day free trial is available to new users. After the trial, a paid subscription is required to continue accessing Pro features.</li>
@@ -96,7 +96,7 @@ export default function TermsPage() {
 
       <section id="acceptable-use">
         <h2>Acceptable Use</h2>
-        <p>You agree not to use ShiftFlow to:</p>
+        <p>You agree not to use HoursFlow to:</p>
         <ul>
           <li>Violate any applicable law or regulation</li>
           <li>Submit false or misleading information about your employment or earnings</li>
@@ -106,7 +106,6 @@ export default function TermsPage() {
           <li>Transmit any malicious code, viruses, or harmful data</li>
           <li>Scrape, crawl, or use automated means to access the Service</li>
           <li>Resell or sublicense the Service without authorization</li>
-          <li>Use AI features to generate fraudulent dispute claims</li>
         </ul>
         <p>
           Violation of these rules may result in immediate account termination without notice.
@@ -116,40 +115,40 @@ export default function TermsPage() {
       <section id="intellectual-property">
         <h2>Intellectual Property</h2>
         <p>
-          The ShiftFlow App, Website, and all associated content — including software, design, text, graphics, and AI models — are owned by or licensed to ShiftFlow and are protected by copyright, trademark, and other intellectual property laws.
+          The HoursFlow App, Website, and all associated content — including software, design, text, and graphics — are owned by or licensed to Flowmatix Creative Inc. and are protected by copyright, trademark, and other intellectual property laws.
         </p>
         <p>
           We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your personal, non-commercial purposes in accordance with these Terms.
         </p>
         <p>
-          You retain ownership of the data you input into ShiftFlow (your shift logs, earnings data, etc.). By using the Service, you grant us a limited license to process this data solely to provide you with the Service.
+          You retain ownership of the data you input into HoursFlow (your shift logs, earnings data, etc.). By using the Service, you grant us a limited license to process this data solely to provide you with the Service.
         </p>
       </section>
 
       <section id="disclaimer">
         <h2>Disclaimer of Warranties</h2>
         <p>
-          THE SERVICE IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, SHIFTFLOW DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+          THE SERVICE IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, HOURSFLOW DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
         </p>
         <p>
-          We do not warrant that the Service will be error-free, uninterrupted, or free from viruses. We do not warrant the accuracy of any financial calculations, tax estimates, or payroll analysis provided by the Service.
+          We do not warrant that the Service will be error-free, uninterrupted, or free from viruses. We do not warrant the accuracy of any financial calculations, or tax estimates provided by the Service.
         </p>
       </section>
 
       <section id="limitation">
         <h2>Limitation of Liability</h2>
         <p>
-          TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, SHIFTFLOW SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST DATA, OR LOST EARNINGS, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SERVICE.
+          TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, HOURSFLOW SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST DATA, OR LOST EARNINGS, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SERVICE.
         </p>
         <p>
-          IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU EXCEED THE AMOUNT PAID BY YOU TO SHIFTFLOW IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR $100, WHICHEVER IS GREATER.
+          IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU EXCEED THE AMOUNT PAID BY YOU TO HOURSFLOW IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR $100, WHICHEVER IS GREATER.
         </p>
       </section>
 
       <section id="indemnification">
         <h2>Indemnification</h2>
         <p>
-          You agree to indemnify, defend, and hold harmless ShiftFlow and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of the Service or violation of these Terms.
+          You agree to indemnify, defend, and hold harmless HoursFlow and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of the Service or violation of these Terms.
         </p>
       </section>
 

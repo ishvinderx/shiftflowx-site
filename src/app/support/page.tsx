@@ -5,7 +5,7 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
     { "@type": "ListItem", "position": 2, "name": "Support", "item": "https://shiftflowx.net/support" }
   ]
 };
@@ -13,7 +13,7 @@ const breadcrumb = {
 export const metadata: Metadata = {
   title: "Support — Help Center, FAQ & Contact",
   description:
-    "Get help with ShiftFlow. Browse our FAQ, learn how to track shifts and manage your subscription, or contact our support team at support@shiftflowx.net. We respond within 24 hours.",
+    "Get help with HoursFlow. Browse our FAQ, learn how to track shifts and manage your subscription, or contact our support team at support@shiftflowx.net. We respond within 24 hours.",
   alternates: { canonical: 'https://shiftflowx.net/support' },
 };
 

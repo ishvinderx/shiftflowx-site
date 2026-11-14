@@ -2,11 +2,11 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { Clock, ShieldCheck, Brain, Apple } from "lucide-react";
+import { Clock, Wallet, Receipt, Apple } from "lucide-react";
 import { motion } from "framer-motion";
+import { APP_STORE_URL } from "@/lib/constants";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const APP_STORE_URL = "https://apps.apple.com/app/shiftflow/id6768095892";
 const OFFER_DURATION_MS = 72 * 60 * 60 * 1000; // 72 hours
 
 interface Props {
@@ -41,15 +41,15 @@ const FEATURE_CARDS = [
     accent: "#D63C6B",
   },
   {
-    icon: ShieldCheck,
-    title: "Catch Payroll Errors",
-    description: "AI detects overtime violations and underpayments automatically.",
+    icon: Wallet,
+    title: "Payday & Budget",
+    description: "Know when you get paid, with budget and bill reminders.",
     accent: "#22C55E",
   },
   {
-    icon: Brain,
-    title: "AI Career Insights",
-    description: "Personalised recommendations to grow your income and wellbeing.",
+    icon: Receipt,
+    title: "Tax, Invoices & Scanning",
+    description: "Tax reports, invoices, and receipt and payslip scanning with Pro.",
     accent: "#F59E0B",
   },
 ];
@@ -148,7 +148,7 @@ export default function ReferralLandingClient({ code }: Props) {
           >
             Invited
           </span>{" "}
-          to ShiftFlow
+          to HoursFlow
         </motion.h1>
 
         {/* Subheadline */}
@@ -158,7 +158,7 @@ export default function ReferralLandingClient({ code }: Props) {
           transition={{ duration: 0.6, delay: 0.22, ease: EASE }}
           className="text-white/60 text-lg leading-relaxed mb-8 max-w-lg"
         >
-          Your friend wants you to take control of your shifts, earnings, and career &mdash; free for 7 days.
+          Your friend wants you to take control of your shifts, earnings, and payday &mdash; free for 7 days.
         </motion.p>
 
         {/* Countdown timer */}

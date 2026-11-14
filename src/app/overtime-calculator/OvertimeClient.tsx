@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import ShiftFlowCta from '@/components/calculator/ShiftFlowCta'
+import AppCta from '@/components/calculator/AppCta'
 import SourceInfo from '@/components/calculator/SourceInfo'
 import { OVERTIME_RULES, getOvertimeRule } from '@/lib/rules/overtime'
 import { calculateOvertime, type OvertimeInput, type OvertimeResult } from './overtimeCalc'
@@ -377,10 +377,10 @@ export default function OvertimeClient() {
               }
             }}
           >
-            <ShiftFlowCta
+            <AppCta
               ct={CALCULATOR}
               headline="Working overtime every week?"
-              sub="ShiftFlow tracks your shifts and splits regular vs. overtime hours automatically — no spreadsheet math."
+              sub="HoursFlow tracks your shifts and splits regular vs. overtime hours automatically — no spreadsheet math."
             />
           </div>
         </div>

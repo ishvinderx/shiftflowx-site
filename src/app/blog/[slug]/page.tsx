@@ -25,8 +25,8 @@ export async function generateMetadata({
       description: post.description,
       url: `https://shiftflowx.net/blog/${post.slug}`,
       publishedTime: post.date,
-      authors: ['ShiftFlow'],
-      tags: [post.category, 'ShiftFlow', 'workforce finance'],
+      authors: ['HoursFlow'],
+      tags: [post.category, 'HoursFlow', 'workforce finance'],
     },
   };
 }
@@ -127,10 +127,10 @@ export default async function BlogPostPage({
     "@type": "Article",
     "headline": post.title,
     "description": post.description,
-    "author": { "@type": "Organization", "name": "ShiftFlow" },
+    "author": { "@type": "Organization", "name": "HoursFlow" },
     "publisher": {
       "@type": "Organization",
-      "name": "ShiftFlow",
+      "name": "HoursFlow",
       "logo": { "@type": "ImageObject", "url": "https://shiftflowx.net/icon.png" }
     },
     "datePublished": post.date,
@@ -143,7 +143,7 @@ export default async function BlogPostPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ShiftFlow", "item": "https://shiftflowx.net" },
+      { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
       { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://shiftflowx.net/blog" },
       { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://shiftflowx.net/blog/${post.slug}` }
     ]
@@ -165,7 +165,7 @@ export default async function BlogPostPage({
 
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-white/30 mb-8">
-            <Link href="/" className="hover:text-white/60 transition-colors">ShiftFlow</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">HoursFlow</Link>
             <span>/</span>
             <Link href="/blog" className="hover:text-white/60 transition-colors">Blog</Link>
             <span>/</span>
@@ -201,7 +201,7 @@ export default async function BlogPostPage({
 
           {/* CTA Card */}
           <div className="my-12 p-8 rounded-2xl bg-gradient-to-br from-[#D63C6B]/10 to-[#D63C6B]/5 border border-[#D63C6B]/20 text-center">
-            <h3 className="text-xl font-bold text-white mb-2">Track your hours with ShiftFlow</h3>
+            <h3 className="text-xl font-bold text-white mb-2">Track your hours with HoursFlow</h3>
             <p className="text-white/60 mb-5 text-sm">Shifts, earnings, payday, budget and bills. Pro includes a 7-day free trial.</p>
             <Link
               href="/download"

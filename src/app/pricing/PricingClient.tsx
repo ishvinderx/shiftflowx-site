@@ -56,7 +56,7 @@ export default function PricingClient() {
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">Simple, transparent pricing.</h1>
             <p className="mt-4 text-lg text-white/55 leading-relaxed">
-              Try ShiftFlow Pro free for {trialDays} days. Choose monthly flexibility or save with annual billing.
+              Try HoursFlow Pro free for {trialDays} days. Choose monthly flexibility or save with annual billing.
             </p>
           </div>
 
@@ -79,7 +79,7 @@ export default function PricingClient() {
                 {annual.monthlyEquivalentLabel}/month, billed annually
                 <span className="ml-2 text-[#5EEAD4] font-medium">Save {annual.savingsPct}%</span>
               </p>
-              <p className="mt-4 text-sm text-white/55 leading-relaxed">Get full access to ShiftFlow Pro at our best annual price.</p>
+              <p className="mt-4 text-sm text-white/55 leading-relaxed">Get full access to HoursFlow Pro at our best annual price.</p>
               <a href={APP_STORE_URL} className="mt-6 block text-center w-full rounded-full bg-[#D63C6B] text-white font-semibold py-3.5 shadow-[0_0_25px_rgba(214,60,107,0.4)] hover:bg-[#c0355f] transition-colors">
                 Start {trialDays}-Day Free Trial
               </a>
@@ -97,7 +97,7 @@ export default function PricingClient() {
                 <span className="text-white/50 text-lg">{monthly.cadence}</span>
               </div>
               <p className="mt-1.5 text-sm text-white/40">Flexible monthly billing</p>
-              <p className="mt-4 text-sm text-white/55 leading-relaxed">Full ShiftFlow Pro access with flexible monthly billing.</p>
+              <p className="mt-4 text-sm text-white/55 leading-relaxed">Full HoursFlow Pro access with flexible monthly billing.</p>
               <a href={APP_STORE_URL} className="mt-6 block text-center w-full rounded-full bg-white/[0.08] text-white font-semibold py-3.5 border border-white/10 hover:bg-white/[0.12] transition-colors">
                 Start {trialDays}-Day Free Trial
               </a>
