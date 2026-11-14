@@ -307,16 +307,6 @@ export default function OvertimeClient() {
         </div>
       </div>
 
-      {/* ── Rule provenance (verified jurisdictions only) ──────────────────── */}
-      {rule && (
-        <div>
-          <SourceInfo rule={rule} />
-          <p className="mt-2 text-[0.875rem] text-ink-2 leading-relaxed">
-            This rule does not cover everyone: {rule.exceptionsNote}
-          </p>
-        </div>
-      )}
-
       {/* ── Result ─────────────────────────────────────────────────────────── */}
       {result !== null ? (
         <div className={resultsCls}>
@@ -383,6 +373,16 @@ export default function OvertimeClient() {
         </div>
       ) : (
         <p className="text-ink-2 text-sm">Fix the highlighted fields to see your overtime.</p>
+      )}
+
+      {/* ── Rule provenance (verified jurisdictions only) ──────────────────── */}
+      {rule && (
+        <div className="lg:col-span-2">
+          <SourceInfo rule={rule} />
+          <p className="mt-2 text-[0.875rem] text-ink-2 leading-relaxed">
+            This rule does not cover everyone: {rule.exceptionsNote}
+          </p>
+        </div>
       )}
     </div>
   )

@@ -192,3 +192,4 @@
 .ledger-dl > div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
 .ledger-dl dt { color: var(--ink-2); }
 .ledger-dl dd { color: var(--ink); text-align: right; font-weight: 500; }
+.legal-content > section:first-child > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }

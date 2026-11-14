@@ -11,7 +11,7 @@ export default function Footer() {
             <nav key={group} aria-label={group}>
               <Label className="mb-3">
                 {group === "Legal" ? (
-                  <Link href="/legal" className="link-hover inline-flex min-h-[44px] items-center underline underline-offset-4 decoration-1 hover:text-ink">
+                  <Link href="/legal" className="link-hover -my-3 inline-block py-3 underline underline-offset-4 decoration-1 hover:text-ink">
                     {group}
                   </Link>
                 ) : (

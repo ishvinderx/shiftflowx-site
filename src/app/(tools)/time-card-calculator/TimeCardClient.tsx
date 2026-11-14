@@ -74,7 +74,7 @@ export default function TimeCardClient() {
 
   
   return (
-    <div className="space-y-6">
+    <div className="grid items-start gap-10 xl:grid-cols-[8fr_4fr] xl:gap-12">
       {/* ── Week grid ─────────────────────────────────────────────────────── */}
       <div
         className="min-w-0 overflow-x-auto print:hidden"
