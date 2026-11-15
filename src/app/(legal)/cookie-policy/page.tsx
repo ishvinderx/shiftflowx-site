@@ -60,14 +60,11 @@ export default function CookiePolicyPage() {
 
         <h3>Referral links</h3>
         <p>
-          If you open a referral link (shiftflowx.net/ref/&hellip;), the website stores two items in your browser&apos;s localStorage. They stay on your device until you clear your browser data.
+          If you open a referral link (shiftflowx.net/ref/&hellip;), the website stores one item in your browser&apos;s localStorage. It stays on your device until you clear your browser data.
         </p>
         <ul>
           <li>
             <strong>sf_ref_code</strong> (localStorage): the referral code from the link you opened, so it is remembered on this device.
-          </li>
-          <li>
-            <strong>sf_ref_start</strong> (localStorage): the time you first opened the referral page, used to run the offer countdown shown on that page.
           </li>
         </ul>
       </section>
