@@ -1,4 +1,4 @@
-# ShiftFlow — AI/LLM Production Report
+# HoursFlow — AI/LLM Production Report
 
 _Audited: 2026-06-09_
 

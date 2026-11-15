@@ -1,7 +1,7 @@
-# ShiftFlow Security Deployment Report
+# HoursFlow Security Deployment Report
 
 **Date:** 2026-06-09
-**Scope:** Backend (`/ShiftFlow/backend`) + Website (`/shiftflow-website`)
+**Scope:** Backend (`<project>/backend`) + Website (`<project>/website`)
 **Auditor:** Senior Security Engineer (automated audit)
 
 ---
@@ -156,7 +156,7 @@ Status: **SECURE**
 - **Recommendation:** Migrate to App Router nonce-based CSP (`nonces` in `next.config.ts` + `<Script nonce>`) to eliminate `unsafe-inline`. Remove `unsafe-eval` unless dynamic `eval()` is explicitly needed.
 
 ### INFORMATIONAL — In-Memory Rate Limiter in Website API Route
-- **File:** `shiftflow-website/src/app/api/ref/click/route.ts`
+- **File:** `hoursflow-website/src/app/api/ref/click/route.ts`
 - **Severity:** Low
 - **Description:** The website's referral click proxy uses an in-memory `Map` for rate limiting. In a multi-instance deployment (Vercel serverless), each function instance has its own map — rate limiting is not coordinated across instances, and the map is reset on cold starts.
 - **Recommendation:** Accept this trade-off for click tracking (low-stakes), or move the rate limiting to the backend only (the backend already rate-limits this endpoint).

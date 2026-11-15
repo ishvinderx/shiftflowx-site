@@ -1,4 +1,4 @@
-# ShiftFlow — Backup & Disaster Recovery Plan
+# HoursFlow — Backup & Disaster Recovery Plan
 
 **Last updated:** 2026-06-09
 **Status:** NEEDS_SETUP (see gaps section)
@@ -35,7 +35,7 @@ pg_dump "$DATABASE_PUBLIC_URL" \
   --format=custom \
   --no-acl \
   --no-owner \
-  -f "shiftflow_backup_$(date +%Y%m%d_%H%M%S).dump"
+  -f "hoursflow_backup_$(date +%Y%m%d_%H%M%S).dump"
 ```
 
 Store the `.dump` file in a secure location (S3, encrypted local disk, etc.). The backend already has `@aws-sdk/client-s3` installed, which could be leveraged for automated backup uploads.
@@ -52,7 +52,7 @@ pg_restore \
   --no-owner \
   --clean \
   --if-exists \
-  shiftflow_backup_YYYYMMDD_HHMMSS.dump
+  hoursflow_backup_YYYYMMDD_HHMMSS.dump
 
 # Verify the restore
 psql "$DATABASE_PUBLIC_URL" -c "SELECT COUNT(*) FROM users;"
@@ -142,7 +142,7 @@ Even in a total data-loss scenario, the full schema can be reconstructed by runn
 #### Scenario C — Full infrastructure failure (Railway outage)
 1. Export the latest database backup from Railway (download the `.dump` file).
 2. Provision a new PostgreSQL instance (Railway, Supabase, Neon, or Render).
-3. Restore the dump: `pg_restore --dbname <new-url> shiftflow_backup.dump`
+3. Restore the dump: `pg_restore --dbname <new-url> hoursflow_backup.dump`
 4. Update `DATABASE_URL` environment variable in the new backend deployment.
 5. Push backend to the new provider (or wait for Railway recovery — Railway SLA is 99.5%).
 6. Update DNS (api.hoursflow.app CNAME) to point to the new backend URL.

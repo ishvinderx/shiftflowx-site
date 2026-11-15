@@ -1,10 +1,10 @@
-# ShiftFlow — Email (Resend) + Security Audit
+# HoursFlow — Email (Resend) + Security Audit
 
 **Date:** 2026-07-21. No secret values appear in this document — variable names only.
 
 ## Email / Resend (backend `src/lib/email.ts`)
 - **29 transactional templates**, all through one shared `emailShell()` wrapper → the email logo
-  is a **single-point change** (`icon-192.png`, `email.ts:38`, alt="ShiftFlow", production https).
+  is a **single-point change** (`icon-192.png`, `email.ts:38`, alt="HoursFlow", production https).
 - Templates: verify email, welcome, email-verified, password reset, password changed, new-device
   login, trial started/ending, subscription activated/renewed/payment-failed/cancelled, founding
   member, monthly report, weekly summary, payroll alert, tax reminder, payday reminder, feature
@@ -13,7 +13,7 @@
 - **CTA URLs: PASS** — verify (`/verify?token=`) and reset (`/reset-password?token=`) both build
   from env with production default `https://hoursflow.app` and hit real routes. No localhost/
   staging/dead route. (Live end-to-end token test still pending — see final report.)
-- **Sender:** `ShiftFlow <noreply@hoursflow.app>` (`FROM_EMAIL`). **[FIXED]** Reply-To was missing
+- **Sender:** `HoursFlow <noreply@hoursflow.app>` (`FROM_EMAIL`). **[FIXED]** Reply-To was missing
   while templates invite "just reply" → now `REPLY_TO_EMAIL ?? info@hoursflow.app`.
 - **[P2]** `MARKETING_BASE_URL` (used for verify links) is undocumented in `.env.example` (defaults
   to prod). Feedback-request CTA lands on site root, not a feedback form.

@@ -1,4 +1,4 @@
-# Observability & Monitoring Setup — ShiftFlow
+# Observability & Monitoring Setup — HoursFlow
 **Audit Date:** 2026-06-09  
 **Scope:** Backend (Node.js/Fastify) + Website (Next.js)
 
@@ -6,7 +6,7 @@
 
 ## 1. PostHog — Analytics
 
-### Backend (`/Users/ishvinderx/ShiftFlow/backend/`)
+### Backend (`<project>/backend/`)
 
 | Item | Status | Details |
 |------|--------|---------|
@@ -34,7 +34,7 @@
 
 **identify() calls:** `auth.ts` — called on sign-up (all providers) with email, name, username, timezone, provider.
 
-### Website (`/Users/ishvinderx/shiftflow-website/`)
+### Website (`<project>/website/`)
 
 | Item | Status | Details |
 |------|--------|---------|
@@ -48,7 +48,7 @@
 
 ## 2. Sentry — Error & Crash Reporting
 
-### Backend (`/Users/ishvinderx/ShiftFlow/backend/`)
+### Backend (`<project>/backend/`)
 
 | Item | Status | Details |
 |------|--------|---------|
@@ -68,7 +68,7 @@
 
 **Critical Gap:** `SENTRY_DSN` is not set in the production `.env`. The `initSentry()` call logs `"[Sentry] SENTRY_DSN not set — monitoring disabled."` — meaning all crashes and errors are currently unmonitored in production.
 
-### Website (`/Users/ishvinderx/shiftflow-website/`)
+### Website (`<project>/website/`)
 
 | Item | Status | Details |
 |------|--------|---------|

@@ -1,4 +1,4 @@
-# ShiftFlow — Legal-Accuracy Audit (code vs. legal pages)
+# HoursFlow — Legal-Accuracy Audit (code vs. legal pages)
 
 **Date:** 2026-07-21. Source of truth = backend `prisma/schema.prisma` + `src`. This audit
 drives the **RELEASE BLOCKED — LEGAL INCONSISTENCY** verdict. Nothing below is rewritten yet:
@@ -33,8 +33,8 @@ several fixes require product decisions (marked ⚠️DECISION).
 
 ## P1 — accuracy / trust
 
-5. **"Plus" vs "Pro".** Site sells "ShiftFlow Plus"; backend + StoreKit SKUs + AI messages say
-   "Pro" (`com.shiftflow.pro.*`). → ⚠️DECISION: pick the customer-facing name; make consistent.
+5. **"Plus" vs "Pro".** Site sells "HoursFlow Plus"; backend + StoreKit SKUs + AI messages say
+   "Pro" (legacy StoreKit SKUs). → ⚠️DECISION: pick the customer-facing name; make consistent.
 6. **"Hard paywall after trial" overstates gating.** Real model is **freemium/limited** — only
    invoices, tax, analytics, paycheck-anomaly, ai-memory are premium-gated; shift logging, jobs,
    earnings, dashboard, and 5/day AI insights remain free. Site lists "unlimited shift logging"

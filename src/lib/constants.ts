@@ -16,9 +16,19 @@ export const BRAND = {
   tagline: "Make every hour count.",
 } as const;
 
-// The numeric id is what App Store resolves; the slug is cosmetic.
-export const APP_STORE_ID = "6768095892";
-export const APP_STORE_URL = `https://apps.apple.com/app/hoursflow/id${APP_STORE_ID}`;
+// The new HoursFlow app has no App Store listing yet. APP_STORE_URL is the ONE constant every
+// download button reads. Set NEXT_PUBLIC_APP_STORE_URL once the listing exists; until then it
+// falls back to this PLACEHOLDER, which src/lib/release.test.ts refuses in a release build
+// (RELEASE=1 with NODE_ENV=production and no env override). public/llms.txt is static: update
+// its "App Store:" line to the same URL at release (brand.test.ts keeps them equal).
+export const APP_STORE_URL_PLACEHOLDER = "https://apps.apple.com/app/hoursflow/id0000000000"; // PLACEHOLDER: replace before release
+
+export function resolveAppStoreUrl(env: Record<string, string | undefined> = process.env): string {
+  return env.NEXT_PUBLIC_APP_STORE_URL?.trim() || APP_STORE_URL_PLACEHOLDER;
+}
+
+// NOTE: read via a literal `process.env.NEXT_PUBLIC_APP_STORE_URL` so Next inlines it in client bundles.
+export const APP_STORE_URL = resolveAppStoreUrl({ NEXT_PUBLIC_APP_STORE_URL: process.env.NEXT_PUBLIC_APP_STORE_URL });
 
 // ─── Backend API (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
 // Every browser/server call to the backend goes through these, and next.config.ts

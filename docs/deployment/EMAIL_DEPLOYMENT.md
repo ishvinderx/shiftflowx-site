@@ -1,4 +1,4 @@
-# ShiftFlow — Email Deployment Report
+# HoursFlow — Email Deployment Report
 
 _Audited: 2026-06-09_
 
@@ -78,10 +78,10 @@ These functions exist in `email.ts` but are not called from any route or schedul
 ## FROM Address
 
 ```
-ShiftFlow <noreply@hoursflow.app>
+HoursFlow <noreply@hoursflow.app>
 ```
 
-Friendly name "ShiftFlow" is set correctly. Reply-to is not explicitly set; replies go to `noreply@hoursflow.app` — consider adding a `reply-to: support@hoursflow.app` if you want to receive replies.
+Friendly name "HoursFlow" is set correctly. Reply-to is not explicitly set; replies go to `noreply@hoursflow.app` — consider adding a `reply-to: support@hoursflow.app` if you want to receive replies.
 
 ---
 

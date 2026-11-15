@@ -1,6 +1,6 @@
 # Admin Dashboard Deployment Report
 **Date:** 2026-06-09  
-**Backend:** https://shiftflow-backend-production.up.railway.app  
+**Backend:** https://api.hoursflow.app  
 **Admin Dashboard URL:** https://hoursflow.app/admin  
 **Tester:** Automated QA Audit
 
@@ -20,8 +20,8 @@
 
 ## Admin Routes Found
 
-**Source file:** `/Users/ishvinderx/ShiftFlow/backend/src/routes/admin.ts`  
-**Service file:** `/Users/ishvinderx/ShiftFlow/backend/src/services/adminAnalytics.service.ts`
+**Source file:** `<project>/backend/src/routes/admin.ts`  
+**Service file:** `<project>/backend/src/services/adminAnalytics.service.ts`
 
 All routes below are protected by `requireAdmin` (JWT + `X-Admin-Token`):
 

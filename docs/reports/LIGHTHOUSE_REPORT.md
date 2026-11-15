@@ -1,4 +1,4 @@
-# Lighthouse Report — ShiftFlow Website
+# Lighthouse Report — HoursFlow Website
 
 ## Target Scores
 
@@ -26,7 +26,7 @@ Critical above-the-fold images use `priority` flag:
 ```tsx
 <Image
   src="/screenshots/home-dark.webp"
-  alt="ShiftFlow home screen"
+  alt="HoursFlow home screen"
   width={390}
   height={780}
   priority

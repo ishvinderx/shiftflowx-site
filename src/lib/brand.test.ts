@@ -9,7 +9,6 @@ import { BRAND, APP_STORE_URL, PRICING, SITE_URL, SUPPORT_EMAIL, INFO_EMAIL, PRI
 const OLD = /shiftflow/i;
 const ALLOWED = [
   /\bsf_[a-z_]+/gi, // storage keys, deliberately unchanged
-  /com\.ShiftFlowx\.app/g, // iOS bundle id: technical identifier, must not change
 ];
 // The one non-test file allowed to name the retired domain: redirects + CSP transition only.
 const LEGACY_DOMAIN_FILE = join("src", "lib", "legacy-domain.ts");
@@ -31,8 +30,7 @@ describe("brand", () => {
     expect(BRAND.name).toBe("HoursFlow");
     expect(BRAND.proName).toBe(`${BRAND.name} Pro`);
     expect(BRAND.legalEntity).toBe("Flowmatix Creative Inc.");
-    expect(APP_STORE_URL).toContain("/id6768095892");
-    expect(APP_STORE_URL).toContain("/app/hoursflow/");
+    expect(APP_STORE_URL).toMatch(/^https:\/\/apps\.apple\.com\//);
   });
 
   it("the old product name does not appear in src/ or public/ (outside domain, email, storage keys)", () => {

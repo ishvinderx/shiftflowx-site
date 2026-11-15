@@ -68,7 +68,7 @@ Website landing page
   ↓  Website stores in localStorage: { referralCode: "ALICE42", clickedAt: ISO }
 
 App Store Install
-  ↓  User downloads ShiftFlow iOS app
+  ↓  User downloads HoursFlow iOS app
   ↓  (Optional) SKAdNetwork / Apple Search Ads attribution
 
 iOS App — Registration

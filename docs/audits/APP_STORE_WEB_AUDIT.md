@@ -1,4 +1,4 @@
-# App Store Web Compliance Audit — ShiftFlow
+# App Store Web Compliance Audit — HoursFlow
 **Audit Date:** 2026-06-09  
 **Domain:** https://hoursflow.app  
 **Auditor:** Senior iOS App Store Compliance Engineer

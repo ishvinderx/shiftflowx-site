@@ -1,4 +1,4 @@
-# ShiftFlow Free Tools Platform — Audit & Implementation Plan
+# HoursFlow Free Tools Platform — Audit & Implementation Plan
 
 Date: 2026-08-11. Governs the calculator-platform build (Wave 1 = 15 tools).
 Companion docs: SEO_ASO_KEYWORD_STRATEGY.md (keyword table + anti-thin-page
@@ -32,7 +32,7 @@ sources only).
 - `src/lib/seo.ts` — jsonLd escape, toolMetadata, webAppSchema, faqSchema,
   breadcrumbSchema. New pages must use these; legacy pages migrate later.
 - `src/components/calculator/` — ToolBreadcrumb, FaqSection, RelatedTools,
-  ShiftFlowCta, ToolDisclaimer, SourceInfo. One shell, no duplication.
+  HoursFlowCta, ToolDisclaimer, SourceInfo. One shell, no duplication.
 - `src/lib/analytics.ts` — typed no-op queue for calculator_viewed/started/
   completed/cta_clicked. NEVER carries financial inputs/results. Drained by
   whichever platform the operator picks (GA4 vs PostHog — pending decision).

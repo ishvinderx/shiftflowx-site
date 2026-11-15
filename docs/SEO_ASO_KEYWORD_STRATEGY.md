@@ -13,7 +13,7 @@ the ASO keyword map, and the content plan — one source instead of four driftin
 
 ## Positioning constraint
 
-ShiftFlow is **iOS-only**. Google Play ASO (18.11–18.12) has no listing to optimize —
+HoursFlow is **iOS-only**. Google Play ASO (18.11–18.12) has no listing to optimize —
 every Play item is CONDITIONAL on an Android build and excluded from this strategy.
 App name changes are explicitly NOT proposed (30-char cap, brand-vs-keyword balance
 needs real ranking data first; v1.4.2 is in App Review — metadata edits ride the NEXT
@@ -39,7 +39,7 @@ no page ships without genuinely distinct functionality (18.2's no-thin-duplicate
 
 ## Apple App Store keyword map (operator executes in ASC)
 
-Current name "ShiftFlow" (brand) — keep. The keyword surface to optimize, next version:
+Current name "HoursFlow" (brand) — keep. The keyword surface to optimize, next version:
 
 - **Subtitle (30 chars)** — candidate: `Work Hours & Pay Tracker` (24) or
   `Track Shifts, Hours & Pay` (25). Decide against current subtitle (operator: what is it?).

@@ -2,11 +2,11 @@
 
 _Generated: 2026-06-09_
 
-## Frontend Environment Variables (`shiftflow-website`)
+## Frontend Environment Variables (`hoursflow-website`)
 
 | Variable | Status | Notes |
 |---|---|---|
-| `BACKEND_URL` | SET | `https://shiftflow-backend-production.up.railway.app` — set in `.env.local` |
+| `BACKEND_URL` | SET | `https://api.hoursflow.app` — set in `.env.local` |
 | `INTERNAL_API_SECRET` | SET | Shared with backend `COOKIE_SECRET` — set in `.env.local` |
 | `NEXT_PUBLIC_APP_URL` | SET | `https://hoursflow.app` — set in `.env.local` |
 | `NEXT_PUBLIC_POSTHOG_KEY` | NOT USED | Scanned all frontend source files — no PostHog client usage found in the frontend codebase. PostHog is backend-only. |
@@ -17,7 +17,7 @@ The following must be added in the Vercel project dashboard under **Settings →
 
 | Variable | Value |
 |---|---|
-| `BACKEND_URL` | `https://shiftflow-backend-production.up.railway.app` |
+| `BACKEND_URL` | `https://api.hoursflow.app` |
 | `INTERNAL_API_SECRET` | _(copy from Railway `COOKIE_SECRET` value)_ |
 | `NEXT_PUBLIC_APP_URL` | `https://hoursflow.app` |
 
@@ -25,7 +25,7 @@ The following must be added in the Vercel project dashboard under **Settings →
 
 ---
 
-## Backend Environment Variables (`ShiftFlow/backend`)
+## Backend Environment Variables (`HoursFlow/backend`)
 
 | Variable | Status | Notes |
 |---|---|---|
@@ -34,7 +34,7 @@ The following must be added in the Vercel project dashboard under **Settings →
 | `JWT_SECRET` | SET | Secure 64-char hex value on Railway |
 | `COOKIE_SECRET` | SET | Secure 64-char hex value on Railway |
 | `REVENUECAT_WEBHOOK_SECRET` | SET | Present on Railway |
-| `API_BASE_URL` | SET | `https://shiftflow-backend-production.up.railway.app` |
+| `API_BASE_URL` | SET | `https://api.hoursflow.app` |
 | `RESEND_API_KEY` | SET | `re_XSQbB51o_...` |
 | `FROM_EMAIL` | SET | `noreply@hoursflow.app` |
 | `FRONTEND_URL` | SET | `https://hoursflow.app` |
@@ -42,7 +42,7 @@ The following must be added in the Vercel project dashboard under **Settings →
 | `GOOGLE_CLIENT_ID` | SET | Present on Railway |
 | `APNS_KEY_ID` | SET | `ART6AKXN9R` |
 | `APNS_TEAM_ID` | SET | `YQDNK65BZ2` |
-| `APNS_BUNDLE_ID` | SET | `com.ShiftFlowx.app` |
+| `APNS_BUNDLE_ID` | SET | `<ios bundle id>` |
 | `APNS_KEY_PATH` | PLACEHOLDER (local .env only) | Local `.env` uses a local file path. Railway uses `APNS_KEY` (inline PEM) instead — correct approach. |
 | `ALLOWED_ORIGINS` | SET | Railway value is `*` — consider restricting to `https://hoursflow.app` for production hardening |
 | `R2_PUBLIC_URL` | PLACEHOLDER (local .env only) | Local `.env` has empty value. Railway has `https://assets.shiftflowx.net` — correct. |

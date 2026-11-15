@@ -1,6 +1,6 @@
 # Referral System Production Report
 **Date:** 2026-06-09  
-**Backend:** https://shiftflow-backend-production.up.railway.app  
+**Backend:** https://api.hoursflow.app  
 **Tester:** Automated QA Audit (End-to-End)
 
 ---

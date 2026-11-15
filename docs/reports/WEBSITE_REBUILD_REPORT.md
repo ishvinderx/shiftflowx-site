@@ -1,8 +1,8 @@
-# ShiftFlow Website Rebuild Report
+# HoursFlow Website Rebuild Report
 
 ## Overview
 
-The ShiftFlow marketing site was rebuilt from scratch as a Next.js App Router project with a dark-first design system, full TypeScript, and Framer Motion animations. The goal was a high-conversion landing page that mirrors the aesthetic of the iOS app.
+The HoursFlow marketing site was rebuilt from scratch as a Next.js App Router project with a dark-first design system, full TypeScript, and Framer Motion animations. The goal was a high-conversion landing page that mirrors the aesthetic of the iOS app.
 
 ---
 

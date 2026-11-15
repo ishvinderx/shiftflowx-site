@@ -11,7 +11,7 @@ _Generated: 2026-06-09_
 ### Command
 
 ```bash
-cd /Users/ishvinderx/ShiftFlow/backend
+cd <project>/backend
 DATABASE_URL="postgresql://postgres:<password>@viaduct.proxy.rlwy.net:52944/railway" \
   npx prisma migrate deploy
 ```

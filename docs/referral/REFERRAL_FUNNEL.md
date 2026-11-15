@@ -57,7 +57,7 @@ For every 1,000 shares, expect approximately 21 new paid subscribers and 21 rewa
 - **Pre-populated iMessage**: Deep link that opens Messages with message body pre-filled reduces friction
 - **In-app share nudge**: Show referral CTA after the user's 5th shift logged (when value is proven)
 - **Payday share moment**: Trigger referral prompt after paycheck summary is viewed
-- **Social proof in share text**: Include the user's earnings total ("I tracked £3,200 in earnings this month with ShiftFlow")
+- **Social proof in share text**: Include the user's earnings total ("I tracked £3,200 in earnings this month with HoursFlow")
 
 ### Mid-Funnel (Install → Signup)
 

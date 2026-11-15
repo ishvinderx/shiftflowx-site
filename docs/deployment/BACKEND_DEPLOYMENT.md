@@ -9,7 +9,7 @@ _Generated: 2026-06-09_
 ## Deploy Command
 
 ```bash
-cd /Users/ishvinderx/ShiftFlow/backend
+cd <project>/backend
 RAILWAY_API_TOKEN=<token> railway up
 ```
 
@@ -36,7 +36,7 @@ Uploading...
 | Service Name | `shiftflow-backend` |
 | Service ID | `35e9569a-f83e-496d-846f-d6c43e2f5ae8` |
 | Project ID | `42b442ed-b83a-4a7d-9337-cec37ca72659` |
-| Public URL | `https://shiftflow-backend-production.up.railway.app` |
+| Public URL | `https://api.hoursflow.app` (Railway default hostname: `https://shiftflow-backend-production.up.railway.app`) |
 | Status | Online |
 
 ---
@@ -46,7 +46,7 @@ Uploading...
 ### GET /health
 
 ```
-Request:  GET https://shiftflow-backend-production.up.railway.app/health
+Request:  GET https://api.hoursflow.app/health
 Response: 200 OK
 Body:     {"status":"ok","timestamp":"2026-06-09T21:15:00.112Z"}
 ```
@@ -54,7 +54,7 @@ Body:     {"status":"ok","timestamp":"2026-06-09T21:15:00.112Z"}
 ### POST /api/v1/referrals/click
 
 ```
-Request:  POST https://shiftflow-backend-production.up.railway.app/api/v1/referrals/click
+Request:  POST https://api.hoursflow.app/api/v1/referrals/click
 Body:     {"code":"TESTCODE01"}
 Response: 200 OK
 Body:     {"ok":true}

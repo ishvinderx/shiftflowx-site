@@ -1,4 +1,4 @@
-# ShiftFlow Website — Route Audit
+# HoursFlow Website — Route Audit
 
 **Date:** 2026-07-21 · **Domain:** https://hoursflow.app · **Stack:** Next.js 16 App Router.
 Static code audit + build. Live-deployed status verification pending (see final report).
@@ -39,7 +39,7 @@ Static code audit + build. Live-deployed status verification pending (see final 
 - Admin correctly excluded from sitemap; no admin route under `src/app`.
 
 ## Accessibility findings
-- Alt text coverage good across all images. Some generic ("ShiftFlow app screenshot").
+- Alt text coverage good across all images. Some generic ("HoursFlow app screenshot").
 - **[P2]** Low-contrast text: `Footer.tsx` copyright/legal links at `text-white/25` (worst), plus `text-white/25–/35` in several sections — likely fails WCAG AA. Raise to `/50–/60`.
 - **[P2]** Mobile hamburger has `aria-label` but no `aria-expanded`.
 - Heading order clean (one h1 per route).

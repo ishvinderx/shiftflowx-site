@@ -65,7 +65,7 @@ What ships when you do:
 | `calculator_viewed` | a live tool route renders (route-driven, so future tools are measured automatically) |
 | `calculator_started` | first real interaction with the inputs |
 | `calculator_completed` | a valid result renders |
-| `calculator_cta_clicked` | the ShiftFlow App Store CTA is clicked |
+| `calculator_cta_clicked` | the HoursFlow App Store CTA is clicked |
 
 Every event carries only `calculator`, `category`, optional `jurisdiction`, and
 the path. **No financial value ever leaves the browser** — no rate, amount, pay,

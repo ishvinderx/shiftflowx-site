@@ -99,4 +99,4 @@ gross invoices including tax. Results are estimates, not tax or legal advice.
 - Website: https://hoursflow.app
 - Support: support@hoursflow.app
 - Privacy: privacy@hoursflow.app
-- App Store: https://apps.apple.com/app/hoursflow/id6768095892
+- App Store: https://apps.apple.com/app/hoursflow/id0000000000
