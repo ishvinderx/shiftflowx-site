@@ -147,12 +147,12 @@ export default function HstInvoiceClient() {
             </div>
 
             <div className="flex items-baseline justify-between gap-4 py-2 border-t border-rule">
-              <dt className="text-sm text-positive/80 uppercase tracking-wide">+ {taxLabel}</dt>
+              <dt className="text-sm text-ink-2 uppercase tracking-wide">+ {taxLabel}</dt>
               <dd className="text-xl font-semibold text-positive tabular-nums">
                 {money(result.tax)}
               </dd>
             </div>
-            <p className="text-[0.875rem] text-positive/60 -mt-1 mb-2">
+            <p className="text-[0.875rem] text-ink-2 -mt-1 mb-2">
               collected for the CRA — not your income
             </p>
 

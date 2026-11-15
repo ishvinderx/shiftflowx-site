@@ -1,56 +1,61 @@
 @import "tailwindcss";
 
 /*
- * "Ledger" design tokens. THIS IS THE ONLY FILE (besides the og image route) that may
- * contain colour literals; src/lib/design-guard.test.ts fails on hex, text-white, bg-black,
- * from-/to-/via- gradients or shadow- classes anywhere else under src/app and src/components.
+ * "Emerald" design tokens (brand/README.md, "Emerald system"). THIS IS THE ONLY FILE (besides the
+ * og image route) that may contain colour literals; src/lib/design-guard.test.ts fails on hex,
+ * text-white, bg-black, from-/to-/via- gradients or shadow- classes anywhere else under
+ * src/app and src/components.
  *
  * Use the Tailwind utilities generated from the tokens below:
- *   bg-ground  text-ink  text-ink-2 (secondary)  border-rule  bg-track
- *   text-positive / border-positive-line   (money in, "on track")
- *   text-commit / border-commit-line       (commitments: bills, plan)
- *   bg-mint  (the ONE marketing accent: a fill behind ink text, or a thin line - never text)
- *   bg-periwinkle (only inside product-style data visuals)
- *   text-alert
- * Dark scheme follows prefers-color-scheme automatically; never branch on it in components.
+ *   bg-ground  bg-card  text-ink  text-ink-2 (secondary)  border-rule  bg-track
+ *   text-positive / border-positive-line / bg-positive-line   (emerald: money in, accent)
+ *   text-commit / bg-commit-line                              (indigo: links, second series; sparingly)
+ *   text-alert                                                (errors only)
+ * Classes in this file: .card (soft white card), .hero-card (the ONE emerald gradient card, home only),
+ * .btn-*. Dark scheme follows prefers-color-scheme automatically; never branch on it in components.
  * Do not use opacity modifiers for text colour (contrast); use text-ink-2 instead.
  */
 :root {
-  --ground: #F5F3EE;
-  --ink: #111827;
-  --ink-2: #5B6170;
-  --rule: #DDD8CC;
-  --track: #E2DDD1;
-  --positive: #166B4F;
-  --positive-line: #1B7F5E;
-  --commit: #3D4CB8;
-  --commit-line: #4A5BD4;
-  --mint: #A8E6CF;
-  --periwinkle: #A7B5FF;
+  --ground: #F4F2EC;
+  --card: #FFFFFF;
+  --ink: #0D1220;
+  --ink-2: #5B6172;
+  --rule: #E6E3DA;
+  --track: #ECE9E1;
+  --positive: #0C6B4E;
+  --positive-line: #0C6B4E;
+  --commit: #3E4CC2;
+  --commit-line: #3E4CC2;
   --alert: #A1331F;
-  --on-fill: #111827; /* text on mint / periwinkle / dark-mode primary button */
-  --focus: #111827;
+  --hero-a: #0F7D5A;
+  --hero-b: #0A5E45;
+  --hero-c: #063528;
+  --hero-ink: #F3FBF7;
+  --hero-line: #C9FFE9;
+  --focus: #0D1220;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --ground: #111827;
-    --ink: #F5F3EE;
-    --ink-2: #9AA3B2;
-    --rule: #2A3346;
-    --track: #2A3346;
-    --positive: #A8E6CF;
-    --positive-line: #A8E6CF;
-    --commit: #A7B5FF;
-    --commit-line: #A7B5FF;
+    --ground: #0A0D14;
+    --card: #141A26;
+    --ink: #F2F1EC;
+    --ink-2: #9AA2B4;
+    --rule: #222938;
+    --track: #222938;
+    --positive: #5FE0B0;
+    --positive-line: #5FE0B0;
+    --commit: #8E9BFF;
+    --commit-line: #8E9BFF;
     --alert: #F2A093;
-    --focus: #F5F3EE;
+    --focus: #F2F1EC;
     color-scheme: dark;
   }
 }
 
 @theme inline {
   --color-ground: var(--ground);
+  --color-card: var(--card);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-rule: var(--rule);
@@ -59,8 +64,6 @@
   --color-positive-line: var(--positive-line);
   --color-commit: var(--commit);
   --color-commit-line: var(--commit-line);
-  --color-mint: var(--mint);
-  --color-periwinkle: var(--periwinkle);
   --color-alert: var(--alert);
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -88,12 +91,22 @@
   p, li, dd { text-wrap: pretty; }
   a { color: inherit; }
   /* Selection stays inside the palette. */
-  ::selection { background: var(--mint); color: var(--on-fill); }
+  ::selection { background: var(--positive); color: var(--ground); }
 }
 
-/* Fills that are not ink-on-ground must carry dark text in both schemes. Unlayered so it
-   beats the text-ink utility that the legacy pages put on the same element. */
-.bg-mint, .bg-periwinkle { color: var(--on-fill); }
+/* Soft card: white (dark: raised navy) on the ground, hairline edge, 22px corner. */
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 22px; }
+
+/* The one emerald gradient card (home hero). Light text on all three stops, both schemes. */
+.hero-card {
+  position: relative; overflow: hidden; border-radius: 28px; color: var(--hero-ink);
+  background: radial-gradient(120% 90% at 0% 0%, var(--hero-a) 0%, var(--hero-b) 48%, var(--hero-c) 100%);
+}
+.hero-card::after {
+  content: ""; position: absolute; right: -60px; top: -70px; width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(190, 255, 228, 0.28), transparent 65%); pointer-events: none;
+}
+.hero-card .hero-sub { color: var(--hero-ink); opacity: 0.85; }
 
 /* Focus ring: 2px ink, offset. Applies to every focusable element. */
 :focus-visible {
@@ -134,14 +147,11 @@
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--ink); color: var(--ground); }
 .btn-primary:hover { background: color-mix(in srgb, var(--ink) 86%, var(--ground)); }
+.btn { border-radius: 16px; min-height: 48px; }
 .btn-secondary { background: transparent; color: var(--ink); }
 .btn-secondary:hover { background: var(--track); }
 .btn-text { border-color: transparent; padding: 0 4px; background: transparent; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .btn-text:hover { text-decoration-thickness: 2px; }
-@media (prefers-color-scheme: dark) {
-  .btn-primary { background: var(--mint); color: var(--on-fill); border-color: var(--mint); }
-  .btn-primary:hover { background: color-mix(in srgb, var(--mint) 88%, var(--ground)); }
-}
 }
 
 /* Reveal: one staggered fade-up per section (ui/Reveal.tsx). Visible by default without JS. */

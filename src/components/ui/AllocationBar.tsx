@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { money, SAMPLE_ALLOCATION } from "./sample-data";
 
 type Segment = { key: string; label: string; value: number; tone: "commit" | "soft" | "positive" };
-const FILL = { commit: "bg-commit-line", soft: "bg-periwinkle", positive: "bg-positive-line" } as const;
+const FILL = { commit: "bg-commit-line", soft: "bg-ink-2", positive: "bg-positive-line" } as const;
 
 /**
  * Live allocation bar: how a month's income splits into bills due / rest of plan / available.

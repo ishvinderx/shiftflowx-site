@@ -9,7 +9,7 @@ type AsLink = CommonProps & { href: string } & Omit<React.AnchorHTMLAttributes<H
 type AsButton = CommonProps & { href?: undefined } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className">;
 
 /**
- * Button. variant: "primary" (ink fill; dark mode mint), "secondary" (ink outline), "text".
+ * Button. variant: "primary" (dark filled; ink in light, ivory in dark), "secondary" (ink outline), "text".
  * Pass `href` to render a link (internal -> next/link; http(s) -> new-tab anchor), otherwise a <button>.
  * 44px minimum target, hover darkens, press moves 1px. Extra props (onClick, data-*, aria-*) pass through.
  */

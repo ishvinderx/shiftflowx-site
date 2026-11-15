@@ -22,7 +22,7 @@ export function PhoneFrame({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-[280px] rounded-[2.5rem] border-[1.5px] border-ink bg-ground p-2", className)}>
+    <div className={cn("mx-auto w-full max-w-[280px] rounded-[2.5rem] border border-rule bg-card p-2", className)}>
       <Image
         src={src}
         alt={alt}

@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 
-// Ledger design guard: colours live in tokens (src/app/globals.css) only. Under src/app and
+// Emerald design guard: colours live in tokens (src/app/globals.css) only. Under src/app and
 // src/components, no hex colours, rgb()/hsl(), text-white, bg-black, gradient or shadow classes.
 // ALLOW lists files that genuinely need literals (ImageResponse cannot read CSS variables).
 const ALLOW = new Set<string>(["src/app/opengraph-image.tsx"]);
@@ -11,13 +11,15 @@ const RULES: [string, RegExp][] = [
   ["hex colour", /#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b(?![\w-])/],
   ["rgb/hsl literal", /\b(?:rgba?|hsla?)\(/],
   ["text-white / bg-black / bg-white", /\b(?:text-white|bg-black|bg-white)\b/],
-  ["gradient", /(?:^|[\s"'`:])(?:from|via|to)-(?:\[|ink|ground|mint|periwinkle|rule|track|transparent|white|black|brand|teal|indigo|[a-z]+-\d)|\bbg-gradient|(?:linear|radial|conic)-gradient/],
+  ["gradient", /(?:^|[\s"'`:])(?:from|via|to)-(?:\[|ink|ground|card|positive|commit|rule|track|transparent|white|black|brand|teal|indigo|emerald|[a-z]+-\d)|\bbg-gradient|(?:linear|radial|conic)-gradient/],
   ["shadow", /\b(?:drop-)?shadow(?:-|\b)|box-?[sS]hadow|text-?[sS]hadow/],
   // No leftover "card" styling: large-radius panels, translucent fills, blur, motion library.
   ["rounded-2xl / rounded-3xl panel", /\brounded-(?:2xl|3xl)\b/],
   ["translucent card fill (bg-track/NN)", /\bbg-track\/\d+/],
   ["backdrop blur", /backdrop-blur|backdropFilter|\bblur-(?:\d|\[)/],
   ["framer-motion", /framer-motion/],
+  // Ledger-era accents are gone: emerald is the accent, indigo (commit) the one secondary.
+  ["mint / periwinkle accent", /\b(?:bg|text|border|fill|stroke)-(?:mint|periwinkle)\b|--(?:mint|periwinkle)\b/],
 ];
 
 function walk(dir: string, out: string[] = []): string[] {

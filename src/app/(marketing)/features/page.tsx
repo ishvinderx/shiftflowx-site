@@ -71,7 +71,7 @@ export default function Page() {
                 {a.note && <p className="t-body text-ink-2">{a.note}</p>}
               </div>
               <p className="md:text-right">
-                <span className={a.tier === "Pro" ? "border-b-2 border-mint pb-0.5 font-semibold text-ink" : "font-semibold text-ink"}>{a.tier}</span>
+                <span className={a.tier === "Pro" ? "border-b-2 border-positive-line pb-0.5 font-semibold text-ink" : "font-semibold text-ink"}>{a.tier}</span>
               </p>
             </li>
           ))}
