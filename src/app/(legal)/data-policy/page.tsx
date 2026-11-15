@@ -103,7 +103,6 @@ export default function DataPolicyPage() {
         <p>The following data is never required to use HoursFlow&apos;s core features:</p>
         <ul>
           <li>Work journal entries</li>
-          <li>Location data for automatic clock-in (requires explicit permission, can be revoked at any time in iOS Settings)</li>
           <li>Push notifications (can be declined or disabled in iOS Settings)</li>
           <li>Analytics participation (linked to your account — cannot be opted out of individually, but
             contains no PII)</li>
