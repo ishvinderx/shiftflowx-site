@@ -21,7 +21,7 @@ All secrets are set in Railway's Environment settings, never committed to source
 
 | Variable | Description |
 |---|---|
-| `NEXT_PUBLIC_API_URL` | Public backend URL (e.g. `https://api.shiftflowx.net`) |
+| `NEXT_PUBLIC_API_URL` | Public backend URL (e.g. `https://api.hoursflow.app`) |
 | `BACKEND_URL` | Internal backend URL for server-side API routes |
 | `INTERNAL_API_SECRET` | Shared with backend for internal calls |
 | `NEXT_PUBLIC_POSTHOG_KEY` | Client-side PostHog key |
@@ -84,7 +84,7 @@ restartPolicyMaxRetries = 3
 
 ```bash
 # Set environment variables
-railway variables set NEXT_PUBLIC_API_URL=https://api.shiftflowx.net
+railway variables set NEXT_PUBLIC_API_URL=https://api.hoursflow.app
 
 # Deploy
 railway up --service website
@@ -109,7 +109,7 @@ railway up --service website
 - Alert: CPU > 80% for 5 min → email notification
 
 ### Uptime
-- UptimeRobot monitors `https://api.shiftflowx.net/health` every 60 seconds
+- UptimeRobot monitors `https://api.hoursflow.app/health` every 60 seconds
 - SMS + email alert on 2× consecutive failures
 
 ### Error Tracking

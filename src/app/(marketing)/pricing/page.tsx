@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: `Pricing — Free ${PRICING.trialDays}-Day Trial, Then ${PRICING.monthly.shortLabel}`,
   description:
     `Simple, transparent pricing. Try HoursFlow Pro free for ${PRICING.trialDays} days, then ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}. Cancel anytime.`,
-  // Without this the root layout's canonical ('https://shiftflowx.net') is inherited,
+  // Without this the root layout's canonical (SITE_URL) is inherited,
   // telling Google this page duplicates the homepage — which drops it from the index.
   alternates: canonicalAlt("/pricing"),
 };

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { API_BASE_URL } from "./src/lib/constants";
+import { LEGACY_API_ORIGIN, domainRedirects } from "./src/lib/legacy-domain";
 
 // CSP connect-src is derived from the same constant the pages fetch with.
 const API_ORIGIN = new URL(API_BASE_URL).origin;
@@ -40,7 +41,9 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      `connect-src 'self' ${API_ORIGIN} ${POSTHOG_ORIGIN}`,
+      // The old API host stays allowed during the domain transition; LEGACY_API_ORIGIN
+      // (src/lib/legacy-domain.ts) can be removed after the API cut-over.
+      `connect-src ${[...new Set(["'self'", API_ORIGIN, LEGACY_API_ORIGIN, POSTHOG_ORIGIN])].join(" ")}`,
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -52,6 +55,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Old domain and www -> canonical host, same path (308).
+      ...domainRedirects(),
       {
         // Anti-duplicate (spec §35): identical search intent — one canonical URL.
         source: "/hours-worked-calculator",

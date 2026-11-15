@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ToolLayout from "@/components/calculator/ToolLayout";
 import { canonicalAlt, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import TimeCardClient from "./TimeCardClient";
+import { SITE_URL } from "@/lib/constants";
 
 // P0 SEO landing page #2 (Phase 18.2): weekly time-card / timesheet intent — a
 // per-day grid with WEEKLY overtime, genuinely distinct from the single-shift
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Time Card Calculator — Free Weekly Timesheet",
     description: "Add up your weekly time card with breaks, weekly overtime, and pay — free, no signup.",
-    url: "https://shiftflowx.net/time-card-calculator",
+    url: `${SITE_URL}/time-card-calculator`,
   },
 };
 

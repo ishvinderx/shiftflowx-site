@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { AppStoreButton, Button, Callout, FaqList, Heading, Label, PageHeader, Section } from "@/components/ui";
-import { APP_STORE_URL, BRAND, PLAN_POLICY } from "@/lib/constants";
+import { APP_STORE_URL, BRAND, PLAN_POLICY, SITE_URL } from "@/lib/constants";
 import { canonicalAlt } from "@/lib/seo";
 
 // Seven real feature areas. Tier follows PLAN_POLICY / PRO_FEATURES in constants.
@@ -33,8 +33,8 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
-    { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://shiftflowx.net/features" }
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": SITE_URL },
+    { "@type": "ListItem", "position": 2, "name": "Features", "item": `${SITE_URL}/features` }
   ]
 };
 

@@ -2,8 +2,9 @@ import type { MetadataRoute } from 'next'
 import { BLOG_POSTS } from '@/lib/blog'
 import { TOOLS } from '@/lib/tools/registry'
 import { USE_CASES } from '@/content/use-cases'
+import { SITE_URL } from '@/lib/constants'
 
-const BASE = 'https://shiftflowx.net'
+const BASE = SITE_URL
 const now = new Date()
 
 export default function sitemap(): MetadataRoute.Sitemap {

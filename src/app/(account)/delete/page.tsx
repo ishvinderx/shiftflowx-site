@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 import Link from "next/link";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
 
 const toc = [
   { id: "overview", label: "Overview" },
@@ -78,7 +79,7 @@ export default function DeletePage() {
           If you are unable to access the app, you can request account deletion by emailing us:
         </p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
           <li><strong>Subject:</strong> Account Deletion Request</li>
           <li><strong>Include:</strong> The email address associated with your HoursFlow account</li>
         </ul>
@@ -123,9 +124,9 @@ export default function DeletePage() {
           If you encounter any issues with account deletion, or if you have concerns about your data after deletion, please contact our support team:
         </p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
           <li><strong>Response time:</strong> Within 24 hours on business days</li>
-          <li><strong>Support page:</strong> <Link href="/support">shiftflowx.net/support</Link></li>
+          <li><strong>Support page:</strong> <Link href="/support">{SITE_HOST}/support</Link></li>
         </ul>
         <p>
           We take data deletion seriously and are committed to completing all deletion requests promptly and thoroughly.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ReferralLandingClient from "./ReferralLandingClient";
+import { SITE_URL } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ code: string }>;
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
       ],
       type: "website",
-      url: `https://shiftflowx.net/ref/${code}`,
+      url: `${SITE_URL}/ref/${code}`,
       siteName: "HoursFlow",
     },
     twitter: {

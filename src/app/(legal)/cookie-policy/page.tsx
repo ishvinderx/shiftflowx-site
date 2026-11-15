@@ -2,6 +2,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 import type { Metadata } from "next";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
@@ -29,7 +30,7 @@ export default function CookiePolicyPage() {
       toc={toc}
     >
       <p>
-        HoursFlow is operated by Flowmatix Creative Inc. This Cookie Policy explains what our website (shiftflowx.net) stores in your browser and your choices regarding it.
+        HoursFlow is operated by Flowmatix Creative Inc. This Cookie Policy explains what our website ({SITE_HOST}) stores in your browser and your choices regarding it.
       </p>
 
       <section id="what-are-cookies">
@@ -42,7 +43,7 @@ export default function CookiePolicyPage() {
       <section id="how-we-use">
         <h2>Cookies Set by This Website</h2>
         <p>
-          <strong>The HoursFlow website (shiftflowx.net) does not set any cookies.</strong> It does not use cookies for sign-in, advertising, or load balancing, and we do not use Google Analytics, Facebook Pixel, or any advertising network.
+          <strong>The HoursFlow website ({SITE_HOST}) does not set any cookies.</strong> It does not use cookies for sign-in, advertising, or load balancing, and we do not use Google Analytics, Facebook Pixel, or any advertising network.
         </p>
       </section>
 
@@ -60,7 +61,7 @@ export default function CookiePolicyPage() {
 
         <h3>Referral links</h3>
         <p>
-          If you open a referral link (shiftflowx.net/ref/&hellip;), the website stores one item in your browser&apos;s localStorage. It stays on your device until you clear your browser data.
+          If you open a referral link ({SITE_HOST}/ref/&hellip;), the website stores one item in your browser&apos;s localStorage. It stays on your device until you clear your browser data.
         </p>
         <ul>
           <li>
@@ -107,7 +108,7 @@ export default function CookiePolicyPage() {
 
         <h3>Analytics Opt-Out</h3>
         <p>
-          To stop analytics events, you can use your browser&apos;s tracking-protection or content-blocking features, or contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.
+          To stop analytics events, you can use your browser&apos;s tracking-protection or content-blocking features, or contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
         </p>
       </section>
 
@@ -121,7 +122,7 @@ export default function CookiePolicyPage() {
       <section id="contact">
         <h2>Contact</h2>
         <p>
-          If you have questions about our use of cookies or this policy, please contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.
+          If you have questions about our use of cookies or this policy, please contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
         </p>
       </section>
     </LegalLayout>

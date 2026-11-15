@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ShiftFlow — Earn More, Stress Less",
     description: "Automatically calculates your earnings, overtime, and taxes every shift.",
-    url: "https://shiftflowx.net",
+    url: "https://hoursflow.app",
     siteName: "ShiftFlow",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
@@ -101,7 +101,7 @@ Auto-generated via `next-sitemap` at build time. Config (`next-sitemap.config.js
 
 ```js
 module.exports = {
-  siteUrl: "https://shiftflowx.net",
+  siteUrl: "https://hoursflow.app",
   generateRobotsTxt: true,
   changefreq: "weekly",
   priority: 0.7,
@@ -127,7 +127,7 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /delete
 
-Sitemap: https://shiftflowx.net/sitemap.xml
+Sitemap: https://hoursflow.app/sitemap.xml
 ```
 
 ---

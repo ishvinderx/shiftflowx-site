@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_URL, SITE_HOST, SUPPORT_EMAIL, INFO_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Data Collection Policy — What We Store",
@@ -215,8 +216,8 @@ export default function DataPolicyPage() {
         </ul>
         <p>
           To request account deletion directly:{" "}
-          <a href="https://shiftflowx.net/delete">shiftflowx.net/delete</a> or email{" "}
-          <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.
+          <a href={`${SITE_URL}/delete`}>{SITE_HOST}/delete</a> or email{" "}
+          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
         </p>
       </section>
 
@@ -240,7 +241,7 @@ export default function DataPolicyPage() {
         </p>
         <p>
           To exercise any of these rights, contact{" "}
-          <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a>.
+          <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a>.
         </p>
       </section>
 
@@ -250,8 +251,8 @@ export default function DataPolicyPage() {
           For questions about this policy, data requests, or privacy concerns:
         </p>
         <ul>
-          <li>Email: <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a></li>
-          <li>Support: <a href="https://shiftflowx.net/support">shiftflowx.net/support</a></li>
+          <li>Email: <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a></li>
+          <li>Support: <a href={`${SITE_URL}/support`}>{SITE_HOST}/support</a></li>
         </ul>
         <p>
           We aim to respond to all data requests within 30 days.

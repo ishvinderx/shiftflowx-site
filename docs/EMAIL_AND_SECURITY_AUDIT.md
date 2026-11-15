@@ -11,10 +11,10 @@
   education, day-3/7/14/30/60/90 lifecycle, referral invite/success, feedback request, App Store
   review. (No dedicated account-deletion email.)
 - **CTA URLs: PASS** — verify (`/verify?token=`) and reset (`/reset-password?token=`) both build
-  from env with production default `https://shiftflowx.net` and hit real routes. No localhost/
+  from env with production default `https://hoursflow.app` and hit real routes. No localhost/
   staging/dead route. (Live end-to-end token test still pending — see final report.)
-- **Sender:** `ShiftFlow <noreply@shiftflowx.net>` (`FROM_EMAIL`). **[FIXED]** Reply-To was missing
-  while templates invite "just reply" → now `REPLY_TO_EMAIL ?? info@shiftflowx.net`.
+- **Sender:** `ShiftFlow <noreply@hoursflow.app>` (`FROM_EMAIL`). **[FIXED]** Reply-To was missing
+  while templates invite "just reply" → now `REPLY_TO_EMAIL ?? info@hoursflow.app`.
 - **[P2]** `MARKETING_BASE_URL` (used for verify links) is undocumented in `.env.example` (defaults
   to prod). Feedback-request CTA lands on site root, not a feedback form.
 - **Security PASS:** `RESEND_API_KEY` is server-side only; no client/browser email path anywhere.
@@ -29,7 +29,7 @@
 - **[FIXED] CSP** hardened with `base-uri`/`form-action`/`object-src`. Remaining **[P2]**:
   `script-src` still allows `'unsafe-inline'/'unsafe-eval'` (Next hydration) — tighten to nonces later.
 - **[P2]** `verify`/`reset-password` fall back to the raw Railway origin
-  (`shiftflow-backend-production.up.railway.app`) instead of `api.shiftflowx.net` — info disclosure.
+  (`shiftflow-backend-production.up.railway.app`) instead of `api.hoursflow.app` — info disclosure.
 - **Source maps: PASS** (no browser-served `.map`). **No debug/test routes exposed.**
 - **[P2]** Admin has no static `robots.txt` (defense-in-depth; relies on meta noindex + auth-gate).
 

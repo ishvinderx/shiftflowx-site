@@ -114,8 +114,8 @@ Lighthouse CI runs on every PR via GitHub Actions:
   uses: treosh/lighthouse-ci-action@v10
   with:
     urls: |
-      https://staging.shiftflowx.net/
-      https://staging.shiftflowx.net/pricing
+      https://staging.hoursflow.app/
+      https://staging.hoursflow.app/pricing
     budgetPath: ./lighthouse-budget.json
     uploadArtifacts: true
 ```

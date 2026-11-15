@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import { appStoreCampaignUrl } from '@/lib/constants'
+import { appStoreCampaignUrl, SITE_HOST } from '@/lib/constants'
 import { calculate, fmtHM, type BreakEntry } from './calc'
 import { inputCls, labelCls, calcGridCls, resultsCls, miniBtnCls } from '@/components/calculator/kit'
 
@@ -66,7 +66,7 @@ export default function CalculatorClient() {
       lines.push(`Regular: ${fmtHM(result.regularMinutes)} · Overtime: ${fmtHM(result.overtimeMinutes)}`)
     }
     if (result.grossPay != null) lines.push(`Estimated gross pay: $${result.grossPay.toFixed(2)}`)
-    lines.push('Calculated with shiftflowx.net/work-hours-calculator')
+    lines.push(`Calculated with ${SITE_HOST}/work-hours-calculator`)
     return lines.join('\n')
   }, [result, start, end, overnight])
 

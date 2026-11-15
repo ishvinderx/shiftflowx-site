@@ -134,7 +134,7 @@
 
 3. **Add PostHog to the website** — install `posthog-js`, wrap layout in a `<PHProvider>`, and track page views + download button clicks for marketing attribution.
 
-4. **Set up external uptime monitoring** — configure a free UptimeRobot monitor on `https://shiftflowx.net` and your backend `/health` endpoint with email/SMS alerts.
+4. **Set up external uptime monitoring** — configure a free UptimeRobot monitor on `https://hoursflow.app` and your backend `/health` endpoint with email/SMS alerts.
 
 5. **Add `@sentry/nextjs` to the website** — run `npx @sentry/wizard@latest -i nextjs` to auto-configure. Captures frontend JS errors and Web Vitals.
 

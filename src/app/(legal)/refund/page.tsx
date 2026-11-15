@@ -2,6 +2,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 import type { Metadata } from "next";
 import { canonicalAlt } from "@/lib/seo";
+import { SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Refund Policy",
@@ -107,7 +108,7 @@ export default function RefundPage() {
       <section id="exceptions">
         <h2>Exceptions &amp; Special Circumstances</h2>
         <p>
-          If you believe you have been charged incorrectly due to a technical error on HoursFlow&apos;s part, please contact us first at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>. We will investigate and, if an error is confirmed, work with Apple to facilitate a refund on your behalf.
+          If you believe you have been charged incorrectly due to a technical error on HoursFlow&apos;s part, please contact us first at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. We will investigate and, if an error is confirmed, work with Apple to facilitate a refund on your behalf.
         </p>
         <p>
           For subscription-related technical issues — such as features not working or access not being granted after payment — please contact our support team before requesting a refund. We are committed to resolving technical issues promptly.
@@ -120,7 +121,7 @@ export default function RefundPage() {
           For questions about this Refund Policy or for help with a billing issue:
         </p>
         <ul>
-          <li><strong>HoursFlow Support:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
+          <li><strong>HoursFlow Support:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
           <li><strong>Apple Refund Portal:</strong> <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a></li>
           <li><strong>Apple Support:</strong> <a href="https://support.apple.com" target="_blank" rel="noopener noreferrer">support.apple.com</a></li>
         </ul>

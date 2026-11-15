@@ -1,7 +1,7 @@
 # Admin Dashboard Deployment Report
 **Date:** 2026-06-09  
 **Backend:** https://shiftflow-backend-production.up.railway.app  
-**Admin Dashboard URL:** https://shiftflowx.net/admin  
+**Admin Dashboard URL:** https://hoursflow.app/admin  
 **Tester:** Automated QA Audit
 
 ---
@@ -67,7 +67,7 @@ The admin routes implement a robust dual-gate security model:
 
 ## Admin Dashboard URL
 
-**https://shiftflowx.net/admin**
+**https://hoursflow.app/admin**
 
 The admin dashboard frontend is expected at this URL. The backend admin API is correctly deployed and secured.
 

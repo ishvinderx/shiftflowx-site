@@ -15,7 +15,7 @@ Two test accounts were created (`audit-main-*` and `audit-referee-*`), and the f
 
 | Step | Check | Status | HTTP Code | Details |
 |------|-------|--------|-----------|---------|
-| 1 | Referral code generation (`GET /api/v1/referrals/my`) | **PASS** | 200 | Code `AUDIT564E37` auto-generated; URL `https://shiftflowx.net/ref/AUDIT564E37` |
+| 1 | Referral code generation (`GET /api/v1/referrals/my`) | **PASS** | 200 | Code `AUDIT564E37` auto-generated; URL `https://hoursflow.app/ref/AUDIT564E37` |
 | 2 | Click tracking (`POST /api/v1/referrals/click`) | **PASS** | 200 | `{"ok":true}` — click recorded |
 | 3 | Referee registration | **PASS** | 201 | Second user created successfully with JWT |
 | 4 | Referral apply (`POST /api/v1/referrals/apply`) | **PASS** | 200 | `{"ok":true,"referrerName":"Audit Main"}` — referrer name returned |
@@ -28,7 +28,7 @@ Two test accounts were created (`audit-main-*` and `audit-referee-*`), and the f
 ```json
 {
   "code": "AUDIT564E37",
-  "url": "https://shiftflowx.net/ref/AUDIT564E37",
+  "url": "https://hoursflow.app/ref/AUDIT564E37",
   "stats": {
     "clicks": 1,
     "signups": 1,

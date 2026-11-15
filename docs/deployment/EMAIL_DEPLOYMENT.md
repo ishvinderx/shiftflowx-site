@@ -17,11 +17,11 @@ _Audited: 2026-06-09_
 | Setting        | Value                          | Status  |
 |---------------|--------------------------------|---------|
 | `RESEND_API_KEY` | Set in `.env` (`re_XSQbB51o_…`) | CONFIGURED |
-| `FROM_EMAIL`   | `noreply@shiftflowx.net`       | CONFIGURED |
-| `FRONTEND_URL` | `https://shiftflowx.net`       | Used for CTAs |
+| `FROM_EMAIL`   | `noreply@hoursflow.app`       | CONFIGURED |
+| `FRONTEND_URL` | `https://hoursflow.app`       | Used for CTAs |
 | Dev fallback   | Logs to console if key absent   | Yes — safe |
 
-> **Domain:** All emails send from `noreply@shiftflowx.net`. Domain verification must be completed in the Resend dashboard for `shiftflowx.net` before production sends will reliably reach inboxes (SPF, DKIM records required).
+> **Domain:** All emails send from `noreply@hoursflow.app`. Domain verification must be completed in the Resend dashboard for `hoursflow.app` before production sends will reliably reach inboxes (SPF, DKIM records required).
 
 ---
 
@@ -78,10 +78,10 @@ These functions exist in `email.ts` but are not called from any route or schedul
 ## FROM Address
 
 ```
-ShiftFlow <noreply@shiftflowx.net>
+ShiftFlow <noreply@hoursflow.app>
 ```
 
-Friendly name "ShiftFlow" is set correctly. Reply-to is not explicitly set; replies go to `noreply@shiftflowx.net` — consider adding a `reply-to: support@shiftflowx.net` if you want to receive replies.
+Friendly name "ShiftFlow" is set correctly. Reply-to is not explicitly set; replies go to `noreply@hoursflow.app` — consider adding a `reply-to: support@hoursflow.app` if you want to receive replies.
 
 ---
 
@@ -101,7 +101,7 @@ Friendly name "ShiftFlow" is set correctly. Reply-to is not explicitly set; repl
 3. **`sendNewDeviceLoginEmail` not triggered** — security-sensitive email, should be called from the auth login path when a new device/session is detected.
 4. **`sendPaydayReminderEmail` not triggered** — requires a scheduled job that checks predicted payday dates.
 5. **`sendReferralSuccessEmail` not triggered** — should fire when a referred user converts in the referral system.
-6. **Domain verification** — must verify `shiftflowx.net` in Resend dashboard (SPF + DKIM DNS records) before going live or emails will land in spam.
+6. **Domain verification** — must verify `hoursflow.app` in Resend dashboard (SPF + DKIM DNS records) before going live or emails will land in spam.
 7. **App Store review URL** — `sendAppStoreReviewEmail` uses `SITE` (the web URL) as the review URL placeholder; a real App Store link needs to be substituted post-launch.
 
 ---

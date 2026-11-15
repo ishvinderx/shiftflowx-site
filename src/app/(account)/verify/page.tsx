@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 // Branded email-verification landing. The verification email links here (clean
-// shiftflowx.net URL); this calls the backend verify endpoint and shows the result.
+// hoursflow.app URL); this calls the backend verify endpoint and shows the result.
 export default async function VerifyPage({
   searchParams,
 }: {

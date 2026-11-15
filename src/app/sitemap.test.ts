@@ -10,7 +10,7 @@ import sitemap from './sitemap'
 // noindex — in its own page.tsx or in a sibling layout.tsx.
 
 const APP_DIR = fileURLToPath(new URL('.', import.meta.url))
-const BASE = 'https://shiftflowx.net'
+const BASE = 'https://hoursflow.app'
 
 function isNoindex(dir: string): boolean {
   return ['page.tsx', 'layout.tsx']
@@ -60,7 +60,7 @@ describe('sitemap', () => {
   })
 
   // A page with no `alternates.canonical` inherits the root layout's absolute
-  // canonical (https://shiftflowx.net) and tells Google it duplicates the
+  // canonical (https://hoursflow.app) and tells Google it duplicates the
   // homepage — which is how /pricing and /referral fell out of the index.
   it('declares its own canonical on every indexable page', () => {
     const missing = routeDirs()

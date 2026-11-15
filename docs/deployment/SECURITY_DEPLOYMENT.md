@@ -48,7 +48,7 @@ Development fallback:          http://localhost:3000, http://localhost:8080
 credentials:                   true
 ```
 
-The server **throws and refuses to start** in production if `ALLOWED_ORIGINS` is not set — no localhost backdoor in production. The `.env.example` documents the expected value as `https://shiftflowx.net`.
+The server **throws and refuses to start** in production if `ALLOWED_ORIGINS` is not set — no localhost backdoor in production. The `.env.example` documents the expected value as `https://hoursflow.app`.
 
 Status: **SECURE**
 

@@ -1,5 +1,5 @@
 import LegalLayout from "@/components/legal/LegalLayout";
-import { PLAN_POLICY_TEXT, PRICING, PRO_FEATURES } from "@/lib/constants";
+import { PLAN_POLICY_TEXT, PRICING, PRO_FEATURES, SUPPORT_EMAIL } from "@/lib/constants";
 
 import type { Metadata } from "next";
 import { canonicalAlt } from "@/lib/seo";
@@ -135,7 +135,7 @@ export default function SubscriptionTermsPage() {
           If your subscription is not automatically recognized, tap <strong>Restore Purchases</strong> in HoursFlow&apos;s Settings screen. This will re-link your App Store purchase to your account.
         </p>
         <p>
-          If issues persist, contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a> with your Apple ID email and we will assist you.
+          If issues persist, contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> with your Apple ID email and we will assist you.
         </p>
       </section>
 
@@ -156,7 +156,7 @@ export default function SubscriptionTermsPage() {
       <section id="contact">
         <h2>Contact</h2>
         <p>
-          For subscription-related questions, contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>. For billing disputes, refunds, or payment issues, please contact Apple Support or visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a>.
+          For subscription-related questions, contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. For billing disputes, refunds, or payment issues, please contact Apple Support or visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a>.
         </p>
       </section>
     </LegalLayout>

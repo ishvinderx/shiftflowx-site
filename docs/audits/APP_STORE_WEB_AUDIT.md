@@ -1,6 +1,6 @@
 # App Store Web Compliance Audit — ShiftFlow
 **Audit Date:** 2026-06-09  
-**Domain:** https://shiftflowx.net  
+**Domain:** https://hoursflow.app  
 **Auditor:** Senior iOS App Store Compliance Engineer
 
 ---
@@ -9,11 +9,11 @@
 
 | URL | HTTP Status | Result |
 |-----|------------|--------|
-| https://shiftflowx.net | 200 | PASS |
-| https://shiftflowx.net/privacy | 200 | PASS |
-| https://shiftflowx.net/support | 200 | PASS |
-| https://shiftflowx.net/terms | 200 | PASS |
-| https://shiftflowx.net/referral | 404 | NOTE: Not required for App Store |
+| https://hoursflow.app | 200 | PASS |
+| https://hoursflow.app/privacy | 200 | PASS |
+| https://hoursflow.app/support | 200 | PASS |
+| https://hoursflow.app/terms | 200 | PASS |
+| https://hoursflow.app/referral | 404 | NOTE: Not required for App Store |
 
 **Note:** The live site at `/privacy`, `/support`, and `/terms` appears to be a different deployment than the Next.js source in `src/app/`. The live site serves older HTML pages while the Next.js source contains much richer, more comprehensive legal content. The Next.js version should be deployed to ensure the richer content is live.
 
@@ -50,7 +50,7 @@
 | CCPA rights | PASS | Know, delete, opt-out, non-discrimination |
 | Children's privacy | PASS | Under 16 not targeted |
 | Account deletion process | PASS | In-app + /delete page + email |
-| Contact information | PASS | support@shiftflowx.net |
+| Contact information | PASS | support@hoursflow.app |
 | Effective date | PASS | January 1, 2025 |
 | Policy changes notice | PASS | In-app notification + email for material changes |
 
@@ -63,7 +63,7 @@
 | Data collection disclosed | PASS | Account, shift/earnings, device/usage, payment |
 | Third-party services named | PASS | Railway, Supabase, RevenueCat, PostHog, Anthropic |
 | GDPR/CCPA rights | PARTIAL | "Your Rights" section exists: Access, Portability, Deletion — but does not explicitly call out GDPR/CCPA by name or list rectification/restriction/objection rights |
-| Contact information | PASS | privacy@shiftflowx.net |
+| Contact information | PASS | privacy@hoursflow.app |
 | Account deletion | PASS | Links to /delete |
 | Children's privacy | PASS | Under 13 (16 in EU) |
 
@@ -76,7 +76,7 @@
 | Requirement | Status | Notes |
 |-------------|--------|-------|
 | Loads successfully | PASS | HTTP 200 |
-| Contact email present | PASS | support@shiftflowx.net (from `SUPPORT_EMAIL` constant) |
+| Contact email present | PASS | support@hoursflow.app (from `SUPPORT_EMAIL` constant) |
 | Response time stated | PASS | "Within 24 hours" |
 | FAQ section | PASS | FAQ items from `FAQ_ITEMS` constant, accordion UI |
 | Contact form | PASS | Full form with name, email, subject, message |
@@ -105,7 +105,7 @@
 | Termination | PASS | Both directions covered |
 | Governing law | PASS | Mentions arbitration |
 | Changes notification | PASS | In-app or email notice |
-| Contact information | PASS | support@shiftflowx.net |
+| Contact information | PASS | support@hoursflow.app |
 
 **Terms of Service Score: 14/14 — FULLY COMPLIANT**
 
@@ -117,16 +117,16 @@ When submitting to App Store Connect, use these URLs:
 
 | Field | URL |
 |-------|-----|
-| **Privacy Policy URL** | `https://shiftflowx.net/privacy` |
-| **Support URL** | `https://shiftflowx.net/support` |
-| **Marketing URL** (optional) | `https://shiftflowx.net` |
+| **Privacy Policy URL** | `https://hoursflow.app/privacy` |
+| **Support URL** | `https://hoursflow.app/support` |
+| **Marketing URL** (optional) | `https://hoursflow.app` |
 
 > Apple also allows you to link to the EULA at `/eula` and the Data Deletion page at `/delete`. The deletion URL is especially important for apps that collect personal data — Apple may require it.
 
 | Optional Field | URL |
 |----------------|-----|
-| **End User License Agreement** | `https://shiftflowx.net/eula` |
-| **Data Deletion** | `https://shiftflowx.net/delete` |
+| **End User License Agreement** | `https://hoursflow.app/eula` |
+| **Data Deletion** | `https://hoursflow.app/delete` |
 
 ---
 
@@ -159,7 +159,7 @@ The privacy policy and data policy pages disclose the following data types — t
 
 1. **DEPLOY THE NEXT.JS VERSION** — The live site appears to be an older static HTML deployment. The Next.js source is vastly more comprehensive (GDPR/CCPA sections, third-party disclosures, retention schedules). Deploy it to production.
 
-2. **Consistent contact email** — Next.js privacy page uses `support@shiftflowx.net`; live site uses `privacy@shiftflowx.net`. Standardize to one address or ensure both are monitored.
+2. **Consistent contact email** — Next.js privacy page uses `support@hoursflow.app`; live site uses `privacy@hoursflow.app`. Standardize to one address or ensure both are monitored.
 
 3. **Referral page** — `/referral` returns 404. Not required for App Store but if linked from marketing materials, it should resolve.
 

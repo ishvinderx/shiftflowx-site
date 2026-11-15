@@ -14,7 +14,7 @@
 | Auth profile (`GET /api/v1/auth/me`) | **FAIL** | 404 | Route not found — `GET /api/v1/auth/me` does not exist on the backend |
 | Jobs endpoint (`GET /api/v1/jobs`) | **PASS** | 200 | Returns `{"data":[],"meta":{"count":0}}` for new user |
 | Referrals endpoint (`GET /api/v1/referrals/my`) | **PASS** | 200 | Referral code auto-generated on first access |
-| CORS from `shiftflowx.net` | **PASS** | 204 | `access-control-allow-origin: *`, `access-control-allow-credentials: true` returned |
+| CORS from `hoursflow.app` | **PASS** | 204 | `access-control-allow-origin: *`, `access-control-allow-credentials: true` returned |
 | CORS from `evil-attacker.com` | **ALLOWED** ⚠️ | 204 | `access-control-allow-origin: *` returned — wildcard is served for all origins |
 
 ---
@@ -24,8 +24,8 @@
 **CRITICAL MISCONFIGURATION:** The backend returns `access-control-allow-origin: *` for ALL origins, including untrusted ones. It also sets `access-control-allow-credentials: true`. This combination is technically invalid per the CORS specification (browsers reject credentialed requests to wildcard origins), but it is a misconfiguration that should be corrected.
 
 **Recommendation:** Replace the wildcard origin with an explicit allowlist:
-- `https://shiftflowx.net`
-- `https://www.shiftflowx.net`
+- `https://hoursflow.app`
+- `https://www.hoursflow.app`
 - `http://localhost:3000` (development only)
 
 ---

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Data Protection & Your Rights",
@@ -125,7 +126,7 @@ export default function PrivacyPage() {
           <li>Access to production data is restricted to authorized personnel who receive security training</li>
         </ul>
         <p>
-          No method of transmission over the Internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. If you suspect a security issue, please contact us immediately at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.
+          No method of transmission over the Internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. If you suspect a security issue, please contact us immediately at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
         </p>
       </section>
 
@@ -151,7 +152,7 @@ export default function PrivacyPage() {
           <li>Non-discrimination for exercising your privacy rights</li>
         </ul>
 
-        <p>To exercise any of these rights, contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>. We will respond within 30 days.</p>
+        <p>To exercise any of these rights, contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. We will respond within 30 days.</p>
       </section>
 
       <section id="deletion">
@@ -161,8 +162,8 @@ export default function PrivacyPage() {
         </p>
         <ul>
           <li>In the app: Settings → Account → Delete Account</li>
-          <li>Online: Visit <a href="/delete">shiftflowx.net/delete</a> for step-by-step instructions</li>
-          <li>By email: Contact <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
+          <li>Online: Visit <a href="/delete">{SITE_HOST}/delete</a> for step-by-step instructions</li>
+          <li>By email: Contact <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
         </ul>
         <p>
           Deletion is permanent and irreversible. All your shift logs, earnings data, and personal information will be permanently removed from our systems within 30 days.
@@ -197,8 +198,8 @@ export default function PrivacyPage() {
           If you have questions about this Privacy Policy or our data practices, please contact us:
         </p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
-          <li><strong>Website:</strong> <a href="/support">shiftflowx.net/support</a></li>
+          <li><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
+          <li><strong>Website:</strong> <a href="/support">{SITE_HOST}/support</a></li>
         </ul>
       </section>
     </LegalLayout>

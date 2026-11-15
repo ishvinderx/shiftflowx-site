@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { trackToolEvent } from '@/lib/analytics'
-import { appStoreCampaignUrl } from '@/lib/constants'
+import { appStoreCampaignUrl, SITE_HOST } from '@/lib/constants'
 import { fmtHM } from '../work-hours-calculator/calc'
 import { calculateWeek, type DayRow } from './weekCalc'
 import { inputCls, resultsCls, miniBtnCls } from '@/components/calculator/kit'
@@ -60,7 +60,7 @@ export default function TimeCardClient() {
     lines.push(`Week total: ${fmtHM(result.totalMinutes)} (${result.decimalHours} decimal hours)`)
     if (result.overtimeMinutes > 0) lines.push(`Regular: ${fmtHM(result.regularMinutes)} · Overtime: ${fmtHM(result.overtimeMinutes)}`)
     if (result.grossPay != null) lines.push(`Estimated gross pay: $${result.grossPay.toFixed(2)}`)
-    lines.push('Calculated with shiftflowx.net/time-card-calculator')
+    lines.push(`Calculated with ${SITE_HOST}/time-card-calculator`)
     return lines.join('\n')
   }, [rows, result])
 

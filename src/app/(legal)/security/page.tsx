@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_URL, SUPPORT_EMAIL, INFO_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Security & Privacy — How We Protect Your Data",
@@ -12,8 +13,8 @@ const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": "https://shiftflowx.net" },
-    { "@type": "ListItem", "position": 2, "name": "Security", "item": "https://shiftflowx.net/security" }
+    { "@type": "ListItem", "position": 1, "name": "HoursFlow", "item": SITE_URL },
+    { "@type": "ListItem", "position": 2, "name": "Security", "item": `${SITE_URL}/security` }
   ]
 };
 
@@ -101,7 +102,7 @@ export default function SecurityPage() {
             <li><strong>Opt-out:</strong> Opt out of analytics data collection at any time in Settings → Privacy</li>
           </ul>
           <p>
-            To exercise any of these rights, contact us at <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a> or visit the <a href="/delete">Account Deletion page</a>. We respond to all data requests within 30 days.
+            To exercise any of these rights, contact us at <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a> or visit the <a href="/delete">Account Deletion page</a>. We respond to all data requests within 30 days.
           </p>
         </section>
 
@@ -109,9 +110,9 @@ export default function SecurityPage() {
           <h2>Contact</h2>
           <p>For security or privacy questions, contact our team:</p>
           <ul>
-            <li><strong>Privacy inquiries:</strong> <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a></li>
-            <li><strong>Security vulnerabilities:</strong> <a href="mailto:info@shiftflowx.net">info@shiftflowx.net</a></li>
-            <li><strong>General support:</strong> <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a></li>
+            <li><strong>Privacy inquiries:</strong> <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a></li>
+            <li><strong>Security vulnerabilities:</strong> <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a></li>
+            <li><strong>General support:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
           </ul>
           <p>
             If you believe you have discovered a security vulnerability in HoursFlow, please contact us immediately. We take all security reports seriously and will respond within 24 hours.

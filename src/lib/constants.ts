@@ -1,5 +1,11 @@
-export const SITE_URL = "https://shiftflowx.net";
-export const SUPPORT_EMAIL = "support@shiftflowx.net";
+// ─── Site address (SINGLE SOURCE OF TRUTH) ───────────────────────────────────
+// Canonical origin has no "www". Every URL, email address and domain shown in
+// page text, metadata, JSON-LD, sitemap and robots comes from here.
+export const SITE_HOST = "hoursflow.app";
+export const SITE_URL = `https://${SITE_HOST}`;
+export const SUPPORT_EMAIL = `support@${SITE_HOST}`;
+export const INFO_EMAIL = `info@${SITE_HOST}`;
+export const PRIVACY_EMAIL = `privacy@${SITE_HOST}`;
 // ─── Brand (SINGLE SOURCE OF TRUTH) ──────────────────────────────────────────
 // Product name, paid-tier name, operator and tagline. Metadata, JSON-LD, the OG image
 // and shared components read these; src/lib/brand.test.ts blocks the old name returning.
@@ -19,7 +25,7 @@ export const APP_STORE_URL = `https://apps.apple.com/app/hoursflow/id${APP_STORE
 // derives the CSP connect-src from API_BASE_URL — so a host the page calls can
 // never again be one the CSP blocks. Override with NEXT_PUBLIC_API_URL (origin,
 // with or without a trailing "/api/v1"; both forms are normalised).
-export const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "https://api.shiftflowx.net")
+export const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || `https://api.${SITE_HOST}`)
   .replace(/\/+$/, "")
   .replace(/\/api\/v1$/, "");
 export const API_V1_URL = `${API_BASE_URL}/api/v1`;
@@ -196,6 +202,6 @@ export const FAQ_ITEMS = [
   {
     question: "How do I delete my account and data?",
     answer:
-      "Delete your account directly in the app: Settings → Account → Delete Account. All your data is permanently removed within 30 days. Visit shiftflowx.net/delete for step-by-step instructions.",
+      `Delete your account directly in the app: Settings → Account → Delete Account. All your data is permanently removed within 30 days. Visit ${SITE_HOST}/delete for step-by-step instructions.`,
   },
 ];

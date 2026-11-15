@@ -2,6 +2,7 @@ import LegalLayout from "@/components/legal/LegalLayout";
 
 import type { Metadata } from "next";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "End User License Agreement",
@@ -135,8 +136,8 @@ export default function EulaPage() {
         </p>
         <p>
           <strong>HoursFlow Support</strong><br />
-          Email: <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a><br />
-          Website: <a href="/support">shiftflowx.net/support</a>
+          Email: <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a><br />
+          Website: <a href="/support">{SITE_HOST}/support</a>
         </p>
       </section>
     </LegalLayout>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ToolLayout from "@/components/calculator/ToolLayout";
 import { canonicalAlt, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import DecimalClient from "./DecimalClient";
+import { SITE_URL } from "@/lib/constants";
 
 // P1 SEO page: "hours to decimal" — know+do intent. Distinct functionality: two-way
 // converter + the full server-rendered minutes table (built for snippet extraction).
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Decimal Hours Calculator — Hours ↔ Decimal for Payroll",
     description: "Convert hours and minutes to decimal time instantly, with the full minutes chart.",
-    url: "https://shiftflowx.net/decimal-hours-calculator",
+    url: `${SITE_URL}/decimal-hours-calculator`,
   },
 };
 

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://shiftflowx.net',
+    url: SITE_URL,
     siteName: BRAND.name,
     title: TITLE,
     description: 'Track work hours, earnings, payday, budget, bills and tax estimates. Free to start.',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: 'Track work hours, earnings, payday, budget, bills and tax estimates.',
     images: ['/opengraph-image'],
   },
-  alternates: { canonical: 'https://shiftflowx.net' },
+  alternates: { canonical: SITE_URL },
   category: 'Finance',
   icons: {
     icon: [
@@ -79,7 +79,7 @@ const jsonLd = [
     "applicationCategory": "FinanceApplication",
     "applicationSubCategory": "Workforce Management",
     "operatingSystem": "iOS 16+",
-    "url": "https://shiftflowx.net",
+    "url": SITE_URL,
     "downloadUrl": APP_STORE_URL,
     "offers": {
       "@type": "Offer",
@@ -96,15 +96,15 @@ const jsonLd = [
       "Receipt and Payslip Scanning",
       "Paycheck Tracker"
     ],
-    "screenshot": "https://shiftflowx.net/opengraph-image",
-    "image": "https://shiftflowx.net/icon.png"
+    "screenshot": `${SITE_URL}/opengraph-image`,
+    "image": `${SITE_URL}/icon.png`
   },
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": BRAND.name,
-    "url": "https://shiftflowx.net",
-    "logo": "https://shiftflowx.net/icon.png",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/icon.png`,
     "description": `${BRAND.name} is operated by ${BRAND.legalEntity} and is an iOS app for employees, freelancers, and gig workers to track hours, earnings, bills and tax estimates.`,
     "contactPoint": {
       "@type": "ContactPoint",
@@ -117,7 +117,7 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": BRAND.name,
-    "url": "https://shiftflowx.net",
+    "url": SITE_URL,
     "description": "iOS app for tracking work hours, earnings, budget, bills and tax estimates"
   }
 ];

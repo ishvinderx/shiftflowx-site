@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ToolLayout from "@/components/calculator/ToolLayout";
 import { canonicalAlt, faqSchema, jsonLd, webAppSchema, type Faq } from "@/lib/seo";
 import CalculatorClient from "./CalculatorClient";
+import { SITE_URL } from "@/lib/constants";
 
 // P0 SEO landing page (Phase 18.2/18.3): a REAL free tool, not an article with a
 // keyword in the title. The calculator delivers the answer above the fold; the
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     title: "Work Hours Calculator — Free, With Breaks & Overtime",
     description:
  "Calculate hours worked with breaks, overtime, and pay — free, instant, no signup.",
-    url: "https://shiftflowx.net/work-hours-calculator",
+    url: `${SITE_URL}/work-hours-calculator`,
   },
 };
 

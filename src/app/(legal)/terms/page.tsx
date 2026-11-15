@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/legal/LegalLayout";
 import { canonicalAlt } from "@/lib/seo";
+import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Legal Agreement",
@@ -31,7 +32,7 @@ export default function TermsPage() {
       <section id="acceptance">
         <h2>Acceptance of Terms</h2>
         <p>
-          By downloading, installing, or using the HoursFlow application (&ldquo;App&rdquo;) or visiting shiftflowx.net (the &ldquo;Website&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, you may not access or use the Service.
+          By downloading, installing, or using the HoursFlow application (&ldquo;App&rdquo;) or visiting {SITE_HOST} (the &ldquo;Website&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, you may not access or use the Service.
         </p>
         <p>
           These Terms constitute a legally binding agreement between you and Flowmatix Creative Inc. (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). HoursFlow is operated by Flowmatix Creative Inc. Please read them carefully.
@@ -180,7 +181,7 @@ export default function TermsPage() {
       <section id="contact">
         <h2>Contact</h2>
         <p>
-          For questions about these Terms, please contact us at <a href="mailto:support@shiftflowx.net">support@shiftflowx.net</a>.
+          For questions about these Terms, please contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
         </p>
       </section>
     </LegalLayout>

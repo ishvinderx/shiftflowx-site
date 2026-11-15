@@ -82,11 +82,11 @@ account. With no key set, nothing is transmitted at all.
 
 Cannot be done without your Google login. Steps:
 
-1. Search Console → Add property → **Domain** property `shiftflowx.net`
+1. Search Console → Add property → **Domain** property `hoursflow.app`
    (preferred; covers all subdomains) → add the TXT record it gives you to the
    domain's DNS in Vercel. *(URL-prefix property with an HTML meta tag also
    works if you'd rather not touch DNS — tell me and I'll add the tag.)*
-2. Sitemaps → submit `https://shiftflowx.net/sitemap.xml`.
+2. Sitemaps → submit `https://hoursflow.app/sitemap.xml`.
 3. URL Inspection → request indexing for `/tools` and 2–3 priority calculators
    to prime discovery.
 

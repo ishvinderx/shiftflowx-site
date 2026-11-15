@@ -1,6 +1,6 @@
 # ShiftFlow Website — Route Audit
 
-**Date:** 2026-07-21 · **Domain:** https://shiftflowx.net · **Stack:** Next.js 16 App Router.
+**Date:** 2026-07-21 · **Domain:** https://hoursflow.app · **Stack:** Next.js 16 App Router.
 Static code audit + build. Live-deployed status verification pending (see final report).
 
 ## Route inventory

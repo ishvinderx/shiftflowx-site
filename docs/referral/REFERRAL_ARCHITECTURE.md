@@ -63,7 +63,7 @@ enum ReferralStatus {
 
 ```
 Website landing page
-  ↓  User visits shiftflowx.net/r/ALICE42
+  ↓  User visits hoursflow.app/r/ALICE42
   ↓  Backend records click: POST /api/v1/referrals/click { code: "ALICE42", ip, ua }
   ↓  Website stores in localStorage: { referralCode: "ALICE42", clickedAt: ISO }
 
@@ -108,11 +108,11 @@ referral.convert() called
 
 ## Website → iOS Attribution (localStorage Bridge)
 
-When a user visits `shiftflowx.net/r/:code`:
+When a user visits `hoursflow.app/r/:code`:
 
 1. Next.js route handler calls `POST /api/v1/referrals/click`
 2. Client-side JS stores: `localStorage.setItem("sf_referral", JSON.stringify({ code, ts }))`
-3. On iOS, after App Store install, the app's onboarding webview loads `shiftflowx.net/claim`
+3. On iOS, after App Store install, the app's onboarding webview loads `hoursflow.app/claim`
 4. The page reads localStorage and calls back into Swift via `WKScriptMessageHandler`
 5. Swift stores the code in Keychain and passes it to the registration API
 

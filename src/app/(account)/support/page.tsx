@@ -8,7 +8,7 @@ import { canonicalAlt } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Support — Help Center, FAQ & Contact",
   description:
-    "Get help with HoursFlow. Browse the FAQ, learn how to manage your subscription, or contact support at support@shiftflowx.net. We reply within 24 hours.",
+    `Get help with HoursFlow. Browse the FAQ, learn how to manage your subscription, or contact support at ${SUPPORT_EMAIL}. We reply within 24 hours.`,
   alternates: canonicalAlt("/support"),
 };
 

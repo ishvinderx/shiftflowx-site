@@ -4,7 +4,7 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { AppStoreButton, Container, Heading, Lede, Section } from "@/components/ui";
 import { BLOG_POSTS, formatPostDate, getPostBySlug } from "@/lib/blog";
-import { APP_STORE_URL, PRICING } from "@/lib/constants";
+import { APP_STORE_URL, PRICING, SITE_URL } from "@/lib/constants";
 import { jsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -22,12 +22,12 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
-    alternates: { canonical: `https://shiftflowx.net/blog/${post.slug}` },
+    alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
     openGraph: {
       type: 'article',
       title: post.title,
       description: post.description,
-      url: `https://shiftflowx.net/blog/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
       publishedTime: post.date,
       authors: ['HoursFlow'],
       tags: [post.category, 'HoursFlow', 'workforce finance'],
@@ -162,12 +162,12 @@ export default async function BlogPostPage({
     "publisher": {
       "@type": "Organization",
       "name": "HoursFlow",
-      "logo": { "@type": "ImageObject", "url": "https://shiftflowx.net/icon.png" }
+      "logo": { "@type": "ImageObject", "url": `${SITE_URL}/icon.png` }
     },
     "datePublished": post.date,
     "dateModified": post.date,
-    "mainEntityOfPage": { "@type": "WebPage", "@id": `https://shiftflowx.net/blog/${post.slug}` },
-    "url": `https://shiftflowx.net/blog/${post.slug}`,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
+    "url": `${SITE_URL}/blog/${post.slug}`,
   };
 
   return (

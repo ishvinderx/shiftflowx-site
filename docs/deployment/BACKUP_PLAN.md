@@ -145,7 +145,7 @@ Even in a total data-loss scenario, the full schema can be reconstructed by runn
 3. Restore the dump: `pg_restore --dbname <new-url> shiftflow_backup.dump`
 4. Update `DATABASE_URL` environment variable in the new backend deployment.
 5. Push backend to the new provider (or wait for Railway recovery — Railway SLA is 99.5%).
-6. Update DNS (api.shiftflowx.net CNAME) to point to the new backend URL.
+6. Update DNS (api.hoursflow.app CNAME) to point to the new backend URL.
 
 ---
 

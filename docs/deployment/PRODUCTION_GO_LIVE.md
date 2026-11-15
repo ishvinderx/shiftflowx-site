@@ -3,7 +3,7 @@
 **Audited by:** Automated 15-Phase Pre-Launch Verification  
 **App Version:** 1.1.0 (Build 10)  
 **Backend:** shiftflow-backend-production.up.railway.app  
-**Website:** shiftflowx.net  
+**Website:** hoursflow.app  
 
 ---
 
@@ -15,21 +15,21 @@ These 4 items will cause visible failures in production. Do not launch until res
 |---|------|-------------|--------|
 | 1 | **`DEEPSEEK_API_KEY` not set** | Railway → Variables | All 7 AI features return HTTP 500 |
 | 2 | **`SENTRY_DSN` not set** | Railway → Variables | All backend crashes are invisible |
-| 3 | **`ALLOWED_ORIGINS=*`** | Railway → Variables → set to `https://shiftflowx.net` | CORS misconfiguration (wildcard) |
+| 3 | **`ALLOWED_ORIGINS=*`** | Railway → Variables → set to `https://hoursflow.app` | CORS misconfiguration (wildcard) |
 | 4 | **Vercel env vars missing** | Vercel dashboard → Settings → Environment Variables | Website can't reach backend in production |
 
 ### Vercel Variables to Add (Settings → Environment Variables → Production)
 ```
 BACKEND_URL=https://shiftflow-backend-production.up.railway.app
 INTERNAL_API_SECRET=<same value as COOKIE_SECRET in Railway>
-NEXT_PUBLIC_APP_URL=https://shiftflowx.net
+NEXT_PUBLIC_APP_URL=https://hoursflow.app
 ```
 
 ### Railway Variables to Add/Fix (Dashboard → shiftflow-backend → Variables)
 ```
 DEEPSEEK_API_KEY=<your DeepSeek API key>
 SENTRY_DSN=<your Sentry DSN>
-ALLOWED_ORIGINS=https://shiftflowx.net
+ALLOWED_ORIGINS=https://hoursflow.app
 ```
 
 ---
@@ -88,7 +88,7 @@ Address these within 2 weeks of launch:
 
 ### Compliance
 4. **Add GDPR data export endpoint** — `GET /api/v1/account/export` returning user data as JSON. Required by GDPR Article 20.
-5. **Verify Resend domain DNS** — `shiftflowx.net` must be verified in the Resend dashboard before transactional emails send.
+5. **Verify Resend domain DNS** — `hoursflow.app` must be verified in the Resend dashboard before transactional emails send.
 
 ### Reliability  
 6. **Automated database backup** — Railway Hobby plan has no automatic backups. Set up daily `pg_dump` → S3 (SDK already installed: `@aws-sdk/client-s3`).
@@ -106,9 +106,9 @@ Before submitting build 10 (1.1.0) for review:
 - [x] Version: 1.1.0 (MARKETING_VERSION)  
 - [x] Build: 10 (CFBundleVersion)  
 - [x] NSUserTrackingUsageDescription: REMOVED  
-- [x] Privacy Policy URL: `https://shiftflowx.net/privacy` ✅ live  
-- [x] Support URL: `https://shiftflowx.net/support` ✅ live  
-- [x] Terms of Service: `https://shiftflowx.net/terms` ✅ live  
+- [x] Privacy Policy URL: `https://hoursflow.app/privacy` ✅ live  
+- [x] Support URL: `https://hoursflow.app/support` ✅ live  
+- [x] Terms of Service: `https://hoursflow.app/terms` ✅ live  
 - [ ] Set Privacy Policy URL in App Store Connect submission  
 - [ ] Set Support URL in App Store Connect submission  
 - [ ] Swap submission to Build 10 (if Build 9 is still selected)  
