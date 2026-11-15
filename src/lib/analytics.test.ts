@@ -11,13 +11,11 @@ beforeEach(() => {
   fetchMock.mockClear()
   vi.stubGlobal('fetch', fetchMock)
   vi.stubGlobal('window', { location: { pathname: '/gst-hst-calculator' } })
+  let stored: string | null = null
   vi.stubGlobal('sessionStorage', {
-    _v: null as string | null,
-    getItem() {
-      return this._v
-    },
-    setItem(_k: string, v: string) {
-      this._v = v
+    getItem: () => stored,
+    setItem: (_k: string, v: string) => {
+      stored = v
     },
   })
   vi.stubGlobal('crypto', { randomUUID: () => 'test-uuid' })
@@ -51,7 +49,7 @@ describe('trackToolEvent', () => {
     })
 
     expect(fetchMock).toHaveBeenCalledTimes(1)
-    const body = JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string)
+    const body = JSON.parse(((fetchMock.mock.calls[0] as unknown as [string, RequestInit])[1]).body as string)
     expect(body.event).toBe('calculator_completed')
     expect(body.api_key).toBe('phc_test')
     expect(Object.keys(body.properties).sort()).toEqual([
