@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   AllocationBar, AppStoreButton, Button, Container, FaqList, FeatureRow, Figure, Heading, Label,
-  LedgerTable, LineChart, PhoneFrame, Reveal, Section, SAMPLE_SHIFTS, money,
+  HeroPayCard, LedgerTable, LineChart, PhoneFrame, Reveal, Section, SAMPLE_SHIFTS, money,
 } from "@/components/ui";
 import FreeVsPro from "@/components/marketing/FreeVsPro";
 import { APP_STORE_URL, BRAND, PRICING } from "@/lib/constants";
@@ -80,11 +80,7 @@ export default function HomePage() {
           <AllocationBar className="max-w-[560px] border-t border-rule pt-6" />
         </Reveal>
         <Reveal index={1} className="md:pt-4">
-          <PhoneFrame
-            priority
-            src="/screenshots/home.png"
-            alt="The HoursFlow home screen: 134 dollars still to earn this month, a bar splitting bills due and the rest of the plan, and a chart of earnings this pay period."
-          />
+          <HeroPayCard />
         </Reveal>
       </Container>
 
@@ -108,7 +104,7 @@ export default function HomePage() {
             label="Work"
             title="Track shifts across employers"
             visual={
-              <figure>
+              <figure className="card p-5 sm:p-6">
                 <figcaption className="mb-3 flex items-baseline justify-between gap-4">
                   <span className="t-label">Shifts, this pay period</span>
                   <span className="t-label">Sample data</span>
@@ -137,7 +133,7 @@ export default function HomePage() {
             label="Earn"
             title="Know your next paycheque"
             visual={
-              <div className="grid gap-8">
+              <div className="card grid gap-8 p-5 sm:p-6">
                 <Figure label="Expected paycheque" value="$863" cents=".83" tone="positive" note="$1,008.00 gross less $144.17 estimated deductions" />
                 <LineChart />
               </div>
@@ -153,7 +149,7 @@ export default function HomePage() {
             visual={
               <PhoneFrame
                 src="/screenshots/budget.png"
-                alt="The Monthly Budget screen: 134 dollars still to earn, estimated net income of 1,456 dollars against 1,590 dollars of planned bills and budgets, and buttons to add an expense or add to the budget."
+                alt="The Budget screen: 145 dollars and 46 cents still to earn this month, with about 5 more hours of work covering the plan, 1,444 dollars and 54 cents earned after deductions against 1,590 dollars planned, and the bills due."
               />
             }
           >
@@ -168,7 +164,7 @@ export default function HomePage() {
             visual={
               <PhoneFrame
                 src="/screenshots/reports.png"
-                alt="The Reports screen with a month summary of 1,814 dollars gross pay over 63 hours and 10 shifts, and an expected payment of 863 dollars and 83 cents settling on November 16."
+                alt="The Reports screen for the month: 1,770 dollars before tax over 63 hours and 10 shifts, estimated deductions, 1,444 dollars and 54 cents after deductions, and links to earnings, pay statement and paycheck tracker."
               />
             }
           >
