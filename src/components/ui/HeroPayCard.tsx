@@ -20,7 +20,7 @@ export function HeroPayCard({ className }: { className?: string }) {
         <div className="relative z-10">
           <p className="flex items-baseline justify-between gap-4 text-[0.75rem] font-semibold uppercase tracking-[0.11em]">
             <span>This pay period &middot; before tax</span>
-            <span className="hero-sub normal-case tracking-normal font-medium">Sample data</span>
+            <span className="hero-sub shrink-0 whitespace-nowrap normal-case tracking-normal font-medium">Sample data</span>
           </p>
           <p className="mt-4 font-bold leading-none tracking-[-0.045em] text-[clamp(3rem,2rem+4vw,4.5rem)]">
             $1,512<span className="text-[0.42em] font-semibold tracking-[-0.02em] opacity-75">.00</span>
@@ -39,14 +39,14 @@ export function HeroPayCard({ className }: { className?: string }) {
             <dt className="font-semibold text-ink">Payday</dt>
             <dd className="text-[0.9375rem] text-ink-2">About $1,368.36 after deductions</dd>
           </div>
-          <dd className="font-semibold text-ink">Fri 20 Nov</dd>
+          <dd className="shrink-0 whitespace-nowrap font-semibold text-ink">Fri 20 Nov</dd>
         </div>
         <div className="flex items-start justify-between gap-4 py-3.5">
           <div>
             <dt className="font-semibold text-ink">Next shift</dt>
             <dd className="text-[0.9375rem] text-ink-2">Harbour Clinic</dd>
           </div>
-          <dd className="font-semibold text-ink">Mon 1:00 PM</dd>
+          <dd className="shrink-0 whitespace-nowrap font-semibold text-ink">Mon 1:00 PM</dd>
         </div>
       </dl>
     </figure>
