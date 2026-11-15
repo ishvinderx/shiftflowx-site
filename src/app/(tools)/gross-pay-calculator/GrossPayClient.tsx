@@ -179,7 +179,7 @@ export default function GrossPayClient() {
           >
             <AppCta
               ct="gross-pay-calculator"
-              headline="Want to know what every paycheck should be?"
+              headline="Want to know what every paycheque should be?"
               sub="HoursFlow tracks your shifts and shows your expected gross pay for each pay period automatically."
             />
           </div>

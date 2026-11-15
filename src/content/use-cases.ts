@@ -67,7 +67,7 @@ export const USE_CASES: UseCase[] = [
         label: "Check",
         title: "Compare the paycheque with your hours",
         body: [
-          "With Pro, the paycheck tracker checks a paycheque against the hours you logged, so a short week or a missing shift stands out.",
+          "The paycheque check compares your payslip gross with the hours you logged, so a short week or a missing shift stands out. Pro adds the detail behind the check.",
           "Having your own record of the hours makes the conversation with payroll shorter.",
         ],
         visual: {
@@ -265,7 +265,7 @@ export const USE_CASES: UseCase[] = [
         label: "Payment",
         title: "Check each payment when it lands",
         body: [
-          "The paycheck tracker, part of Pro, checks a payment against the hours you logged.",
+          "The paycheque check compares a payment with the hours you logged. The answer is free; the detail is in Pro.",
           "The tax report gives an estimate of what to set aside from it.",
         ],
         visual: { kind: "earnings" },
@@ -329,7 +329,7 @@ export const USE_CASES: UseCase[] = [
         label: "Pay",
         title: "Check overtime and nights against the paycheque",
         body: [
-          "Compare the paycheque with the hours you logged, including long shifts and extra ones, with the paycheck tracker in Pro.",
+          "Compare the paycheque with the hours you logged, including long shifts and extra ones, with the paycheque check. Pro shows the overtime behind the figure.",
           "The free work hours calculator handles a shift that crosses midnight, such as 10:00 PM to 6:00 AM.",
         ],
         visual: { kind: "earnings" },

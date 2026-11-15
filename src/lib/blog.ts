@@ -27,10 +27,10 @@ When you track your own work hours independently, you create a personal record t
 
 With accurate hour logs, you can:
 
-- **Verify every paycheck** against your actual hours worked
+- **Verify every paycheque** against your actual hours worked
 - **Catch overtime errors** before they compound across pay periods
 - **Build a dispute case** if your employer underpays you
-- **Estimate your paycheck** before it arrives to plan expenses
+- **Estimate your paycheque** before it arrives to plan expenses
 - **Track earnings across multiple jobs** in a single view
 
 Studies show that workers who track their own hours are significantly more likely to catch payroll discrepancies and successfully dispute them. Documentation is everything.
@@ -47,7 +47,7 @@ More durable than paper and easier to calculate totals, spreadsheets like Google
 Many employers use punch-in systems or electronic time clocks. These are convenient but carry a critical risk: you don't control the record. Employers have been found to manipulate time clock data — rounding down shift start times, rounding up break durations, or removing punch-in records entirely.
 
 ### Dedicated Shift Tracking Apps
-Apps like HoursFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. With a subscription, HoursFlow's paycheck tracker can also check a paycheque against your logged hours.
+Apps like HoursFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. HoursFlow's paycheque check can also compare your payslip gross with your logged hours.
 
 ## What a Shift Tracking App Adds
 
@@ -55,7 +55,7 @@ A good shift tracking app does more than record your hours. HoursFlow, for examp
 
 1. Shows your earnings from the hours and rate you log
 2. Shows when your next payday is due, based on your pay schedule
-3. Lets subscribers check a paycheque against the hours they logged (the paycheck tracker)
+3. Lets you check a paycheque against the hours they logged (the paycheque check)
 
 This turns hour tracking from a passive record into something you can check your pay against.
 
@@ -65,7 +65,7 @@ This turns hour tracking from a passive record into something you can check your
 - **Log every shift the same day.** Memory fades quickly — same-day logging is far more accurate than end-of-week reconstruction.
 - **Track breaks separately.** Unpaid break time affects your pay calculation; record exact break durations.
 - **Know your overtime threshold.** Most hourly workers are entitled to 1.5x pay after 40 hours per week under federal FLSA rules.
-- **Use technology.** Apps like HoursFlow make hour tracking quick, and subscribers can check a paycheque against their logged hours.
+- **Use technology.** Apps like HoursFlow make hour tracking quick, and you can check a paycheque against your logged hours.
 
 ## Frequently Asked Questions
 
@@ -135,7 +135,7 @@ Classifying employees as independent contractors to avoid overtime obligations, 
 
 ## How Payroll Errors Go Undetected
 
-Most workers receive a paycheck and assume it's correct. Without an independent record of hours worked, there's no way to verify the calculation. Payroll departments process hundreds or thousands of employees — errors are common and rarely caught internally.
+Most workers receive a paycheque and assume it's correct. Without an independent record of hours worked, there's no way to verify the calculation. Payroll departments process hundreds or thousands of employees — errors are common and rarely caught internally.
 
 Even workers who suspect an error often don't act on it because they lack documentation to support their claim. An employer's payroll system is authoritative by default unless you have your own records.
 
@@ -149,20 +149,20 @@ Log every shift independently — start time, end time, break duration, and any 
 
 Understand FLSA overtime rules (40 hours/week threshold for most workers), your state's break premium requirements, and what deductions are and aren't legal in your jurisdiction.
 
-### Cross-Reference Every Paycheck
+### Cross-Reference Every Paycheque
 
-When your paycheck arrives, calculate what you expected to receive based on your logged hours and pay rate. Compare that to what you actually received. Any discrepancy warrants investigation.
+When your paycheque arrives, calculate what you expected to receive based on your logged hours and pay rate. Compare that to what you actually received. Any discrepancy warrants investigation.
 
-### Use a Paycheck Tracker
+### Use a Paycheque Check
 
-HoursFlow's paycheck tracker, a Pro feature, checks a paycheque against the hours you logged, so you can see if an amount looks short.
+HoursFlow's paycheque check lets you enter the gross pay on your payslip and see whether it matches the hours you logged, before tax. The answer is free; Pro adds the detail behind it.
 
 ## Key Takeaways
 
 - **Payroll errors happen** even at well-run employers — don't assume your check is correct.
 - **Missing overtime** is the most common and costly payroll error for hourly workers.
 - **Independent records** are your primary protection — always log your own hours.
-- **A paycheck tracker** can check your logged shifts against your paycheque.
+- **A paycheque check** can check your logged shifts against your paycheque.
 - **Act quickly** on suspected errors — the sooner you raise a discrepancy, the easier it is to resolve.
 
 ## Frequently Asked Questions
@@ -188,7 +188,7 @@ HoursFlow keeps a record of the shifts you log, and subscribers can export repor
     category: 'Tax Guide',
     readTime: '8 min read',
     content: `
-Taxes are the biggest financial shock for new gig workers. As an employee, your employer withholds federal, state, and FICA taxes from every paycheck. As a gig worker or independent contractor, you receive your full earnings — no withholding — and become responsible for calculating and paying your own taxes.
+Taxes are the biggest financial shock for new gig workers. As an employee, your employer withholds federal, state, and FICA taxes from every paycheque. As a gig worker or independent contractor, you receive your full earnings — no withholding — and become responsible for calculating and paying your own taxes.
 
 The result, for many first-time gig workers, is a tax bill at year end that feels impossible to pay. This guide explains exactly how gig worker taxes work, what you can deduct, and how to stay ahead of what you owe.
 
@@ -290,12 +290,12 @@ Pay directly to the IRS via IRS Direct Pay (irs.gov/payments), the IRS2Go mobile
   {
     slug: 'how-payday-forecasting-works',
     title: 'How Payday Estimates Work — And Why Workers Need Them',
-    description: "An estimate of when your next paycheck arrives and roughly how much it will be helps you plan. Here's how it works and its limits.",
+    description: "An estimate of when your next paycheque arrives and roughly how much it will be helps you plan. Here's how it works and its limits.",
     date: '2026-05-24',
     category: 'Pay & Hours',
     readTime: '3 min read',
     content: `
-Uncertainty about payday is a common source of money worry. Knowing when your next paycheck is due, and roughly how much it will be, makes it easier to plan bills and spending.
+Uncertainty about payday is a common source of money worry. Knowing when your next paycheque is due, and roughly how much it will be, makes it easier to plan bills and spending.
 
 ## What Is a Payday Estimate?
 
@@ -318,7 +318,7 @@ Knowing when payday falls lets you schedule bills around it. HoursFlow's free pl
 
 ### Checking Your Paycheque
 
-When your paycheque arrives, compare it with the hours you logged. With a subscription, the paycheck tracker does this check for you.
+When your paycheque arrives, compare it with the hours you logged. The paycheque check in HoursFlow does this comparison for you, and the answer is free.
 
 ## Key Takeaways
 
@@ -634,7 +634,7 @@ The [single-shift calculator](/work-hours-calculator) handles the daily version,
 - **The multiplier applies to your regular rate** — check how your agreement defines it if you earn premiums or differentials.
 - **Averaging agreements and exemptions can change everything** — the categories exempted from overtime vary widely.
 
-HoursFlow keeps a record of every shift you log, and its paycheck tracker (a Pro feature) checks a paycheque against the hours you actually worked — [that is the whole point of the app](/download).
+HoursFlow keeps a record of every shift you log, and its paycheque check compares a paycheque against the hours you actually worked — [that is the whole point of the app](/download).
 `,
   },
 ];

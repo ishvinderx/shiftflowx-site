@@ -107,8 +107,8 @@ export const PRICING = {
 // ─── Free vs Pro (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
 // The record-history policy, word for word. Render these strings; do not paraphrase.
 export const PLAN_POLICY = {
-  free: "Free: shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records.",
-  subscribers: "Subscribers: full history, multiple employers, report and document export, tax reports, scanning and import, and the paycheck tracker.",
+  free: "Free: one employer, the last 30 days of history, logging shifts, earnings, payday, budget and bills, the paycheque check answer, and import from a CSV file.",
+  subscribers: "Pro: full history, more than one employer, exports and pay statements, invoices with sales tax, the tax report, receipt and payslip scanning, shift import from a photo, and the detail behind a paycheque check.",
   lapse:
     "If a subscription lapses nothing is deleted — older records become available again when you resubscribe.",
 } as const;
@@ -119,12 +119,21 @@ export const PLAN_POLICY_TEXT = `${PLAN_POLICY.free} ${PLAN_POLICY.subscribers} 
 export const PRO_FEATURES = [
   "Full history beyond 30 days",
   "More than one employer",
-  "Report export (PDF and CSV)",
-  "Pay statements and self-employed invoicing",
-  "Tax report with GST/HST summaries",
+  "Exports and pay statements",
+  "Invoices with sales tax",
+  "Tax report",
   "Receipt and payslip scanning",
-  "Shift import",
-  "Paycheck tracker",
+  "Shift import from a photo",
+  "Paycheque check detail",
+] as const;
+
+// Features that are in BOTH tiers. Rendered with PRO_FEATURES in the Free vs Pro table.
+export const FREE_FEATURES = [
+  "Logging shifts for one employer",
+  "Earnings and payday",
+  "Budget and bills",
+  "Paycheque check: the answer",
+  "Import from a CSV file",
 ] as const;
 
 // Billing FAQ — ONE source for the pricing page UI and its FAQPage structured data,
@@ -205,9 +214,14 @@ export const FAQ_ITEMS = [
       "Data is encrypted in transit (TLS 1.3), and sensitive fields are encrypted at rest. We never sell your data. Your payroll information stays private. You can export your data and delete your account from the app.",
   },
   {
-    question: "How does the paycheck tracker work?",
+    question: "How does the paycheque check work?",
     answer:
-      "The paycheck tracker (a Pro feature) checks a paycheque against the hours you logged, so you can see if the amount looks short.",
+      "Enter the gross pay on your payslip and the app shows whether it matches your logged hours, before tax. The answer is free. Pro adds the detail behind it: the shifts and overtime behind the figure, and your past checks.",
+  },
+  {
+    question: "Moving from another app: can I bring my shifts and expenses?",
+    answer:
+      `Yes, and importing is free. Export your shifts and expenses as a CSV file from the app you use now, create a ${BRAND.name} account, then choose Import from a file and pick the CSV.`,
   },
   {
     question: "How do I delete my account and data?",

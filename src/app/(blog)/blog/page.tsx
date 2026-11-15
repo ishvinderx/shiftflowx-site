@@ -8,7 +8,7 @@ import { canonicalAlt } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Blog — Pay & Tax Guides for Workers",
-  description: "Guides on paychecks, payday, gig worker taxes and freelancer invoicing.",
+  description: "Guides on paycheques, payday, gig worker taxes and freelancer invoicing.",
   alternates: canonicalAlt("/blog"),
 };
 

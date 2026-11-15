@@ -23,14 +23,17 @@ HoursFlow is an iOS app that helps employees, freelancers, contractors, and gig 
 4. **Tax Estimates** — Estimated tax set-aside, with a tax report and GST/HST summaries for subscribers
 5. **Invoices and Pay Statements** — Document export for freelance and contract work (subscribers)
 6. **Receipt and Payslip Scanning** — On-device text recognition (subscribers)
-7. **Paycheck Tracker** — Checks a paycheque against your logged hours (subscribers)
-8. **Reports and Import** — PDF and CSV export, shift import and full history (subscribers)
+7. **Paycheque check: the answer** — Enter the gross pay on your payslip and see whether it matches your logged hours, before tax (Free and Pro)
+8. **Paycheque check detail** — The shifts and overtime behind the figure, and past checks (Pro)
+9. **Import from a CSV file** — Bring past shifts and expenses in from a CSV file (Free and Pro)
+10. **Shift import from a photo** — Import shifts from a photo (Pro)
+11. **Reports and exports** — PDF and CSV export, pay statements and full history (Pro)
 
 ## Pricing
 - Free Trial: 7 days, full access to every HoursFlow Pro feature
 - HoursFlow Pro Monthly: $6.49/month
 - HoursFlow Pro Annual: $64.99/year (~17% savings vs monthly)
-- Free: shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days of records. Subscribers: full history, multiple employers, report and document export, tax reports, scanning and import, and the paycheck tracker. If a subscription lapses nothing is deleted — older records become available again when you resubscribe.
+- Free: one employer, the last 30 days of history, logging shifts, earnings, payday, budget and bills, the paycheque check answer, and import from a CSV file. Pro: full history, more than one employer, exports and pay statements, invoices with sales tax, the tax report, receipt and payslip scanning, shift import from a photo, and the detail behind a paycheque check. If a subscription lapses nothing is deleted — older records become available again when you resubscribe.
 - Subscriptions managed through Apple App Store and renew automatically unless cancelled
 - Canonical, always-current machine-readable pricing: https://hoursflow.app/pricing.md
 

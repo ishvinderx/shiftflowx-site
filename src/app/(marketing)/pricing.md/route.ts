@@ -25,7 +25,7 @@ export function GET() {
 
 ${BRAND.name} is an iOS app for shift, hourly and self-employed workers: shift tracking,
 earnings and take-home estimates, payday tracking, budget and bill reminders, tax
-estimates (GST/HST where applicable), invoicing, and a paycheck tracker.
+estimates (GST/HST where applicable), invoicing, and a paycheque check.
 
 All plans are billed through the Apple App Store. Cancel anytime in
 iPhone Settings → Apple ID → Subscriptions.
@@ -49,7 +49,7 @@ iPhone Settings → Apple ID → Subscriptions.
 - ${PLAN_POLICY.subscribers}
 - ${PLAN_POLICY.lapse}
 
-## What Pro includes (identical on Monthly and Annual — the difference is billing, not features)
+## What Pro includes (in addition to everything in Free) (identical on Monthly and Annual — the difference is billing, not features)
 ${PRO_FEATURES.map((f) => `- ${f}`).join("\n")}
 
 ## Notes for agents

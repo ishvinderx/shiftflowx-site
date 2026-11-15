@@ -24,7 +24,7 @@ const appSchema = {
 // One source for the visible FAQ and the FAQPage structured data, so they cannot drift.
 const HOME_FAQ = [
   { q: `How does ${BRAND.name} estimate paydays?`, a: `${BRAND.name} uses your pay schedule and logged shifts to estimate when your next paycheque is due and roughly how much it will be. These are estimates that improve as you log more shifts, not a guarantee.` },
-  { q: "How does the paycheck tracker work?", a: `The paycheck tracker, a Pro feature, checks a paycheque against the hours you logged in ${BRAND.name} so you can see whether the amount looks short.` },
+  { q: "How does the paycheque tracker work?", a: `The paycheque tracker, a Pro feature, checks a paycheque against the hours you logged in ${BRAND.name} so you can see whether the amount looks short.` },
   { q: "Can freelancers and gig workers use it?", a: `Yes. ${BRAND.name} is built for employees, freelancers, contractors, gig workers and the self-employed. Freelancers can create invoices, track project earnings and estimate tax in the app.` },
   { q: "Does it help with budgeting and bills?", a: `Yes. ${BRAND.name} includes a monthly budget and bill reminders, both on the free plan.` },
   { q: `How much does ${BRAND.name} cost?`, a: `${BRAND.name} is free for shift tracking with one employer and your last 30 days of records. ${BRAND.proName} adds full history, multiple employers, exports, tax reports and more, with a ${PRICING.trialDays}-day free trial. Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save about ${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` },
@@ -164,12 +164,12 @@ export default function HomePage() {
             visual={
               <PhoneFrame
                 src="/screenshots/reports.png"
-                alt="The Reports screen for the month: 1,770 dollars before tax over 63 hours and 10 shifts, estimated deductions, 1,444 dollars and 54 cents after deductions, and links to earnings, pay statement and paycheck tracker."
+                alt="The Reports screen for the month: 1,770 dollars before tax over 63 hours and 10 shifts, estimated deductions, 1,444 dollars and 54 cents after deductions, and links to earnings, pay statement and paycheque tracker."
               />
             }
           >
             <p>Reports roll up gross pay, hours and shifts by week, month, three months or year. Export them as PDF or CSV, create pay statements, and invoice clients if you are self-employed.</p>
-            <p>The paycheck tracker checks a paycheque against the hours you logged. Exports and the paycheck tracker are in Pro.</p>
+            <p>The paycheque tracker checks a paycheque against the hours you logged. Exports and the paycheque tracker are in Pro.</p>
           </FeatureRow>
         </Container>
       </section>

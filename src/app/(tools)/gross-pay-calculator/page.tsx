@@ -31,7 +31,7 @@ const FAQ: Faq[] = [
   },
   {
     q: 'What is the difference between biweekly and semi-monthly pay?',
-    a: 'Biweekly means every two weeks — 26 paychecks per year, calculated here as weekly × 2. Semi-monthly means twice a month — 24 paychecks per year, each equal to annual ÷ 24. A biweekly paycheck is slightly smaller than a semi-monthly one for the same salary, because there are two more of them.',
+    a: 'Biweekly means every two weeks — 26 paycheques per year, calculated here as weekly × 2. Semi-monthly means twice a month — 24 paycheques per year, each equal to annual ÷ 24. A biweekly paycheque is slightly smaller than a semi-monthly one for the same salary, because there are two more of them.',
   },
   {
     q: 'How do I convert a salary to an hourly rate?',

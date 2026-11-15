@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: `${BRAND.name} is an iOS app for tracking work hours, earnings, budget, bills and tax estimates. Free to start; Pro adds a ${PRICING.trialDays}-day free trial.`,
   keywords: [
     'shift tracker app', 'payday tracker app', 'gig worker finance app',
-    'employee paycheck tracker', 'freelancer invoice tracker',
+    'paycheque check', 'freelancer invoice tracker',
     'work hours tracker', 'self-employed tax tracker',
     'budget and bill reminders', 'income tracker',
     'overtime calculator app'
@@ -94,7 +94,10 @@ const jsonLd = [
       "Tax Estimates",
       "Invoices and Pay Statements",
       "Receipt and Payslip Scanning",
-      "Paycheck Tracker"
+      "Paycheque check: the answer",
+      "Paycheque check detail",
+      "Import from a CSV file",
+      "Shift import from a photo"
     ],
     "screenshot": `${SITE_URL}/opengraph-image`,
     "image": `${SITE_URL}/icon.png`

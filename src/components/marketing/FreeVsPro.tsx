@@ -1,12 +1,6 @@
 import { LedgerTable, Callout } from "@/components/ui";
-import { PRO_FEATURES, PLAN_POLICY } from "@/lib/constants";
+import { FREE_FEATURES, PRO_FEATURES, PLAN_POLICY } from "@/lib/constants";
 
-// Free rows mirror PLAN_POLICY.free; Pro rows come straight from PRO_FEATURES.
-const FREE_ROWS = [
-  "Shift tracking for one employer",
-  "Earnings and payday",
-  "Budget and bill reminders",
-];
 
 /** Free vs Pro ledger table rendered from the constants, with the no-deletion policy sentence. */
 export default function FreeVsPro({ showFullPolicy = false }: { showFullPolicy?: boolean }) {
@@ -17,7 +11,7 @@ export default function FreeVsPro({ showFullPolicy = false }: { showFullPolicy?:
     </span>
   );
   const rows = [
-    ...FREE_ROWS.map((f) => ({ feature: f, free: yes, pro: yes })),
+    ...FREE_FEATURES.map((f) => ({ feature: f, free: yes, pro: yes })),
     { feature: "Record history", free: "Last 30 days", pro: "Full history" },
     ...PRO_FEATURES.filter((f) => !/history/i.test(f)).map((f) => ({ feature: f, free: no, pro: yes })),
   ];
