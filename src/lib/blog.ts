@@ -47,7 +47,7 @@ More durable than paper and easier to calculate totals, spreadsheets like Google
 Many employers use punch-in systems or electronic time clocks. These are convenient but carry a critical risk: you don't control the record. Employers have been found to manipulate time clock data — rounding down shift start times, rounding up break durations, or removing punch-in records entirely.
 
 ### Dedicated Shift Tracking Apps
-Apps like HoursFlow create a tamper-proof personal record of every shift you work, stored on your own account and not accessible to your employer. HoursFlow's paycheque check can also compare your payslip gross with your logged hours.
+Apps like HoursFlow keep a personal record of every shift you work, stored on your own account and not accessible to your employer. HoursFlow's paycheque check can also compare your payslip gross with your logged hours.
 
 ## What a Shift Tracking App Adds
 
@@ -436,7 +436,7 @@ Keep a list of every invoice you send with its status and due date, so you can f
 - **Every invoice is a legal document** — include all required information to make it enforceable.
 - **Specific due dates outperform "Net X" terms** — name a date, not a window.
 - **Deposits protect you on large projects** — require 25-50% upfront before starting significant work.
-- **Log your time as you work** and generate invoices from those logs — faster, more accurate, and dispute-proof.
+- **Log your time as you work** and generate invoices from those logs — faster and more accurate.
 - **Follow up proactively** — professional follow-up is expected and dramatically improves payment timing.
 
 ## Frequently Asked Questions
@@ -496,7 +496,7 @@ Shift: 10:00 PM to 6:30 AM with one 45-minute unpaid break.
 - **Rounding minutes casually.** 7:47 to 4:02 is 8 hours 15 minutes, not 8 hours. Small daily rounding compounds into real money across a pay period.
 - **Mixing h:mm and decimal.** 8 hours 30 minutes is 8.5 decimal hours, never 8.30.
 
-If you are doing this every shift, that is exactly the job HoursFlow automates — it logs each shift and shows your earnings as you go. The calculator is the manual version; [the app](/download) is the automatic one.
+If you are doing this every shift, that is exactly what HoursFlow is for — you log each shift and it shows your earnings as you go. The calculator is the one-off version; [the app](/download) keeps the running record.
 `,
   },
   {
