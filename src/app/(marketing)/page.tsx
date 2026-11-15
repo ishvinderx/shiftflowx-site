@@ -24,10 +24,11 @@ const appSchema = {
 // One source for the visible FAQ and the FAQPage structured data, so they cannot drift.
 const HOME_FAQ = [
   { q: `How does ${BRAND.name} estimate paydays?`, a: `${BRAND.name} uses your pay schedule and logged shifts to estimate when your next paycheque is due and roughly how much it will be. These are estimates that improve as you log more shifts, not a guarantee.` },
-  { q: "How does the paycheque tracker work?", a: `The paycheque tracker, a Pro feature, checks a paycheque against the hours you logged in ${BRAND.name} so you can see whether the amount looks short.` },
+  { q: "How does the paycheque check work?", a: `Enter the gross pay on your payslip and ${BRAND.name} shows whether it matches your logged hours, before tax. The answer is free. ${BRAND.proName} adds the detail behind it: the shifts and overtime behind the figure, and your past checks.` },
+  { q: "Moving from another app: can I bring my shifts and expenses?", a: `Yes, and importing is free. Export your shifts and expenses as a CSV file from the app you use now, create a ${BRAND.name} account, then choose Import from a file and pick the CSV.` },
   { q: "Can freelancers and gig workers use it?", a: `Yes. ${BRAND.name} is built for employees, freelancers, contractors, gig workers and the self-employed. Freelancers can create invoices, track project earnings and estimate tax in the app.` },
   { q: "Does it help with budgeting and bills?", a: `Yes. ${BRAND.name} includes a monthly budget and bill reminders, both on the free plan.` },
-  { q: `How much does ${BRAND.name} cost?`, a: `${BRAND.name} is free for shift tracking with one employer and your last 30 days of records. ${BRAND.proName} adds full history, multiple employers, exports, tax reports and more, with a ${PRICING.trialDays}-day free trial. Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save about ${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` },
+  { q: `How much does ${BRAND.name} cost?`, a: `${BRAND.name} is free for one employer and your last 30 days of history, with shift logging, earnings, payday, budget and bills, the paycheque check answer and CSV import. ${BRAND.proName} adds full history, more than one employer, exports, invoices, the tax report, scanning and the detail behind a paycheque check, with a ${PRICING.trialDays}-day free trial. Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save about ${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` },
   { q: "Is my payroll data secure?", a: `Data is encrypted in transit with TLS 1.3, and sensitive fields are encrypted at rest. ${BRAND.name} never sells your data. You can export your data and delete your account from the app. Authentication tokens are stored in the iOS Keychain.` },
 ] as const;
 
@@ -102,7 +103,7 @@ export default function HomePage() {
         <Container>
           <FeatureRow
             label="Work"
-            title="Track shifts across employers"
+            title="Log every shift"
             visual={
               <figure className="card p-5 sm:p-6">
                 <figcaption className="mb-3 flex items-baseline justify-between gap-4">
@@ -118,8 +119,8 @@ export default function HomePage() {
                     { key: "rate", label: "Rate", align: "right" },
                     { key: "pay", label: "Pay", align: "right" },
                   ]}
-                  rows={SAMPLE_SHIFTS.map((s) => ({ date: s.date, employer: s.employer, hours: `${s.hours}.0`, rate: money(s.rate), pay: money(s.pay) }))}
-                  footer={{ date: "Total", employer: "", hours: `${totalHours}.0`, rate: "", pay: money(totalPay) }}
+                  rows={SAMPLE_SHIFTS.map((s) => ({ date: s.date, employer: s.employer, hours: s.hours.toFixed(1), rate: money(s.rate), pay: money(s.pay) }))}
+                  footer={{ date: "Total", employer: "", hours: totalHours.toFixed(1), rate: "", pay: money(totalPay) }}
                 />
               </figure>
             }
@@ -134,7 +135,7 @@ export default function HomePage() {
             title="Know your next paycheque"
             visual={
               <div className="card grid gap-8 p-5 sm:p-6">
-                <Figure label="Expected paycheque" value="$863" cents=".83" tone="positive" note="$1,008.00 gross less $144.17 estimated deductions" />
+                <Figure label="Payday Fri 20 Nov, after deductions" value="$1,368" cents=".36" tone="positive" note="Sample data: $1,512.00 before tax less $143.64 estimated deductions" />
                 <LineChart />
               </div>
             }
@@ -148,8 +149,8 @@ export default function HomePage() {
             title="Plan the month's bills"
             visual={
               <PhoneFrame
-                src="/screenshots/budget.png"
-                alt="The Budget screen: 145 dollars and 46 cents still to earn this month, with about 5 more hours of work covering the plan, 1,444 dollars and 54 cents earned after deductions against 1,590 dollars planned, and the bills due."
+                src="/screenshots/budget-light.png"
+                alt="The Budget screen: still to earn this month, with the amount earned after deductions against the amount planned, and the bills due."
               />
             }
           >
@@ -163,16 +164,31 @@ export default function HomePage() {
             title="Prove it with statements and exports"
             visual={
               <PhoneFrame
-                src="/screenshots/reports.png"
-                alt="The Reports screen for the month: 1,770 dollars before tax over 63 hours and 10 shifts, estimated deductions, 1,444 dollars and 54 cents after deductions, and links to earnings, pay statement and paycheque tracker."
+                src="/screenshots/invoice-light.png"
+                alt="The Invoice generator screen, with business and client details, dates and a button to add shifts you recorded."
               />
             }
           >
             <p>Reports roll up gross pay, hours and shifts by week, month, three months or year. Export them as PDF or CSV, create pay statements, and invoice clients if you are self-employed.</p>
-            <p>The paycheque tracker checks a paycheque against the hours you logged. Exports and the paycheque tracker are in Pro.</p>
+            <p>The paycheque check compares your payslip gross with the hours you logged, before tax, and the answer is free. Exports, invoices and the detail behind a check are in Pro.</p>
           </FeatureRow>
         </Container>
       </section>
+
+      {/* Moving from another app */}
+      <Section label="Moving from another app" title="Bring your shifts and expenses with you">
+        <div className="grid items-center gap-10 md:grid-cols-2">
+          <ol className="grid gap-4 text-[1.0625rem] text-ink-2">
+            <li><span className="font-semibold text-ink">1. Export.</span> In the app you use now, export your shifts and expenses as a CSV file.</li>
+            <li><span className="font-semibold text-ink">2. Create an account.</span> Download {BRAND.name} and sign up.</li>
+            <li><span className="font-semibold text-ink">3. Import.</span> Choose Import from a file, review what was found, and add it. Importing is free.</li>
+          </ol>
+          <PhoneFrame
+            src="/screenshots/import-light.png"
+            alt="The Import from a file screen: how many shifts were found, the dates they cover, how many are already in the app, and the first shifts to add."
+          />
+        </div>
+      </Section>
 
       {/* Free vs Pro */}
       <Section

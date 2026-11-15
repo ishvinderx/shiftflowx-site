@@ -52,7 +52,7 @@ export const USE_CASES: UseCase[] = [
           "Enter the start and end time and your rate. The app adds up the hours and what the shift earned, so the week's total is never a guess.",
           "The free plan keeps your last 30 days for one employer.",
         ],
-        visual: { kind: "phone", src: "/screenshots/shifts.png", alt: "The Shifts screen in HoursFlow listing logged shifts with their hours and pay." },
+        visual: { kind: "phone", src: "/screenshots/shifts-light.png", alt: "The Shifts screen in HoursFlow listing logged shifts with their hours and pay." },
       },
       {
         label: "Payday",
@@ -72,17 +72,16 @@ export const USE_CASES: UseCase[] = [
         ],
         visual: {
           kind: "ledger",
-          caption: "Hours logged against hours paid",
+          caption: "Paycheque check, 2 to 15 Nov, before tax",
           columns: [
-            { key: "week", label: "Week" },
-            { key: "logged", label: "Logged", align: "right" },
-            { key: "paid", label: "Paid", align: "right" },
+            { key: "item", label: "Item" },
+            { key: "amount", label: "Amount", align: "right" },
           ],
           rows: [
-            { week: "Oct 27 to Nov 2", logged: "34.0 h", paid: "34.0 h" },
-            { week: "Nov 3 to Nov 9", logged: "38.5 h", paid: "36.5 h" },
+            { item: "Expected, 48.0 h at $31.50", amount: "$1,512.00" },
+            { item: "Payslip gross", amount: "$1,480.50" },
           ],
-          footer: { week: "Difference to ask about", logged: "", paid: "2.0 h" },
+          footer: { item: "Short, 2.0 h of overtime premium at $15.75", amount: "$31.50" },
         },
       },
     ],
@@ -114,7 +113,7 @@ export const USE_CASES: UseCase[] = [
           "Log the hours you work and what you earned for them. A weekly total beats trying to piece it together from several payment apps at tax time.",
           "Reports roll up pay and hours by week, month or year, and export as PDF or CSV with Pro.",
         ],
-        visual: { kind: "phone", src: "/screenshots/reports.png", alt: "The Reports screen showing a month summary of gross pay, hours and shifts." },
+        visual: { kind: "phone", src: "/screenshots/earnings-light.png", alt: "The Earnings screen showing the month before tax, with hours, shifts and a chart of earnings by day." },
       },
       {
         label: "Costs",
@@ -125,17 +124,17 @@ export const USE_CASES: UseCase[] = [
         ],
         visual: {
           kind: "ledger",
-          caption: "A week, income less expenses",
+          caption: "November so far, after deductions",
           columns: [
             { key: "item", label: "Item" },
             { key: "amount", label: "Amount", align: "right" },
           ],
           rows: [
-            { item: "Income logged", amount: "$742.00" },
-            { item: "Fuel", amount: "-$96.40" },
-            { item: "Parking and tolls", amount: "-$21.00" },
+            { item: "Earned after deductions", amount: "$1,368.36" },
+            { item: "Groceries", amount: "-$182.00" },
+            { item: "Transport", amount: "-$41.00" },
           ],
-          footer: { item: "Left after expenses", amount: "$624.60" },
+          footer: { item: "Left after expenses", amount: "$1,145.36" },
         },
       },
       {
@@ -176,7 +175,7 @@ export const USE_CASES: UseCase[] = [
           "With Pro you create invoices as a self-employed worker and pay statements from your records. The hours you logged are already there.",
           "Export a report as PDF or CSV when a client or your accountant asks for the detail.",
         ],
-        visual: { kind: "phone", src: "/screenshots/reports.png", alt: "The Reports screen with gross pay, hours and shifts, from which statements and invoices are created." },
+        visual: { kind: "phone", src: "/screenshots/invoice-light.png", alt: "The Invoice generator screen, where an invoice is made from your recorded shifts." },
       },
       {
         label: "Sales tax",
@@ -193,10 +192,10 @@ export const USE_CASES: UseCase[] = [
             { key: "amount", label: "Amount", align: "right" },
           ],
           rows: [
-            { line: "Design work, 20 h at $85", amount: "$1,700.00" },
-            { line: "HST (13%)", amount: "$221.00" },
+            { line: "48.0 h at $31.50", amount: "$1,512.00" },
+            { line: "HST (13%)", amount: "$196.56" },
           ],
-          footer: { line: "Invoice total", amount: "$1,921.00" },
+          footer: { line: "Invoice total", amount: "$1,708.56" },
         },
       },
       {
@@ -237,7 +236,7 @@ export const USE_CASES: UseCase[] = [
           "Log each day's start and end. The weekly total is ready when the timesheet is due, with no re-adding from memory.",
           "The free time card calculator does the same sum for a one-off week.",
         ],
-        visual: { kind: "phone", src: "/screenshots/shifts.png", alt: "The Shifts screen in HoursFlow with logged shifts and their hours." },
+        visual: { kind: "phone", src: "/screenshots/shifts-light.png", alt: "The Shifts screen in HoursFlow with logged shifts and their hours." },
       },
       {
         label: "Proof",
@@ -252,13 +251,13 @@ export const USE_CASES: UseCase[] = [
           columns: [
             { key: "week", label: "Week" },
             { key: "hours", label: "Hours", align: "right" },
-            { key: "billed", label: "At $70", align: "right" },
+            { key: "billed", label: "At $31.50", align: "right" },
           ],
           rows: [
-            { week: "Nov 3 to Nov 9", hours: "37.5", billed: "$2,625.00" },
-            { week: "Nov 10 to Nov 16", hours: "40.0", billed: "$2,800.00" },
+            { week: "Nov 2 to Nov 8", hours: "24.0", billed: "$756.00" },
+            { week: "Nov 9 to Nov 15", hours: "24.0", billed: "$756.00" },
           ],
-          footer: { week: "Two weeks", hours: "77.5", billed: "$5,425.00" },
+          footer: { week: "Two weeks", hours: "48.0", billed: "$1,512.00" },
         },
       },
       {
@@ -301,7 +300,7 @@ export const USE_CASES: UseCase[] = [
         ],
         visual: {
           kind: "ledger",
-          caption: "Shifts across two employers",
+          caption: "Shifts at one facility (Pro adds more)",
           columns: [
             { key: "date", label: "Date" },
             { key: "employer", label: "Employer" },
@@ -309,11 +308,11 @@ export const USE_CASES: UseCase[] = [
             { key: "pay", label: "Pay", align: "right" },
           ],
           rows: [
-            { date: "Nov 9", employer: "Harbour Clinic", hours: "6", pay: "$189.00" },
-            { date: "Nov 10", employer: "Northside Grocery", hours: "8", pay: "$208.00" },
-            { date: "Nov 11", employer: "Harbour Clinic", hours: "6", pay: "$189.00" },
+            { date: "Nov 9", employer: "Harbour Clinic", hours: "4.0", pay: "$126.00" },
+            { date: "Nov 10", employer: "Harbour Clinic", hours: "7.5", pay: "$236.25" },
+            { date: "Nov 12", employer: "Harbour Clinic", hours: "5.0", pay: "$157.50" },
           ],
-          footer: { date: "Total", employer: "", hours: "20", pay: "$586.00" },
+          footer: { date: "Total", employer: "", hours: "16.5", pay: "$519.75" },
         },
       },
       {
@@ -323,7 +322,7 @@ export const USE_CASES: UseCase[] = [
           "Shift import, a Pro feature, saves entering a month of rotating shifts one at a time.",
           "Scanning a payslip with the camera is part of Pro as well, and the text is read on your device.",
         ],
-        visual: { kind: "phone", src: "/screenshots/shifts.png", alt: "The Shifts screen in HoursFlow with logged shifts and their hours." },
+        visual: { kind: "phone", src: "/screenshots/shifts-light.png", alt: "The Shifts screen in HoursFlow with logged shifts and their hours." },
       },
       {
         label: "Pay",

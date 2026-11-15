@@ -24,11 +24,11 @@ export function AllocationBar({
   return (
     <figure className={cn("num", className)}>
       <figcaption className="mb-4 flex items-baseline justify-between gap-4">
-        <span className="t-label">This month, allocated</span>
+        <span className="t-label">This month, planned</span>
         {sample && <span className="t-label">Sample data</span>}
       </figcaption>
       <p className="mb-5 text-[0.9375rem] text-ink-2">
-        Of <span className="text-ink">{money(total)}</span> expected this month
+        Of <span className="text-ink">{money(total)}</span> planned this month
       </p>
       <div role="img" aria-label={`Allocation of ${money(total)}: ${summary}`} className="grow-x flex h-3 w-full overflow-hidden bg-track">
         {segments.map((s) => (
