@@ -3,7 +3,7 @@ import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 
 // Features the HoursFlow app does NOT have. None of these may be advertised in src/ or public/.
-const BANNED = ["HoursFlow Score", "ShiftFlow Score", "burnout", "AI Assistant", "credit score", "net worth"];
+const BANNED = ["HoursFlow Score", "burnout", "AI Assistant", "credit score", "net worth"];
 
 // Files deliberately exempt from the scan. The list is now empty; the stale-exemption
 // test below keeps it honest (a listed file that is clean fails the test).

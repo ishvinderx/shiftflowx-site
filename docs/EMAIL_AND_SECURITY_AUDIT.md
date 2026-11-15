@@ -28,8 +28,8 @@
 - **[FIXED] HSTS** added to public site (`next.config.ts`) — was absent.
 - **[FIXED] CSP** hardened with `base-uri`/`form-action`/`object-src`. Remaining **[P2]**:
   `script-src` still allows `'unsafe-inline'/'unsafe-eval'` (Next hydration) — tighten to nonces later.
-- **[P2]** `verify`/`reset-password` fall back to the raw Railway origin
-  (`shiftflow-backend-production.up.railway.app`) instead of `api.hoursflow.app` — info disclosure.
+- **[P2]** `verify`/`reset-password` fall back to the raw hosting-provider origin instead of
+  `api.hoursflow.app` — info disclosure.
 - **Source maps: PASS** (no browser-served `.map`). **No debug/test routes exposed.**
 - **[P2]** Admin has no static `robots.txt` (defense-in-depth; relies on meta noindex + auth-gate).
 

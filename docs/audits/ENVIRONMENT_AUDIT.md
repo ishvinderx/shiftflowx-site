@@ -45,7 +45,7 @@ The following must be added in the Vercel project dashboard under **Settings →
 | `APNS_BUNDLE_ID` | SET | `<ios bundle id>` |
 | `APNS_KEY_PATH` | PLACEHOLDER (local .env only) | Local `.env` uses a local file path. Railway uses `APNS_KEY` (inline PEM) instead — correct approach. |
 | `ALLOWED_ORIGINS` | SET | Railway value is `*` — consider restricting to `https://hoursflow.app` for production hardening |
-| `R2_PUBLIC_URL` | PLACEHOLDER (local .env only) | Local `.env` has empty value. Railway has `https://assets.shiftflowx.net` — correct. |
+| `R2_PUBLIC_URL` | PLACEHOLDER (local .env only) | Local `.env` has empty value. The hosted environment has the assets origin set — correct. |
 
 ### Railway Environment Variables to Verify
 
