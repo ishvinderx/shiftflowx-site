@@ -1,163 +1,112 @@
-import LegalLayout from "@/components/legal/LegalLayout";
-import { PLAN_POLICY_TEXT, PRICING, PRO_FEATURES, SUPPORT_EMAIL } from "@/lib/constants";
-
 import type { Metadata } from "next";
+import Link from "next/link";
+import LegalLayout from "@/components/legal/LegalLayout";
+import LegalTable from "@/components/legal/LegalTable";
 import { canonicalAlt } from "@/lib/seo";
+import { BRAND, PLAN_POLICY, PRICING, SUPPORT_EMAIL, TRIAL_DAYS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Subscription Terms",
-  description: "HoursFlow subscription terms — free trial, plans, billing, renewal, and cancellation.",
+  title: "Subscription terms",
+  description: `${BRAND.proName} subscription terms: plans, prices, the ${TRIAL_DAYS}-day free trial, automatic renewal, how to cancel in your Apple ID settings, price changes, refunds and what happens if a subscription lapses.`,
   alternates: canonicalAlt("/subscription-terms"),
 };
 
-
 const toc = [
-  { id: "overview", label: "Overview" },
-  { id: "free-trial", label: "Free Trial" },
-  { id: "plans", label: "Subscription Plans" },
-  { id: "billing", label: "Billing & Renewal" },
-  { id: "cancellation", label: "Cancellation" },
+  { id: "plans", label: "Plans and prices" },
+  { id: "included", label: "What is included" },
+  { id: "payment", label: "Payment and renewal" },
+  { id: "trial", label: "Free trial" },
+  { id: "cancel", label: "Cancel or manage" },
+  { id: "price-changes", label: "Price changes" },
+  { id: "family-sharing", label: "Family Sharing" },
+  { id: "lapse", label: "If a subscription lapses" },
+  { id: "restore", label: "Restore purchases" },
   { id: "refunds", label: "Refunds" },
-  { id: "restore", label: "Restore Purchases" },
-  { id: "changes", label: "Price Changes" },
-  { id: "contact", label: "Contact" },
+  { id: "your-rights", label: "Your statutory rights" },
+  { id: "links", label: "Other terms" },
 ];
 
 export default function SubscriptionTermsPage() {
   return (
     <LegalLayout
-      title="Subscription Terms"
-      effectiveDate="July 21, 2026"
+      title="Subscription terms"
+      whatChanged="Rewritten to set out every subscription detail Apple requires. The Free plan now covers two employers. Family Sharing is stated as not enabled."
       toc={toc}
     >
-      <section id="overview">
-        <h2>Overview</h2>
-        <p>
-          HoursFlow offers a free trial and paid subscription plans (&ldquo;HoursFlow Pro&rdquo;) that unlock the Pro features listed below. All subscriptions are processed and managed exclusively through the Apple App Store.
-        </p>
-        <p>
-          By initiating a subscription or free trial, you agree to these Subscription Terms, which supplement our general Terms of Service.
-        </p>
-      </section>
-
-      <section id="free-trial">
-        <h2>Free Trial</h2>
-        <ul>
-          <li>New users are entitled to one (1) free 7-day trial of HoursFlow Pro.</li>
-          <li>The free trial gives you full HoursFlow Pro access for 7 days.</li>
-          <li>The free trial is a 7-day introductory offer through the App Store. It begins when you start it in the app.</li>
-          <li>During the trial, you have full access to all Pro features.</li>
-          <li>We will notify you within the app before the trial expires.</li>
-          <li>After the trial ends, access to Pro features requires an active paid subscription.</li>
-          <li>Unless you cancel at least 24 hours before the trial ends, the trial renews automatically at the price of the plan you selected. You can manage or cancel in your Apple ID subscription settings.</li>
-          <li>If you subscribe to Pro through the App Store during or after the trial, App Store billing terms apply.</li>
-        </ul>
-      </section>
-
       <section id="plans">
-        <h2>Subscription Plans</h2>
-        <p>HoursFlow Pro is available in two billing options:</p>
-        <ul>
-          <li>
-            <strong>Pro Monthly:</strong> {PRICING.monthly.priceLabel} USD per month. Full access to all Pro features. Billed monthly to your Apple ID account.
-          </li>
-          <li>
-            <strong>Pro Annual:</strong> {PRICING.annual.priceLabel} USD per year (equivalent to approximately {PRICING.annual.monthlyEquivalentLabel}/month). Full access to all Pro features. Billed annually to your Apple ID account. Represents a savings of approximately {PRICING.annual.savingsPct}% compared to the monthly plan.
-          </li>
-        </ul>
-        <p>
-          Prices may vary by region and are displayed in your local currency at the point of purchase. All prices are inclusive of applicable taxes where required by law.
-        </p>
-        <p>
-          Both plans include the same HoursFlow Pro access: {PRO_FEATURES.join("; ")}. The difference between Monthly and Annual is billing, not features.
-        </p>
-        <p>
-          {PLAN_POLICY_TEXT}
-        </p>
+        <h2>Plans and prices</h2>
+        <p>{BRAND.name} has a Free plan and a paid plan, {BRAND.proName}. Pro is an auto-renewing subscription in one subscription group, so you can hold only one at a time. Prices are in US dollars. Apple may show the price in your local currency and may add tax where the law requires it.</p>
+        <LegalTable caption="Subscription titles, lengths and prices">
+          <thead>
+            <tr><th scope="col">Subscription title</th><th scope="col">Length of each period</th><th scope="col">Price per period</th><th scope="col">Free trial</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{BRAND.proName}, Monthly ({PRICING.monthly.name})</th><td>1 month</td><td>US${PRICING.monthly.price.toFixed(2)} per month</td><td>{TRIAL_DAYS} days, for new subscribers</td></tr>
+            <tr><th scope="row">{BRAND.proName}, Annual ({PRICING.annual.name})</th><td>1 year</td><td>US${PRICING.annual.price.toFixed(2)} per year</td><td>{TRIAL_DAYS} days, for new subscribers</td></tr>
+          </tbody>
+        </LegalTable>
       </section>
 
-      <section id="billing">
-        <h2>Billing &amp; Renewal</h2>
+      <section id="included">
+        <h2>What is included</h2>
+        <p>Free: {PLAN_POLICY.free.replace(/^Free: /, "")}</p>
+        <p>Pro: {PLAN_POLICY.subscribers.replace(/^Pro: /, "")}</p>
+        <p>Monthly and Annual give the same access. Only the billing period differs. The figures and totals in the app are estimates from what you enter (see the <Link href="/terms#estimates">terms of use</Link>).</p>
+      </section>
+
+      <section id="payment">
+        <h2>Payment and renewal</h2>
         <ul>
-          <li>Subscriptions are charged to the Apple ID account associated with your App Store account.</li>
-          <li>Billing occurs at the beginning of each subscription period (monthly or annually).</li>
-          <li>Subscriptions automatically renew at the end of each period unless cancelled at least 24 hours before the renewal date.</li>
-          <li>Renewal charges are at the same price as the original purchase, unless you have been notified of a price change.</li>
-          <li>Apple processes all payments — HoursFlow does not store or have access to your payment information.</li>
-          <li>You can view your billing history in your Apple ID account settings.</li>
+          <li>Pro is bought only through Apple in-app purchase. We do not take payment ourselves and never see your card number.</li>
+          <li>Payment is charged to your Apple ID account when you confirm the purchase. If you start with a free trial, the first charge happens when the trial ends.</li>
+          <li>The subscription renews automatically for another period of the same length unless you cancel it at least 24 hours before the end of the current period.</li>
+          <li>Your account is charged for renewal within 24 hours before the end of the current period, at the price for that period shown above, unless the price has changed under the next section.</li>
         </ul>
       </section>
 
-      <section id="cancellation">
-        <h2>Cancellation</h2>
-        <p>You may cancel your HoursFlow Pro subscription at any time. To cancel:</p>
-        <ol>
-          <li>Open Settings on your iPhone</li>
-          <li>Tap your name at the top to access Apple ID</li>
-          <li>Tap Subscriptions</li>
-          <li>Find HoursFlow in the list</li>
-          <li>Tap Cancel Subscription</li>
-        </ol>
-        <p>
-          You may also manage subscriptions via the App Store app: tap your profile icon → Subscriptions → HoursFlow → Cancel.
-        </p>
-        <p>
-          Cancellation takes effect at the end of the current billing period. You will retain access to Pro features until then. We do not offer pro-rated refunds for unused subscription time.
-        </p>
+      <section id="trial">
+        <h2>Free trial</h2>
+        <p>New subscribers get a {TRIAL_DAYS}-day free trial of Pro. During the trial you have all Pro features. To avoid being charged, cancel at least 24 hours before the trial ends. If you do not cancel, the trial turns into a paid subscription at the price of the plan you chose. Apple decides who qualifies as a new subscriber, and a trial can be used once per Apple ID for this subscription group. Any unused part of a free trial is forfeited when you buy a subscription to Pro before the trial ends.</p>
+      </section>
+
+      <section id="cancel">
+        <h2>Cancel or manage</h2>
+        <p>You manage and cancel Pro in your Apple ID settings, not in our app or on our website. On an iPhone or iPad: open Settings, tap your name, tap Subscriptions, choose {BRAND.name}, and tap Cancel Subscription (or choose another plan). You can also manage it in the App Store app under your account. If you cancel, you keep Pro until the end of the period you already paid for, then your account moves to the Free plan. Deleting your {BRAND.name} account does not cancel the subscription.</p>
+      </section>
+
+      <section id="price-changes">
+        <h2>Price changes</h2>
+        <p>We may change the price of Pro. A new price applies from your next renewal after the change takes effect and never to a period you have already paid for. Where the law or Apple&rsquo;s rules require it, Apple will tell you and ask for your agreement before a price increase applies. If you do not agree, your subscription does not renew at the new price. You can cancel at any time before it does.</p>
+      </section>
+
+      <section id="family-sharing">
+        <h2>Family Sharing</h2>
+        <p>Family Sharing is not enabled for {BRAND.proName}. Each person who wants Pro needs their own subscription.</p>
+      </section>
+
+      <section id="lapse">
+        <h2>If a subscription lapses</h2>
+        <p>{PLAN_POLICY.lapse} Your account moves to the Free plan: you keep your data, you can still log, and two employers stay active. Older records, extra employers, exports, invoices and the other Pro features become hidden or locked until you subscribe again. We delete nothing because a subscription ended. Data export and account deletion stay free.</p>
+      </section>
+
+      <section id="restore">
+        <h2>Restore purchases</h2>
+        <p>If you reinstall the app or get a new device, sign in with the same account and use Restore purchases in the app. Your subscription belongs to your Apple ID and is checked through Apple and RevenueCat.</p>
       </section>
 
       <section id="refunds">
         <h2>Refunds</h2>
-        <p>
-          All refunds are handled exclusively by Apple Inc. HoursFlow does not process refunds directly and cannot issue them on Apple&apos;s behalf.
-        </p>
-        <p>To request a refund:</p>
-        <ul>
-          <li>Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a></li>
-          <li>Sign in with your Apple ID</li>
-          <li>Find the HoursFlow charge you wish to dispute</li>
-          <li>Select the issue and submit your request</li>
-        </ul>
-        <p>
-          Apple reviews refund requests individually. Approval is at Apple&apos;s sole discretion and is subject to Apple&apos;s refund policies.
-        </p>
-        <p>
-          For more information, visit our <a href="/refund">Refund Policy</a> page.
-        </p>
+        <p>Apple handles refunds. To ask for one, go to <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. See our <Link href="/refund">refund page</Link>.</p>
       </section>
 
-      <section id="restore">
-        <h2>Restore Purchases</h2>
-        <p>
-          If you change devices, reinstall HoursFlow, or sign in with a new device, your subscription will automatically be recognized if you are signed in with the same Apple ID.
-        </p>
-        <p>
-          If your subscription is not automatically recognized, tap <strong>Restore Purchases</strong> in HoursFlow&apos;s Settings screen. This will re-link your App Store purchase to your account.
-        </p>
-        <p>
-          If issues persist, contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> with your Apple ID email and we will assist you.
-        </p>
+      <section id="your-rights">
+        <h2>Your statutory rights</h2>
+        <p>Nothing here limits consumer rights that cannot be waived where you live, such as rights about automatic renewal, cancellation and cooling-off periods under the laws of Ontario, Quebec, California, the European Union, the United Kingdom and Australia. Email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> if you need help using them.</p>
       </section>
 
-      <section id="changes">
-        <h2>Price Changes</h2>
-        <p>
-          We reserve the right to change subscription prices. If we change pricing for your plan, we will:
-        </p>
-        <ul>
-          <li>Notify you at least 30 days in advance via in-app notification and/or email</li>
-          <li>Obtain your consent for the new price before the next renewal (as required by Apple&apos;s policies)</li>
-        </ul>
-        <p>
-          If you do not consent to the new price, your subscription will not renew at the increased price and you may cancel without penalty.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          For subscription-related questions, contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. For billing disputes, refunds, or payment issues, please contact Apple Support or visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a>.
-        </p>
+      <section id="links">
+        <h2>Other terms</h2>
+        <p>These terms sit alongside our <Link href="/terms">terms of use</Link>, our <Link href="/privacy">privacy policy</Link> and Apple&rsquo;s standard <Link href="/eula">EULA</Link>.</p>
       </section>
     </LegalLayout>
   );

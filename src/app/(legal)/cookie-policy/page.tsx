@@ -1,129 +1,91 @@
-import LegalLayout from "@/components/legal/LegalLayout";
-
 import type { Metadata } from "next";
+import Link from "next/link";
+import LegalLayout from "@/components/legal/LegalLayout";
+import LegalTable from "@/components/legal/LegalTable";
 import { canonicalAlt } from "@/lib/seo";
-import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
+import { BRAND, PRIVACY_EMAIL, SITE_HOST } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy",
-  description: "How HoursFlow uses cookies and tracking technologies on our website and in the app.",
+  title: "Cookie policy",
+  description: `What the ${BRAND.name} website stores in your browser: no cookies, one remembered referral code if you open a referral link, and optional anonymous calculator counts that respect Do Not Track.`,
   alternates: canonicalAlt("/cookie-policy"),
 };
 
-
 const toc = [
-  { id: "what-are-cookies", label: "Cookies and Similar Technologies" },
-  { id: "how-we-use", label: "Cookies Set by This Website" },
-  { id: "types", label: "What the Website Stores" },
-  { id: "third-party", label: "Third-Party Services" },
-  { id: "mobile-app", label: "Mobile App" },
-  { id: "opt-out", label: "How to Opt Out" },
-  { id: "changes", label: "Changes" },
+  { id: "summary", label: "In short" },
+  { id: "stored", label: "What the website stores" },
+  { id: "analytics", label: "Anonymous counts" },
+  { id: "third-party", label: "Third parties" },
+  { id: "app", label: "The app" },
+  { id: "choices", label: "Your choices" },
   { id: "contact", label: "Contact" },
 ];
 
 export default function CookiePolicyPage() {
   return (
     <LegalLayout
-      title="Cookie Policy"
-      effectiveDate="November 14, 2026"
+      title="Cookie policy"
+      whatChanged="Rewritten to match exactly what the site does. The website no longer keeps any identifier in your browser for analytics, and it does not measure visitors who send Do Not Track or Global Privacy Control."
       toc={toc}
     >
-      <p>
-        HoursFlow is operated by Flowmatix Creative Inc. This Cookie Policy explains what our website ({SITE_HOST}) stores in your browser and your choices regarding it.
-      </p>
-
-      <section id="what-are-cookies">
-        <h2>Cookies and Similar Technologies</h2>
-        <p>
-          Cookies are small text files that a website places on your device. Similar technologies include local storage and session storage, which a website can use to keep small pieces of information in your browser. This policy covers all of these.
-        </p>
+      <section id="summary">
+        <h2>In short</h2>
+        <ul>
+          <li>The website ({SITE_HOST}) sets <strong>no cookies</strong>.</li>
+          <li>It uses no advertising or tracking scripts, no social-media pixels and no Google Analytics. It has no cookie banner, because it does not need one.</li>
+          <li>The only thing it stores in your browser is a referral code, and only if you open a referral link.</li>
+          <li>If we switch on anonymous calculator counts, nothing is stored on your device for them, and visitors who send Do Not Track or Global Privacy Control are not counted.</li>
+        </ul>
       </section>
 
-      <section id="how-we-use">
-        <h2>Cookies Set by This Website</h2>
-        <p>
-          <strong>The HoursFlow website ({SITE_HOST}) does not set any cookies.</strong> It does not use cookies for sign-in, advertising, or load balancing, and we do not use Google Analytics, Facebook Pixel, or any advertising network.
-        </p>
+      <section id="stored">
+        <h2>What the website stores</h2>
+        <LegalTable caption="Items the website stores in your browser">
+          <thead>
+            <tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col">When</th><th scope="col">Purpose</th><th scope="col">Lasts</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">sf_ref_code</th>
+              <td>localStorage</td>
+              <td>Only if you open a referral link ({SITE_HOST}/ref/&hellip;).</td>
+              <td>Remembers the referral code from that link so it can be applied when you sign up. It is a feature you asked for by opening the link.</td>
+              <td>Until you clear your browser data.</td>
+            </tr>
+          </tbody>
+        </LegalTable>
+        <p>Nothing else is stored. Support and delete forms send what you type to us when you submit them and keep no copy in your browser.</p>
       </section>
 
-      <section id="types">
-        <h2>What the Website Stores in Your Browser</h2>
-        <h3>Analytics (only when enabled)</h3>
+      <section id="analytics">
+        <h2>Anonymous counts</h2>
         <p>
-          When analytics is configured, the website sends anonymous usage events for our free calculators and pages (for example, that a calculator was viewed or completed) directly to PostHog. These events never include the figures you enter. No cookie is set and no analytics script is loaded. If analytics is not configured, nothing is sent.
+          When switched on, the website can send an anonymous event to PostHog when someone views or uses a calculator (for example, &ldquo;calculator viewed&rdquo;, the calculator name, its category and, for tax calculators, the province). It never sends the figures you type or any result. The event carries a random identifier that lives only in the page&rsquo;s memory and disappears when you leave or reload the page. It is not saved in a cookie, localStorage or sessionStorage and is not linked to an account. PostHog does receive your IP address as part of the request, as every website does.
         </p>
-        <ul>
-          <li>
-            <strong>sf_anon_id</strong> (sessionStorage): a random identifier used to group the events from one browsing session. It is not linked to an account, is not derived from anything you enter, and is removed when you close the tab or browser.
-          </li>
-        </ul>
-
-        <h3>Referral links</h3>
         <p>
-          If you open a referral link ({SITE_HOST}/ref/&hellip;), the website stores one item in your browser&apos;s localStorage. It stays on your device until you clear your browser data.
+          We do not measure visitors whose browser sends a Do Not Track or Global Privacy Control signal. Because nothing is stored on your device, we do not ask for consent to store anything. Visitors in the EU and UK are not tracked across visits, and if we later add anything that stores an identifier or follows you across visits, we will first add a consent choice.
         </p>
-        <ul>
-          <li>
-            <strong>sf_ref_code</strong> (localStorage): the referral code from the link you opened, so it is remembered on this device.
-          </li>
-        </ul>
+        <p>These counts are off unless we configure them. If they are off, nothing is sent.</p>
       </section>
 
       <section id="third-party">
-        <h2>Third-Party Services</h2>
-        <p>
-          The only third-party service the website sends data to is PostHog, and only for the anonymous events described above, when analytics is enabled. If you choose to open the App Store, Apple&apos;s own policies apply on its pages.
-        </p>
+        <h2>Third parties</h2>
+        <p>The website is hosted by Vercel, which keeps ordinary request logs. We have not switched on Vercel Analytics. The only other service the website sends visitor data to is PostHog, as described above. Apple&rsquo;s policies apply on the App Store pages you open from our links. See the <Link href="/privacy#providers">privacy policy</Link> for every provider.</p>
       </section>
 
-      <section id="mobile-app">
-        <h2>Mobile App</h2>
-        <p>
-          The HoursFlow mobile application does not use browser cookies. Details of the data the app collects, including analytics and crash reports, are in our <a href="/privacy">Privacy Policy</a> and <a href="/data-policy">Data Collection Policy</a>.
-        </p>
+      <section id="app">
+        <h2>The app</h2>
+        <p>The {BRAND.name} app does not use browser cookies. What the app collects, including product analytics and crash reports, is in the <Link href="/privacy">privacy policy</Link>.</p>
       </section>
 
-      <section id="opt-out">
-        <h2>How to Opt Out</h2>
-        <h3>Browser Cookies</h3>
-        <p>
-          You can control and manage cookies through your browser settings. Most browsers allow you to:
-        </p>
-        <ul>
-          <li>View what cookies are stored and delete them individually or all at once</li>
-          <li>Block third-party cookies</li>
-          <li>Block cookies from specific websites</li>
-          <li>Enable a &ldquo;Do Not Track&rdquo; signal</li>
-        </ul>
-        <p>
-          You can clear localStorage and sessionStorage items through your browser&apos;s site-data settings. Doing so does not affect your use of the website.
-        </p>
-        <p>Browser-specific instructions:</p>
-        <ul>
-          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
-          <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
-          <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
-        </ul>
-
-        <h3>Analytics Opt-Out</h3>
-        <p>
-          To stop analytics events, you can use your browser&apos;s tracking-protection or content-blocking features, or contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
-        </p>
-      </section>
-
-      <section id="changes">
-        <h2>Changes to This Policy</h2>
-        <p>
-          We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated effective date. For significant changes, we will notify you through the app or by email.
-        </p>
+      <section id="choices">
+        <h2>Your choices</h2>
+        <p>You can turn on Do Not Track or Global Privacy Control in your browser, use content blocking, and clear site data at any time. Clearing site data only forgets the referral code.</p>
       </section>
 
       <section id="contact">
         <h2>Contact</h2>
-        <p>
-          If you have questions about our use of cookies or this policy, please contact us at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
-        </p>
+        <p>Questions: <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>.</p>
       </section>
     </LegalLayout>
   );

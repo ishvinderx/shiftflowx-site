@@ -1,130 +1,58 @@
-import LegalLayout from "@/components/legal/LegalLayout";
-
 import type { Metadata } from "next";
+import Link from "next/link";
+import LegalLayout from "@/components/legal/LegalLayout";
 import { canonicalAlt } from "@/lib/seo";
-import { SUPPORT_EMAIL } from "@/lib/constants";
+import { BRAND, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Refund Policy",
-  description: "HoursFlow refund policy — how App Store subscription refunds work and how to request one.",
+  title: "Refunds",
+  description: `How refunds work for ${BRAND.proName}: Apple handles them, how to ask Apple for one, and how your statutory rights are protected.`,
   alternates: canonicalAlt("/refund"),
 };
 
-
 const toc = [
-  { id: "overview", label: "Overview" },
-  { id: "apple-refunds", label: "Apple App Store Refunds" },
-  { id: "eligibility", label: "Refund Eligibility" },
-  { id: "how-to-request", label: "How to Request" },
-  { id: "processing", label: "Processing Time" },
-  { id: "exceptions", label: "Exceptions" },
-  { id: "contact", label: "Contact" },
+  { id: "apple-handles", label: "Apple handles refunds" },
+  { id: "how-to-request", label: "How to ask for a refund" },
+  { id: "trial", label: "Free trials" },
+  { id: "rights", label: "Your statutory rights" },
+  { id: "help", label: "Help from us" },
 ];
 
 export default function RefundPage() {
   return (
     <LegalLayout
-      title="Refund Policy"
-      effectiveDate="January 1, 2025"
+      title="Refunds"
+      whatChanged="Rewritten in plain language. No change to how refunds work: Apple still handles them."
       toc={toc}
     >
-      <section id="overview">
-        <h2>Overview</h2>
-        <p>
-          HoursFlow subscriptions are sold exclusively through the Apple App Store. As a result, all purchase transactions, billing, and refund processing are handled entirely by Apple Inc., not by HoursFlow directly.
-        </p>
-        <p>
-          This Refund Policy explains how refunds work for HoursFlow purchases, who to contact for refund requests, and what you can expect.
-        </p>
-      </section>
-
-      <section id="apple-refunds">
-        <h2>Apple App Store Refunds</h2>
-        <p>
-          Because HoursFlow is distributed through the Apple App Store, all financial transactions — including subscription charges and refunds — are governed by Apple&apos;s Media Services Terms and Conditions and Apple&apos;s refund policies.
-        </p>
-        <p>
-          <strong>HoursFlow cannot process, approve, or deny refunds directly.</strong> Only Apple has the ability to issue refunds for App Store purchases.
-        </p>
-        <p>
-          Apple reviews each refund request individually. Approval or denial of refund requests is at Apple&apos;s sole discretion.
-        </p>
-      </section>
-
-      <section id="eligibility">
-        <h2>Refund Eligibility</h2>
-        <p>
-          While Apple makes the final determination on all refunds, refund requests are generally considered in the following circumstances:
-        </p>
-        <ul>
-          <li>The purchase was made by mistake (accidental subscription)</li>
-          <li>The App does not work as described and support was unable to resolve the issue</li>
-          <li>You were charged after attempting to cancel before the renewal date</li>
-          <li>A family member made the purchase without authorization</li>
-          <li>Duplicate charges occurred for the same subscription period</li>
-        </ul>
-        <p>
-          Refund requests are generally <strong>not</strong> approved for:
-        </p>
-        <ul>
-          <li>Unused subscription time after cancellation (subscriptions continue until the end of the paid period)</li>
-          <li>Requests made long after the charge (typically more than 90 days)</li>
-          <li>Dissatisfaction with the free trial experience before converting to a paid plan</li>
-        </ul>
-        <p>
-          Note that HoursFlow offers a free 7-day trial, started through the App Store, which gives you an opportunity to evaluate the product before committing to a paid plan.
-        </p>
+      <section id="apple-handles">
+        <h2>Apple handles refunds</h2>
+        <p>You buy {BRAND.proName} through Apple, and Apple takes the payment. So Apple, not us, decides on and pays refunds. We cannot refund a purchase made through the App Store, and we cannot see your payment details.</p>
       </section>
 
       <section id="how-to-request">
-        <h2>How to Request a Refund</h2>
-        <p>To submit a refund request to Apple:</p>
+        <h2>How to ask for a refund</h2>
         <ol>
-          <li>
-            Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer"><strong>reportaproblem.apple.com</strong></a>
-          </li>
-          <li>Sign in with the Apple ID used to purchase the HoursFlow subscription</li>
-          <li>Find the HoursFlow charge in your purchase history</li>
-          <li>Tap or click &ldquo;Report a Problem&rdquo; next to the charge</li>
-          <li>Select the appropriate reason for your refund request</li>
-          <li>Provide any additional details that support your request</li>
-          <li>Submit your request</li>
+          <li>Go to <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> and sign in with the Apple ID you used to subscribe.</li>
+          <li>Choose &ldquo;I&rsquo;d like to&rdquo;, then &ldquo;Request a refund&rdquo;.</li>
+          <li>Pick {BRAND.name} and the charge, give a reason, and submit.</li>
         </ol>
-        <p>
-          Alternatively, you can contact Apple Support directly at <a href="https://support.apple.com" target="_blank" rel="noopener noreferrer">support.apple.com</a> or through the Apple Support app on your iPhone.
-        </p>
+        <p>Apple reviews each request and tells you the result. Cancelling a subscription stops future charges but does not by itself refund a charge already made. See <Link href="/subscription-terms#cancel">how to cancel</Link>.</p>
       </section>
 
-      <section id="processing">
-        <h2>Processing Time</h2>
-        <p>
-          Apple typically processes refund requests within 3–10 business days. If your request is approved, the refund will be credited to the original payment method on file with your Apple ID account.
-        </p>
-        <p>
-          After approval, allow an additional 5–7 business days for the refund to appear on your statement, depending on your bank or card issuer.
-        </p>
+      <section id="trial">
+        <h2>Free trials</h2>
+        <p>You are not charged during the free trial. If you cancel at least 24 hours before it ends, there is nothing to refund.</p>
       </section>
 
-      <section id="exceptions">
-        <h2>Exceptions &amp; Special Circumstances</h2>
-        <p>
-          If you believe you have been charged incorrectly due to a technical error on HoursFlow&apos;s part, please contact us first at <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. We will investigate and, if an error is confirmed, work with Apple to facilitate a refund on your behalf.
-        </p>
-        <p>
-          For subscription-related technical issues — such as features not working or access not being granted after payment — please contact our support team before requesting a refund. We are committed to resolving technical issues promptly.
-        </p>
+      <section id="rights">
+        <h2>Your statutory rights</h2>
+        <p>This page does not limit any consumer right that the law gives you and that cannot be waived, such as rights under the consumer-protection laws of Ontario, Quebec, the European Union, the United Kingdom or Australia. If you have such a right against us, you can use it by writing to us.</p>
       </section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          For questions about this Refund Policy or for help with a billing issue:
-        </p>
-        <ul>
-          <li><strong>HoursFlow Support:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
-          <li><strong>Apple Refund Portal:</strong> <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a></li>
-          <li><strong>Apple Support:</strong> <a href="https://support.apple.com" target="_blank" rel="noopener noreferrer">support.apple.com</a></li>
-        </ul>
+      <section id="help">
+        <h2>Help from us</h2>
+        <p>If Apple&rsquo;s process does not work for you, or you think something went wrong in the app, email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. We can help you with your request, but the decision on a refund is Apple&rsquo;s.</p>
       </section>
     </LegalLayout>
   );

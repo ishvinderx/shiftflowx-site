@@ -1,12 +1,13 @@
 // The legal pages, in the order the /legal hub lists them. Each page stays at its own URL.
 export const LEGAL_PAGES: { href: string; title: string; covers: string }[] = [
-  { href: "/privacy", title: "Privacy policy", covers: "What personal information we collect, how it is used and protected, and your rights over it." },
-  { href: "/terms", title: "Terms of service", covers: "The agreement for using HoursFlow, including acceptable use and how disputes are handled." },
-  { href: "/subscription-terms", title: "Subscription terms", covers: "The free trial, Pro plans, billing, renewal and cancellation through the App Store." },
-  { href: "/refund", title: "Refund policy", covers: "How subscription refunds work, and how to ask Apple for one." },
-  { href: "/eula", title: "End user license agreement", covers: "The license that governs your use of the HoursFlow iOS app." },
-  { href: "/data-policy", title: "Data collection policy", covers: "Exactly what data the app stores, why, for how long, and how to access, export or delete it." },
-  { href: "/security", title: "Security", covers: "How your data is protected in transit and at rest, and how we handle it." },
-  { href: "/cookie-policy", title: "Cookie policy", covers: "How cookies and similar technologies are used on this website and in the app." },
-  { href: "/delete", title: "Delete your account", covers: "How to delete your account and data, the grace period, and what is removed." },
+  { href: "/terms", title: "Terms of use", covers: "The agreement for using HoursFlow: accounts, acceptable use, estimates, liability and governing law." },
+  { href: "/privacy", title: "Privacy policy", covers: "What personal information we collect, who processes it, how long we keep it, and your rights." },
+  { href: "/subscription-terms", title: "Subscription terms", covers: "Plans, prices, the free trial, automatic renewal, cancelling, and what happens if a subscription lapses." },
+  { href: "/refund", title: "Refunds", covers: "How refunds work (Apple handles them) and how to ask for one." },
+  { href: "/eula", title: "End user licence agreement", covers: "Apple's standard EULA applies to the HoursFlow app." },
+  { href: "/data-policy", title: "Data policy", covers: "A short summary of what data the app stores and why, consistent with the privacy policy." },
+  { href: "/security", title: "Security", covers: "The protections in place, and how to report a vulnerability." },
+  { href: "/cookie-policy", title: "Cookie policy", covers: "What the website stores in your browser: no cookies." },
+  { href: "/accessibility", title: "Accessibility", covers: "Our accessibility commitment, what we have not done, and how to tell us about a barrier." },
+  { href: "/delete", title: "Delete your account", covers: "How to delete your account, the 30-day grace period, and what is erased." },
 ];

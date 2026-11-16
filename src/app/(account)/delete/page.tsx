@@ -1,136 +1,71 @@
-import LegalLayout from "@/components/legal/LegalLayout";
-
 import type { Metadata } from "next";
+import Link from "next/link";
+import LegalLayout from "@/components/legal/LegalLayout";
+import { canonicalAlt } from "@/lib/seo";
+import { BRAND, PRIVACY_EMAIL, SUPPORT_EMAIL } from "@/lib/constants";
+import { DATA_RETENTION_GRACE_DAYS } from "@/content/dataPractices";
 
 export const metadata: Metadata = {
-  title: "Delete Your Account",
-  description: "How to permanently delete your HoursFlow account and data, including the grace period and what gets removed.",
+  title: "Delete your account",
+  description: `How to delete your ${BRAND.name} account and data: in the app or by email, the ${DATA_RETENTION_GRACE_DAYS}-day grace period, what is erased and what we keep.`,
   alternates: canonicalAlt("/delete"),
 };
 
-import Link from "next/link";
-import { canonicalAlt } from "@/lib/seo";
-import { SITE_HOST, SUPPORT_EMAIL } from "@/lib/constants";
-
 const toc = [
-  { id: "overview", label: "Overview" },
-  { id: "what-gets-deleted", label: "What Gets Deleted" },
-  { id: "in-app", label: "Delete Via the App" },
-  { id: "via-email", label: "Delete Via Email" },
-  { id: "grace-period", label: "Grace Period" },
-  { id: "subscription", label: "Subscription Impact" },
-  { id: "contact", label: "Need Help?" },
+  { id: "in-app", label: "Delete in the app" },
+  { id: "by-email", label: "Delete by email" },
+  { id: "what-happens", label: "What happens" },
+  { id: "kept", label: "What we keep" },
+  { id: "subscription", label: "Your subscription" },
+  { id: "export", label: "Export first" },
 ];
 
 export default function DeletePage() {
   return (
     <LegalLayout
-      title="Delete Your Account"
-      effectiveDate="January 1, 2025"
+      title="Delete your account"
+      whatChanged="Corrected to match how deletion works: the account closes at once and the data is erased after a 30-day grace period. Removed claims that you can cancel by logging in and that a confirmation email is sent."
       toc={toc}
     >
-      <section id="overview">
-        <h2>Overview</h2>
-        <p>
-          You have the right to delete your HoursFlow account and all associated data at any time. Account deletion is permanent and irreversible — once completed, all your data will be permanently removed from our systems.
-        </p>
-        <p>
-          We want to make this process as straightforward as possible. You can delete your account directly through the HoursFlow app, or by contacting our support team.
-        </p>
-      </section>
-
-      <section id="what-gets-deleted">
-        <h2>What Gets Deleted</h2>
-        <p>When you delete your account, the following data is permanently removed:</p>
-        <ul>
-          <li>Your profile information (name, email address, authentication credentials)</li>
-          <li>Your employers</li>
-          <li>All shifts and work history</li>
-          <li>Expenses and receipts</li>
-          <li>Invoices</li>
-          <li>Budget and bills</li>
-          <li>Tax settings</li>
-        </ul>
-        <p>
-          <strong>What may be retained:</strong> We may retain certain records for up to 90 days as required by law, including support correspondence related to billing disputes and records required for legal compliance. Anonymous, aggregated data (which cannot identify you) may be retained for service improvement purposes.
-        </p>
-      </section>
-
       <section id="in-app">
-        <h2>Delete Your Account Via the App</h2>
-        <p>The easiest way to delete your account is directly through HoursFlow:</p>
+        <h2>Delete in the app</h2>
         <ol>
-          <li>Open the HoursFlow app on your iPhone or iPad</li>
-          <li>Tap the <strong>Profile</strong> icon or navigate to the <strong>Settings</strong> tab</li>
-          <li>Scroll down to find <strong>Account</strong></li>
-          <li>Tap <strong>Delete Account</strong></li>
-          <li>Read the confirmation message carefully</li>
-          <li>Confirm your identity (you may be asked to enter your password or authenticate with Face ID/Touch ID)</li>
-          <li>Tap <strong>Permanently Delete My Account</strong></li>
+          <li>Open {BRAND.name} and go to <strong>Profile</strong>.</li>
+          <li>Tap <strong>Delete account</strong>.</li>
+          <li>Read the warning, type <strong>DELETE</strong>, and confirm.</li>
         </ol>
-        <p>
-          You will receive a confirmation email to your registered address once the deletion process has been initiated. All data will be permanently removed within <strong>30 days</strong>.
-        </p>
+        <p>Deleting your account is free. If it fails, the app tells you; try again or email us.</p>
       </section>
 
-      <section id="via-email">
-        <h2>Delete Your Account Via Email</h2>
-        <p>
-          If you are unable to access the app, you can request account deletion by emailing us:
-        </p>
-        <ul>
-          <li><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
-          <li><strong>Subject:</strong> Account Deletion Request</li>
-          <li><strong>Include:</strong> The email address associated with your HoursFlow account</li>
-        </ul>
-        <p>
-          We will verify your identity and confirm the deletion request within 2 business days. Once confirmed, deletion will be initiated and completed within 30 days.
-        </p>
-        <p>
-          Alternatively, you can use our <Link href="/support">Support page</Link> and select &ldquo;Delete My Account&rdquo; as the subject.
-        </p>
+      <section id="by-email">
+        <h2>Delete by email</h2>
+        <p>If you cannot use the app, email <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a> or <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a> from the email address on your account and ask us to delete it. We may ask you to confirm who you are first.</p>
       </section>
 
-      <section id="grace-period">
-        <h2>Grace Period</h2>
-        <p>
-          After initiating account deletion, there is a <strong>30-day grace period</strong> during which you can cancel the deletion request by logging back into the app or contacting support. After 30 days, the deletion process is irreversible and cannot be stopped.
-        </p>
-        <p>
-          All data is permanently purged from our servers within <strong>30 days</strong> of the deletion being initiated. During this window, you will not be able to log in or access your data.
-        </p>
+      <section id="what-happens">
+        <h2>What happens</h2>
+        <ol>
+          <li><strong>At once:</strong> your account is closed and you are signed out on every device. You cannot sign in to it.</li>
+          <li><strong>For {DATA_RETENTION_GRACE_DAYS} days:</strong> we hold your data in case you deleted by mistake. To restore the account in this period, email <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. You cannot restore it by signing in.</li>
+          <li><strong>After {DATA_RETENTION_GRACE_DAYS} days:</strong> a scheduled job permanently deletes your shifts, employers, expenses, receipts and other files, invoices, budget and bills, tax settings, goals, notes, feedback and similar records. It also erases your name, email, credentials, phone, address, date of birth and other profile details. We ask RevenueCat to delete your customer record. This cannot be undone.</li>
+          <li><strong>Backups</strong> expire after 30 days, so a deleted account can remain in a backup for up to that time.</li>
+          <li><strong>Analytics:</strong> your PostHog profile is deleted by hand; we aim to do this within 30 days after the purge.</li>
+        </ol>
+      </section>
+
+      <section id="kept">
+        <h2>What we keep</h2>
+        <p>We keep a small number of records that no longer contain your name or email: an empty account row (internal ID, dates, plan status and consent dates), our purchase-event and referral-reward records for accounting, and security-log rows with the IP hash, device details and details cleared. They have no automatic deletion date today. See the <Link href="/privacy#retention">privacy policy</Link>.</p>
       </section>
 
       <section id="subscription">
-        <h2>Subscription Impact</h2>
-        <p>
-          Deleting your HoursFlow account does <strong>not</strong> automatically cancel your App Store subscription. To avoid future charges, you must cancel your subscription separately through Apple before deleting your account.
-        </p>
-        <p>To cancel your subscription before deleting your account:</p>
-        <ol>
-          <li>Open Settings on your iPhone</li>
-          <li>Tap your name → Subscriptions</li>
-          <li>Find HoursFlow and tap it</li>
-          <li>Tap Cancel Subscription</li>
-        </ol>
-        <p>
-          After cancelling the subscription, proceed to delete your account using the steps above. If you need assistance with subscription cancellation, visit our <Link href="/subscription-terms">Subscription Terms</Link> page.
-        </p>
+        <h2>Your subscription</h2>
+        <p>Deleting your account does <strong>not</strong> cancel an Apple subscription. Cancel it first in Settings, then your name, then Subscriptions. See <Link href="/subscription-terms#cancel">subscription terms</Link>.</p>
       </section>
 
-      <section id="contact">
-        <h2>Need Help?</h2>
-        <p>
-          If you encounter any issues with account deletion, or if you have concerns about your data after deletion, please contact our support team:
-        </p>
-        <ul>
-          <li><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a></li>
-          <li><strong>Response time:</strong> Within 24 hours on business days</li>
-          <li><strong>Support page:</strong> <Link href="/support">{SITE_HOST}/support</Link></li>
-        </ul>
-        <p>
-          We take data deletion seriously and are committed to completing all deletion requests promptly and thoroughly.
-        </p>
+      <section id="export">
+        <h2>Export first</h2>
+        <p>You can export your data in the app (Profile) before you delete. Export is free.</p>
       </section>
     </LegalLayout>
   );

@@ -3,7 +3,8 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { PageHeader, Section } from "@/components/ui";
 import { LEGAL_PAGES } from "@/content/legal";
-import { SITE_URL, SUPPORT_EMAIL } from "@/lib/constants";
+import CompanyDetails from "@/components/legal/CompanyDetails";
+import { LEGAL_LAST_UPDATED, SITE_URL, SUPPORT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Legal — Policies, Terms and Your Data",
@@ -19,7 +20,7 @@ export default function Page() {
         size="h2"
         label="Legal"
         title="Policies and terms"
-        lede={`What you agree to, how your data is handled, and how to leave. Questions? Write to ${SUPPORT_EMAIL}.`}
+        lede={`What you agree to, how your data is handled, and how to leave. Updated ${LEGAL_LAST_UPDATED}. Questions? Write to ${SUPPORT_EMAIL}.`}
       />
       <Section rule={false}>
         <ul className="border-b border-rule">
@@ -32,6 +33,11 @@ export default function Page() {
             </li>
           ))}
         </ul>
+      </Section>
+      <Section rule={false} label="Company details" title="Who we are" id="company">
+        <div className="legal-content">
+          <CompanyDetails heading={false} />
+        </div>
       </Section>
     </>
   );

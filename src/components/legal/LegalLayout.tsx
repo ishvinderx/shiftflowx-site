@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BRAND, SUPPORT_EMAIL } from "@/lib/constants";
+import { BRAND, LEGAL_LAST_UPDATED, SUPPORT_EMAIL } from "@/lib/constants";
 import { Container, Heading, Label } from "@/components/ui";
 
 interface TocItem {
@@ -10,22 +10,23 @@ interface TocItem {
 /**
  * Legal pages: 65-character reading measure, hairlines, "Last updated" line, contents list.
  * Body text is styled by `.legal-content` in globals.css (h2/h3/p/ul/ol/a/table).
- * `effectiveDate` is shown as the last-updated date.
+ * The date comes from LEGAL_LAST_UPDATED (one constant for every legal page); each page passes
+ * its own `whatChanged` line. Print styles live in globals.css (@media print).
  */
 export default function LegalLayout({
   title,
-  effectiveDate,
+  whatChanged,
   children,
   toc,
 }: {
   title: string;
-  effectiveDate: string;
+  whatChanged: string;
   children: React.ReactNode;
   toc: TocItem[];
 }) {
   return (
     <>
-      <header className="border-b border-rule">
+      <header className="legal-header border-b border-rule">
         <Container className="pb-10 pt-14 sm:pt-20">
           <Label className="mb-4">
             <Link href="/" className="hover:underline underline-offset-4">
@@ -39,12 +40,17 @@ export default function LegalLayout({
           <Heading level="h2" as="h1">
             {title}
           </Heading>
-          <p className="mt-4 text-[0.9375rem] text-ink-2">Last updated {effectiveDate}</p>
+          <p className="mt-4 text-[0.9375rem] text-ink-2">
+            Effective and last updated <time dateTime="2026-11-15">{LEGAL_LAST_UPDATED}</time>
+          </p>
+          <p className="mt-1 text-[0.9375rem] text-ink-2">
+            <strong className="font-semibold text-ink">What changed:</strong> {whatChanged}
+          </p>
         </Container>
       </header>
 
       <Container className="grid gap-12 py-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-20">
-        <aside className="lg:sticky lg:top-8 lg:self-start">
+        <aside className="legal-aside lg:sticky lg:top-8 lg:self-start">
           <nav aria-label="Contents">
             <Label className="mb-3">Contents</Label>
             <ul>

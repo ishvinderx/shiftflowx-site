@@ -16,6 +16,18 @@ export const BRAND = {
   tagline: "Make every hour count.",
 } as const;
 
+// ─── Legal (SINGLE SOURCE OF TRUTH) ──────────────────────────────────────────
+// Every legal page renders its date and the operator's details from here. No street address is
+// published (decision of the owner's side): pages show the city, province and country only and
+// offer a postal address for legal notices on request by email.
+export const COMPANY_LEGAL_NAME = BRAND.legalEntity;
+export const COMPANY_LOCATION = "Brampton, Ontario, Canada";
+export const PRIVACY_OFFICER = `Privacy Officer, ${COMPANY_LEGAL_NAME}`;
+// There is no separate security mailbox: vulnerability reports go to support, subject "Security".
+export const SECURITY_EMAIL = SUPPORT_EMAIL;
+// The one date every legal page shows as its effective and last-updated date.
+export const LEGAL_LAST_UPDATED = "15 November 2026";
+
 // The new HoursFlow app has no App Store listing yet. APP_STORE_URL is the ONE constant every
 // download button reads. Set NEXT_PUBLIC_APP_STORE_URL once the listing exists; until then it
 // falls back to this PLACEHOLDER, which src/lib/release.test.ts refuses in a release build
@@ -176,8 +188,12 @@ export const FOOTER_LINKS = {
     { href: "/privacy", label: "Privacy" },
     { href: "/terms", label: "Terms" },
     { href: "/subscription-terms", label: "Subscription terms" },
+    { href: "/refund", label: "Refunds" },
+    { href: "/eula", label: "EULA" },
+    { href: "/data-policy", label: "Data policy" },
     { href: "/security", label: "Security" },
     { href: "/cookie-policy", label: "Cookie policy" },
+    { href: "/accessibility", label: "Accessibility" },
     { href: "/delete", label: "Delete account" },
   ],
 };
@@ -186,7 +202,7 @@ export const FAQ_ITEMS = [
   {
     question: `How does the ${TRIAL_DAYS}-day free trial work?`,
     answer:
-      `Your free trial gives you full access to every ${BRAND.proName} feature for ${TRIAL_DAYS} days. After the trial, your selected Monthly or Annual plan begins unless you cancel. We'll remind you before the trial ends.`,
+      `Your free trial gives you full access to every ${BRAND.proName} feature for ${TRIAL_DAYS} days. After the trial, your selected Monthly or Annual plan begins unless you cancel. Apple handles trial and renewal billing.`,
   },
   {
     question: "Does my subscription renew automatically?",
@@ -211,7 +227,7 @@ export const FAQ_ITEMS = [
   {
     question: "Is my payroll data secure?",
     answer:
-      "Data is encrypted in transit (TLS 1.3), and sensitive fields are encrypted at rest. We never sell your data. Your payroll information stays private. You can export your data and delete your account from the app.",
+      "Data is encrypted in transit (HTTPS), and the sensitive fields listed in our privacy policy are encrypted at rest. We do not sell your data. You can export your data and delete your account from the app. See the security page for what we do and do not do.",
   },
   {
     question: "How does the paycheque check work?",
@@ -226,6 +242,6 @@ export const FAQ_ITEMS = [
   {
     question: "How do I delete my account and data?",
     answer:
-      `Delete your account directly in the app: Settings → Account → Delete Account. All your data is permanently removed within 30 days. Visit ${SITE_HOST}/delete for step-by-step instructions.`,
+      `Delete your account in the app (Profile, then Delete account). Your account is closed at once and your data is permanently deleted after a 30-day grace period. A few records we must keep are described in our privacy policy. Visit ${SITE_HOST}/delete for the steps.`,
   },
 ];

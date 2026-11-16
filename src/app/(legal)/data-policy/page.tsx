@@ -1,261 +1,86 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import LegalLayout from "@/components/legal/LegalLayout";
+import LegalTable from "@/components/legal/LegalTable";
 import { canonicalAlt } from "@/lib/seo";
-import { SITE_URL, SITE_HOST, SUPPORT_EMAIL, INFO_EMAIL } from "@/lib/constants";
+import { BRAND, PRIVACY_EMAIL } from "@/lib/constants";
+import { DATA_CATEGORIES, DATA_RETENTION_GRACE_DAYS, PROVIDERS, SCANNING_FACT } from "@/content/dataPractices";
 
 export const metadata: Metadata = {
-  title: "Data Collection Policy — What We Store",
-  description:
-    "Understand exactly what data HoursFlow collects, why we collect it, how long we keep it, and your rights to access, export, and delete it.",
+  title: "Data policy",
+  description: `A plain summary of the data ${BRAND.name} collects, why, who processes it and how long we keep it. The privacy policy is the full version.`,
   alternates: canonicalAlt("/data-policy"),
 };
 
 const toc = [
-  { id: "overview", label: "Overview" },
-  { id: "what-we-collect", label: "What We Collect" },
-  { id: "what-is-optional", label: "What Is Optional" },
-  { id: "third-parties", label: "Third-Party Providers" },
-  { id: "retention", label: "Retention Periods" },
-  { id: "deletion", label: "Deletion Behaviour" },
-  { id: "your-rights", label: "Your Rights" },
-  { id: "contact", label: "Contact" },
+  { id: "summary", label: "Summary" },
+  { id: "table", label: "What and why" },
+  { id: "not-collected", label: "What we do not collect" },
+  { id: "who", label: "Who processes it" },
+  { id: "control", label: "Your control" },
 ];
 
 export default function DataPolicyPage() {
   return (
-    <LegalLayout title="Data Collection Policy" effectiveDate="November 14, 2026" toc={toc}>
-      <section id="overview">
-        <h2>Overview</h2>
-        <p>
-          HoursFlow is operated by Flowmatix Creative Inc. This policy explains exactly what data HoursFlow collects from you, why we collect it,
-          how long we keep it, and what happens when you delete it. We believe transparency is
-          non-negotiable when an app touches your payroll and financial records.
-        </p>
-        <p>
-          HoursFlow is designed on a <strong>data minimisation</strong> principle: we collect only
-          what is necessary to deliver the features you use, and nothing more.
-        </p>
+    <LegalLayout
+      title="Data policy"
+      whatChanged="Now a short summary built from the same source as the privacy policy, so the two agree. Removed push notification tokens: the app does not use them."
+      toc={toc}
+    >
+      <section id="summary">
+        <h2>Summary</h2>
+        <p>This page is a short summary. The <Link href="/privacy">privacy policy</Link> is the full, binding version, and it prevails if the two differ.</p>
+        <ul>
+          <li>You need an account (email and password, Sign in with Apple, or Google).</li>
+          <li>We store what you enter, and we use it to run the app and work out your estimates.</li>
+          <li>We do not sell your data and run no advertising.</li>
+          <li>You can export your data and delete your account in the app (Profile), free. Deleted accounts are erased after a {DATA_RETENTION_GRACE_DAYS}-day grace period, apart from the records described in the privacy policy.</li>
+        </ul>
+        <p>{SCANNING_FACT}</p>
       </section>
 
-      <section id="what-we-collect">
-        <h2>What We Collect</h2>
-        <h3>Account Information</h3>
-        <ul>
-          <li>Email address (required for account creation and recovery)</li>
-          <li>Display name</li>
-          <li>Password hash (bcrypt — we never store your plaintext password)</li>
-          <li>Apple ID or Google ID if you use Sign In with Apple / Google</li>
-          <li>Timezone and currency preference</li>
-          <li>Country code (two-letter ISO code, used for tax and payroll rules)</li>
-        </ul>
-
-        <h3>Shift & Payroll Data</h3>
-        <ul>
-          <li>Shift start and end times</li>
-          <li>Break durations</li>
-          <li>Employer / job name, hourly rate, overtime configuration</li>
-          <li>Tips, mileage, and expense entries</li>
-          <li>Tags and shift notes</li>
-          <li>Calculated gross pay, net pay, and overtime hours (server-computed — we never
-            trust client-side calculations for financial figures)</li>
-          <li>Pay schedule (frequency, anchor date, next payday)</li>
-        </ul>
-
-        <h3>Financial Calculations</h3>
-        <ul>
-          <li>Tax rate (user-configured)</li>
-          <li>Tax profile (filing status, deductions — optional)</li>
-          <li>Invoice data (client name, line items, amounts, due dates)</li>
-        </ul>
-
-        <h3>Device & Session Data</h3>
-        <ul>
-          <li>Device token for push notifications (APNs) — deleted when you log out</li>
-          <li>Device name and OS version (for the Security Centre session list)</li>
-          <li>IP address hash (hashed, not stored in plaintext — used for suspicious login detection)</li>
-          <li>JWT access tokens (short-lived, 1 hour) and refresh tokens (30 days, httpOnly cookie)</li>
-        </ul>
-
-        <h3>Analytics & Crash Data</h3>
-        <ul>
-          <li>Feature-usage events via PostHog, linked to your account ID (e.g. &ldquo;shift_logged&rdquo;, &ldquo;paywall_viewed&rdquo;)</li>
-          <li>Crash reports and performance traces via Sentry (device model, OS version, stack trace — no PII)</li>
-          <li>Session counts and retention metrics (aggregate only)</li>
-        </ul>
-
-        <h3>Subscription Data</h3>
-        <ul>
-          <li>Subscription status, plan, and expiry date (synced from RevenueCat)</li>
-          <li>RevenueCat customer ID</li>
-          <li>Trial start and end dates</li>
-          <li>We never store credit card numbers, CVVs, or bank account details — all billing
-            is handled exclusively by Apple in-app purchase</li>
-        </ul>
-
-        <h3>Journal Data</h3>
-        <ul>
-          <li>Work journal entries (text, optional)</li>
-        </ul>
-      </section>
-
-      <section id="what-is-optional">
-        <h2>What Is Optional</h2>
-        <p>The following data is never required to use HoursFlow&apos;s core features:</p>
-        <ul>
-          <li>Work journal entries</li>
-          <li>Push notifications (can be declined or disabled in iOS Settings)</li>
-          <li>Analytics participation (linked to your account — cannot be opted out of individually, but
-            contains no PII)</li>
-          <li>Tax profile details beyond your basic tax rate</li>
-          <li>Invoice client details</li>
-        </ul>
-      </section>
-
-      <section id="third-parties">
-        <h2>Third-Party Providers</h2>
-        <table>
+      <section id="table">
+        <h2>What and why</h2>
+        <LegalTable caption="Data we collect, why, and how long we keep it">
           <thead>
-            <tr>
-              <th>Provider</th>
-              <th>Purpose</th>
-              <th>Data Shared</th>
-            </tr>
+            <tr><th scope="col">Category</th><th scope="col">Examples</th><th scope="col">Purpose</th><th scope="col">Retention</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>RevenueCat</td>
-              <td>Subscription management</td>
-              <td>User ID, subscription events — no payment card data</td>
-            </tr>
-            <tr>
-              <td>Apple App Store</td>
-              <td>In-app purchase billing</td>
-              <td>Handled entirely by Apple — we receive only a receipt and subscription status</td>
-            </tr>
-            <tr>
-              <td>PostHog</td>
-              <td>Product analytics</td>
-              <td>Event names and properties linked to your account ID — no payroll figures or document content</td>
-            </tr>
-            <tr>
-              <td>Sentry</td>
-              <td>Crash monitoring</td>
-              <td>Stack traces, device model, OS version — no user data, no payroll data</td>
-            </tr>
-            <tr>
-              <td>Railway / Cloudflare</td>
-              <td>Cloud hosting and CDN</td>
-              <td>Encrypted data at rest — providers cannot read your financial records</td>
-            </tr>
+            {DATA_CATEGORIES.map((c) => (
+              <tr key={c.id}><th scope="row">{c.category}</th><td>{c.examples}</td><td>{c.purpose}</td><td>{c.retention}</td></tr>
+            ))}
           </tbody>
-        </table>
+        </LegalTable>
       </section>
 
-      <section id="retention">
-        <h2>Retention Periods</h2>
-        <table>
+      <section id="not-collected">
+        <h2>What we do not collect</h2>
+        <ul>
+          <li>Your location, your contacts, or your advertising identifier.</li>
+          <li>Remote push notification tokens. The app&rsquo;s reminders are local notifications scheduled on your device.</li>
+          <li>Your card or Apple payment details.</li>
+          <li>Face ID data. Face ID stays on your device.</li>
+          <li>Your calendar. The optional calendar feature only adds shifts to it.</li>
+        </ul>
+      </section>
+
+      <section id="who">
+        <h2>Who processes it</h2>
+        <LegalTable caption="Service providers">
           <thead>
-            <tr>
-              <th>Data Type</th>
-              <th>Retention Period</th>
-            </tr>
+            <tr><th scope="col">Provider</th><th scope="col">Role</th><th scope="col">Where</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Active account data (shifts, invoices, payroll)</td>
-              <td>Kept until account deletion</td>
-            </tr>
-            <tr>
-              <td>Soft-deleted shifts and invoices</td>
-              <td>30-day grace period, then hard-deleted</td>
-            </tr>
-            <tr>
-              <td>Account data after deletion request</td>
-              <td>30-day grace period for recovery, then hard-deleted</td>
-            </tr>
-            <tr>
-              <td>Audit logs (admin-only)</td>
-              <td>90 days</td>
-            </tr>
-            <tr>
-              <td>Push notification tokens</td>
-              <td>Deleted on logout or account deletion</td>
-            </tr>
-            <tr>
-              <td>Analytics events (PostHog)</td>
-              <td>Linked to your account ID (via PostHog)</td>
-            </tr>
-            <tr>
-              <td>Crash reports (Sentry)</td>
-              <td>90 days per Sentry&apos;s default policy</td>
-            </tr>
-            <tr>
-              <td>Scanned receipt and payslip images (text is recognised on your device)</td>
-              <td>Not uploaded for text recognition and not stored server-side</td>
-            </tr>
+            {PROVIDERS.map((p) => (
+              <tr key={p.id}><th scope="row">{p.name}</th><td>{p.role}</td><td>{p.region}</td></tr>
+            ))}
           </tbody>
-        </table>
+        </LegalTable>
       </section>
 
-      <section id="deletion">
-        <h2>Deletion Behaviour</h2>
-        <p>
-          When you delete your account (Profile → Settings → Delete Account), HoursFlow
-          initiates a full deletion sequence:
-        </p>
-        <ul>
-          <li>Your account is immediately soft-deleted — you cannot log in, and your data is
-            no longer accessible</li>
-          <li>You have a 30-day window to contact support and recover your account</li>
-          <li>After 30 days, a scheduled job hard-deletes all records associated with your account:
-            shifts, invoices, payroll records, journals, goals, device tokens,
-            notification preferences, and analytics identifiers</li>
-          <li>Analytics events already sent to PostHog are retained under PostHog’s own retention policy</li>
-          <li>RevenueCat retains your subscription history for their own legal compliance requirements</li>
-        </ul>
-        <p>
-          To request account deletion directly:{" "}
-          <a href={`${SITE_URL}/delete`}>{SITE_HOST}/delete</a> or email{" "}
-          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
-        </p>
-      </section>
-
-      <section id="your-rights">
-        <h2>Your Rights</h2>
-        <p>Depending on your jurisdiction, you may have the right to:</p>
-        <ul>
-          <li><strong>Access</strong> — request a copy of all data we hold about you</li>
-          <li><strong>Rectification</strong> — correct inaccurate data</li>
-          <li><strong>Erasure</strong> — request deletion of your account and all associated data</li>
-          <li><strong>Portability</strong> — export your shifts and earnings as CSV or JSON</li>
-          <li><strong>Restriction</strong> — request that we stop processing your data while a complaint is investigated</li>
-          <li><strong>Objection</strong> — object to any processing based on legitimate interests</li>
-          <li><strong>Withdraw consent</strong> — revoke notification permissions at any time</li>
-        </ul>
-        <p>
-          <strong>GDPR users (EEA/UK):</strong> You may lodge a complaint with your local supervisory authority.
-        </p>
-        <p>
-          <strong>CCPA users (California):</strong> We do not sell personal information. You have the right to know, delete, and opt-out of sale (not applicable — we do not sell).
-        </p>
-        <p>
-          To exercise any of these rights, contact{" "}
-          <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a>.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          For questions about this policy, data requests, or privacy concerns:
-        </p>
-        <ul>
-          <li>Email: <a href={`mailto:${INFO_EMAIL}`}>{INFO_EMAIL}</a></li>
-          <li>Support: <a href={`${SITE_URL}/support`}>{SITE_HOST}/support</a></li>
-        </ul>
-        <p>
-          We aim to respond to all data requests within 30 days.
-        </p>
+      <section id="control">
+        <h2>Your control</h2>
+        <p>Export and delete in the app (Profile), or email <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a> to access, correct, export or delete your data, or to object to analytics. See <Link href="/privacy#rights">your rights</Link> and <Link href="/delete">how to delete your account</Link>.</p>
       </section>
     </LegalLayout>
   );

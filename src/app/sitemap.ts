@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/cookie-policy`, priority: 0.4, changeFrequency: 'yearly' as const },
     { url: `${BASE}/refund`, priority: 0.4, changeFrequency: 'yearly' as const },
     { url: `${BASE}/delete`, priority: 0.5, changeFrequency: 'yearly' as const },
+    { url: `${BASE}/accessibility`, priority: 0.4, changeFrequency: 'yearly' as const },
     { url: `${BASE}/data-policy`, priority: 0.5, changeFrequency: 'yearly' as const },
     // Admin dashboard excluded from sitemap intentionally
   ]

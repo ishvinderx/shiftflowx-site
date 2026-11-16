@@ -40,7 +40,7 @@ export default function Navbar() {
   const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="border-b border-rule bg-ground">
+    <header className="site-nav border-b border-rule bg-ground">
       <Container className="flex min-h-[64px] items-center justify-between gap-6">
         <Wordmark />
 
