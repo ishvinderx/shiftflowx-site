@@ -252,7 +252,7 @@ export default function SettlementClient() {
                   valueCls="text-ink-2 font-medium"
                 />
                 <StatementRow
-                  label="Expected net settlement"
+                  label="Expected net settlement (estimate)"
                   value={money(result.netAfterDeductions)}
                   valueCls="text-2xl font-bold text-ink tracking-tight"
                 />

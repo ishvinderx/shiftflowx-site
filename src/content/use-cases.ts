@@ -50,7 +50,7 @@ export const USE_CASES: UseCase[] = [
         title: "Log the shift when you finish it",
         body: [
           "Enter the start and end time and your rate. The app adds up the hours and what the shift earned, so the week's total is never a guess.",
-          "The free plan keeps your last 30 days for one employer.",
+          "The free plan keeps your last 30 days for two employers.",
         ],
         visual: { kind: "phone", src: "/screenshots/shifts-light.png", alt: "The Shifts screen in HoursFlow listing logged shifts with their hours and pay." },
       },
@@ -87,7 +87,7 @@ export const USE_CASES: UseCase[] = [
     ],
     faq: [
       { q: "What if my hours are different every week?", a: "That is the normal case. Each shift is logged on its own, and earnings and payday are worked out from whatever you logged in the pay period." },
-      { q: "Does it work if I have two jobs?", a: "The free plan tracks one employer. More than one employer is part of Pro." },
+      { q: "Does it work if I have two jobs?", a: "The free plan tracks two employers. More than two employers is part of Pro." },
       { q: "How do I work out overtime?", a: "The free overtime calculator splits regular and overtime hours using the rules for your province or state, and shows the source of the rule." },
     ],
     tools: [
@@ -130,7 +130,7 @@ export const USE_CASES: UseCase[] = [
             { key: "amount", label: "Amount", align: "right" },
           ],
           rows: [
-            { item: "Earned after deductions", amount: "$1,368.36" },
+            { item: "Estimated earned after deductions", amount: "$1,368.36" },
             { item: "Groceries", amount: "-$182.00" },
             { item: "Transport", amount: "-$41.00" },
           ],
@@ -150,7 +150,7 @@ export const USE_CASES: UseCase[] = [
     faq: [
       { q: "Does HoursFlow connect to my delivery or rideshare accounts?", a: "No. You log your own hours and earnings in the app." },
       { q: "Is the tax figure exact?", a: "No. It is an estimate to help you set money aside. Check it against your own situation before you file." },
-      { q: "Which parts are free?", a: "Shift tracking for one employer, earnings, payday, budget and bill reminders, with your last 30 days. Receipts, tax reports and exports are Pro." },
+      { q: "Which parts are free?", a: "Shift tracking for two employers, earnings, payday, budget and bill reminders, with your last 30 days. Receipts, tax reports and exports are Pro." },
     ],
     tools: [
       { href: "/tax-reserve-calculator", label: "Tax reserve calculator" },
@@ -211,7 +211,7 @@ export const USE_CASES: UseCase[] = [
     faq: [
       { q: "Can I invoice from the app?", a: "Yes. Invoices for the self-employed, and pay statements, are part of Pro." },
       { q: "Does it file my GST/HST return?", a: "No. It gives you GST/HST summaries in the tax report to help you prepare. You file with the tax authority yourself." },
-      { q: "Can I track more than one client?", a: "Pro supports more than one employer, which you can use for separate clients." },
+      { q: "Can I track more than one client?", a: "Pro supports more than two employers, which you can use for separate clients." },
     ],
     tools: [
       { href: "/hst-invoice-calculator", label: "HST invoice calculator" },
@@ -272,7 +272,7 @@ export const USE_CASES: UseCase[] = [
     ],
     faq: [
       { q: "Is this a time-tracking tool for my client?", a: "No. It is your own record, kept on your side, for checking pay and preparing invoices." },
-      { q: "Can I use it across two contracts?", a: "Yes with Pro, which supports more than one employer." },
+      { q: "Can I use it across two contracts?", a: "Yes with Pro, which supports more than two employers." },
       { q: "What do I need for the weekly total?", a: "Only your start and end times. The free plan keeps 30 days; Pro keeps the full history." },
     ],
     tools: [
@@ -289,14 +289,14 @@ export const USE_CASES: UseCase[] = [
       "Track night and rotating shifts across more than one facility, import shifts, and check each paycheque against your hours. HoursFlow for nurses.",
     h1: "For rotating shifts at more than one facility",
     lede: "Nights, weekends and agency shifts do not fit a single timesheet. HoursFlow keeps each shift and employer in one record.",
-    hubLine: "Night and rotating shifts across more than one employer.",
+    hubLine: "Night and rotating shifts across more than two employers.",
     rows: [
       {
         label: "Employers",
         title: "Keep two facilities in one record",
         body: [
-          "Pro supports more than one employer, so a hospital contract and an agency shift sit in the same list with the right rate on each.",
-          "The free plan covers one employer.",
+          "Pro supports more than two employers, so a hospital contract and an agency shift sit in the same list with the right rate on each.",
+          "The free plan covers two employers.",
         ],
         visual: {
           kind: "ledger",
@@ -336,7 +336,7 @@ export const USE_CASES: UseCase[] = [
     ],
     faq: [
       { q: "Does it handle night shifts?", a: "You log the start and end of each shift. The work hours calculator on this site handles shifts that cross midnight." },
-      { q: "Can I track agency and hospital shifts together?", a: "Yes with Pro, which supports more than one employer." },
+      { q: "Can I track agency and hospital shifts together?", a: "Yes with Pro, which supports more than two employers." },
       { q: "Does it know my pay differentials?", a: "No. You enter the pay rate for your shifts, and the app works from that." },
     ],
     tools: [

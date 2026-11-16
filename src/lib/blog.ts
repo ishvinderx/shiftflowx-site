@@ -79,7 +79,7 @@ Your independent records are legally valid documentation. If you have consistent
 Yes. Unpaid break time directly reduces your payable hours. If you're paid for a 30-minute break but your employer is deducting it, or vice versa, that creates a pay discrepancy. Log break start and end times for each shift.
 
 **Can I track hours if I have multiple employers?**
-Yes. HoursFlow Pro supports more than one employer. The free plan tracks one employer.
+Yes. The free plan tracks two employers. HoursFlow Pro supports more than two.
 `,
   },
   {

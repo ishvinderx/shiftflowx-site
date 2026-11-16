@@ -28,7 +28,7 @@ const HOME_FAQ = [
   { q: "Moving from another app: can I bring my shifts and expenses?", a: `Yes, and importing is free. Export your shifts and expenses as a CSV file from the app you use now, create a ${BRAND.name} account, then choose Import from a file and pick the CSV.` },
   { q: "Can freelancers and gig workers use it?", a: `Yes. ${BRAND.name} is built for employees, freelancers, contractors, gig workers and the self-employed. Freelancers can create invoices, track project earnings and estimate tax in the app.` },
   { q: "Does it help with budgeting and bills?", a: `Yes. ${BRAND.name} includes a monthly budget and bill reminders, both on the free plan.` },
-  { q: `How much does ${BRAND.name} cost?`, a: `${BRAND.name} is free for one employer and your last 30 days of history, with shift logging, earnings, payday, budget and bills, the paycheque check answer and CSV import. ${BRAND.proName} adds full history, more than one employer, exports, invoices, the tax report, scanning and the detail behind a paycheque check, with a ${PRICING.trialDays}-day free trial. Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save about ${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` },
+  { q: `How much does ${BRAND.name} cost?`, a: `${BRAND.name} is free for two employers and your last 30 days of history, with shift logging, earnings, payday, budget and bills, the paycheque check answer and CSV import. ${BRAND.proName} adds full history, more than two employers, exports, invoices, the tax report, scanning and the detail behind a paycheque check, with a ${PRICING.trialDays}-day free trial. Pro is ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel} (save about ${PRICING.annual.savingsPct}% annually). Subscriptions are managed through the Apple App Store. Cancel anytime.` },
   { q: "Is my payroll data secure?", a: `Data is encrypted in transit with TLS 1.3, and sensitive fields are encrypted at rest. ${BRAND.name} never sells your data. You can export your data and delete your account from the app. Authentication tokens are stored in the iOS Keychain.` },
 ] as const;
 
@@ -125,8 +125,8 @@ export default function HomePage() {
               </figure>
             }
           >
-            <p>Log a shift in a few taps, for one employer or several. Each shift keeps its own rate, so the pay on every row is worked out for you.</p>
-            <p>Free covers one employer and your last 30 days. Pro adds more employers and your full history.</p>
+            <p>Log a shift in a few taps, for one employer or several (two on Free). Each shift keeps its own rate, so the pay on every row is worked out for you.</p>
+            <p>Free covers two employers and your last 30 days. Pro adds more than two employers and your full history.</p>
           </FeatureRow>
 
           <FeatureRow
@@ -135,7 +135,7 @@ export default function HomePage() {
             title="Know your next paycheque"
             visual={
               <div className="card grid gap-8 p-5 sm:p-6">
-                <Figure label="Payday Fri 20 Nov, after deductions" value="$1,368" cents=".36" tone="positive" note="Sample data: $1,512.00 before tax less $143.64 estimated deductions" />
+                <Figure label="Payday Fri 20 Nov, est. after deductions" value="$1,368" cents=".36" tone="positive" note="Sample data: $1,512.00 before tax less $143.64 estimated deductions" />
                 <LineChart />
               </div>
             }
@@ -150,7 +150,7 @@ export default function HomePage() {
             visual={
               <PhoneFrame
                 src="/screenshots/budget-light.png"
-                alt="The Budget screen: still to earn this month, with the amount earned after deductions against the amount planned, and the bills due."
+                alt="The Budget screen: still to earn this month, with the amount earned, estimated after deductions, against the amount planned, and the bills due."
               />
             }
           >

@@ -299,7 +299,7 @@ export default function OwnerOperatorClient() {
             </div>
 
             <div className="flex justify-between">
-              <dt className="text-ink-2">Tax reserve ({fields.reserve.value}%)</dt>
+              <dt className="text-ink-2">Estimated tax reserve ({fields.reserve.value}%)</dt>
               {result.profit <= 0 ? (
                 <dd className="text-ink-2">No profit — nothing to reserve</dd>
               ) : (

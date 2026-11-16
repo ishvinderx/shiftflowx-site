@@ -37,7 +37,7 @@ export function HeroPayCard({ className }: { className?: string }) {
         <div className="flex items-start justify-between gap-4 border-b border-rule py-3.5">
           <div>
             <dt className="font-semibold text-ink">Payday</dt>
-            <dd className="text-[0.9375rem] text-ink-2">About $1,368.36 after deductions</dd>
+            <dd className="text-[0.9375rem] text-ink-2">Est. $1,368.36 after deductions</dd>
           </div>
           <dd className="shrink-0 whitespace-nowrap font-semibold text-ink">Fri 20 Nov</dd>
         </div>

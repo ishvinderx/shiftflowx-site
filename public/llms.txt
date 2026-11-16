@@ -33,7 +33,7 @@ HoursFlow is an iOS app that helps employees, freelancers, contractors, and gig 
 - Free Trial: 7 days, full access to every HoursFlow Pro feature
 - HoursFlow Pro Monthly: $6.49/month
 - HoursFlow Pro Annual: $64.99/year (~17% savings vs monthly)
-- Free: one employer, the last 30 days of history, logging shifts, earnings, payday, budget and bills, the paycheque check answer, and import from a CSV file. Pro: full history, more than one employer, exports and pay statements, invoices with sales tax, the tax report, receipt and payslip scanning, shift import from a photo, and the detail behind a paycheque check. If a subscription lapses nothing is deleted — older records become available again when you resubscribe.
+- Free: two employers, the last 30 days of history, logging shifts, earnings, payday, budget and bills, the paycheque check answer, and import from a CSV file. Pro: full history, more than two employers, exports and pay statements, invoices with sales tax, the tax report, receipt and payslip scanning, shift import from a photo, and the detail behind a paycheque check. If a subscription lapses nothing is deleted — older records become available again when you resubscribe.
 - Subscriptions managed through Apple App Store and renew automatically unless cancelled
 - Canonical, always-current machine-readable pricing: https://hoursflow.app/pricing.md
 
@@ -60,7 +60,7 @@ Work & time:
 Pay & earnings:
 - Hourly pay calculator (gross pay with overtime): https://hoursflow.app/hourly-pay-calculator
 - Gross pay calculator (convert between hourly/weekly/monthly/annual): https://hoursflow.app/gross-pay-calculator
-- Take-home pay calculator (net from your own deductions): https://hoursflow.app/take-home-pay-calculator
+- Take-home pay calculator (estimated net from your own deductions): https://hoursflow.app/take-home-pay-calculator
 - Overtime calculator (verified statutory rules for Ontario, British Columbia, Alberta, federally regulated Canada, and US federal FLSA): https://hoursflow.app/overtime-calculator
 
 Contractor & self-employed:

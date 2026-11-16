@@ -135,11 +135,11 @@ export default function TaxReserveClient() {
           ) : (
             <dl className="ledger-dl mt-6">
               <div className="flex justify-between">
-                <dt className="text-ink-2">Recommended reserve</dt>
+                <dt className="text-ink-2">Estimated reserve</dt>
                 <dd className="text-positive font-medium">{money(result.reserve)}</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-ink-2">Left after reserve</dt>
+                <dt className="text-ink-2">Estimated left after reserve</dt>
                 <dd className="text-ink font-medium">{money(result.remaining!)}</dd>
               </div>
             </dl>

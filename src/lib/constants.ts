@@ -107,8 +107,8 @@ export const PRICING = {
 // ─── Free vs Pro (SINGLE SOURCE OF TRUTH) ────────────────────────────────────
 // The record-history policy, word for word. Render these strings; do not paraphrase.
 export const PLAN_POLICY = {
-  free: "Free: one employer, the last 30 days of history, logging shifts, earnings, payday, budget and bills, the paycheque check answer, and import from a CSV file.",
-  subscribers: "Pro: full history, more than one employer, exports and pay statements, invoices with sales tax, the tax report, receipt and payslip scanning, shift import from a photo, and the detail behind a paycheque check.",
+  free: "Free: two employers, the last 30 days of history, logging shifts, earnings, payday, budget and bills, the paycheque check answer, and import from a CSV file.",
+  subscribers: "Pro: full history, more than two employers, exports and pay statements, invoices with sales tax, the tax report, receipt and payslip scanning, shift import from a photo, and the detail behind a paycheque check.",
   lapse:
     "If a subscription lapses nothing is deleted — older records become available again when you resubscribe.",
 } as const;
@@ -118,7 +118,7 @@ export const PLAN_POLICY_TEXT = `${PLAN_POLICY.free} ${PLAN_POLICY.subscribers} 
 // Annual grant identical access; the difference is BILLING, not features.
 export const PRO_FEATURES = [
   "Full history beyond 30 days",
-  "More than one employer",
+  "More than two employers",
   "Exports and pay statements",
   "Invoices with sales tax",
   "Tax report",
@@ -129,7 +129,7 @@ export const PRO_FEATURES = [
 
 // Features that are in BOTH tiers. Rendered with PRO_FEATURES in the Free vs Pro table.
 export const FREE_FEATURES = [
-  "Logging shifts for one employer",
+  "Logging shifts for two employers",
   "Earnings and payday",
   "Budget and bills",
   "Paycheque check: the answer",

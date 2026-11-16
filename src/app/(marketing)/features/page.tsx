@@ -5,7 +5,7 @@ import { canonicalAlt } from "@/lib/seo";
 
 // Real feature areas. Tier follows PLAN_POLICY / PRO_FEATURES in constants.
 const AREAS: { title: string; tier: "Free" | "Pro"; body: string; note?: string }[] = [
-  { title: "Shift tracking", tier: "Free", body: "Log shifts with start and end times and a pay rate. Keep your last 30 days on the free plan.", note: "Pro adds more than one employer and full history." },
+  { title: "Shift tracking", tier: "Free", body: "Log shifts with start and end times and a pay rate. Keep your last 30 days on the free plan.", note: "Pro adds more than two employers and full history." },
   { title: "Earnings, paycheque and payday", tier: "Free", body: "See what you have earned this pay period, an estimate of the paycheque after deductions, and a countdown to payday." },
   { title: "Monthly budget, bills and reminders", tier: "Free", body: "Plan the month's bills and budgets, see how much is still to earn to cover them, and get a reminder before a bill is due." },
   { title: "Expenses and receipt scanning", tier: "Pro", body: "Scan a receipt or payslip with your camera. Text is read on your device." },
@@ -19,7 +19,7 @@ const AREAS: { title: string; tier: "Free" | "Pro"; body: string; note?: string 
 
 // Folded in from the old /how-it-works page (now a permanent redirect to /features).
 const STEPS = [
-  { title: "Log your shift", body: "After each shift, enter the start time, end time and employer. The app shows your earnings for the shift. The free plan tracks one employer; Pro adds more than one employer and shift import." },
+  { title: "Log your shift", body: "After each shift, enter the start time, end time and employer. The app shows your earnings for the shift. The free plan tracks two employers; Pro adds more than two employers and shift import." },
   { title: "See your earnings and payday", body: "The hours you log add up to earnings, and your pay schedule shows when the next payday is due. These are estimates, not a guarantee of what an employer will pay." },
   { title: "Keep your budget and bills", body: "Set up a budget and add your bills. The app reminds you before a bill is due, so you can plan around payday." },
   { title: "Check and export", body: "Check a payslip against your logged hours for free; Pro adds the detail behind the check. Scan receipts and payslips, view the tax report with GST/HST summaries, and export reports, pay statements and invoices." },
@@ -27,7 +27,7 @@ const STEPS = [
 
 const FEATURE_FAQ = [
   { q: "How long does it take to set up?", a: "Download the app, create an account, add your employer and log your first shift." },
-  { q: "Does it work with more than one employer?", a: "More than one employer is a Pro feature. The free plan tracks one employer." },
+  { q: "Does it work with more than one employer?", a: "Yes. The free plan tracks two employers. More than two employers is a Pro feature." },
   { q: "What does the paycheque check do?", a: "Enter the gross pay on your payslip and it shows whether the amount matches your logged hours, before tax. The answer is free. Pro adds the detail behind it: the shifts and overtime behind the figure, and your past checks." },
   { q: "Moving from another app: can I bring my shifts and expenses?", a: "Yes, and importing is free. Export your shifts and expenses as a CSV file from the app you use now, create a HoursFlow account, then choose Import from a file and pick the CSV." },
   { q: "How accurate is the payday estimate?", a: "It is an estimate based on your pay schedule and the shifts you log. It is not a guarantee of what your employer will pay." },

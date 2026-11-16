@@ -17,7 +17,7 @@ function Visual({ v }: { v: UseCaseVisual }) {
     case "earnings":
       return (
         <div className="grid gap-8">
-          <Figure label="Payday Fri 20 Nov, after deductions" value="$1,368" cents=".36" tone="positive" note="Sample data: $1,512.00 before tax less $143.64 estimated deductions" />
+          <Figure label="Payday Fri 20 Nov, est. after deductions" value="$1,368" cents=".36" tone="positive" note="Sample data: $1,512.00 before tax less $143.64 estimated deductions" />
           <LineChart />
         </div>
       );

@@ -221,7 +221,7 @@ export default function ContractorTakeHomeClient() {
             {result.reserve !== null &&
               (result.profit <= 0 ? (
                 <div className="flex justify-between gap-4 py-2">
-                  <dt className="text-ink-2">Income-tax reserve</dt>
+                  <dt className="text-ink-2">Estimated income-tax reserve</dt>
                   <dd className="text-ink-2 text-right">
                     No profit this period — nothing to reserve
                   </dd>
