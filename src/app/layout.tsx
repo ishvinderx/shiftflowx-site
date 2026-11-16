@@ -78,7 +78,7 @@ const jsonLd = [
     "description": `${BRAND.name} is an iOS app that helps employees, freelancers, contractors, and gig workers track work hours, earnings, payday, budget, bills and tax estimates.`,
     "applicationCategory": "FinanceApplication",
     "applicationSubCategory": "Workforce Management",
-    "operatingSystem": "iOS 16+",
+    "operatingSystem": "iOS 17+",
     "url": SITE_URL,
     "downloadUrl": APP_STORE_URL,
     "offers": {

@@ -15,7 +15,7 @@ const breadcrumb = {
 export const metadata: Metadata = {
   title: "Download for iPhone & iPad — Free 7-Day Trial",
   description:
-    "Download HoursFlow free on the App Store. Track shifts, earnings, payday, budget and bills; Pro adds a 7-day free trial. iOS 16+, iPhone & iPad.",
+    "Download HoursFlow free on the App Store. Track shifts, earnings, payday, budget and bills; Pro adds a 7-day free trial. iOS 17+, iPhone & iPad.",
   alternates: canonicalAlt("/download"),
 };
 
@@ -45,7 +45,7 @@ export default function Page() {
           </div>
           <dl className="border-b border-rule">
             {[
-              ["iPhone", "iOS 16.0 or later"],
+              ["iPhone", "iOS 17.0 or later"],
               ["iPad", "iPadOS 16.0 or later"],
               ["Connection", "Wi-Fi or cellular"],
               ["Price", `Free. ${BRAND.proName} from ${PRICING.monthly.perLabel} or ${PRICING.annual.perLabel}`],

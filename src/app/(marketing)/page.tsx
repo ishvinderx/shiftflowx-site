@@ -228,7 +228,7 @@ export default function HomePage() {
       <Section title="Start with your next shift.">
         <div className="flex flex-wrap items-center gap-4">
           <AppStoreButton href={APP_STORE_URL} />
-          <p className="text-[0.9375rem] text-ink-2">Free on iPhone and iPad, iOS 16 or later.</p>
+          <p className="text-[0.9375rem] text-ink-2">Free on iPhone and iPad, iOS 17 or later.</p>
         </div>
       </Section>
     </>

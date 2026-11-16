@@ -38,7 +38,7 @@ HoursFlow is an iOS app that helps employees, freelancers, contractors, and gig 
 - Canonical, always-current machine-readable pricing: https://hoursflow.app/pricing.md
 
 ## Platform
-- iOS 16+ (iPhone & iPad)
+- iOS 17+ (iPhone & iPad)
 - Available on the Apple App Store
 - Cloud sync
 

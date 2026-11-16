@@ -53,7 +53,7 @@ iPhone Settings → Apple ID → Subscriptions.
 ${PRO_FEATURES.map((f) => `- ${f}`).join("\n")}
 
 ## Notes for agents
-- Platform: iOS 16+ (iPhone & iPad). No Android version.
+- Platform: iOS 17+ (iPhone & iPad). No Android version.
 - Purchases and refunds are handled by Apple (reportaproblem.apple.com for refunds).
 - Subscription transfers with the user's Apple ID (Restore Purchases on a new device).
 - Human-readable pricing page: ${SITE_URL}/pricing
