@@ -86,7 +86,7 @@ export default function SubscriptionTermsPage() {
 
       <section id="lapse">
         <h2>If a subscription lapses</h2>
-        <p>{PLAN_POLICY.lapse} Your account moves to the Free plan: you keep your data, you can still log, and two employers stay active. Older records, extra employers, exports, invoices and the other Pro features become hidden or locked until you subscribe again. We delete nothing because a subscription ended. Data export and account deletion stay free.</p>
+        <p>{PLAN_POLICY.lapse} Your account moves to the Free plan: you keep your data, you can still log, and the employers you already have stay active, though you cannot add another beyond two. Records older than 30 days, report exports (PDF and CSV), invoices and the other Pro features become hidden or locked until you subscribe again. We delete nothing because a subscription ended. Data export and account deletion stay free.</p>
       </section>
 
       <section id="restore">
