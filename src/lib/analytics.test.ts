@@ -11,13 +11,10 @@ beforeEach(() => {
   fetchMock.mockClear()
   vi.stubGlobal('fetch', fetchMock)
   vi.stubGlobal('window', { location: { pathname: '/gst-hst-calculator' } })
-  let stored: string | null = null
-  vi.stubGlobal('sessionStorage', {
-    getItem: () => stored,
-    setItem: (_k: string, v: string) => {
-      stored = v
-    },
-  })
+  vi.stubGlobal('navigator', {})
+  const storage = { getItem: vi.fn(), setItem: vi.fn() }
+  vi.stubGlobal('sessionStorage', storage)
+  vi.stubGlobal('localStorage', storage)
   vi.stubGlobal('crypto', { randomUUID: () => 'test-uuid' })
 })
 
@@ -60,6 +57,28 @@ describe('trackToolEvent', () => {
     ])
     // No amounts, rates, or results may ever reach the wire.
     expect(JSON.stringify(body)).not.toMatch(/rate|amount|pay|tax(?!Type)|revenue/i)
+  })
+
+  it('stores nothing on the device and keeps one in-memory id per page load', async () => {
+    vi.stubEnv('NEXT_PUBLIC_POSTHOG_KEY', 'phc_test')
+    const { trackToolEvent } = await import('./analytics')
+    trackToolEvent('calculator_viewed', { calculator: 'x', category: 'y' })
+    trackToolEvent('calculator_started', { calculator: 'x', category: 'y' })
+    const ids = fetchMock.mock.calls.map((c) => JSON.parse(((c as unknown as [string, RequestInit])[1]).body as string).distinct_id)
+    expect(ids).toEqual(['test-uuid', 'test-uuid'])
+    expect(sessionStorage.setItem).not.toHaveBeenCalled()
+    expect(localStorage.setItem).not.toHaveBeenCalled()
+  })
+
+  it.each([
+    ['Do Not Track', { doNotTrack: '1' }],
+    ['Global Privacy Control', { globalPrivacyControl: true }],
+  ])('transmits nothing when the browser sends %s', async (_name, nav) => {
+    vi.stubEnv('NEXT_PUBLIC_POSTHOG_KEY', 'phc_test')
+    vi.stubGlobal('navigator', nav)
+    const { trackToolEvent } = await import('./analytics')
+    trackToolEvent('calculator_viewed', { calculator: 'x', category: 'y' })
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 
   it('caps the debug queue at 100 events', async () => {

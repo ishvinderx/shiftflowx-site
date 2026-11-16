@@ -11,10 +11,11 @@
 // CSP already allows connect-src to us.i.posthog.com (script-src does not, so a
 // CDN-loaded SDK would be blocked anyway).
 //
-// Privacy stance (matches the published cookie policy: anonymised, aggregated,
-// no advertising networks): the distinct_id is a random id held in
-// sessionStorage — scoped to one browsing session, never persisted across
-// sessions, never linked to an account, and never derived from user input.
+// Privacy stance (matches the published cookie policy): nothing is stored on the visitor's device.
+// The distinct_id is a random id held in MEMORY for one page load only: no cookie, no
+// localStorage, no sessionStorage, so no consent is needed to store anything on the device
+// (EU ePrivacy / UK PECR). It is never linked to an account and never derived from user input.
+// A visitor who sends Do Not Track or Global Privacy Control is not measured at all.
 //
 // INERT UNTIL CONFIGURED: with NEXT_PUBLIC_POSTHOG_KEY unset, nothing is sent
 // anywhere. Setting the env var in Vercel turns the whole funnel on with no
@@ -45,21 +46,26 @@ declare global {
 
 const KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY
 const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com'
-const SESSION_KEY = 'sf_anon_id'
 
-/** Session-scoped anonymous id. Falls back to a per-page-load id in privacy
- *  modes where sessionStorage throws. */
+let pageLoadId: string | null = null
+
+/** Random id for this page load only. Never persisted. */
 function anonId(): string {
-  try {
-    let id = sessionStorage.getItem(SESSION_KEY)
-    if (!id) {
-      id = crypto.randomUUID()
-      sessionStorage.setItem(SESSION_KEY, id)
+  if (!pageLoadId) {
+    try {
+      pageLoadId = crypto.randomUUID()
+    } catch {
+      pageLoadId = 'no-id'
     }
-    return id
-  } catch {
-    return 'no-storage'
   }
+  return pageLoadId
+}
+
+/** True when the browser sends Do Not Track or Global Privacy Control. */
+export function optedOutOfMeasurement(): boolean {
+  if (typeof navigator === 'undefined') return false
+  const nav = navigator as Navigator & { globalPrivacyControl?: boolean; msDoNotTrack?: string }
+  return nav.doNotTrack === '1' || nav.msDoNotTrack === '1' || nav.globalPrivacyControl === true
 }
 
 export function trackToolEvent(event: ToolEvent, props: ToolEventProps): void {
@@ -70,6 +76,7 @@ export function trackToolEvent(event: ToolEvent, props: ToolEventProps): void {
   if (queue.length > 100) queue.splice(0, queue.length - 100)
 
   if (!KEY) return // no platform configured — queue only, transmit nothing
+  if (optedOutOfMeasurement()) return // Do Not Track / Global Privacy Control — transmit nothing
 
   // Fire-and-forget. Analytics must never break a calculator.
   try {
