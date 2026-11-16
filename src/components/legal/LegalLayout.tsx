@@ -49,7 +49,7 @@ export default function LegalLayout({
         </Container>
       </header>
 
-      <Container className="grid gap-12 py-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-20">
+      <Container className="grid grid-cols-[minmax(0,1fr)] gap-12 py-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-20">
         <aside className="legal-aside lg:sticky lg:top-8 lg:self-start">
           <nav aria-label="Contents">
             <Label className="mb-3">Contents</Label>

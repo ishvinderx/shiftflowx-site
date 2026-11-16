@@ -183,7 +183,7 @@
 .legal-table { overflow-x: auto; max-width: 100%; margin: 0 0 1.5rem; border: 1px solid var(--rule); }
 .legal-table:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .legal-content th { font-weight: 600; background: transparent; vertical-align: bottom; }
-.legal-content td { vertical-align: top; }
+.legal-content td, .legal-content tbody th { vertical-align: top; }
 .legal-content address { margin: 0 0 1rem; line-height: 1.7; }
 .legal-content th, .legal-content td { border-bottom: 1px solid var(--rule); padding: 8px 12px; text-align: left; font-size: 0.9375rem; }
 
